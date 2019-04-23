@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using UnibrewProject.Annotations;
+using LiveCharts;
+using LiveCharts.Uwp;
 
 namespace UnibrewProject.ViewModel
 {
