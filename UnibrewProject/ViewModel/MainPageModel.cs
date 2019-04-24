@@ -4,11 +4,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.UI.Core;
 using Windows.UI.Xaml.Media;
-using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using LiveCharts;
 using LiveCharts.Uwp;
@@ -17,18 +14,12 @@ namespace UnibrewProject.ViewModel
 {
     class MainPageModel : INotifyPropertyChanged
     {
-
-        private delegate void CallBack(Object state);
-
-        private CallBack callBack;
-
-        private int _menuWidth = 50;
+        public SeriesCollection SeriesCollection { get; set; }
+        public string[] Labels { get; set; }
+        public Func<double, string> YFormatter { get; set; }
 
         public MainPageModel()
         {
-            MenuHideButton = new RelayCommand(MenuHideMethod);
-            callBack = MenuShowCallback;
-
             SeriesCollection = new SeriesCollection
             {
                 new LineSeries
@@ -36,7 +27,7 @@ namespace UnibrewProject.ViewModel
                     Title = "Series 1",
                     Values = new ChartValues<double> { 4, 6, 5, 2 ,4 }
                 },
-                /*new LineSeries
+                new LineSeries
                 {
                     Title = "Series 2",
                     Values = new ChartValues<double> { 6, 7, 3, 4 ,6 },
@@ -48,14 +39,14 @@ namespace UnibrewProject.ViewModel
                     Values = new ChartValues<double> { 4,2,7,2,7 },
                     PointGeometry = DefaultGeometries.Square,
                     PointGeometrySize = 15
-                }*/
+                }
             };
 
             Labels = new[] { "Jan", "Feb", "Mar", "Apr", "May" };
             YFormatter = value => value.ToString("C");
 
             //modifying the series collection will animate and update the chart
-            /*SeriesCollection.Add(new LineSeries
+            SeriesCollection.Add(new LineSeries
             {
                 Title = "Series 4",
                 Values = new ChartValues<double> { 5, 3, 2, 4 },
@@ -66,65 +57,7 @@ namespace UnibrewProject.ViewModel
             });
 
             //modifying any series values will also animate and update the chart
-            SeriesCollection[3].Values.Add(5d);*/
-        }
-
-        private void MenuHideMethod()
-        {
-            MenuMoveTimer = new Timer(new TimerCallback(callBack),null,1,Timeout.Infinite);
-           
-        }
-
-        private void MenuShowCallback(Object state)
-        {
-            if (MenuWidth < 200)
-            {
-                MenuWidth = MenuWidth + 3;
-                MenuMoveTimer.Change(1, Timeout.Infinite);
-            }
-            else
-            {
-                MenuMoveTimer.Dispose();
-                callBack = MenuHideCallback;
-            }
-        }
-
-        private void MenuHideCallback(Object state)
-        {
-            if (MenuWidth > 50)
-            {
-                MenuWidth = MenuWidth - 3;
-                MenuMoveTimer.Change(1, Timeout.Infinite);
-            }
-            else
-            {
-                MenuMoveTimer.Dispose();
-                callBack = MenuShowCallback;
-            }
-
-        }
-
-        public Timer MenuMoveTimer { get; set; }
-        public RelayCommand MenuHideButton { get; set; }
-
-        public SeriesCollection SeriesCollection { get; set; }
-        public string[] Labels { get; set; }
-        public Func<double, string> YFormatter { get; set; }
-
-        public int MenuWidth
-        {
-            get { return _menuWidth; }
-            set
-            {
-                _menuWidth = value;
-                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                    () =>
-                    {
-                        // Your UI update code goes here!
-                        OnPropertyChanged();
-                    }
-                );
-            }
+            SeriesCollection[3].Values.Add(5d);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
