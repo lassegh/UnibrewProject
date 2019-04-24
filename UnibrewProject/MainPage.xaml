@@ -25,7 +25,13 @@
         <StackPanel Orientation="Vertical"
                     Grid.Column="0"
                     Grid.Row="1">
-            <Button Content="Button" Command="{Binding MenuHideButton}"/>
+            <Button Command="{Binding MenuHideButton}">
+                <StackPanel Orientation="Horizontal">
+                    <SymbolIcon Symbol="Delete" />
+                    <TextBlock Text="Minimize"
+                               Visibility="{Binding MenuTextVisibility}" />
+                </StackPanel>
+            </Button>
 
         </StackPanel>
 

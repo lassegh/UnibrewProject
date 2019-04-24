@@ -23,6 +23,7 @@ namespace UnibrewProject.ViewModel
         private CallBack callBack;
 
         private int _menuWidth = 50;
+        private bool _menuTextVisibility = false;
 
         public MainPageModel()
         {
@@ -79,13 +80,15 @@ namespace UnibrewProject.ViewModel
         {
             if (MenuWidth < 200)
             {
-                MenuWidth = MenuWidth + 3;
+                
+                MenuWidth = MenuWidth + 5;
                 MenuMoveTimer.Change(1, Timeout.Infinite);
             }
             else
             {
                 MenuMoveTimer.Dispose();
                 callBack = MenuHideCallback;
+                MenuTextVisibility = true;
             }
         }
 
@@ -93,15 +96,17 @@ namespace UnibrewProject.ViewModel
         {
             if (MenuWidth > 50)
             {
-                MenuWidth = MenuWidth - 3;
+                MenuTextVisibility = false;
+                MenuWidth = MenuWidth - 5;
                 MenuMoveTimer.Change(1, Timeout.Infinite);
             }
             else
             {
                 MenuMoveTimer.Dispose();
                 callBack = MenuShowCallback;
+                
             }
-
+            
         }
 
         public Timer MenuMoveTimer { get; set; }
@@ -111,12 +116,30 @@ namespace UnibrewProject.ViewModel
         public string[] Labels { get; set; }
         public Func<double, string> YFormatter { get; set; }
 
+
+
         public int MenuWidth
         {
             get { return _menuWidth; }
             set
             {
                 _menuWidth = value;
+                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                    () =>
+                    {
+                        // Your UI update code goes here!
+                        OnPropertyChanged();
+                    }
+                );
+            }
+        }
+
+        public bool MenuTextVisibility
+        {
+            get { return _menuTextVisibility; }
+            set
+            {
+                _menuTextVisibility = value;
                 Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
