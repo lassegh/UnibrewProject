@@ -117,7 +117,7 @@ namespace UnibrewProject.ViewModel
         public Func<double, string> YFormatter { get; set; }
 
 
-
+        #region MenuWidth
         public int MenuWidth
         {
             get { return _menuWidth; }
@@ -133,7 +133,9 @@ namespace UnibrewProject.ViewModel
                 );
             }
         }
+        #endregion
 
+        #region MenuTextVisability
         public bool MenuTextVisibility
         {
             get { return _menuTextVisibility; }
@@ -149,6 +151,8 @@ namespace UnibrewProject.ViewModel
                 );
             }
         }
+        #endregion
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
