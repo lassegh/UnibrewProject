@@ -17,53 +17,57 @@
 
 
 
-    <Grid MinWidth="1500" MinHeight="1000"  Background="#FF3E3E3E">
+    <StackPanel>
 
-        <Grid HorizontalAlignment="Left" Height="931" Margin="219,69,0,0" VerticalAlignment="Top" Width="1281" Background="#FF212121" RenderTransformOrigin="0.485,0.514">
-            <!-- Main Menu 
-                <Grid HorizontalAlignment="Left" Height="316" Margin="31,31,0,0" VerticalAlignment="Top" Width="662" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                    <lvc:CartesianChart Series="{Binding SeriesCollection}"
-                                        LegendLocation="Right">
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Sales"
-                                      LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Month"
-                                      Labels="{Binding Labels}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>
-                </Grid>
-                    -->
-            <Grid HorizontalAlignment="Left" Height="309" Margin="31,377,0,0" VerticalAlignment="Top" Width="331" Background="#FF49494B"/>
 
-            <Grid HorizontalAlignment="Left" Height="309" Margin="395,377,0,0" VerticalAlignment="Top" Width="298" Background="#FF49494B"/>
+
+
+
+        <!-- Top Grid -->
+        <Grid HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1506">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0"/>
+
+            <Grid Grid.Column="1" Background="#FF51516E">
+                <Ellipse HorizontalAlignment="Left" Height="50" Margin="1070,0,0,0" VerticalAlignment="Center" Width="50">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/Assets/Square44x44Logo.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White" Margin="912,0,0,0"/>
+            </Grid>
 
         </Grid>
 
-        <!-- Main Menu -->
-        <Grid HorizontalAlignment="Left" Height="931" Margin="0,69,0,0" VerticalAlignment="Top" MaxWidth="{Binding MenuWidth}" Background="#FF3E3E3E">
-            <Button Command="{Binding MenuHideButton}">
-                <StackPanel Orientation="Horizontal">
-                    <SymbolIcon Symbol="Delete" />
-                    <TextBlock Text="Minimize"
+
+        <!-- Bot Grid -->
+        <Grid HorizontalAlignment="Center" Height="931" VerticalAlignment="Top" Width="1500" RenderTransformOrigin="0.485,0.514">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200">
+                </ColumnDefinition>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <Grid Grid.Column="0" Background="#FF51516E">
+                <Button Command="{Binding MenuHideButton}">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Delete" />
+                        <TextBlock Text="Minimize"
                                    Visibility="{Binding MenuTextVisibility}" />
-                </StackPanel>
-            </Button>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Grid Grid.Column="1" Background="#FFE0E0EC">
+
+            </Grid>
+
         </Grid>
 
-        <!-- Top Banner -->
-        <Grid HorizontalAlignment="Left" Height="69" Margin="219,0,0,0" VerticalAlignment="Top" Width="1287">
-            <Ellipse HorizontalAlignment="Left" Height="50" Margin="1070,0,0,0" VerticalAlignment="Center" Width="50">
-                <Ellipse.Fill>
-                    <ImageBrush ImageSource="/Assets/Square44x44Logo.png"/>
-                </Ellipse.Fill>
-            </Ellipse>
-            <TextBlock HorizontalAlignment="Left" Height="26" Margin="915,0,0,0" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White"/>
-        </Grid>
-        <Grid HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="219" Background="#FF49494B">
-            <TextBlock HorizontalAlignment="Left" Height="34" Margin="55,0,0,0" Text="Quayzer" TextWrapping="Wrap" VerticalAlignment="Center" Width="104" Foreground="White" FontSize="24"/>
-        </Grid>
-
-    </Grid>
+    </StackPanel>
 </Page>
