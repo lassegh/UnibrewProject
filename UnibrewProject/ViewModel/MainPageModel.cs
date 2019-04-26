@@ -6,7 +6,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Media;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
@@ -27,6 +29,7 @@ namespace UnibrewProject.ViewModel
 
         public MainPageModel()
         {
+            
             MenuHideButton = new RelayCommand(MenuHideMethod);
             callBack = MenuShowCallback;
 
