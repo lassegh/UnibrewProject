@@ -66,7 +66,7 @@
 
 
         <!-- Bot Grid -->
-        <Grid Height="651">
+        <Grid SizeChanged="FormName_SizeChanged">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="{Binding MenuWidth}">
                 </ColumnDefinition>
