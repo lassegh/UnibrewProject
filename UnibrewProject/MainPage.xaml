@@ -17,37 +17,41 @@
 
 
 
-    <StackPanel>
+    <StackPanel Orientation="Vertical">
 
 
 
 
 
         <!-- Top Grid -->
-        <Grid HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1506">
+        <Grid Height="69">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
+
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0"/>
-
-            <Grid Grid.Column="1" Background="#FF51516E">
-                <Ellipse HorizontalAlignment="Left" Height="50" Margin="1070,0,0,0" VerticalAlignment="Center" Width="50">
+            <Grid Grid.Column="0" Background="#FF51516E">
+                <TextBlock Text="QUAYSER" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="1" Background="#FF51516E"/>
+            <Grid Grid.Column="2" Background="#FF51516E">
+                <Ellipse HorizontalAlignment="Right" Height="50" VerticalAlignment="Center" Width="50">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/Square44x44Logo.png"/>
                     </Ellipse.Fill>
                 </Ellipse>
-                <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White" Margin="912,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White" Margin="343,0,0,0"/>
             </Grid>
 
         </Grid>
 
 
         <!-- Bot Grid -->
-        <Grid HorizontalAlignment="Center" Height="931" VerticalAlignment="Top" Width="1500" RenderTransformOrigin="0.485,0.514">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200">
+                <ColumnDefinition MaxWidth="{Binding MenuWidth}">
                 </ColumnDefinition>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
