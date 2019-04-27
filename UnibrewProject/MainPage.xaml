@@ -17,7 +17,7 @@
 
 
 
-    <StackPanel Orientation="Vertical">
+    <StackPanel Orientation="Vertical" Background="Black">
 
 
 
@@ -27,7 +27,7 @@
         <Grid Height="69">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -37,24 +37,27 @@
 
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Background="#FF51516E">
-                <TextBlock Text="QUAYSER" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20"/>
+            <Grid Grid.Column="0" Background="#FF51516E" FlowDirection="LeftToRight" BorderThickness="0,0,0,2">
+                <TextBlock Text="QUAYSER" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="24" Height="45" FontFamily="Segoe UI Light" FontStyle="Normal"/>
+                <TextBlock Text="Quality Analysing Software" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontSize="14" Height="30" FontFamily="Segoe UI Light" FontStyle="Italic" FontWeight="Bold"/>
             </Grid>
 
-            <Grid Grid.Column="1" Background="#FF51516E"/>
+            <Grid Grid.Column="1" Background="#FF51516E" BorderThickness="0,0,0,2">
+                <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" AllowDrop="True" PlaceholderText="Kolonne 7" Height="30" BorderBrush="#33000000" Background="#FFBDBADC"/>
+            </Grid>
 
-            <Grid Grid.Column="2" Background="#FF51516E"/>
+            <Grid Grid.Column="2" Background="#FF51516E" BorderThickness="0,0,0,2"/>
 
-            <Grid Grid.Column="3" Background="#FF51516E"/>
+            <Grid Grid.Column="3" Background="#FF51516E" BorderThickness="0,0,0,2"/>
 
-            <Grid Grid.Column="4" Background="#FF51516E"/>
+            <Grid Grid.Column="4" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2"/>
 
-            <Grid Grid.Column="5" Background="#FF51516E"/>
+            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2"/>
 
-            <Grid Grid.Column="6" Background="#FF51516E">
+            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2">
                 <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White"/>
             </Grid>
-            <Grid Grid.Column="7" Background="#FF51516E">
+            <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2">
                 <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/miggg.jpg"/>
@@ -66,7 +69,7 @@
 
 
         <!-- Bot Grid -->
-        <Grid SizeChanged="FormName_SizeChanged">
+        <Grid SizeChanged="FormName_SizeChanged" Height="651">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition MaxWidth="{Binding MenuWidth}">
                 </ColumnDefinition>
@@ -75,17 +78,102 @@
 
 
             <Grid Grid.Column="0" Background="#FF51516E">
-                <Button Command="{Binding MenuHideButton}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button Command="{Binding MenuHideButton}" Grid.Row="0" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Delete" />
-                        <TextBlock Text="Minimize"
-                                   Visibility="{Binding MenuTextVisibility}" />
+                        <SymbolIcon Symbol="AlignCenter" HorizontalAlignment="Left"/>
+                        <TextBlock Text="     Minimer Menu"
+                                   Visibility="{Binding MenuTextVisibility}" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
+
+
+                <Button Grid.Row="1" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Page2" HorizontalAlignment="Left"/>
+                        <TextBlock Text="     Menu 1" HorizontalAlignment="Left" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="2" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <SymbolIcon Symbol="Page2"/>
+                        <TextBlock Text="     Menu 2" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="3" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Page2"/>
+                        <TextBlock Text="     Menu 3" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Grid.Row="4" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="Page2"/>
+                        <TextBlock Text="     Menu 4" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+
+
+                <Button Grid.Row="7" HorizontalAlignment="Center" Background="#00000000">
+                    <StackPanel Orientation="Horizontal">
+                        <SymbolIcon Symbol="ZeroBars"/>
+                        <TextBlock Text="     Trends" FontWeight="Bold"/>
+                        </StackPanel>
+                </Button>
+
             </Grid>
 
             <Grid Grid.Column="1" Background="#FFE0E0EC">
-                <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="Black"/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+
+                <Grid Column="1" Row="0">
+                    <TextBlock Text="     DASHBOARD" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic"/>
+                </Grid>
+
+                <Grid Column="1" Row="1">
+                   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                        <lvc:CartesianChart Series="{Binding SeriesCollection}"
+                                        LegendLocation="Right">
+                            <lvc:CartesianChart.AxisY>
+                                <lvc:Axis Title="Sales"
+                                      LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisY>
+                            <lvc:CartesianChart.AxisX>
+                                <lvc:Axis Title="Month"
+                                      Labels="{Binding Labels}"></lvc:Axis>
+                            </lvc:CartesianChart.AxisX>
+                        </lvc:CartesianChart>
+                    </Grid>
+
+
+                </Grid>
+
+
             </Grid>
 
         </Grid>
