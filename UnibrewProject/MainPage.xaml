@@ -17,7 +17,7 @@
 
 
 
-    <StackPanel Orientation="Vertical" Background="Black">
+    <StackPanel Orientation="Vertical" Background="Black" Height="720" Width="1280">
 
 
 
@@ -37,28 +37,29 @@
 
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" Background="#FF51516E" FlowDirection="LeftToRight" BorderThickness="0,0,0,2">
-                <TextBlock Text="QUAYSER" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="24" Height="45" FontFamily="Segoe UI Light" FontStyle="Normal"/>
-                <TextBlock Text="Quality Analysing Software" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontSize="14" Height="30" FontFamily="Segoe UI Light" FontStyle="Italic" FontWeight="Bold"/>
+            <Grid Grid.Column="0" Background="#FF51516E" FlowDirection="LeftToRight" BorderThickness="0,0,0,0" FocusVisualPrimaryBrush="Black">
+                <TextBlock Text="QUAYSER" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="24" Height="45" FontFamily="Segoe UI Light" FontStyle="Normal" FontWeight="Normal"/>
+                <TextBlock Text="Quality Analysing Software" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontSize="14" Height="30" FontFamily="Segoe UI Light" FontStyle="Italic" FontWeight="Thin"/>
             </Grid>
 
-            <Grid Grid.Column="1" Background="#FF51516E" BorderThickness="0,0,0,2">
+            <Grid Grid.Column="1" Background="#FF51516E" BorderThickness="0,0,0,0">
                 <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" AllowDrop="True" PlaceholderText="Kolonne 7" Height="30" BorderBrush="#33000000" Background="#FFBDBADC"/>
             </Grid>
 
-            <Grid Grid.Column="2" Background="#FF51516E" BorderThickness="0,0,0,2"/>
+            <Grid Grid.Column="2" Background="#FF51516E" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="3" Background="#FF51516E" BorderThickness="0,0,0,2"/>
+            <Grid Grid.Column="3" Background="#FF51516E" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="4" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2"/>
+            <Grid Grid.Column="4" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2"/>
+            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2">
+            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
                 <TextBlock HorizontalAlignment="Left" Height="26" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Center" Width="149" FontSize="18" Foreground="White"/>
             </Grid>
-            <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,2">
-                <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50">
+            <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
+                <Ellipse Width="52" Height="52" HorizontalAlignment="Left" Fill="Black" Margin="-1,9,0,8" VerticalAlignment="Stretch"/>
+                <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50" FocusVisualPrimaryThickness="2,2,2,2" RequestedTheme="Default">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/miggg.jpg"/>
                     </Ellipse.Fill>
@@ -77,66 +78,66 @@
             </Grid.ColumnDefinitions>
 
 
-            <Grid Grid.Column="0" Background="#FF51516E">
+            <Grid Grid.Column="0" Background="#FFF6F4FF" BorderThickness="1,1,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="81*"/>
+                    <RowDefinition Height="81*"/>
+                    <RowDefinition Height="81"/>
+                    <RowDefinition Height="81*"/>
+                    <RowDefinition Height="82*"/>
+                    <RowDefinition Height="81*"/>
+                    <RowDefinition Height="82*"/>
+                    <RowDefinition Height="81*"/>
                 </Grid.RowDefinitions>
 
-                <Button Command="{Binding MenuHideButton}" Grid.Row="0" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
+                <Button Command="{Binding MenuHideButton}" Grid.Row="0" HorizontalAlignment="Right" Opacity="0.98" Background="#00000000" Margin="0,0,7,0">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="AlignCenter" HorizontalAlignment="Left"/>
-                        <TextBlock Text="     Minimer Menu"
+                        <SymbolIcon Symbol="Redo" HorizontalAlignment="Left" Margin="4,0,0,0"/>
+                        <TextBlock Text=""
                                    Visibility="{Binding MenuTextVisibility}" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
 
-                <Button Grid.Row="1" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                <Button Grid.Row="1" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2" HorizontalAlignment="Left"/>
+                        <SymbolIcon Symbol="Page2" HorizontalAlignment="Left" Margin="4,0,0,0"/>
                         <TextBlock Text="     Menu 1" HorizontalAlignment="Left" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
 
-                <Button Grid.Row="2" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                <Button Grid.Row="2" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                        <SymbolIcon Symbol="Page2"/>
+                        <SymbolIcon Symbol="Page2" Margin="4,0,0,0"/>
                         <TextBlock Text="     Menu 2" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
 
-                <Button Grid.Row="3" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                <Button Grid.Row="3" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000" Margin="4,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2"/>
                         <TextBlock Text="     Menu 3" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
 
-                <Button Grid.Row="4" HorizontalAlignment="Center" Opacity="0.98" Background="#00000000">
+                <Button Grid.Row="4" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2"/>
+                        <SymbolIcon Symbol="Page2" Margin="4,0,0,0"/>
                         <TextBlock Text="     Menu 4" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
 
 
-                <Button Grid.Row="7" HorizontalAlignment="Center" Background="#00000000">
+                <Button Grid.Row="7" HorizontalAlignment="Left" Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="ZeroBars"/>
+                        <SymbolIcon Symbol="ZeroBars" Margin="4,0,0,0"/>
                         <TextBlock Text="     Trends" FontWeight="Bold"/>
-                        </StackPanel>
+                    </StackPanel>
                 </Button>
 
             </Grid>
 
-            <Grid Grid.Column="1" Background="#FFE0E0EC">
+            <Grid Grid.Column="1" Background="#FFE0E0EC" BorderThickness="0,1,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25"/>
                     <ColumnDefinition/>
@@ -155,8 +156,8 @@
                     <TextBlock Text="     DASHBOARD" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic"/>
                 </Grid>
 
-                <Grid Column="1" Row="1">
-                   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
+                   <!-- <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                         <lvc:CartesianChart Series="{Binding SeriesCollection}"
                                         LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
@@ -168,7 +169,7 @@
                                       Labels="{Binding Labels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                    </Grid>
+                    </Grid> -->
 
 
                 </Grid>
