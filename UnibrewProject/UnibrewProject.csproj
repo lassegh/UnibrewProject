@@ -131,7 +131,6 @@
     <Compile Include="ViewModel\HelperClasses\DbCommunication.cs" />
     <Compile Include="ViewModel\HelperClasses\MenuNavigator.cs" />
     <Compile Include="ViewModel\HelperClasses\MenuSlider.cs" />
-    <Compile Include="ViewModel\HelperClasses\SaveButton.cs" />
     <Compile Include="ViewModel\InputColSevenViewModel.cs" />
     <Compile Include="ViewModel\StatViewModel.cs" />
   </ItemGroup>
