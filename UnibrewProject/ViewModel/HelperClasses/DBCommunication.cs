@@ -11,7 +11,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 {
     public static class DbCommunication
     {
-        private static string _restUrl = "https://ubrest.azurewebsites.net/";
+        private static string _restUrl = "https://ubrest.azurewebsites.net/api/testmoments";
 
         public static bool Post(TESTmoment momenter)
         {

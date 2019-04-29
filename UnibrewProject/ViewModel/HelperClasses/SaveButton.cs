@@ -8,6 +8,10 @@ using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
+    /// <summary>
+    /// Gem klasse.
+    /// Til gem knap og automatisk gem
+    /// </summary>
     public class SaveButton
     {
         public SaveButton()
@@ -15,7 +19,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             SaveCommand = new RelayCommand(SaveMethod);
         }
 
-        public void SaveMethod()
+        private void SaveMethod()
         {
             Console.WriteLine("SaveMethod kaldt");
             TESTmoment moments = new TESTmoment(Double.Parse(Bottle01), Double.Parse(Bottle02), Double.Parse(Bottle03), Double.Parse(Bottle04), Double.Parse(Bottle05), Double.Parse(Bottle06), Double.Parse(Bottle07), Double.Parse(Bottle08), Double.Parse(Bottle09), Double.Parse(Bottle10), Double.Parse(Bottle11), Double.Parse(Bottle12), Double.Parse(Bottle13), Double.Parse(Bottle14), Double.Parse(Bottle15));

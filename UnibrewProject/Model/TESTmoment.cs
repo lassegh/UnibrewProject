@@ -29,6 +29,8 @@ namespace UnibrewProject.Model
             DateTime = DateTime.Now;
         }
 
+        public int Id { get; set; }
+
         public double Bottle01 { get; set; }
 
         public double Bottle02 { get; set; }
