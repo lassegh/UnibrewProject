@@ -20,20 +20,20 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
         public RelayCommand SaveCommand { get; set; }
-        public double Bottle01 { get; set; }
-        public double Bottle02 { get; set; }
-        public double Bottle03 { get; set; }
-        public double Bottle04 { get; set; }
-        public double Bottle05 { get; set; }
-        public double Bottle06 { get; set; }
-        public double Bottle07 { get; set; }
-        public double Bottle08 { get; set; }
-        public double Bottle09 { get; set; }
-        public double Bottle10 { get; set; }
-        public double Bottle11 { get; set; }
-        public double Bottle12 { get; set; }
-        public double Bottle13 { get; set; }
-        public double Bottle14 { get; set; }
-        public double Bottle15 { get; set; }
+        public string Bottle01 { get; set; }
+        public string Bottle02 { get; set; }
+        public string Bottle03 { get; set; }
+        public string Bottle04 { get; set; }
+        public string Bottle05 { get; set; }
+        public string Bottle06 { get; set; }
+        public string Bottle07 { get; set; }
+        public string Bottle08 { get; set; }
+        public string Bottle09 { get; set; }
+        public string Bottle10 { get; set; }
+        public string Bottle11 { get; set; }
+        public string Bottle12 { get; set; }
+        public string Bottle13 { get; set; }
+        public string Bottle14 { get; set; }
+        public string Bottle15 { get; set; }
     }
 }
