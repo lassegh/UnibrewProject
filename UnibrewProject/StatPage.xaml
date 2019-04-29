@@ -10,7 +10,7 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <viewModel:MainPageModel />
+        <viewModel:StatViewModel />
     </Page.DataContext>
 
 

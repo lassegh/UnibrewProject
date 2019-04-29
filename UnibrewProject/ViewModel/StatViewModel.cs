@@ -18,10 +18,10 @@ using UnibrewProject.ViewModel.HelperClasses;
 
 namespace UnibrewProject.ViewModel
 {
-    class MainPageModel
+    class StatViewModel
     {
 
-        public MainPageModel()
+        public StatViewModel()
         {
             Slider = new MenuSlider();
             
