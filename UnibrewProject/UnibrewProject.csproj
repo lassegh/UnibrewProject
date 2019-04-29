@@ -122,10 +122,10 @@
     <Compile Include="InputColSevenPage.xaml.cs">
       <DependentUpon>InputColSevenPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\TESTmoment.cs" />
     <Compile Include="StatPage.xaml.cs">
       <DependentUpon>StatPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\ColumnSeven.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\HelperClasses\DbCommunication.cs" />
