@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -32,13 +33,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     HttpResponseMessage resp = postAsync.Result;
                     if (resp.IsSuccessStatusCode)
                     {
+                        Debug.WriteLine("Cool");
                         ok = true;
                     }
                 }
                 catch (Exception e)
                 {
                     ok = false;
-                    Console.WriteLine(e);
+                    Debug.WriteLine(e);
 
                 }
             }
