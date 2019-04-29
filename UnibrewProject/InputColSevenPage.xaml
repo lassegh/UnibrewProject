@@ -254,9 +254,9 @@
 
             </Grid>
 
-            <Grid Grid.Column="1"
+            <Grid
                   Background="#FFE0E0EC"
-                  BorderThickness="0,1,0,0">
+                  BorderThickness="0,1,0,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="38,-1,12,1" VerticalAlignment="Stretch">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25" />
                     <ColumnDefinition />
@@ -287,25 +287,26 @@
                 <Grid Column="1"
                       Row="1"
                       BorderThickness="1,1,1,1">
-                    <TextBox x:Name="BOTTLE03" HorizontalAlignment="Left" Margin="209,35,0,0" Text="BOTTLE03" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE02" HorizontalAlignment="Left" Margin="115,35,0,0" Text="BOTTLE02" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE04" HorizontalAlignment="Center" Margin="0,34,0,0" Text="BOTTLE04" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE05" HorizontalAlignment="Left" Margin="404,34,0,0" Text="BOTTLE05" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE06" HorizontalAlignment="Left" Margin="24,80,0,0" Text="BOTTLE06" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE07" HorizontalAlignment="Left" Margin="118,80,0,0" Text="BOTTLE07" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE08" HorizontalAlignment="Left" Margin="212,79,0,0" Text="BOTTLE08" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE09" HorizontalAlignment="Center" Margin="0,79,0,0" Text="BOTTLE09" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE10" HorizontalAlignment="Left" Margin="403,77,0,0" Text="BOTTLE10" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE11" HorizontalAlignment="Left" Margin="25,128,0,0" Text="BOTTLE11" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE12" HorizontalAlignment="Left" Margin="117,126,0,0" Text="BOTTLE12" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE13" HorizontalAlignment="Left" Margin="211,126,0,0" Text="BOTTLE13" VerticalAlignment="Top"/>
-                    <TextBox x:Name="BOTTLE14" HorizontalAlignment="Center" Margin="0,125,0,0" Text="BOTTLE14" VerticalAlignment="Top"/>
-
+                    <TextBox x:Name="BOTTLE03" HorizontalAlignment="Left" Margin="209,35,0,0" Text="{Binding Save.Bottle03 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE02" HorizontalAlignment="Left" Margin="115,35,0,0" Text="{Binding Save.Bottle02 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE04" HorizontalAlignment="Center" Margin="0,34,0,0" Text="{Binding Save.Bottle04 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE05" HorizontalAlignment="Left" Margin="404,34,0,0" Text="{Binding Save.Bottle05 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE06" HorizontalAlignment="Left" Margin="24,80,0,0" Text="{Binding Save.Bottle06 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE07" HorizontalAlignment="Left" Margin="118,80,0,0" Text="{Binding Save.Bottle07 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE08" HorizontalAlignment="Left" Margin="212,79,0,0" Text="{Binding Save.Bottle08 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE09" HorizontalAlignment="Center" Margin="0,79,0,0" Text="{Binding Save.Bottle09 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE10" HorizontalAlignment="Left" Margin="403,77,0,0" Text="{Binding Save.Bottle10 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE11" HorizontalAlignment="Left" Margin="25,128,0,0" Text="{Binding Save.Bottle11 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE12" HorizontalAlignment="Left" Margin="117,126,0,0" Text="{Binding Save.Bottle12 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE13" HorizontalAlignment="Left" Margin="211,126,0,0" Text="{Binding Save.Bottle13 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE14" HorizontalAlignment="Center" Margin="0,125,0,0" Text="{Binding Save.Bottle14 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE01" Grid.Column="1" HorizontalAlignment="Left" Margin="22,37,0,0" Grid.Row="1" Text="{Binding Save.Bottle01 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <TextBox x:Name="BOTTLE15" Grid.Column="1" HorizontalAlignment="Left" Margin="404,126,0,0" Grid.Row="1" Text="{Binding Save.Bottle15 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <Button x:Name="SaveBTN" Content="Save" HorizontalAlignment="Left" Margin="372,188,0,0" VerticalAlignment="Top" Click="{Binding Save.SaveCommand}"/>
 
 
                 </Grid>
-                <TextBox x:Name="BOTTLE01" Grid.Column="1" HorizontalAlignment="Left" Margin="22,37,0,0" Grid.Row="1" Text="BOTTLE01" VerticalAlignment="Top" PlaceholderText="Bottle 01"/>
-                <TextBox x:Name="BOTTLE15" Grid.Column="1" HorizontalAlignment="Left" Margin="404,126,0,0" Grid.Row="1" Text="BOTTLE15" VerticalAlignment="Top"/>
+
 
 
             </Grid>
