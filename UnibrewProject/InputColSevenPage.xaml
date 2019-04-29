@@ -302,6 +302,7 @@
                     <TextBox x:Name="BOTTLE14" HorizontalAlignment="Center" Margin="0,125,0,0" Text="{Binding Save.Bottle14 , Mode=TwoWay}" VerticalAlignment="Top"/>
                     <TextBox x:Name="BOTTLE01" Grid.Column="1" HorizontalAlignment="Left" Margin="22,37,0,0" Grid.Row="1" Text="{Binding Save.Bottle01 , Mode=TwoWay}" VerticalAlignment="Top"/>
                     <TextBox x:Name="BOTTLE15" Grid.Column="1" HorizontalAlignment="Left" Margin="404,126,0,0" Grid.Row="1" Text="{Binding Save.Bottle15 , Mode=TwoWay}" VerticalAlignment="Top"/>
+                    <Button x:Name="SaveBTN" Content="Save" HorizontalAlignment="Left" Margin="372,188,0,0" VerticalAlignment="Top" Click="{Binding Save.SaveCommand}"/>
 
 
                 </Grid>
