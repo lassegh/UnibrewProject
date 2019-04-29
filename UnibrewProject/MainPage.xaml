@@ -76,7 +76,7 @@
         <!-- Bot Grid -->
         <Grid SizeChanged="FormName_SizeChanged" Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding MenuWidth}">
+                <ColumnDefinition MaxWidth="{Binding Slider.MenuWidth}">
                 </ColumnDefinition>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -94,11 +94,11 @@
                     <RowDefinition Height="81*"/>
                 </Grid.RowDefinitions>
 
-                <Button Command="{Binding MenuHideButton}" Grid.Row="0" HorizontalAlignment="Right" Opacity="0.98" Background="#00000000" Margin="0,0,7,0">
+                <Button Command="{Binding Slider.MenuHideButton}" Grid.Row="0" HorizontalAlignment="Right" Opacity="0.98" Background="#00000000" Margin="0,0,7,0">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Redo" HorizontalAlignment="Left" Margin="4,0,0,0"/>
                         <TextBlock Text=""
-                                   Visibility="{Binding MenuTextVisibility}" FontWeight="Bold" />
+                                   Visibility="{Binding Slider.MenuTextVisibility}" FontWeight="Bold" />
                     </StackPanel>
                 </Button>
 
