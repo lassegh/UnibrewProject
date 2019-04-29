@@ -190,7 +190,8 @@
                 <Button Grid.Row="1"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000">
+                        Background="#00000000"
+                        Command="{Binding Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2"
                                     HorizontalAlignment="Left"
@@ -241,7 +242,8 @@
 
                 <Button Grid.Row="7"
                         HorizontalAlignment="Left"
-                        Background="#00000000">
+                        Background="#00000000"
+                        Command="{Binding Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="ZeroBars"
                                     Margin="4,0,0,0" />

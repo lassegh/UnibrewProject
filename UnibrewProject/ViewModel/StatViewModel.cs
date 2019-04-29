@@ -24,6 +24,7 @@ namespace UnibrewProject.ViewModel
         public StatViewModel()
         {
             Slider = new MenuSlider();
+            Navigator = new MenuNavigator();
             
             SeriesCollection = new SeriesCollection
             {
@@ -70,5 +71,6 @@ namespace UnibrewProject.ViewModel
         public Func<double, string> YFormatter { get; set; }
 
         public MenuSlider Slider { get; set; }
+        public MenuNavigator Navigator { get; set; }
     }
 }

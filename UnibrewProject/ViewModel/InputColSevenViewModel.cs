@@ -12,8 +12,10 @@ namespace UnibrewProject.ViewModel
         public InputColSevenViewModel()
         {
             Slider = new MenuSlider();
+            Navigator = new MenuNavigator();
         }
 
         public MenuSlider Slider { get; set; }
+        public MenuNavigator Navigator { get; set; }
     }
 }
