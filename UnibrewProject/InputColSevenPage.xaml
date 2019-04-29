@@ -306,7 +306,9 @@
                 </Grid>
                 <TextBox x:Name="BOTTLE01" Grid.Column="1" HorizontalAlignment="Left" Margin="22,37,0,0" Grid.Row="1" Text="BOTTLE01" VerticalAlignment="Top" PlaceholderText="Bottle 01"/>
                 <TextBox x:Name="BOTTLE15" Grid.Column="1" HorizontalAlignment="Left" Margin="404,126,0,0" Grid.Row="1" Text="BOTTLE15" VerticalAlignment="Top"/>
-                <Button x:Name="SaveBTN" Content="Gem" Grid.Column="1" HorizontalAlignment="Left" Margin="420,210,0,0" Grid.Row="1" VerticalAlignment="Top" Click="{Binding XXXXXXX}"/>
+                <Button x:Name="SaveBTN" Content="Gem" Grid.Column="1" HorizontalAlignment="Left" Margin="420,210,0,0" Grid.Row="1" VerticalAlignment="Top"
+                        Command="{Binding Path=Save.SaveCommand}">
+                </Button>
 
 
             </Grid>
