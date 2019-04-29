@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight.Command;
+using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
@@ -16,7 +17,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private void SaveMethod()
         {
-
+            TESTmoment moments = new TESTmoment(Double.Parse(Bottle01), Double.Parse(Bottle02), Double.Parse(Bottle03), Double.Parse(Bottle04), Double.Parse(Bottle05), Double.Parse(Bottle06), Double.Parse(Bottle07), Double.Parse(Bottle08), Double.Parse(Bottle09), Double.Parse(Bottle10), Double.Parse(Bottle11), Double.Parse(Bottle12), Double.Parse(Bottle13), Double.Parse(Bottle14), Double.Parse(Bottle15));
+            DbCommunication.Post(moments);
         }
 
         public RelayCommand SaveCommand { get; set; }
