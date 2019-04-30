@@ -9,7 +9,8 @@ namespace UnibrewREST
     [Table("TESTmoment")]
     public partial class TESTmoment
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public double? bottle01 { get; set; }
