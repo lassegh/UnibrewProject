@@ -15,6 +15,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// </summary>
     public class SaveButton
     {
+        private float _saveBlockOpacity = 0;
+
         public SaveButton()
         {
             SaveCommand = new RelayCommand(SaveMethod);

@@ -7,7 +7,7 @@ using UnibrewProject.ViewModel.HelperClasses;
 
 namespace UnibrewProject.ViewModel
 {
-    class InputColSevenViewModel
+    public class InputColSevenViewModel
     {
         public InputColSevenViewModel()
         {
