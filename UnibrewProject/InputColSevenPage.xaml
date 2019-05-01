@@ -307,7 +307,7 @@
                 Height="30"  
                 Width="70"
                 BorderThickness="0"
-                Text="{Binding ViewModel.Save.Bottle01, Mode=TwoWay}" PlaceholderText="(mm)"/>
+                Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="(mm)"/>
             </Border>
         </Grid>
 
