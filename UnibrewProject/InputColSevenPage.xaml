@@ -16,7 +16,6 @@
 
 
 
-
         <!-- Top Grid -->
         <Grid Height="69">
             <Grid.ColumnDefinitions>
@@ -277,57 +276,62 @@
                                Foreground="#FF535353" />
                 </Grid>
 
-<Grid Column="1" Row="1" BorderThickness="1,1,1,1">
+                <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40"/>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="50"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-        <Grid Column="1" Row="0">
-            <TextBlock Text="     Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353"/>
-        </Grid>
+                        <Grid Column="0" Row="1">
+                            <TextBlock Height="20" Width="50" HorizontalAlignment="Right" Text="1" VerticalAlignment="Center" HorizontalTextAlignment="Right"/>
+                        </Grid>
 
-        <Grid Column="1" Row="1">
-    
-            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" HorizontalAlignment="Left" VerticalAlignment="Center">
-                <TextBox 
+                        <Grid Column="1" Row="0">
+                            <TextBlock Text="     Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353"/>
+                        </Grid>
+
+                        <Grid Column="1" Row="1">
+
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                <TextBox 
                 HorizontalAlignment="Left"
                 Height="30"  
                 Width="70"
                 BorderThickness="0"
                 Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="(mm)"/>
-            </Border>
-        </Grid>
+                            </Border>
+                        </Grid>
 
 
 
 
 
-</Grid>
+                    </Grid>
                 </Grid>
 
-                <Button x:Name="SaveBTN"
-                        Content="Gem"
-                        Grid.Column="1"
-                        HorizontalAlignment="Left"
-                        Margin="420,210,0,0"
-                        Grid.Row="1"
-                        VerticalAlignment="Top"
-                        Command="{Binding Path=ViewModel.Save.SaveCommand}">
-                </Button>
 
+
+                <Grid Column="2" Row="2">
+                    <Button x:Name="SaveBTN"
+                        Content="Gem" 
+                        ToolTipService.ToolTip="Tryk for at gemme"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Command="{Binding Path=ViewModel.Save.SaveCommand}">
+                    </Button>
+                </Grid>
 
             </Grid>
 
