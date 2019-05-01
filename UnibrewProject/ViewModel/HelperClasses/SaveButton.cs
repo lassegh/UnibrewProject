@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,26 +22,18 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private void SaveMethod()
         {
-            Console.WriteLine("SaveMethod kaldt");
-            TESTmoment moments = new TESTmoment(Double.Parse(Bottle01), Double.Parse(Bottle02), Double.Parse(Bottle03), Double.Parse(Bottle04), Double.Parse(Bottle05), Double.Parse(Bottle06), Double.Parse(Bottle07), Double.Parse(Bottle08), Double.Parse(Bottle09), Double.Parse(Bottle10), Double.Parse(Bottle11), Double.Parse(Bottle12), Double.Parse(Bottle13), Double.Parse(Bottle14), Double.Parse(Bottle15));
+            double[] bottleMoments = new double[15];
+            for (int i = 0; i < BottleStrings.Length; i++)
+            {
+                BottleStrings[i] = BottleStrings[i].Replace(',', '.');
+                if (double.TryParse(BottleStrings[i], out bottleMoments[i])) Debug.Write("String can be parsed");
+                else bottleMoments[i] = 0; // TODO tilføj en warning til brugeren om fejl indtastning og om der skal fortsættes med huller i DB?
+            }
+            TESTmoment moments = new TESTmoment(bottleMoments[0], bottleMoments[1], bottleMoments[2], bottleMoments[3], bottleMoments[4], bottleMoments[5], bottleMoments[6], bottleMoments[7], bottleMoments[8], bottleMoments[9], bottleMoments[10], bottleMoments[11], bottleMoments[12], bottleMoments[13], bottleMoments[14]);
             DbCommunication.Post(moments);
         }
 
         public RelayCommand SaveCommand { get; set; }
-        public string Bottle01 { get; set; }
-        public string Bottle02 { get; set; }
-        public string Bottle03 { get; set; }
-        public string Bottle04 { get; set; }
-        public string Bottle05 { get; set; }
-        public string Bottle06 { get; set; }
-        public string Bottle07 { get; set; }
-        public string Bottle08 { get; set; }
-        public string Bottle09 { get; set; }
-        public string Bottle10 { get; set; }
-        public string Bottle11 { get; set; }
-        public string Bottle12 { get; set; }
-        public string Bottle13 { get; set; }
-        public string Bottle14 { get; set; }
-        public string Bottle15 { get; set; }
+        public string[] BottleStrings { get; set; } = new string[15];
     }
 }

@@ -290,67 +290,67 @@
                     <TextBox 
                              HorizontalAlignment="Left"
                              Margin="22,37,0,0"                           
-                             Text="{Binding Save.Bottle01, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[0], Mode=TwoWay}"
                              VerticalAlignment="Top"
                     />
                     <TextBox HorizontalAlignment="Left"
                              Margin="115,35,0,0"
-                             Text="{Binding Save.Bottle02, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[1], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="209,35,0,0"
-                             Text="{Binding Save.Bottle03, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[2], Mode=TwoWay}"
                              VerticalAlignment="Top" />
 
                     <TextBox HorizontalAlignment="Center"
                              Margin="0,34,0,0"
-                             Text="{Binding Save.Bottle04, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[3], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="404,34,0,0"
-                             Text="{Binding Save.Bottle05, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[4], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="24,80,0,0"
-                             Text="{Binding Save.Bottle06, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[5], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="118,80,0,0"
-                             Text="{Binding Save.Bottle07, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[6], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="212,79,0,0"
-                             Text="{Binding Save.Bottle08, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[7], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Center"
                              Margin="0,79,0,0"
-                             Text="{Binding Save.Bottle09, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[8], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="403,77,0,0"
-                             Text="{Binding Save.Bottle10, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[9], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="25,128,0,0"
-                             Text="{Binding Save.Bottle11, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[10], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="117,126,0,0"
-                             Text="{Binding Save.Bottle12, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[11], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Left"
                              Margin="211,126,0,0"
-                             Text="{Binding Save.Bottle13, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[12], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox HorizontalAlignment="Center"
                              Margin="0,125,0,0"
-                             Text="{Binding Save.Bottle14, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[13], Mode=TwoWay}"
                              VerticalAlignment="Top" />
                     <TextBox Grid.Column="1"
                              HorizontalAlignment="Left"
                              Margin="404,126,0,0"
                              Grid.Row="1"
-                             Text="{Binding Save.Bottle15, Mode=TwoWay}"
+                             Text="{Binding Save.BottleStrings[14], Mode=TwoWay}"
                              VerticalAlignment="Top" />
 
 
