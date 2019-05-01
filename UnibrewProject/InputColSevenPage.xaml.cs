@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UnibrewProject.ViewModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,6 +26,7 @@ namespace UnibrewProject
     {
         public InputColSevenPage()
         {
+            ViewModel = new InputColSevenViewModel();
             this.InitializeComponent();
         }
 
@@ -33,5 +35,12 @@ namespace UnibrewProject
 
             ApplicationView.GetForCurrentView().TryResizeView(new Size(1280, 720));
         }
+
+        private void KeyDownEventHandler(object sender, KeyRoutedEventArgs e)
+        {
+            //ViewModel.ResetTimer();
+        }
+
+        public InputColSevenViewModel ViewModel { get; set; }   
     }
 }
