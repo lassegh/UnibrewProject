@@ -26,7 +26,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private FadingTextTimerCallBack fadingTextCallBack;
         private SaveToDbMethod saveToDbMethod;
-
+        private int _id;
         private float _saveBlockOpacity = 0;
 
         public SaveButton()
