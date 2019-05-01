@@ -143,7 +143,7 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding Slider.MenuWidth}">
+                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}">
                 </ColumnDefinition>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
@@ -163,7 +163,7 @@
                     <RowDefinition Height="81*" />
                 </Grid.RowDefinitions>
 
-                <Button Command="{Binding Slider.MenuHideButton}"
+                <Button Command="{Binding ViewModel.Slider.MenuHideButton}"
                         Grid.Row="0"
                         HorizontalAlignment="Right"
                         Opacity="0.98"
@@ -174,7 +174,7 @@
                                     HorizontalAlignment="Left"
                                     Margin="4,0,0,0" />
                         <TextBlock Text=""
-                                   Visibility="{Binding Slider.MenuTextVisibility}"
+                                   Visibility="{Binding ViewModel.Slider.MenuTextVisibility}"
                                    FontWeight="Bold" />
                     </StackPanel>
                 </Button>
@@ -184,7 +184,7 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Command="{Binding Navigator.InputColSevenCommand}">
+                        Command="{Binding ViewModel.Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2"
                                     HorizontalAlignment="Left"
@@ -236,7 +236,7 @@
                 <Button Grid.Row="7"
                         HorizontalAlignment="Left"
                         Background="#00000000"
-                        Command="{Binding Navigator.StatCommand}">
+                        Command="{Binding ViewModel.Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="ZeroBars"
                                     Margin="4,0,0,0" />
@@ -307,8 +307,7 @@
                 Height="30"  
                 Width="70"
                 BorderThickness="0"
-                
-                Text="{Binding Save.Bottle01, Mode=TwoWay}" PlaceholderText="(mm)"/>
+                Text="{Binding ViewModel.Save.Bottle01, Mode=TwoWay}" PlaceholderText="(mm)"/>
             </Border>
         </Grid>
 
@@ -326,7 +325,7 @@
                         Margin="420,210,0,0"
                         Grid.Row="1"
                         VerticalAlignment="Top"
-                        Command="{Binding Path=Save.SaveCommand}">
+                        Command="{Binding Path=ViewModel.Save.SaveCommand}">
                 </Button>
 
 
