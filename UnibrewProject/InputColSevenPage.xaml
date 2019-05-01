@@ -304,13 +304,14 @@
 
                         <Grid Column="1" Row="1">
 
-                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <TextBox 
-                HorizontalAlignment="Left"
-                Height="30"  
-                Width="70"
-                BorderThickness="0"
-                Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="(mm)"/>
+                                    HorizontalAlignment="Left"
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="(mm)"/>
                             </Border>
                         </Grid>
 
