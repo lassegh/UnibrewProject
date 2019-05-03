@@ -14,9 +14,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
     {
         private static string _restUrl = "https://ubrest.azurewebsites.net/api/testmoments";
 
-        public static bool Post(TESTmoment momenter)
+        public static int Post(TESTmoment momenter)
         {
-            bool ok = false;
+            int id = -1;
 
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
@@ -33,19 +33,17 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     HttpResponseMessage resp = postAsync.Result;
                     if (resp.IsSuccessStatusCode)
                     {
-                        Debug.WriteLine("Cool");
-                        ok = true;
+                        // TODO Fetch object
                     }
                 }
                 catch (Exception e)
                 {
-                    ok = false;
                     Debug.WriteLine(e);
 
                 }
             }
 
-            return ok;
+            return id;
         }
 
     }
