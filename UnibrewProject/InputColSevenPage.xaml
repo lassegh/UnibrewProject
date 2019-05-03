@@ -65,7 +65,15 @@
                           PlaceholderText="Kolonne 7"
                           Height="30"
                           BorderBrush="#33000000"
-                          Background="#FFBDBADC" />
+                          Background="#FFBDBADC">
+                    <x:String>Kolonne 1</x:String>
+                    <x:String>Kolonne 2</x:String>
+                    <x:String>Kolonne 3</x:String>
+                    <x:String>Kolonne 4</x:String>
+                    <x:String>Kolonne 5</x:String>
+                    <x:String>Kolonne 6</x:String>
+                    <x:String>Kolonne 7</x:String>
+                </ComboBox>
             </Grid>
 
             <Grid Grid.Column="2"
@@ -142,7 +150,8 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}">                </ColumnDefinition>
+                <ColumnDefinition Width="50">
+                </ColumnDefinition>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
@@ -187,7 +196,7 @@
                         <SymbolIcon Symbol="Page2"
                                     HorizontalAlignment="Left"
                                     Margin="4,0,0,0" />
-                        <TextBlock Text="     Tappe Operatør"
+                        <TextBlock Text="     TAP OPERATØR"
                                    HorizontalAlignment="Left"
                                    FontWeight="Bold" />
                     </StackPanel>
@@ -263,17 +272,8 @@
                     <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
 
-                <Grid Column="1"
-                      Row="0">
-                    <TextBlock Text="     Tappe Operatør"
-                               HorizontalAlignment="Left"
-                               FontFamily="Segoe UI Light"
-                               FontSize="18"
-                               FontWeight="Bold"
-                               Height="20"
-                               FontStyle="Italic"
-                               FocusVisualPrimaryBrush="Black"
-                               Foreground="#FF535353" />
+                <Grid Column="1" Row="0">
+                    <TextBlock Text="   TAP OPERATØR" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Medium" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF1F1F1F"/>
                 </Grid>
 
                 <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
@@ -305,11 +305,11 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
-                            <RowDefinition/>
+
                         </Grid.RowDefinitions>
 
                         <Grid Column="0" Row="0" ColumnSpan="3">
-                            <TextBlock Text="   Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="   Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
                         </Grid>
 
                         <Grid Column="0" Row="1">
@@ -467,7 +467,7 @@
                         </Grid>
 
                         <Grid Column="6" Row="2">
-                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
                                 <TextBox 
                                     Height="30"  
                                     Width="70"
@@ -477,8 +477,225 @@
                             </Border>
                         </Grid>
 
+
+                        <Grid Column="10" Row="0" RowSpan="2">
+                            <TextBlock Text="ProcesOrdre nr" Height="90" HorizontalAlignment="Center"/>
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock
+                                    Text="1592727"
+                                    Height="30"  
+                                    Width="70"
+                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7,10,0,0"/>
+
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="10" Row="2" RowSpan="2">
+                            <TextBlock Text="Færdigvare nr" Height="90" HorizontalAlignment="Center"/>
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock
+                                    Text="7879"
+                                    Height="30"  
+                                    Width="70"
+                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="26,10,0,0"/>
+
+                            </Border>
+                        </Grid>
+
+
                         <Grid Column="0" Row="3" ColumnSpan="11">
-                            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" Padding="20" Height="1" Width="1080" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0"/>
+                            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" Padding="20" Height="1" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="0" Row="4" ColumnSpan="3">
+                            <TextBlock Text="   Heuft Låg" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="0" Row="4" RowSpan="2">
+                            <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0"/>
+                        </Grid>
+
+                        <Grid Column="2" Row="4" ColumnSpan="3">
+                            <TextBlock Text="   Fyldehøjde" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="2" Row="4" RowSpan="2">
+                            <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0"/>
+                        </Grid>
+
+                        <Grid Column="4" Row="4" ColumnSpan="3">
+                            <TextBlock Text="   Smags Test"  HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="4" Row="4" RowSpan="2">
+                            <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0"/>
+                        </Grid>
+
+                        <Grid Column="4" Row="5" RowSpan="2">
+                            <Button Content="Vælg Tank" Width="100" Height="30" HorizontalAlignment="Center" AutomationProperties.HelpText="Vælg en tank" Background="#19000000">
+                                <Button.Flyout>
+                                    <MenuFlyout x:Name="MenuFlyout">
+                                        <ToggleMenuFlyoutItem Text="KLDV-1"/>
+                                        <ToggleMenuFlyoutItem Text="KLDV-2"/>
+                                        <ToggleMenuFlyoutItem Text="KLDV-3"/>
+                                        <ToggleMenuFlyoutItem Text="B001"/>
+                                        <ToggleMenuFlyoutItem Text="B002"/>
+                                        <ToggleMenuFlyoutItem Text="B003"/>
+                                        <ToggleMenuFlyoutItem Text="B004"/>
+                                        <ToggleMenuFlyoutItem Text="B005"/>
+                                        <ToggleMenuFlyoutItem Text="B006"/>
+                                        <ToggleMenuFlyoutItem Text="B007"/>
+                                        <ToggleMenuFlyoutItem Text="B008"/>
+                                        <ToggleMenuFlyoutItem Text="B009"/>
+                                        <ToggleMenuFlyoutItem Text="B010"/>
+                                        <ToggleMenuFlyoutItem Text="B011"/>
+                                        <ToggleMenuFlyoutItem Text="B012"/>
+                                        <ToggleMenuFlyoutItem Text="B013"/>
+                                        <ToggleMenuFlyoutItem Text="B014"/>
+                                        <ToggleMenuFlyoutItem Text="B015"/>
+
+                                    </MenuFlyout>
+                                </Button.Flyout>
+                            </Button>
+
+
+
+                        </Grid>
+
+                        <Grid Column="6" Row="4" ColumnSpan="3">
+                            <TextBlock Text="   Sukker Tjek" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="6" Row="4" RowSpan="2">
+                            <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0"/>
+                        </Grid>
+
+                        <Grid Column="8" Row="4" ColumnSpan="3">
+                            <TextBlock Text="   Drop Test" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="8" Row="4" RowSpan="2">
+                            <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0"/>
+                        </Grid>
+
+                        <Grid Column="0" Row="6" RowSpan="2" ColumnSpan="11">
+                            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" Padding="20" Height="1" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="0" Row="6" ColumnSpan="3" RowSpan="3">
+                            <TextBlock Text="   Kontrolvejning" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="0" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding  bot1, Mode=TwoWay}" PlaceholderText="1."/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="1" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="2."/>
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="2" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="3."/>
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="3" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="4."/>
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="4" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="5."/>
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="5" Row="8" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="6."/>
+                            </Border>
+                        </Grid>
+
+
+                        <Grid Column="1" Row="9" RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock
+                                    Text="1547,5"
+                                    Height="30"  
+                                    Width="70"
+                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0"/>
+
+                            </Border>
+                        </Grid>
+                        
+                        <Grid Column="0" Row="9" RowSpan="1" Margin="50,0,0,0">
+                            <TextBlock Text="Gn.snit"  HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                        </Grid>
+
+                        <Grid Column="7" Row="8" RowSpan="1">
+                            <Button Content="Væske Kode" Width="100" Height="30" HorizontalAlignment="Center" AutomationProperties.HelpText="Vælg en tank" Background="#19000000">
+                                <Button.Flyout>
+                                    <MenuFlyout x:Name="MenuFlyoutVæskeKode">
+                                        <ToggleMenuFlyoutItem Text="SKON"/>
+                                        <ToggleMenuFlyoutItem Text="SKOS"/>
+                                        <ToggleMenuFlyoutItem Text="SMAG"/>
+                                        <ToggleMenuFlyoutItem Text="SGIN"/>
+                                        <ToggleMenuFlyoutItem Text="SFKS"/>
+                                        <ToggleMenuFlyoutItem Text="SKFR"/>
+                                        <ToggleMenuFlyoutItem Text="SMAX"/>
+                                        <ToggleMenuFlyoutItem Text="SMXL"/>
+                                    </MenuFlyout>
+                                </Button.Flyout>
+                            </Button>
+
+
+
                         </Grid>
 
                     </Grid>

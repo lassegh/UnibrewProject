@@ -106,7 +106,7 @@
                 <Button Grid.Row="1" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000" Command="{Binding Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2" HorizontalAlignment="Left" Margin="4,0,0,0"/>
-                        <TextBlock Text="     Menu 1" HorizontalAlignment="Left" FontWeight="Bold"/>
+                        <TextBlock Text="     TAP OPERATØR" HorizontalAlignment="Left" FontWeight="Bold"/>
                     </StackPanel>
                 </Button>
 
@@ -157,7 +157,7 @@
                 </Grid.RowDefinitions>
 
                 <Grid Column="1" Row="0">
-                    <TextBlock Text="     DASHBOARD" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353"/>
+                    <TextBlock Text="     DASHBOARD" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Medium" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF1F1F1F"/>
                 </Grid>
 
                 <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
