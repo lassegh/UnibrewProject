@@ -5,6 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:viewModel="using:UnibrewProject.ViewModel"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
@@ -319,8 +321,25 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="1. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[0], Mode=TwoWay}" PlaceholderText="1. (mm)">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding}"/>
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+
+                                </TextBox>
                             </Border>
+
+                            <TextBox 
+                                Height="30"  
+                                Width="70"
+                                BorderThickness="0"
+                                KeyDown="KeyDownEventHandler"
+                                Text="{Binding x, Mode=TwoWay}" PlaceholderText="*" Margin="70,0,0,0" Background="Transparent">
+
+                            </TextBox>
+
                         </Grid>
 
                         <Grid Column="1" Row="1">
@@ -330,7 +349,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[2], Mode=TwoWay}" PlaceholderText="2. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="2. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -341,7 +360,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[3], Mode=TwoWay}" PlaceholderText="3. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[2], Mode=TwoWay}" PlaceholderText="3. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -352,7 +371,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[4], Mode=TwoWay}" PlaceholderText="4. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[3], Mode=TwoWay}" PlaceholderText="4. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -363,7 +382,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[5], Mode=TwoWay}" PlaceholderText="5. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[4], Mode=TwoWay}" PlaceholderText="5. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -374,7 +393,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[6], Mode=TwoWay}" PlaceholderText="6. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[5], Mode=TwoWay}" PlaceholderText="6. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -385,7 +404,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[7], Mode=TwoWay}" PlaceholderText="7. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[6], Mode=TwoWay}" PlaceholderText="7. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -396,7 +415,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[8], Mode=TwoWay}" PlaceholderText="8. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[7], Mode=TwoWay}" PlaceholderText="8. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -407,7 +426,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[9], Mode=TwoWay}" PlaceholderText="9. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[8], Mode=TwoWay}" PlaceholderText="9. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -418,7 +437,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[10], Mode=TwoWay}" PlaceholderText="10. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[9], Mode=TwoWay}" PlaceholderText="10. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -429,7 +448,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[11], Mode=TwoWay}" PlaceholderText="11. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[10], Mode=TwoWay}" PlaceholderText="11. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -440,7 +459,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[12], Mode=TwoWay}" PlaceholderText="12. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[11], Mode=TwoWay}" PlaceholderText="12. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -451,7 +470,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[13], Mode=TwoWay}" PlaceholderText="13. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[12], Mode=TwoWay}" PlaceholderText="13. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -462,7 +481,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[14], Mode=TwoWay}" PlaceholderText="14. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[13], Mode=TwoWay}" PlaceholderText="14. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -473,7 +492,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[15], Mode=TwoWay}" PlaceholderText="15. (mm)"/>
+                                    Text="{Binding ViewModel.Save.BottleStrings[14], Mode=TwoWay}" PlaceholderText="15. (mm)"/>
                             </Border>
                         </Grid>
 
