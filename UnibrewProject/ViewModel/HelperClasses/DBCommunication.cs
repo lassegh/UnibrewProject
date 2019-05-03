@@ -29,11 +29,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 try
                 {
                     Task<HttpResponseMessage> postAsync = client.PostAsync(_restUrl, content);
-
+                    
                     HttpResponseMessage resp = postAsync.Result;
                     if (resp.IsSuccessStatusCode)
                     {
-                        // TODO Fetch object
+                        //Fetch object
+                        String jsonString = postAsync.Result.Content.ToString();
+                        id = JsonConvert.DeserializeObject<TESTmoment>(jsonString).Id;
                     }
                 }
                 catch (Exception e)
@@ -44,6 +46,32 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
 
             return id;
+        }
+
+        public static bool Put(TESTmoment tMoment, int id)
+        {
+            bool ok = true;
+
+            using (HttpClient client = new HttpClient())
+            {
+                String jsonStr = JsonConvert.SerializeObject(tMoment);
+                StringContent content = new StringContent(jsonStr, Encoding.UTF8, "application/json");
+
+                try
+                {
+                    Task<HttpResponseMessage> putAsync = client.PutAsync(_restUrl + "/" + id, content);
+
+                    HttpResponseMessage resp = putAsync.Result;
+                }
+                catch (Exception e)
+                {
+                    ok = false;
+                    Console.WriteLine(e);
+                }
+            }
+
+
+            return ok;
         }
 
     }

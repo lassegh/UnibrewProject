@@ -38,7 +38,7 @@ namespace UnibrewProject
 
         private void KeyDownEventHandler(object sender, KeyRoutedEventArgs e)
         {
-            ViewModel.Save.StartTimer();
+            ViewModel.Save.AutoSaveTimer.StartTimer();
         }
 
         public InputColSevenViewModel ViewModel { get; set; }   

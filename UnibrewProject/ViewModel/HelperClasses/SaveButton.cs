@@ -18,31 +18,35 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// Gem klasse.
     /// Til gem knap og automatisk gem
     /// </summary>
-    public class SaveButton : INotifyPropertyChanged
+    public class SaveButton
     {
-        private delegate void FadingTextTimerCallBack(Object state);
+        private static SaveButton _save = null;
 
-        private delegate void SaveToDbMethod();
-
-        private FadingTextTimerCallBack fadingTextCallBack;
-        private SaveToDbMethod saveToDbMethod;
+        public delegate void SaveToDbMethod();
+        private SaveToDbMethod _saveToDbMethod;
         private int _id;
-        private float _saveBlockOpacity = 0;
+        
 
-        public SaveButton()
+        private SaveButton()
         {
-            fadingTextCallBack = FadingText;
-            saveToDbMethod = PostSaveMethod;
+            BottleStrings = new string[15];
+            Tmoment = new TESTmoment();
+            _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
+            AutoSaveTimer = new AutoSaveTimer(this);
         }
 
         private void SaveCommandPush()
         {
-            //TODO run saveDelegate
-            //TODO Return saveDelegate to startMethod
+            //Run saveDelegate
+            SAveToDbMethod();
+            //Return saveDelegate to startMethod
+            _saveToDbMethod = PostSaveMethod;
+            //Nulstil objeckt af TESTmoment
+            Tmoment = new TESTmoment();
         }
 
-        private TESTmoment PrepareSave()
+        private void PrepareSave()
         {
             double[] bottleMoments = new double[15];
             for (int i = 0; i < BottleStrings.Length; i++)
@@ -51,93 +55,58 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 if (double.TryParse(BottleStrings[i], out bottleMoments[i])) Debug.Write("String can be parsed");
                 else bottleMoments[i] = 0; // TODO tilføj en warning til brugeren om fejl indtastning og om der skal fortsættes med huller i DB?
             }
-            return new TESTmoment(bottleMoments[0], bottleMoments[1], bottleMoments[2], bottleMoments[3], bottleMoments[4], bottleMoments[5], bottleMoments[6], bottleMoments[7], bottleMoments[8], bottleMoments[9], bottleMoments[10], bottleMoments[11], bottleMoments[12], bottleMoments[13], bottleMoments[14]);
+
+            Tmoment.Bottle01 = bottleMoments[0];
+            Tmoment.Bottle02 = bottleMoments[1];
+            Tmoment.Bottle03 = bottleMoments[2];
+            Tmoment.Bottle04 = bottleMoments[3];
+            Tmoment.Bottle05 = bottleMoments[4];
+            Tmoment.Bottle06 = bottleMoments[5];
+            Tmoment.Bottle07 = bottleMoments[6];
+            Tmoment.Bottle08 = bottleMoments[7];
+            Tmoment.Bottle09 = bottleMoments[8];
+            Tmoment.Bottle10 = bottleMoments[9];
+            Tmoment.Bottle11 = bottleMoments[10];
+            Tmoment.Bottle12 = bottleMoments[11];
+            Tmoment.Bottle13 = bottleMoments[12];
+            Tmoment.Bottle14 = bottleMoments[13];
+            Tmoment.Bottle15 = bottleMoments[14];
         }
 
         private void PostSaveMethod()
         {
-            DbCommunication.Post(PrepareSave());
-            saveToDbMethod = PutSaveMethod;
+            PrepareSave();
+            Tmoment.Id = DbCommunication.Post(Tmoment);
+            _saveToDbMethod = PutSaveMethod;
         }
 
         private void PutSaveMethod()
         {
-
+            PrepareSave();
+            DbCommunication.Put(Tmoment, Tmoment.Id);
         }
 
-        public void StartTimer()
-        {
-            if (TimeSinceLastKeyDownTimer != null)
-            {
-                TimeSinceLastKeyDownTimer.Dispose();
-                TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite);
-            }
-            else TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite);
-        }
 
-        private void Callback(Object state)
-        {
-            FadingTextTimer = new Timer(new TimerCallback(fadingTextCallBack), null, 1, Timeout.Infinite);
-        }
-
-        private void FadingText(Object state)
-        {
-            SaveBlockOpacity = SaveBlockOpacity + 0.1f;
-            if (SaveBlockOpacity < 1)
-            {
-                FadingTextTimer.Change(100, Timeout.Infinite);
-            }
-            else
-            {
-                fadingTextCallBack = FadingTextOut;
-                FadingTextTimer.Change(100, Timeout.Infinite);
-            }
-        }
-
-        private void FadingTextOut(Object state)
-        {
-            SaveBlockOpacity = SaveBlockOpacity - 0.1f;
-            if (SaveBlockOpacity > 0)
-            {
-                FadingTextTimer.Change(100, Timeout.Infinite);
-            }
-            else
-            {
-                fadingTextCallBack = FadingText;
-                FadingTextTimer.Dispose();
-            }
-        }
-
-        public Timer FadingTextTimer { get; set; }
+        public TESTmoment Tmoment { get; set; }
         public RelayCommand SaveCommand { get; set; }
-        public string[] BottleStrings { get; set; } = new string[15];
-        public Timer TimeSinceLastKeyDownTimer { get; set; }
+        public string[] BottleStrings { get; set; }
+        public AutoSaveTimer AutoSaveTimer { get; set; }
 
-        public float SaveBlockOpacity
+        public SaveToDbMethod SAveToDbMethod
         {
-            get { return _saveBlockOpacity; }
-            set
-            {
-                _saveBlockOpacity = value;
-                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-                    () =>
-                    {
-                        // Your UI update code goes here!
-                        OnPropertyChanged();
-                    }
-                );
-
-
-
-            }
+            get { return _saveToDbMethod; }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        public static SaveButton Save
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            get
+            {
+                if (_save == null)
+                {
+                    _save = new SaveButton();
+                }
+                return _save;
+            }
         }
     }
 }

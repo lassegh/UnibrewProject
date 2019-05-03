@@ -128,6 +128,7 @@
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\HelperClasses\AutoSaveTimer.cs" />
     <Compile Include="ViewModel\HelperClasses\DbCommunication.cs" />
     <Compile Include="ViewModel\HelperClasses\MenuNavigator.cs" />
     <Compile Include="ViewModel\HelperClasses\MenuSlider.cs" />
