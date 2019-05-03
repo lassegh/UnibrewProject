@@ -142,8 +142,7 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}">
-                </ColumnDefinition>
+                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}">                </ColumnDefinition>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
@@ -188,7 +187,7 @@
                         <SymbolIcon Symbol="Page2"
                                     HorizontalAlignment="Left"
                                     Margin="4,0,0,0" />
-                        <TextBlock Text="     Menu 1"
+                        <TextBlock Text="     Tappe Operatør"
                                    HorizontalAlignment="Left"
                                    FontWeight="Bold" />
                     </StackPanel>
@@ -247,25 +246,26 @@
             </Grid>
 
             <Grid Grid.Column="1"
+                  RowSpan="2"
                   Background="#FFE0E0EC"
                   BorderThickness="0,1,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25" />
                     <ColumnDefinition />
-                    <ColumnDefinition />
+
                     <ColumnDefinition Width="25" />
                 </Grid.ColumnDefinitions>
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40" />
                     <RowDefinition />
-                    <RowDefinition />
+
                     <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
 
                 <Grid Column="1"
                       Row="0">
-                    <TextBlock Text="     INPUT"
+                    <TextBlock Text="     Tappe Operatør"
                                HorizontalAlignment="Left"
                                FontFamily="Segoe UI Light"
                                FontSize="18"
@@ -280,9 +280,16 @@
 
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="40"/>
                             <ColumnDefinition/>
-                            <ColumnDefinition Width="50"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
@@ -292,38 +299,192 @@
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
                         </Grid.RowDefinitions>
 
+                        <Grid Column="0" Row="0" ColumnSpan="3">
+                            <TextBlock Text="   Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                        </Grid>
+
                         <Grid Column="0" Row="1">
-                            <TextBlock Height="20" Width="50" HorizontalAlignment="Right" Text="1" VerticalAlignment="Center" HorizontalTextAlignment="Right"/>
-                        </Grid>
-
-                        <Grid Column="1" Row="0">
-                            <TextBlock Text="     Tilspændings Moment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Bold" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF535353"/>
-                        </Grid>
-
-                        <Grid Column="1" Row="1">
-
-                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
                                 <TextBox 
-                HorizontalAlignment="Left"
-                Height="30"  
-                Width="70"
-                BorderThickness="0"
-                Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="(mm)"/>
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="1. (mm)"/>
                             </Border>
                         </Grid>
 
+                        <Grid Column="1" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[2], Mode=TwoWay}" PlaceholderText="2. (mm)"/>
+                            </Border>
+                        </Grid>
 
+                        <Grid Column="2" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[3], Mode=TwoWay}" PlaceholderText="3. (mm)"/>
+                            </Border>
+                        </Grid>
 
+                        <Grid Column="3" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[4], Mode=TwoWay}" PlaceholderText="4. (mm)"/>
+                            </Border>
+                        </Grid>
 
+                        <Grid Column="4" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[5], Mode=TwoWay}" PlaceholderText="5. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="5" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[6], Mode=TwoWay}" PlaceholderText="6. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="6" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[7], Mode=TwoWay}" PlaceholderText="7. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="7" Row="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[8], Mode=TwoWay}" PlaceholderText="8. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="0" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[9], Mode=TwoWay}" PlaceholderText="9. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="1" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[10], Mode=TwoWay}" PlaceholderText="10. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="2" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[11], Mode=TwoWay}" PlaceholderText="11. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="3" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[12], Mode=TwoWay}" PlaceholderText="12. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="4" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[13], Mode=TwoWay}" PlaceholderText="13. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="5" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[14], Mode=TwoWay}" PlaceholderText="14. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="6" Row="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.BottleStrings[15], Mode=TwoWay}" PlaceholderText="15. (mm)"/>
+                            </Border>
+                        </Grid>
+
+                        <Grid Column="0" Row="3" ColumnSpan="11">
+                            <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" Padding="20" Height="1" Width="1080" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0"/>
+                        </Grid>
 
                     </Grid>
                 </Grid>
 
-
-
-                <Grid Column="2" Row="2">
+                <Grid Column="1" Row="1">
                     <Button x:Name="SaveBTN"
                         Content="Gem" 
                         ToolTipService.ToolTip="Tryk for at gemme"
