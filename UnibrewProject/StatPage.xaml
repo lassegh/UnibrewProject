@@ -52,18 +52,18 @@
 
             <Grid Grid.Column="4" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
+            <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
+            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
                 <TextBlock HorizontalAlignment="Center" Height="55" Text="Logged in as" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="12" Foreground="Black" Margin="0,12,0,0"/>
                 <TextBlock HorizontalAlignment="Center" Height="40" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Bottom"  FontSize="18" Foreground="White" Margin="0,0,0,0"/>
             </Grid>
-            <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
+            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
 
-                <SymbolIcon Symbol="Setting" Margin="21,0,-21,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                <SymbolIcon Symbol="Setting" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-                <Ellipse Width="52" Height="52" HorizontalAlignment="Left" Fill="Black" Margin="-1,9,0,8" VerticalAlignment="Stretch"/>
-                <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50" FocusVisualPrimaryThickness="2,2,2,2" RequestedTheme="Default">
+                <Ellipse Width="52" Height="52" HorizontalAlignment="Left" Fill="Black" Margin="9,9,0,8" VerticalAlignment="Stretch"/>
+                <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50" FocusVisualPrimaryThickness="2,2,2,2" RequestedTheme="Default" Margin="10,0,0,0">
                     <Ellipse.Fill>
                         <ImageBrush ImageSource="/Assets/miggg.jpg"/>
                     </Ellipse.Fill>
@@ -106,28 +106,28 @@
                 <Button Grid.Row="1" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000" Command="{Binding Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2" HorizontalAlignment="Left" Margin="4,0,0,0"/>
-                        <TextBlock Text="     TAP OPERATØR" HorizontalAlignment="Left" FontWeight="Bold"/>
+                        <TextBlock Text="     TAP OPERATØR" HorizontalAlignment="Left" FontWeight="Bold" Foreground="#FF1F1F1F"/>
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="2" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <SymbolIcon Symbol="Page2" Margin="4,0,0,0"/>
-                        <TextBlock Text="     Menu 2" FontWeight="Bold"/>
+                        <TextBlock Text="     Menu 2" FontWeight="Bold" Foreground="#FF1F1F1F"/>
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="3" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000" Margin="4,0,0,0">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2"/>
-                        <TextBlock Text="     Menu 3" FontWeight="Bold"/>
+                        <TextBlock Text="     Menu 3" FontWeight="Bold" Foreground="#FF1F1F1F"/>
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="4" HorizontalAlignment="Left" Opacity="0.98" Background="#00000000">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2" Margin="4,0,0,0"/>
-                        <TextBlock Text="     Menu 4" FontWeight="Bold"/>
+                        <TextBlock Text="     Menu 4" FontWeight="Bold" Foreground="#FF1F1F1F"/>
                     </StackPanel>
                 </Button>
 
@@ -135,9 +135,17 @@
                 <Button Grid.Row="7" HorizontalAlignment="Left" Background="#00000000" Command="{Binding Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="ZeroBars" Margin="4,0,0,0"/>
-                        <TextBlock Text="     Trends" FontWeight="Bold"/>
+                        <TextBlock Text="     Trends" FontWeight="Bold" Foreground="#FF1F1F1F"/>
                     </StackPanel>
                 </Button>
+
+                <Grid Column="0" Row="7" Height="50" Width="5" HorizontalAlignment="Left">
+                    <Rectangle>
+                        <Rectangle.Fill>
+                            <SolidColorBrush Color="DarkSlateBlue"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </Grid>
 
             </Grid>
 
@@ -161,7 +169,7 @@
                 </Grid>
 
                 <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
-                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <!-- <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                         <lvc:CartesianChart Series="{Binding SeriesCollection}"
                                         LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
@@ -173,7 +181,7 @@
                                       Labels="{Binding Labels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                    </Grid>
+                    </Grid> -->
 
 
                 </Grid>

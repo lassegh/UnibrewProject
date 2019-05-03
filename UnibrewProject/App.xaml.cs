@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
 
 namespace UnibrewProject
 {
@@ -40,6 +42,11 @@ namespace UnibrewProject
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+
+            var titleBar = CoreApplication.GetCurrentView().TitleBar;
+            titleBar.ExtendViewIntoTitleBar = true;
+
+            
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
