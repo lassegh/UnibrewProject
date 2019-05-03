@@ -18,10 +18,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// Gem klasse.
     /// Til gem knap og automatisk gem
     /// </summary>
-    public class SaveButton
+    public class SaveButton : INotifyPropertyChanged
     {
         private static SaveButton _save = null;
-
+        private string[] _bottleStrings;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
         private int _id;
@@ -44,6 +44,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             _saveToDbMethod = PostSaveMethod;
             //Nulstil objeckt af TESTmoment
             Tmoment = new TESTmoment();
+            for (int i = 0; i < BottleStrings.Length; i++)
+            {
+                BottleStrings[i] = "";
+            }
         }
 
         private void PrepareSave()
@@ -51,6 +55,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             double[] bottleMoments = new double[15];
             for (int i = 0; i < BottleStrings.Length; i++)
             {
+                if (BottleStrings[i]==null)
+                {
+                    BottleStrings[i] = "0";
+                }
                 BottleStrings[i] = BottleStrings[i].Replace(',', '.');
                 if (double.TryParse(BottleStrings[i], out bottleMoments[i])) Debug.Write("String can be parsed");
                 else bottleMoments[i] = 0; // TODO tilføj en warning til brugeren om fejl indtastning og om der skal fortsættes med huller i DB?
@@ -76,7 +84,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PostSaveMethod()
         {
             PrepareSave();
-            Tmoment.Id = DbCommunication.Post(Tmoment);
+            if (DbCommunication.Post(Tmoment))
+            {
+                Tmoment.Id = DbCommunication.MomentID;
+            }
+            else
+            {
+                // TODO meld fejl om kommunikaiton til server
+            }
+            
             _saveToDbMethod = PutSaveMethod;
         }
 
@@ -89,7 +105,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         public TESTmoment Tmoment { get; set; }
         public RelayCommand SaveCommand { get; set; }
-        public string[] BottleStrings { get; set; }
         public AutoSaveTimer AutoSaveTimer { get; set; }
 
         public SaveToDbMethod SAveToDbMethod
@@ -107,6 +122,24 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
                 return _save;
             }
+        }
+
+        public string[] BottleStrings
+        {
+            get { return _bottleStrings; }
+            set
+            {
+                _bottleStrings = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

@@ -14,10 +14,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
     {
         private static string _restUrl = "https://ubrest.azurewebsites.net/api/testmoments";
 
-        public static int Post(TESTmoment momenter)
+        public static bool Post(TESTmoment momenter)
         {
-            int id = -1;
-
+            bool connectionOk = false;
+            
             HttpClientHandler handler = new HttpClientHandler();
             handler.UseDefaultCredentials = true;
 
@@ -33,9 +33,11 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     HttpResponseMessage resp = postAsync.Result;
                     if (resp.IsSuccessStatusCode)
                     {
-                        //Fetch object
-                        String jsonString = postAsync.Result.Content.ToString();
-                        id = JsonConvert.DeserializeObject<TESTmoment>(jsonString).Id;
+                        //Fetch object.id
+                        connectionOk = true;
+                        //jsonString = resp.Headers.Location;
+                        Task<TESTmoment> jsonStrings = resp.Content.ReadAsAsync<TESTmoment>(); //right!
+                        MomentID = jsonStrings.Result.Id; //JsonConvert.DeserializeObject<TESTmoment>(jsonStrings).Id;
                     }
                 }
                 catch (Exception e)
@@ -45,7 +47,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
             }
 
-            return id;
+            return connectionOk;
         }
 
         public static bool Put(TESTmoment tMoment, int id)
@@ -73,6 +75,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             return ok;
         }
+
+        public static int MomentID { get; set; }
 
     }
 }
