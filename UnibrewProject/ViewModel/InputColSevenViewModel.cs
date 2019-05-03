@@ -13,11 +13,10 @@ namespace UnibrewProject.ViewModel
         {
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
-            Save = new SaveButton();
         }
 
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
-        public SaveButton Save { get; set; }
+        public SaveButton Save { get; set; } = SaveButton.Save;
     }
 }

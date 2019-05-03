@@ -9,6 +9,11 @@ namespace UnibrewProject.Model
 {
     public class TESTmoment
     {
+        public TESTmoment()
+        {
+            
+        }
+
         public TESTmoment(double bottle01, double bottle02, double bottle03, double bottle04, double bottle05, double bottle06, double bottle07, double bottle08, double bottle09, double bottle10, double bottle11, double bottle12, double bottle13, double bottle14, double bottle15)
         {
             Bottle01 = bottle01;
