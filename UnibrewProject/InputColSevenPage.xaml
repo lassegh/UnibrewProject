@@ -332,7 +332,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Her skrives Tilspændingsmomentet i milimeter for colonne 1"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[0], Mode=TwoWay}" PlaceholderText="1. (mm)">
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[0].Moment, Mode=TwoWay}" PlaceholderText="1. (mm)">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="LostFocus">
                                             <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}"/>
@@ -361,7 +361,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[1], Mode=TwoWay}" PlaceholderText="2. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[1].Moment, Mode=TwoWay}" PlaceholderText="2. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -372,7 +372,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[2], Mode=TwoWay}" PlaceholderText="3. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[2].Moment, Mode=TwoWay}" PlaceholderText="3. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -383,7 +383,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[3], Mode=TwoWay}" PlaceholderText="4. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[3].Moment, Mode=TwoWay}" PlaceholderText="4. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -394,7 +394,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[4], Mode=TwoWay}" PlaceholderText="5. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[4].Moment, Mode=TwoWay}" PlaceholderText="5. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -405,7 +405,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[5], Mode=TwoWay}" PlaceholderText="6. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[5].Moment, Mode=TwoWay}" PlaceholderText="6. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -416,7 +416,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[6], Mode=TwoWay}" PlaceholderText="7. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[6].Moment, Mode=TwoWay}" PlaceholderText="7. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -427,7 +427,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[7], Mode=TwoWay}" PlaceholderText="8. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[7].Moment, Mode=TwoWay}" PlaceholderText="8. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -438,7 +438,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[8], Mode=TwoWay}" PlaceholderText="9. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[8].Moment, Mode=TwoWay}" PlaceholderText="9. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -449,7 +449,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[9], Mode=TwoWay}" PlaceholderText="10. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[9].Moment, Mode=TwoWay}" PlaceholderText="10. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -460,7 +460,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[10], Mode=TwoWay}" PlaceholderText="11. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[10].Moment, Mode=TwoWay}" PlaceholderText="11. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -471,7 +471,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[11], Mode=TwoWay}" PlaceholderText="12. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[11].Moment, Mode=TwoWay}" PlaceholderText="12. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -482,7 +482,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[12], Mode=TwoWay}" PlaceholderText="13. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[12].Moment, Mode=TwoWay}" PlaceholderText="13. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -493,7 +493,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[13], Mode=TwoWay}" PlaceholderText="14. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[13].Moment, Mode=TwoWay}" PlaceholderText="14. (mm)"/>
                             </Border>
                         </Grid>
 
@@ -504,7 +504,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.BottleStrings[14], Mode=TwoWay}" PlaceholderText="15. (mm)"/>
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[14].Moment, Mode=TwoWay}" PlaceholderText="15. (mm)"/>
                             </Border>
                         </Grid>
 

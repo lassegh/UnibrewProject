@@ -42,7 +42,7 @@ namespace UnibrewProject.ViewModel
             RoutedEventArgs args = parameter as RoutedEventArgs;
             TextBlock box = args?.OriginalSource as TextBlock;
             
-            if (double.TryParse(Save.BottleStrings[1], out txt_out))
+            if (double.TryParse(Save.TapOperatorMoments[0].Moment, out txt_out))
             {
                 txtbx_inputValid = "";
 

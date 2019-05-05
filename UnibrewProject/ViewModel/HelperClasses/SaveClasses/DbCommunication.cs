@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using UnibrewProject.Model;
 
-namespace UnibrewProject.ViewModel.HelperClasses
+namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
     public static class DbCommunication
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using Windows.UI.Core;
 using UnibrewProject.Annotations;
 
-namespace UnibrewProject.ViewModel.HelperClasses
+namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
     public class AutoSaveTimer : INotifyPropertyChanged
     {

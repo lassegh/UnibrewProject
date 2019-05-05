@@ -11,6 +11,7 @@ using Windows.UI.Core;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
+using UnibrewProject.ViewModel.HelperClasses.SaveClasses;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
@@ -18,18 +19,19 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// Gem klasse.
     /// Til gem knap og automatisk gem
     /// </summary>
-    public class SaveButton : INotifyPropertyChanged
+    public class SaveButton
     {
         private static SaveButton _save = null;
-        private string[] _bottleStrings;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
-        private int _id;
         
 
         private SaveButton()
         {
-            BottleStrings = new string[15];
+            for (int i = 0; i < TapOperatorMoments.Length; i++)
+            {
+                TapOperatorMoments[i] = new TapOperatorMoment();
+            }
             Tmoment = new TESTmoment();
             _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
@@ -40,30 +42,34 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             //Run saveDelegate
             SAveToDbMethod();
+
             //Return saveDelegate to startMethod
             _saveToDbMethod = PostSaveMethod;
+            
             //Nulstil objeckt af TESTmoment
             Tmoment = new TESTmoment();
-            for (int i = 0; i < BottleStrings.Length; i++)
+
+            // Slet indtastninger i view
+            foreach (TapOperatorMoment moment in TapOperatorMoments)
             {
-                BottleStrings[i] = "";
+                moment.Moment = "";
             }
         }
 
         private void PrepareSave()
         {
             double[] bottleMoments = new double[15];
-            for (int i = 0; i < BottleStrings.Length; i++)
-            {
-                if (BottleStrings[i]==null)
-                {
-                    BottleStrings[i] = "0";
-                }
-                BottleStrings[i] = BottleStrings[i].Replace(',', '.');
-                if (double.TryParse(BottleStrings[i], out bottleMoments[i])) Debug.Write("String can be parsed");
-                else bottleMoments[i] = 0; // TODO tilføj en warning til brugeren om fejl indtastning og om der skal fortsættes med huller i DB?
-            }
 
+            for (int i = 0; i < TapOperatorMoments.Length; i++)
+            {
+                if (TapOperatorMoments[i].Moment == null) bottleMoments[i] = 0;
+                else
+                {
+                    TapOperatorMoments[i].Moment = TapOperatorMoments[i].Moment.Replace(',', '.');
+                    if (!double.TryParse(TapOperatorMoments[i].Moment, out bottleMoments[i])) bottleMoments[i] = 0;
+                }
+            }
+            
             Tmoment.Bottle01 = bottleMoments[0];
             Tmoment.Bottle02 = bottleMoments[1];
             Tmoment.Bottle03 = bottleMoments[2];
@@ -106,6 +112,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public TESTmoment Tmoment { get; set; }
         public RelayCommand SaveCommand { get; set; }
         public AutoSaveTimer AutoSaveTimer { get; set; }
+        public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
 
         public SaveToDbMethod SAveToDbMethod
         {
@@ -122,24 +129,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
                 return _save;
             }
-        }
-
-        public string[] BottleStrings
-        {
-            get { return _bottleStrings; }
-            set
-            {
-                _bottleStrings = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
