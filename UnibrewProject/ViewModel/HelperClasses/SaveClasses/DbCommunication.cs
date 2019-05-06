@@ -12,7 +12,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
     public static class DbCommunication
     {
-        private static string _restUrl = "https://ubrest.azurewebsites.net/api/testmoments";
+        private static string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
 
         public static bool Post(TESTmoment momenter)
         {

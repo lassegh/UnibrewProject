@@ -54,6 +54,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 moment.Moment = "";
             }
+
+            // Stopper timer
+            AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
         }
 
         private void PrepareSave()
@@ -90,6 +93,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PostSaveMethod()
         {
             PrepareSave();
+            Tmoment.DateTime = DateTime.Now;
             if (DbCommunication.Post(Tmoment))
             {
                 Tmoment.Id = DbCommunication.MomentID;
