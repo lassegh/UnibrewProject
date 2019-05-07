@@ -42,8 +42,25 @@
                 <TextBlock Text="Quality Analysing Software" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" FontSize="14" Height="30" FontFamily="Segoe UI Light" FontStyle="Italic" FontWeight="Thin"/>
             </Grid>
 
-            <Grid Grid.Column="1" Background="#FF51516E" BorderThickness="0,0,0,0">
-                <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" AllowDrop="True" PlaceholderText="Kolonne 7" Height="30" BorderBrush="#33000000" Background="#FFBDBADC"/>
+            <Grid Grid.Column="1"
+                  Background="#FF51516E"
+                  BorderThickness="0,0,0,0">
+                <ComboBox HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Width="150"
+                          AllowDrop="True"
+                          PlaceholderText="Kolonne 7"
+                          Height="30"
+                          BorderBrush="#33000000"
+                          Background="#FFBDBADC">
+                    <x:String>Kolonne 1</x:String>
+                    <x:String>Kolonne 2</x:String>
+                    <x:String>Kolonne 3</x:String>
+                    <x:String>Kolonne 4</x:String>
+                    <x:String>Kolonne 5</x:String>
+                    <x:String>Kolonne 6</x:String>
+                    <x:String>Kolonne 7</x:String>
+                </ComboBox>
             </Grid>
 
             <Grid Grid.Column="2" Background="#FF51516E" BorderThickness="0,0,0,0"/>
