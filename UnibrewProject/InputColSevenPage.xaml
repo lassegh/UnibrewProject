@@ -322,7 +322,7 @@
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
                             <TextBlock Text="   Tilspændingsmoment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
-                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" Margin="184,17,139,12"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" />
                         </Grid>
 
 
@@ -652,7 +652,7 @@
 
                         <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
                             <TextBlock Text="   Kontrolvejning" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
-                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " Margin="132,71,193,54" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="8" Grid.RowSpan="1">
