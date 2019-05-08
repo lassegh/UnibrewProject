@@ -88,8 +88,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Bottle13 = bottleMoments[12];
             TapOp.Bottle14 = bottleMoments[13];
             TapOp.Bottle15 = bottleMoments[14];
-
-
+            
 
             double[] bottleWeight = new double[6];
 
@@ -140,6 +139,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
+
+        public string PreformNumber { get; set; }
+        public string LidNumber { get; set; }
 
         public SaveToDbMethod SAveToDbMethod
         {

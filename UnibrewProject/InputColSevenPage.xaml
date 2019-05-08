@@ -524,19 +524,17 @@
                             </Border>
                         </Grid>
 
-
-                        <Grid Grid.Column="10" Grid.Row="0" Grid.RowSpan="2">
-                            <TextBlock Text="Procesordre #" Height="90" HorizontalAlignment="Center" ToolTipService.ToolTip="Nummeret for denne proces"/>
+                        <Grid Column="10" Row="" RowSpan="2">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
-                                <TextBlock
-                                    Text="1592727"
+                                <TextBox 
                                     Height="30"  
                                     Width="70"
-                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7,10,0,0"/>
-
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[1].Moment, Mode=TwoWay}"/>
                             </Border>
+                            <TextBlock Text="Præform" />
                         </Grid>
-
 
                         <Grid Grid.Column="10" Grid.Row="2" Grid.RowSpan="2">
                             <TextBlock Text="Færdigvare #" Height="90" HorizontalAlignment="Center" ToolTipService.ToolTip="Koden for det færdige produkt"/>
@@ -752,7 +750,7 @@
                             <Button Content="Væskekode" Width="100" Height="30" HorizontalAlignment="Center" ToolTipService.ToolTip="Vælg et produkt" Background="#19000000">
                                 <Button.Flyout>
                                     <MenuFlyout x:Name="MenuFlyoutVæskeKode">
-                                        <ToggleMenuFlyoutItem Text="SKON"/>
+                                        <ToggleMenuFlyoutItem Text="SKON" />
                                         <ToggleMenuFlyoutItem Text="SKOS"/>
                                         <ToggleMenuFlyoutItem Text="SMAG"/>
                                         <ToggleMenuFlyoutItem Text="SGIN"/>
