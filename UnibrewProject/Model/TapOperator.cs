@@ -78,7 +78,7 @@ namespace UnibrewProject.Model
 
         public string Operator { get; set; }
 
-        public int ProcessNumber { get; set; }
+        public string ProcessNumber { get; set; }
 
         public virtual LiquidTanks LiquidTanks { get; set; }
 

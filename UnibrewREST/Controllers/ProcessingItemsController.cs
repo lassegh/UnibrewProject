@@ -37,14 +37,14 @@ namespace UnibrewREST.Controllers
 
         // PUT: api/ProcessingItems/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProcessingItems(int id, ProcessingItems processingItems)
+        public IHttpActionResult PutProcessingItems(string id, ProcessingItems processingItems)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != processingItems.ProcessNumber)
+            if (!id.Equals(processingItems.ProcessNumber))
             {
                 return BadRequest();
             }
@@ -125,7 +125,7 @@ namespace UnibrewREST.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProcessingItemsExists(int id)
+        private bool ProcessingItemsExists(string id)
         {
             return db.ProcessingItems.Count(e => e.ProcessNumber == id) > 0;
         }

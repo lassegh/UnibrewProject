@@ -18,7 +18,7 @@ namespace UnibrewProject.ViewModel
         
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
-        public SaveButton Save { get; set; } = SaveButton.Save;
+        public SaveTapOperator Save { get; set; } = SaveTapOperator.Save;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
 

@@ -14,11 +14,11 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
     public class AutoSaveTimer : INotifyPropertyChanged
     {
         private delegate void FadingTextTimerCallBack(Object state);
-        private SaveButton _save;
+        private SaveTapOperator _save;
         private FadingTextTimerCallBack fadingTextCallBack;
         private float _saveBlockOpacity = 0;
 
-        public AutoSaveTimer(SaveButton save)
+        public AutoSaveTimer(SaveTapOperator save)
         {
             fadingTextCallBack = FadingText;
             _save = save;

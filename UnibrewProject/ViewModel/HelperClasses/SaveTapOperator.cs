@@ -115,9 +115,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             PrepareSave();
             TapOp.ClockDate = DateTime.Now;
-            if (DbCommunication.Post(TapOp))
+            if (DbComTapOperator.Post(TapOp))
             {
-                TapOp.ID = DbCommunication.TapOperatorId;
+                TapOp.ID = DbComTapOperator.TapOperatorId;
             }
             else
             {
@@ -130,7 +130,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            DbCommunication.Put(TapOp, TapOp.ID);
+            DbComTapOperator.Put(TapOp, TapOp.ID);
         }
 
 
