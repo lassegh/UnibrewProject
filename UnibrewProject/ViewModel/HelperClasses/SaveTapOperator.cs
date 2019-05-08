@@ -19,14 +19,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// Gem klasse.
     /// Til gem knap og automatisk gem
     /// </summary>
-    public class SaveButton
+    public class SaveTapOperator
     {
-        private static SaveButton _save = null;
+        private static SaveTapOperator _save = null;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
         
 
-        private SaveButton()
+        private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
             {
@@ -148,13 +148,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
             get { return _saveToDbMethod; }
         }
 
-        public static SaveButton Save
+        public static SaveTapOperator Save
         {
             get
             {
                 if (_save == null)
                 {
-                    _save = new SaveButton();
+                    _save = new SaveTapOperator();
                 }
                 return _save;
             }
