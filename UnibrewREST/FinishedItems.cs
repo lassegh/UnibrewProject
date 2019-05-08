@@ -18,7 +18,7 @@ namespace UnibrewREST
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FinishedItemNumber { get; set; }
 
-        public int? LiquidNumber { get; set; }
+        public string LiquidNumber { get; set; }
 
         [StringLength(30)]
         public string Name { get; set; }

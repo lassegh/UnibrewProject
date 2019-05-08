@@ -10,6 +10,7 @@ namespace UnibrewREST
         public FullDBmodel()
             : base("name=FullDBmodel")
         {
+            base.Configuration.ProxyCreationEnabled = false;
         }
 
         public virtual DbSet<FinishedItems> FinishedItems { get; set; }
@@ -41,6 +42,11 @@ namespace UnibrewREST
 
             modelBuilder.Entity<TapOperator>()
                 .Property(e => e.LidMaterialNo)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TapOperator>()
+                .Property(e => e.ProcessNumber)
                 .IsFixedLength()
                 .IsUnicode(false);
 

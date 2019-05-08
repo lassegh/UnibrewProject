@@ -16,7 +16,7 @@ namespace UnibrewREST
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int ProcessNumber { get; set; }
+        public string ProcessNumber { get; set; }
 
         public int FinishedItemNumber { get; set; }
 

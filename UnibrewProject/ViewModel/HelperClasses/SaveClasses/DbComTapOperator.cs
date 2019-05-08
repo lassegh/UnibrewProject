@@ -10,16 +10,15 @@ using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
-    public static class DbCommunication
+    public static class DbComTapOperator
     {
-        private static string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
+        private static readonly string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
 
         public static bool Post(TapOperator tapOp)
         {
             bool connectionOk = false;
-            
-            HttpClientHandler handler = new HttpClientHandler();
-            handler.UseDefaultCredentials = true;
+
+            HttpClientHandler handler = new HttpClientHandler {UseDefaultCredentials = true};
 
             using (HttpClient client = new HttpClient(handler))
             {

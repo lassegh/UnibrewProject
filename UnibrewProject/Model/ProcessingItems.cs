@@ -12,7 +12,7 @@ namespace UnibrewProject.Model
             TapOperator = new HashSet<TapOperator>();
         }
 
-        public int ProcessNumber { get; set; }
+        public string ProcessNumber { get; set; }
 
         public int FinishedItemNumber { get; set; }
 
