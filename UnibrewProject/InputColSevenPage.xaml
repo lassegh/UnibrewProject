@@ -663,7 +663,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Første kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot1, Mode=TwoWay}" PlaceholderText="1."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[0].Weight, Mode=TwoWay}" PlaceholderText="1."/>
                             </Border>
                         </Grid>
 
@@ -675,7 +675,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Anden kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="2."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[1].Weight, Mode=TwoWay}" PlaceholderText="2."/>
                             </Border>
                         </Grid>
 
@@ -688,7 +688,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Tredje kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="3."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[2].Weight, Mode=TwoWay}" PlaceholderText="3."/>
                             </Border>
                         </Grid>
 
@@ -701,7 +701,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Fjerde kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="4."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[3].Weight, Mode=TwoWay}" PlaceholderText="4."/>
                             </Border>
                         </Grid>
 
@@ -714,7 +714,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Femte kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="5."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[4].Weight, Mode=TwoWay}" PlaceholderText="5."/>
                             </Border>
                         </Grid>
 
@@ -727,7 +727,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Sjette kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="6."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[5].Weight, Mode=TwoWay}" PlaceholderText="6."/>
                             </Border>
                         </Grid>
 

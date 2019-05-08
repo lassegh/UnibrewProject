@@ -95,10 +95,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             for (int i = 0; i < FluidWeightControls.Length; i++)
             {
-                if (FluidWeightControls[i].Vejning == null) bottleWeight[i] = 0;
+                if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
                 {
-                    FluidWeightControls[i].Vejning = FluidWeightControls[i].Vejning.Replace(',', '.');
-                    if (!double.TryParse(FluidWeightControls[i].Vejning, out bottleWeight[i])) bottleWeight[i] = 0;
+                    FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
+                    if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;
                 }
         
             }
