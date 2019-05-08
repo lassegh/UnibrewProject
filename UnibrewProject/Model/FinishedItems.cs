@@ -14,7 +14,7 @@ namespace UnibrewProject.Model
 
         public int FinishedItemNumber { get; set; }
 
-        public int LiquidNumber { get; set; }
+        public string LiquidNumber { get; set; }
 
         public string Name { get; set; }
 

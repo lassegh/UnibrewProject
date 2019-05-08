@@ -12,44 +12,44 @@ using UnibrewREST;
 
 namespace UnibrewREST.Controllers
 {
-    public class TESTmomentsController : ApiController
+    public class FinishedItemsController : ApiController
     {
-        private TESTmomentContext db = new TESTmomentContext();
+        private FullDBmodel db = new FullDBmodel();
 
-        // GET: api/TESTmoments
-        public IQueryable<TESTmoment> GetTESTmoment()
+        // GET: api/FinishedItems
+        public IQueryable<FinishedItems> GetFinishedItems()
         {
-            return db.TESTmoment;
+            return db.FinishedItems;
         }
 
-        // GET: api/TESTmoments/5
-        [ResponseType(typeof(TESTmoment))]
-        public IHttpActionResult GetTESTmoment(int id)
+        // GET: api/FinishedItems/5
+        [ResponseType(typeof(FinishedItems))]
+        public IHttpActionResult GetFinishedItems(int id)
         {
-            TESTmoment tESTmoment = db.TESTmoment.Find(id);
-            if (tESTmoment == null)
+            FinishedItems finishedItems = db.FinishedItems.Find(id);
+            if (finishedItems == null)
             {
                 return NotFound();
             }
 
-            return Ok(tESTmoment);
+            return Ok(finishedItems);
         }
 
-        // PUT: api/TESTmoments/5
+        // PUT: api/FinishedItems/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutTESTmoment(int id, TESTmoment tESTmoment)
+        public IHttpActionResult PutFinishedItems(int id, FinishedItems finishedItems)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != tESTmoment.Id)
+            if (id != finishedItems.FinishedItemNumber)
             {
                 return BadRequest();
             }
 
-            db.Entry(tESTmoment).State = EntityState.Modified;
+            db.Entry(finishedItems).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!TESTmomentExists(id))
+                if (!FinishedItemsExists(id))
                 {
                     return NotFound();
                 }
@@ -70,16 +70,16 @@ namespace UnibrewREST.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/TESTmoments
-        [ResponseType(typeof(TESTmoment))]
-        public IHttpActionResult PostTESTmoment(TESTmoment tESTmoment)
+        // POST: api/FinishedItems
+        [ResponseType(typeof(FinishedItems))]
+        public IHttpActionResult PostFinishedItems(FinishedItems finishedItems)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.TESTmoment.Add(tESTmoment);
+            db.FinishedItems.Add(finishedItems);
 
             try
             {
@@ -87,7 +87,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateException)
             {
-                if (TESTmomentExists(tESTmoment.Id))
+                if (FinishedItemsExists(finishedItems.FinishedItemNumber))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace UnibrewREST.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = tESTmoment.Id }, tESTmoment);
+            return CreatedAtRoute("DefaultApi", new { id = finishedItems.FinishedItemNumber }, finishedItems);
         }
 
-        // DELETE: api/TESTmoments/5
-        [ResponseType(typeof(TESTmoment))]
-        public IHttpActionResult DeleteTESTmoment(int id)
+        // DELETE: api/FinishedItems/5
+        [ResponseType(typeof(FinishedItems))]
+        public IHttpActionResult DeleteFinishedItems(int id)
         {
-            TESTmoment tESTmoment = db.TESTmoment.Find(id);
-            if (tESTmoment == null)
+            FinishedItems finishedItems = db.FinishedItems.Find(id);
+            if (finishedItems == null)
             {
                 return NotFound();
             }
 
-            db.TESTmoment.Remove(tESTmoment);
+            db.FinishedItems.Remove(finishedItems);
             db.SaveChanges();
 
-            return Ok(tESTmoment);
+            return Ok(finishedItems);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,9 +125,9 @@ namespace UnibrewREST.Controllers
             base.Dispose(disposing);
         }
 
-        private bool TESTmomentExists(int id)
+        private bool FinishedItemsExists(int id)
         {
-            return db.TESTmoment.Count(e => e.Id == id) > 0;
+            return db.FinishedItems.Count(e => e.FinishedItemNumber == id) > 0;
         }
     }
 }
