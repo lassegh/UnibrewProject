@@ -88,6 +88,17 @@ namespace UnibrewProject.ViewModel.HelperClasses
             Tmoment.Bottle13 = bottleMoments[12];
             Tmoment.Bottle14 = bottleMoments[13];
             Tmoment.Bottle15 = bottleMoments[14];
+
+            double[] bottleWeight = new double[6];
+
+            for (int i = 0; i < FluidWeightControls.Length; i++)
+            {
+                if (FluidWeightControls[i].Vejning == null) 
+                {
+                    
+                }
+        
+            }
         }
 
         private void PostSaveMethod()
@@ -117,6 +128,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public RelayCommand SaveCommand { get; set; }
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
+        public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
 
         public SaveToDbMethod SAveToDbMethod
         {

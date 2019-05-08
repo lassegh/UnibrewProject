@@ -134,6 +134,7 @@
     <Compile Include="ViewModel\HelperClasses\MenuSlider.cs" />
     <Compile Include="ViewModel\HelperClasses\SaveButton.cs" />
     <Compile Include="ViewModel\HelperClasses\SaveClasses\TapOperatorMoment.cs" />
+    <Compile Include="ViewModel\HelperClasses\SaveClasses\FluidWeightControl.cs" />
     <Compile Include="ViewModel\InputColSevenViewModel.cs" />
     <Compile Include="ViewModel\StatViewModel.cs" />
   </ItemGroup>
