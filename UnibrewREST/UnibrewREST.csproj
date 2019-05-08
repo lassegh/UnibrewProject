@@ -163,9 +163,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TESTmomentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="FinishedItems.cs" />
+    <Compile Include="FullDBmodel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LiquidTanks.cs" />
+    <Compile Include="ProcessingItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TapOperator.cs" />
     <Compile Include="TESTmoment.cs" />
