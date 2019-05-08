@@ -1,4 +1,4 @@
-namespace UnibrewREST
+namespace UnibrewProject.Model
 {
     using System;
     using System.Collections.Generic;
