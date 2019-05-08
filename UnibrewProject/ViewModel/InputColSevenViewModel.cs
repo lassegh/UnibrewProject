@@ -15,7 +15,7 @@ namespace UnibrewProject.ViewModel
 {
     public class InputColSevenViewModel : INotifyPropertyChanged
     {
-        private string _txtbxInputValid;
+        
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public SaveButton Save { get; set; } = SaveButton.Save;
@@ -23,6 +23,8 @@ namespace UnibrewProject.ViewModel
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
 
         public double txt_out;
+        private string _txtbxInputValid;
+
         public string txtbx_inputValid
         {
             get => _txtbxInputValid;
@@ -51,6 +53,7 @@ namespace UnibrewProject.ViewModel
             {
                 txtbx_inputValid = "*";
             }
+            
 
             _txtbxInputValid = box?.Text;
 
