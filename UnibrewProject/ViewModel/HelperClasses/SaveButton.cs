@@ -89,6 +89,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Bottle14 = bottleMoments[13];
             TapOp.Bottle15 = bottleMoments[14];
 
+
+
             double[] bottleWeight = new double[6];
 
             for (int i = 0; i < FluidWeightControls.Length; i++)
@@ -101,8 +103,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
         
             }
 
-
-
+            TapOp.Weight1 = bottleWeight[0];
+            TapOp.Weight2 = bottleWeight[1];
+            TapOp.Weight3 = bottleWeight[2];
+            TapOp.Weight4 = bottleWeight[3];
+            TapOp.Weight5 = bottleWeight[4];
+            TapOp.Weight6 = bottleWeight[5];
+            
         }
 
         private void PostSaveMethod()
@@ -111,7 +118,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.ClockDate = DateTime.Now;
             if (DbCommunication.Post(TapOp))
             {
-                TapOp.ID = DbCommunication.MomentID;
+                TapOp.ID = DbCommunication.TapOperatorId;
             }
             else
             {
