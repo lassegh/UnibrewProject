@@ -322,8 +322,9 @@
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
                             <TextBlock Text="   Tilspændingsmoment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" />
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" Grid.Column="1" Margin="100,17,5,15" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
                         <Grid Grid.Column="0" Grid.Row="1">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
@@ -523,19 +524,17 @@
                             </Border>
                         </Grid>
 
-
-                        <Grid Grid.Column="10" Grid.Row="0" Grid.RowSpan="2">
-                            <TextBlock Text="Procesordre #" Height="90" HorizontalAlignment="Center" ToolTipService.ToolTip="Nummeret for denne proces"/>
+                        <Grid Column="10" Row="" RowSpan="2">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
-                                <TextBlock
-                                    Text="1592727"
+                                <TextBox 
                                     Height="30"  
                                     Width="70"
-                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7,10,0,0"/>
-
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.TapOperatorMoments[1].Moment, Mode=TwoWay}"/>
                             </Border>
+                            <TextBlock Text="Præform" />
                         </Grid>
-
 
                         <Grid Grid.Column="10" Grid.Row="2" Grid.RowSpan="2">
                             <TextBlock Text="Færdigvare #" Height="90" HorizontalAlignment="Center" ToolTipService.ToolTip="Koden for det færdige produkt"/>
@@ -556,8 +555,9 @@
 
                         <Grid Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Heuft Låg" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Læs vejledning for Heuft maskineri" Margin="95,0,154,29" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Læs vejledning for Heuft maskineri" Margin="95,0,3,29" Grid.Row="4"/>
+
 
                         <Grid Grid.Column="0" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -566,8 +566,9 @@
 
                         <Grid Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Fyldehøjde" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek at fyldehøjden er normal" Grid.ColumnSpan="2" Grid.Column="2" Margin="102,0,121,31" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek at fyldehøjden er normal" Grid.ColumnSpan="2" Grid.Column="2" Margin="102,0,121,31" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
                         <Grid Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -576,8 +577,9 @@
 
                         <Grid Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Smags Test"  HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Smag på produktet" Grid.ColumnSpan="2" Grid.Column="4" Margin="107,0,120,28" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Smag på produktet" Grid.ColumnSpan="2" Grid.Column="4" Margin="107,0,120,28" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
                         <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -622,8 +624,9 @@
 
                         <Grid Grid.Column="6" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Sukker Tjek" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør sukker stick testen" Grid.ColumnSpan="2" Grid.Column="6" Margin="107,0,120,26" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør sukker stick testen" Grid.ColumnSpan="2" Grid.Column="6" Margin="107,0,120,26" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
                         <Grid Grid.Column="6" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -632,8 +635,9 @@
 
                         <Grid Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Drop Test" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør droptesten på dropmaskinen" Grid.Column="8" Margin="97,0,7,30" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                         </Grid>
-                        <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør droptesten på dropmaskinen" Grid.Column="8" Margin="97,0,7,30" Grid.Row="4" SelectionChanged="TextBlock_SelectionChanged" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
 
                         <Grid Grid.Column="8" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
@@ -646,6 +650,7 @@
 
                         <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
                             <TextBlock Text="   Kontrolvejning" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="8" Grid.RowSpan="1">
@@ -656,7 +661,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Første kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot1, Mode=TwoWay}" PlaceholderText="1."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[0].Weight, Mode=TwoWay}" PlaceholderText="1."/>
                             </Border>
                         </Grid>
 
@@ -668,7 +673,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Anden kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="2."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[1].Weight, Mode=TwoWay}" PlaceholderText="2."/>
                             </Border>
                         </Grid>
 
@@ -681,7 +686,7 @@
                                     BorderThickness="0"
                                     ToolTipService.ToolTip="Tredje kontrolvejning"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="3."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[2].Weight, Mode=TwoWay}" PlaceholderText="3."/>
                             </Border>
                         </Grid>
 
@@ -694,7 +699,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Fjerde kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="4."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[3].Weight, Mode=TwoWay}" PlaceholderText="4."/>
                             </Border>
                         </Grid>
 
@@ -707,7 +712,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Femte kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="5."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[4].Weight, Mode=TwoWay}" PlaceholderText="5."/>
                             </Border>
                         </Grid>
 
@@ -720,7 +725,7 @@
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
                                     ToolTipService.ToolTip="Sjette kontrolvejning"
-                                    Text="{Binding bot2, Mode=TwoWay}" PlaceholderText="6."/>
+                                    Text="{Binding ViewModel.Save.FluidWeightControls[5].Weight, Mode=TwoWay}" PlaceholderText="6."/>
                             </Border>
                         </Grid>
 
@@ -745,7 +750,7 @@
                             <Button Content="Væskekode" Width="100" Height="30" HorizontalAlignment="Center" ToolTipService.ToolTip="Vælg et produkt" Background="#19000000">
                                 <Button.Flyout>
                                     <MenuFlyout x:Name="MenuFlyoutVæskeKode">
-                                        <ToggleMenuFlyoutItem Text="SKON"/>
+                                        <ToggleMenuFlyoutItem Text="SKON" />
                                         <ToggleMenuFlyoutItem Text="SKOS"/>
                                         <ToggleMenuFlyoutItem Text="SMAG"/>
                                         <ToggleMenuFlyoutItem Text="SGIN"/>
@@ -771,7 +776,7 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Bottom"
                         Command="{Binding ViewModel.Save.SaveCommand}"/>
-                    <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " Margin="131,388,1251,172" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
                 </Grid>
 
             </Grid>

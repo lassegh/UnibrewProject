@@ -12,14 +12,14 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
     public class FluidWeightControl : INotifyPropertyChanged
     {
-        public string _vejning;
+        private string _weight;
 
-        public string Vejning
+        public string Weight
         {
-            get { return _vejning; }
+            get { return _weight; }
             set
             {
-                _vejning = value;
+                _weight = value;
                 Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
