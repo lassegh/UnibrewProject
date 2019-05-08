@@ -322,7 +322,7 @@
 
                         <Grid Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3">
                             <TextBlock Text="   Tilspændingsmoment" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
-                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,120,0" />
                         </Grid>
 
 
@@ -524,30 +524,54 @@
                             </Border>
                         </Grid>
 
-                        <Grid Column="10" Row="" RowSpan="2">
+                        <Grid Column="10" Row="0" RowSpan="2">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
                                 <TextBox 
                                     Height="30"  
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.TapOperatorMoments[1].Moment, Mode=TwoWay}"/>
+                                    Text="{Binding ViewModel.Save.TapOp.ProcessNumber, Mode=TwoWay}"/>
                             </Border>
-                            <TextBlock Text="Præform" />
+                            <TextBlock Text="Process Ordre #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
                         </Grid>
 
-                        <Grid Grid.Column="10" Grid.Row="2" Grid.RowSpan="2">
-                            <TextBlock Text="Færdigvare #" Height="90" HorizontalAlignment="Center" ToolTipService.ToolTip="Koden for det færdige produkt"/>
+
+                        <Grid Column="10" Row="2" RowSpan="2">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
-                                <TextBlock
-                                    Text="7879"
+                                <TextBox 
                                     Height="30"  
                                     Width="70"
-                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="26,10,0,0"/>
-
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.FinishedItems.FinishedItemNumber, Mode=TwoWay}"/>
                             </Border>
+                            <TextBlock Text="Færdigvare #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
                         </Grid>
 
+                        <Grid Column="10" Row="4" RowSpan="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.TapOp.PreformMaterialNo, Mode=TwoWay}"/>
+                            </Border>
+                            <TextBlock Text="Præform #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                        </Grid>
+
+                        <Grid Column="10" Row="6" RowSpan="2">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBox 
+                                    Height="30"  
+                                    Width="70"
+                                    BorderThickness="0"
+                                    KeyDown="KeyDownEventHandler"
+                                    Text="{Binding ViewModel.Save.TapOp.LidMaterialNo, Mode=TwoWay}"/>
+                            </Border>
+                            <TextBlock Text="Skruelågs #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                        </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="11">
                             <Border BorderThickness="2" BorderBrush="Black" CornerRadius="1" Padding="20" Height="1" Width="1000" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0"/>
@@ -561,7 +585,8 @@
 
                         <Grid Grid.Column="0" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftLid, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3">
@@ -572,7 +597,8 @@
 
                         <Grid Grid.Column="2" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftFillingHeight, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="4" Grid.Row="4" Grid.ColumnSpan="3">
@@ -583,7 +609,8 @@
 
                         <Grid Grid.Column="4" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      IsChecked="{Binding ViewModel.Save.TapOp.ProductTasted, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="4" Grid.Row="5" Grid.RowSpan="2">
@@ -630,7 +657,8 @@
 
                         <Grid Grid.Column="6" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      IsChecked="{Binding ViewModel.Save.TapOp.SukkerStickTest, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3">
@@ -641,7 +669,8 @@
 
                         <Grid Grid.Column="8" Grid.Row="4" Grid.RowSpan="2">
                             <TextBlock Text="OK?" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="15,0,0,0"/>
-                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"/>
+                            <CheckBox HorizontalAlignment="Center" Margin="0,0,-130,0" ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      IsChecked="{Binding ViewModel.Save.TapOp.DropTest, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="11">
@@ -650,7 +679,7 @@
 
                         <Grid Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="3">
                             <TextBlock Text="   Kontrolvejning" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
-                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" />
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,50,0" />
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="8" Grid.RowSpan="1">
@@ -730,7 +759,7 @@
                         </Grid>
 
 
-                        <Grid Grid.Column="1" Grid.Row="9" Grid.RowSpan="1">
+                        <Grid Grid.Column="6" Grid.Row="8" Grid.RowSpan="1">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
                                 <TextBlock
                                     Text="1547,5"
@@ -742,30 +771,27 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="0" Grid.Row="9" Grid.RowSpan="1" Margin="50,0,0,0">
+                        <Grid Grid.Column="6" Grid.Row="7" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Bottom">
                             <TextBlock Text="Gn.snit"  HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Center" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="60,0,0,0" />
                         </Grid>
 
-                        <Grid Grid.Column="6" Grid.Row="8" Grid.RowSpan="1">
-                            <Button Content="Væskekode" Width="100" Height="30" HorizontalAlignment="Center" ToolTipService.ToolTip="Vælg et produkt" Background="#19000000">
-                                <Button.Flyout>
-                                    <MenuFlyout x:Name="MenuFlyoutVæskeKode">
-                                        <ToggleMenuFlyoutItem Text="SKON" />
-                                        <ToggleMenuFlyoutItem Text="SKOS"/>
-                                        <ToggleMenuFlyoutItem Text="SMAG"/>
-                                        <ToggleMenuFlyoutItem Text="SGIN"/>
-                                        <ToggleMenuFlyoutItem Text="SFKS"/>
-                                        <ToggleMenuFlyoutItem Text="SKFR"/>
-                                        <ToggleMenuFlyoutItem Text="SMAX"/>
-                                        <ToggleMenuFlyoutItem Text="SMXL"/>
-                                    </MenuFlyout>
-                                </Button.Flyout>
-                            </Button>
-
-
-
+                        <Grid Grid.Column="8" Grid.Row="7" Grid.ColumnSpan="3">
+                            <TextBlock Text="Væske Kode" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Bottom" Margin="0,0,0,0"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind " HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,110,0" />
                         </Grid>
 
+                        <Grid Grid.Column="8" Grid.Row="8" Grid.RowSpan="1">
+                            <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
+                                <TextBlock
+                                    Text="{Binding ViewModel.Save.FinishedItems., Mode=TwoWay}" 
+                                    Height="30"  
+                                    Width="70"
+                                    ToolTipService.ToolTip="Væske koden for det specifikke færdigvare #"
+                                    KeyDown="KeyDownEventHandler" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,10,0,0"/>
+
+                            </Border>
+                        </Grid>
                     </Grid>
                 </Grid>
 
