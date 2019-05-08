@@ -41,6 +41,11 @@ namespace UnibrewProject
             ViewModel.Save.AutoSaveTimer.StartTimer();
         }
 
-        public InputColSevenViewModel ViewModel { get; set; }   
+        public InputColSevenViewModel ViewModel { get; set; }
+
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
