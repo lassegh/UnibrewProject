@@ -86,5 +86,9 @@ namespace UnibrewREST
         public string Operator { get; set; }
 
         public int? ProcessNumber { get; set; }
+
+        public virtual LiquidTanks LiquidTanks { get; set; }
+
+        public virtual ProcessingItems ProcessingItems { get; set; }
     }
 }
