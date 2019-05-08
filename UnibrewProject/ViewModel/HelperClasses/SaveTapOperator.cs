@@ -61,9 +61,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 weight.Weight = "";
             }
 
-            PreformNumber = "";
+            TapOp.PreformMaterialNo = "";
 
-            LidNumber = "";
+            TapOp.LidMaterialNo = "";
             
 
             // Stopper timer
@@ -120,10 +120,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Weight5 = bottleWeight[4];
             TapOp.Weight6 = bottleWeight[5];
 
-            TapOp.PreformMaterialNo = PreformNumber;
-            TapOp.LidMaterialNo = LidNumber;
-
-            TapOp.ProcessNumber = Convert.ToInt32(ProcessNumber);
+            TapOp.PreformMaterialNo = TapOp.PreformMaterialNo;
+            TapOp.LidMaterialNo = TapOp.LidMaterialNo;
+            TapOp.ProcessNumber = TapOp.ProcessNumber;
         }
 
         private void PostSaveMethod()
