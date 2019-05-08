@@ -14,7 +14,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
     {
         private static string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
 
-        public static bool Post(TESTmoment momenter)
+        public static bool Post(TapOperator tapOp)
         {
             bool connectionOk = false;
             
@@ -23,7 +23,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 
             using (HttpClient client = new HttpClient(handler))
             {
-                String jsonStr = JsonConvert.SerializeObject(momenter);
+                String jsonStr = JsonConvert.SerializeObject(tapOp);
                 StringContent content = new StringContent(jsonStr, Encoding.ASCII, "application/json");
 
                 try
@@ -36,8 +36,8 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
                         //Fetch object.id
                         connectionOk = true;
                         //jsonString = resp.Headers.Location;
-                        Task<TESTmoment> jsonStrings = resp.Content.ReadAsAsync<TESTmoment>(); //right!
-                        MomentID = jsonStrings.Result.Id; //JsonConvert.DeserializeObject<TESTmoment>(jsonStrings).Id;
+                        Task<TapOperator> jsonStrings = resp.Content.ReadAsAsync<TapOperator>(); //right!
+                        TapOperatorId = jsonStrings.Result.ID; //JsonConvert.DeserializeObject<TESTmoment>(jsonStrings).Id;
                     }
                 }
                 catch (Exception e)
@@ -50,13 +50,13 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             return connectionOk;
         }
 
-        public static bool Put(TESTmoment tMoment, int id)
+        public static bool Put(TapOperator tapOp, int id)
         {
             bool ok = true;
 
             using (HttpClient client = new HttpClient())
             {
-                String jsonStr = JsonConvert.SerializeObject(tMoment);
+                String jsonStr = JsonConvert.SerializeObject(tapOp);
                 StringContent content = new StringContent(jsonStr, Encoding.UTF8, "application/json");
 
                 try
@@ -76,7 +76,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             return ok;
         }
 
-        public static int MomentID { get; set; }
+        public static int TapOperatorId { get; set; }
 
     }
 }
