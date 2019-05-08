@@ -10,7 +10,7 @@ using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
-    public static class DbCommunication
+    public static class DbComTapOperator
     {
         private static readonly string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
 
