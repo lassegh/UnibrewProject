@@ -32,7 +32,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 TapOperatorMoments[i] = new TapOperatorMoment();
             }
-            Tmoment = new TESTmoment();
+            TapOp = new TapOperator();
             _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
@@ -47,7 +47,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             _saveToDbMethod = PostSaveMethod;
             
             //Nulstil objeckt af TESTmoment
-            Tmoment = new TESTmoment();
+            TapOp = new TapOperator();
 
             // Slet indtastninger i view
             foreach (TapOperatorMoment moment in TapOperatorMoments)
@@ -73,30 +73,52 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
             }
             
-            Tmoment.Bottle01 = bottleMoments[0];
-            Tmoment.Bottle02 = bottleMoments[1];
-            Tmoment.Bottle03 = bottleMoments[2];
-            Tmoment.Bottle04 = bottleMoments[3];
-            Tmoment.Bottle05 = bottleMoments[4];
-            Tmoment.Bottle06 = bottleMoments[5];
-            Tmoment.Bottle07 = bottleMoments[6];
-            Tmoment.Bottle08 = bottleMoments[7];
-            Tmoment.Bottle09 = bottleMoments[8];
-            Tmoment.Bottle10 = bottleMoments[9];
-            Tmoment.Bottle11 = bottleMoments[10];
-            Tmoment.Bottle12 = bottleMoments[11];
-            Tmoment.Bottle13 = bottleMoments[12];
-            Tmoment.Bottle14 = bottleMoments[13];
-            Tmoment.Bottle15 = bottleMoments[14];
+            TapOp.Bottle1 = bottleMoments[0];
+            TapOp.Bottle2 = bottleMoments[1];
+            TapOp.Bottle3 = bottleMoments[2];
+            TapOp.Bottle4 = bottleMoments[3];
+            TapOp.Bottle5 = bottleMoments[4];
+            TapOp.Bottle6 = bottleMoments[5];
+            TapOp.Bottle7 = bottleMoments[6];
+            TapOp.Bottle8 = bottleMoments[7];
+            TapOp.Bottle9 = bottleMoments[8];
+            TapOp.Bottle10 = bottleMoments[9];
+            TapOp.Bottle11 = bottleMoments[10];
+            TapOp.Bottle12 = bottleMoments[11];
+            TapOp.Bottle13 = bottleMoments[12];
+            TapOp.Bottle14 = bottleMoments[13];
+            TapOp.Bottle15 = bottleMoments[14];
+
+
+
+            double[] bottleWeight = new double[6];
+
+            for (int i = 0; i < FluidWeightControls.Length; i++)
+            {
+                if (FluidWeightControls[i].Vejning == null) bottleWeight[i] = 0;
+                {
+                    FluidWeightControls[i].Vejning = FluidWeightControls[i].Vejning.Replace(',', '.');
+                    if (!double.TryParse(FluidWeightControls[i].Vejning, out bottleWeight[i])) bottleWeight[i] = 0;
+                }
+        
+            }
+
+            TapOp.Weight1 = bottleWeight[0];
+            TapOp.Weight2 = bottleWeight[1];
+            TapOp.Weight3 = bottleWeight[2];
+            TapOp.Weight4 = bottleWeight[3];
+            TapOp.Weight5 = bottleWeight[4];
+            TapOp.Weight6 = bottleWeight[5];
+            
         }
 
         private void PostSaveMethod()
         {
             PrepareSave();
-            Tmoment.DateTime = DateTime.Now;
-            if (DbCommunication.Post(Tmoment))
+            TapOp.ClockDate = DateTime.Now;
+            if (DbCommunication.Post(TapOp))
             {
-                Tmoment.Id = DbCommunication.MomentID;
+                TapOp.ID = DbCommunication.TapOperatorId;
             }
             else
             {
@@ -109,14 +131,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            DbCommunication.Put(Tmoment, Tmoment.Id);
+            DbCommunication.Put(TapOp, TapOp.ID);
         }
 
 
-        public TESTmoment Tmoment { get; set; }
+        public TapOperator TapOp { get; set; }
         public RelayCommand SaveCommand { get; set; }
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
+        public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
 
         public SaveToDbMethod SAveToDbMethod
         {
