@@ -533,7 +533,7 @@
                                     KeyDown="KeyDownEventHandler"
                                     Text="{Binding ViewModel.Save.TapOp.ProcessNumber, Mode=TwoWay}"/>
                             </Border>
-                            <TextBlock Text="Process Ordre #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                            <TextBlock Text="Process Ordre #" VerticalAlignment="Top" HorizontalAlignment="Center" Height="20" />
                         </Grid>
 
 
@@ -546,7 +546,7 @@
                                     KeyDown="KeyDownEventHandler"
                                     Text="{Binding ViewModel.FinishedItemNumber, Mode=TwoWay}"/>
                             </Border>
-                            <TextBlock Text="Færdigvare #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                            <TextBlock Text="Færdigvare #" VerticalAlignment="Top" HorizontalAlignment="Center" Height="20" />
                         </Grid>
 
                         <Grid Column="10" Row="4" RowSpan="2">
@@ -558,7 +558,7 @@
                                     KeyDown="KeyDownEventHandler"
                                     Text="{Binding ViewModel.Save.TapOp.PreformMaterialNo, Mode=TwoWay}"/>
                             </Border>
-                            <TextBlock Text="Præform #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                            <TextBlock Text="Præform #" VerticalAlignment="Top" HorizontalAlignment="Center" Height="20" />
                         </Grid>
 
                         <Grid Column="10" Row="6" RowSpan="2">
@@ -570,7 +570,7 @@
                                     KeyDown="KeyDownEventHandler"
                                     Text="{Binding ViewModel.Save.TapOp.LidMaterialNo, Mode=TwoWay}"/>
                             </Border>
-                            <TextBlock Text="Skruelågs #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
+                            <TextBlock Text="Skruelågs #" VerticalAlignment="Top" HorizontalAlignment="Center" Height="20" />
                         </Grid>
 
                         <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="11">
@@ -663,7 +663,7 @@
 
                         <Grid Grid.Column="8" Grid.Row="4" Grid.ColumnSpan="3">
                             <TextBlock Text="   Drop Test" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="SemiLight" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="Black" VerticalAlignment="Top" Margin="0,0,0,0"/>
-                            <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør droptesten på dropmaskinen" Grid.Column="8" Margin="97,0,7,30" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                            <TextBlock Text="[?]" ToolTipService.ToolTip="Udfør droptesten på dropmaskinen" Margin="97,0,204,30"/>
                         </Grid>
 
 

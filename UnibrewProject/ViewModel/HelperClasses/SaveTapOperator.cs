@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
@@ -71,7 +72,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             TapOp.LidMaterialNo = "";
             
-
+    
             // Stopper timer
             AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
         }
@@ -130,6 +131,29 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.PreformMaterialNo = TapOp.PreformMaterialNo;
             TapOp.LidMaterialNo = TapOp.LidMaterialNo;
             TapOp.ProcessNumber = TapOp.ProcessNumber;
+
+            TapOp.HeuftLid = ConvertIntToByteArray(IsCheckBoxState(IsChecked_Lid));
+        }
+
+        public static byte[] ConvertIntToByteArray(int i)
+        {
+            return BitConverter.GetBytes(i);
+        }
+
+        private int IsCheckBoxState(bool checkBoxState)
+        {
+            int i;
+            
+            if (checkBoxState)
+            {
+                i = 1;
+            }
+            else
+            {
+                i = 0;
+            }
+
+            return i;
         }
 
         private void PostSaveMethod()
@@ -162,6 +186,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
         public  FinishedItems FinishedItems { get; set; }
 
+        public bool IsChecked_Lid { get; set; }
 
         public SaveToDbMethod SAveToDbMethod
         {
