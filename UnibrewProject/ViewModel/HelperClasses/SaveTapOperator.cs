@@ -135,20 +135,24 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.ProcessNumber = TapOp.ProcessNumber;
 
             TapOp.HeuftLid = BitConverter.GetBytes(IsCheckBoxState(IsCheckedLid));
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(TapOp.HeuftLid);
+            }
         }
 
 
-        private int IsCheckBoxState(bool checkBoxState)
+        private byte[] IsCheckBoxState(bool checkBoxState)
         {
-            int i;
+            byte[] i;
             
             if (checkBoxState)
             {
-                i = 1;
+                i = ;
             }
             else
             {
-                i = 0;
+                i = ;
             }
 
             return i;
