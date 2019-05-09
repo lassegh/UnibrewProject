@@ -53,7 +53,7 @@ namespace UnibrewProject.ViewModel
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public SaveTapOperator Save { get; set; } = SaveTapOperator.Save;
-        public DbComFinishedItems ComFinishedItems { get; set; } = DbComFinishedItems.ComFinishedItems;
+        public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
 
@@ -61,11 +61,6 @@ namespace UnibrewProject.ViewModel
         {
             get => _txtbxInputValid;
             set { _txtbxInputValid = value; OnPropertyChanged(); }
-        }
-        
-        private bool IsNullOrEmpty<T>(IEnumerable<T> enumerable)
-        {
-            return enumerable == null || !enumerable.Any();
         }
         
         public IEnumerable<FinishedItems> EnumerableFinishItems { get; set; }
@@ -79,7 +74,7 @@ namespace UnibrewProject.ViewModel
                 int i;
                 if (!int.TryParse(value, out i)) i = 0;
                 EnumerableFinishItems =
-                    ComFinishedItems.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
+                    ComGeneric.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
                 if (EnumerableFinishItems.ToList().Count == 0)
                 {
                     // TODO Advar mod ikke eksiterende færdigvarenummer
