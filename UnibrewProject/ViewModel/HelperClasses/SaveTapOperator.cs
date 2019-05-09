@@ -20,12 +20,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// Gem klasse.
     /// Til gem knap og automatisk gem
     /// </summary>
-    public class SaveTapOperator
+    public class SaveTapOperator : INotifyPropertyChanged
     {
         private static SaveTapOperator _save = null;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
-        
+
+        private bool _isChecked_Lid;
 
         private SaveTapOperator()
         {
@@ -132,13 +133,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.LidMaterialNo = TapOp.LidMaterialNo;
             TapOp.ProcessNumber = TapOp.ProcessNumber;
 
-            TapOp.HeuftLid = ConvertIntToByteArray(IsCheckBoxState(IsChecked_Lid));
+            TapOp.HeuftLid = BitConverter.GetBytes(IsCheckBoxState(IsCheckedLid));
         }
 
-        public static byte[] ConvertIntToByteArray(int i)
-        {
-            return BitConverter.GetBytes(i);
-        }
 
         private int IsCheckBoxState(bool checkBoxState)
         {
@@ -186,8 +183,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
         public  FinishedItems FinishedItems { get; set; }
 
-        public bool IsChecked_Lid { get; set; }
-
         public SaveToDbMethod SAveToDbMethod
         {
             get { return _saveToDbMethod; }
@@ -203,6 +198,24 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
                 return _save;
             }
+        }
+
+        public bool IsCheckedLid
+        {
+            get { return _isChecked_Lid; }
+            set
+            {
+                _isChecked_Lid = value; 
+                OnPropertyChanged();
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

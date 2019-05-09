@@ -12,8 +12,8 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
     public static class DbComTapOperator
     {
-        private static readonly string _restUrl = "https://quayzer.azurewebsites.net/api/testmoments";
-
+        private static readonly string _restUrl = "https://quayzer.azurewebsites.net/api/TapOperators";
+                
         public static bool Post(TapOperator tapOp)
         {
             bool connectionOk = false;
