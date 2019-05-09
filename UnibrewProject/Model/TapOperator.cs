@@ -52,7 +52,7 @@ namespace UnibrewProject.Model
 
         public double Bottle15 { get; set; }
 
-        public byte[] HeuftLid { get; set; }
+        public Byte HeuftLid { get; set; }
 
         public byte[] HeuftFillingHeight { get; set; }
 
