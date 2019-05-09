@@ -127,6 +127,12 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
                     if (resp.IsSuccessStatusCode)
                     {
                         ok = true;
+
+                        if (obj is TapOperator) // Hvis det er tapOperator der skriver, skal ID'et gemmes.
+                        {
+                            Task<TapOperator> jsonStrings = resp.Content.ReadAsAsync<TapOperator>(); //right!
+                            TapOperatorId = jsonStrings.Result.ID;
+                        }
                     }
                 }
                 catch (Exception e)
@@ -226,6 +232,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         }
 
         public List<FinishedItems> FinishedItemsList { get; set; }
+        public static int TapOperatorId { get; set; }
 
     }
 }
