@@ -52,15 +52,15 @@ namespace UnibrewProject.Model
 
         public double Bottle15 { get; set; }
 
-        public byte[] HeuftLid { get; set; }
+        public bool HeuftLid { get; set; }
 
-        public byte[] HeuftFillingHeight { get; set; }
+        public bool HeuftFillingHeight { get; set; }
 
-        public byte[] ProductTasted { get; set; }
+        public bool ProductTasted { get; set; }
 
-        public byte[] SukkerStickTest { get; set; }
+        public bool SukkerStickTest { get; set; }
 
-        public byte[] DropTest { get; set; }
+        public bool DropTest { get; set; }
 
         public double Weight1 { get; set; }
 

@@ -154,7 +154,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 i = ;
             }
-
+            
             return i;
         }
 

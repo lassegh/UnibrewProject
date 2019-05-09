@@ -233,7 +233,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         }
 
         public List<FinishedItems> FinishedItemsList { get; set; }
-        public List<LiquidTanks> LiquidTanksList { get; set; }
+        public IList<LiquidTanks> LiquidTanksList { get; set; }
         public int TapOperatorId { get; set; }
 
     }

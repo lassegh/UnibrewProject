@@ -52,20 +52,15 @@ namespace UnibrewREST
 
         public double? Bottle15 { get; set; }
 
-        [MaxLength(1)]
-        public byte[] HeuftLid { get; set; }
+        public bool HeuftLid { get; set; }
 
-        [MaxLength(1)]
-        public byte[] HeuftFillingHeight { get; set; }
+        public bool HeuftFillingHeight { get; set; }
 
-        [MaxLength(1)]
-        public byte[] ProductTasted { get; set; }
+        public bool ProductTasted { get; set; }
 
-        [MaxLength(1)]
-        public byte[] SukkerStickTest { get; set; }
+        public bool SukkerStickTest { get; set; }
 
-        [MaxLength(1)]
-        public byte[] DropTest { get; set; }
+        public bool DropTest { get; set; }
 
         public double? Weight1 { get; set; }
 

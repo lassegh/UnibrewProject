@@ -61,24 +61,19 @@ namespace UnibrewREST
                 .IsUnicode(false);
 
             modelBuilder.Entity<TapOperator>()
-                .Property(e => e.HeuftLid)
-                .IsFixedLength();
+                .Property(e => e.HeuftLid);
 
             modelBuilder.Entity<TapOperator>()
-                .Property(e => e.HeuftFillingHeight)
-                .IsFixedLength();
+                .Property(e => e.HeuftFillingHeight);
 
             modelBuilder.Entity<TapOperator>()
-                .Property(e => e.ProductTasted)
-                .IsFixedLength();
+                .Property(e => e.ProductTasted);
 
             modelBuilder.Entity<TapOperator>()
-                .Property(e => e.SukkerStickTest)
-                .IsFixedLength();
+                .Property(e => e.SukkerStickTest);
 
             modelBuilder.Entity<TapOperator>()
-                .Property(e => e.DropTest)
-                .IsFixedLength();
+                .Property(e => e.DropTest);
 
             modelBuilder.Entity<TapOperator>()
                 .Property(e => e.Comments)
