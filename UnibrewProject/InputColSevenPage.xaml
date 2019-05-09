@@ -544,7 +544,7 @@
                                     Width="70"
                                     BorderThickness="0"
                                     KeyDown="KeyDownEventHandler"
-                                    Text="{Binding ViewModel.Save.FinishedItems.FinishedItemNumber, Mode=TwoWay}"/>
+                                    Text="{Binding ViewModel.FinishedItemNumber, Mode=TwoWay}"/>
                             </Border>
                             <TextBlock Text="Færdigvare #" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="98" />
                         </Grid>
@@ -783,8 +783,7 @@
 
                         <Grid Grid.Column="8" Grid.Row="8" Grid.RowSpan="1">
                             <Border BorderThickness="1" BorderBrush="Black" CornerRadius="10" Padding="2" Height="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12,0,0,0">
-                                <TextBlock
-                                    Text="{Binding ViewModel.Save.FinishedItems., Mode=TwoWay}" 
+                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.LiquidNumber , Mode=TwoWay}" 
                                     Height="30"  
                                     Width="70"
                                     ToolTipService.ToolTip="Væske koden for det specifikke færdigvare #"

@@ -32,6 +32,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 TapOperatorMoments[i] = new TapOperatorMoment();
             }
+
+            for (int i = 0; i < FluidWeightControls.Length; i++)
+            {
+                FluidWeightControls[i] = new FluidWeightControl();
+            }
+
             TapOp = new TapOperator();
             FinishedItems = new FinishedItems();
             _saveToDbMethod = PostSaveMethod;
@@ -106,6 +112,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             for (int i = 0; i < FluidWeightControls.Length; i++)
             {
                 if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
+                else
                 {
                     FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
                     if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;

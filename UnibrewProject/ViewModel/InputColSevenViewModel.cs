@@ -20,10 +20,9 @@ namespace UnibrewProject.ViewModel
 
         public double txt_out;
         private string _txtbxInputValid;
-        private IEnumerable<FinishedItems> _currentFinishedItem;
         private string _finishedItemNumber;
-        private DbComFinishedItems _dbComFinishedItems;
-        
+        private FinishedItems _currentFinishedItem;
+
         public InputColSevenViewModel()
         {
             Slider = new MenuSlider();
@@ -36,7 +35,7 @@ namespace UnibrewProject.ViewModel
         {
             RoutedEventArgs args = parameter as RoutedEventArgs;
             TextBlock box = args?.OriginalSource as TextBlock;
-            
+
             if (double.TryParse(Save.TapOperatorMoments[0].Moment, out txt_out))
             {
                 txtbx_inputValid = "";
@@ -46,15 +45,15 @@ namespace UnibrewProject.ViewModel
             {
                 txtbx_inputValid = "*";
             }
-            
+
 
             _txtbxInputValid = box?.Text;
-
         }
 
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public SaveTapOperator Save { get; set; } = SaveTapOperator.Save;
+        public DbComFinishedItems ComFinishedItems { get; set; } = DbComFinishedItems.ComFinishedItems;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
 
@@ -63,16 +62,13 @@ namespace UnibrewProject.ViewModel
             get => _txtbxInputValid;
             set { _txtbxInputValid = value; OnPropertyChanged(); }
         }
-
-        public IEnumerable<FinishedItems> CurrentFinishedItem
+        
+        private bool IsNullOrEmpty<T>(IEnumerable<T> enumerable)
         {
-            get { return _currentFinishedItem; }
-            set
-            {
-                _currentFinishedItem = value;
-                OnPropertyChanged();
-            }
+            return enumerable == null || !enumerable.Any();
         }
+        
+        public IEnumerable<FinishedItems> EnumerableFinishItems { get; set; }
 
         public string FinishedItemNumber
         {
@@ -82,7 +78,27 @@ namespace UnibrewProject.ViewModel
                 _finishedItemNumber = value;
                 int i;
                 if (!int.TryParse(value, out i)) i = 0;
-                CurrentFinishedItem = _dbComFinishedItems.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
+                EnumerableFinishItems =
+                    ComFinishedItems.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
+                if (EnumerableFinishItems.ToList().Count == 0)
+                {
+                    // TODO Advar mod ikke eksiterende færdigvarenummer
+                    CurrentFinishedItem = new FinishedItems();
+                }
+                else
+                {
+                    CurrentFinishedItem = EnumerableFinishItems.First();
+                }
+            }
+        }
+
+        public FinishedItems CurrentFinishedItem
+        {
+            get { return _currentFinishedItem; }
+            set
+            {
+                _currentFinishedItem = value;
+                OnPropertyChanged();
             }
         }
 
