@@ -19,6 +19,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         private DbComGeneric()
         {
             FinishedItemsList = GetAll<FinishedItems>();
+            LiquidTanksList = GetAll<LiquidTanks>();
         }
 
         private string GetUrl(Type obj)
@@ -232,6 +233,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         }
 
         public List<FinishedItems> FinishedItemsList { get; set; }
+        public List<LiquidTanks> LiquidTanksList { get; set; }
         public int TapOperatorId { get; set; }
 
     }
