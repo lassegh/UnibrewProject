@@ -33,6 +33,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 TapOperatorMoments[i] = new TapOperatorMoment();
             }
             TapOp = new TapOperator();
+            FinishedItems = new FinishedItems();
             _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
@@ -54,6 +55,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 moment.Moment = "";
             }
+
+            foreach (FluidWeightControl weight  in FluidWeightControls)
+            {
+                weight.Weight = "";
+            }
+
+            TapOp.PreformMaterialNo = "";
+
+            TapOp.LidMaterialNo = "";
+            
 
             // Stopper timer
             AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
@@ -108,7 +119,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Weight4 = bottleWeight[3];
             TapOp.Weight5 = bottleWeight[4];
             TapOp.Weight6 = bottleWeight[5];
-            
+
+            TapOp.PreformMaterialNo = TapOp.PreformMaterialNo;
+            TapOp.LidMaterialNo = TapOp.LidMaterialNo;
+            TapOp.ProcessNumber = TapOp.ProcessNumber;
         }
 
         private void PostSaveMethod()
@@ -139,9 +153,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
+        public  FinishedItems FinishedItems { get; set; }
 
-        public string PreformNumber { get; set; }
-        public string LidNumber { get; set; }
 
         public SaveToDbMethod SAveToDbMethod
         {
