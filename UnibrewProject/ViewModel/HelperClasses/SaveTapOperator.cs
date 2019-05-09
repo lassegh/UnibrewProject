@@ -177,7 +177,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            ComGeneric.Put<TapOperator>(TapOp.ID, );
+            ComGeneric.Put<TapOperator>(TapOp.ID, TapOp);
         }
 
 
