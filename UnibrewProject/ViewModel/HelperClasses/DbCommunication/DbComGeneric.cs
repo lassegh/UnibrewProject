@@ -232,7 +232,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         }
 
         public List<FinishedItems> FinishedItemsList { get; set; }
-        public static int TapOperatorId { get; set; }
+        public int TapOperatorId { get; set; }
 
     }
 }

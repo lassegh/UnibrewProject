@@ -12,6 +12,7 @@ using Windows.UI.Core;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
+using UnibrewProject.ViewModel.HelperClasses.DbCommunication;
 using UnibrewProject.ViewModel.HelperClasses.SaveClasses;
 
 namespace UnibrewProject.ViewModel.HelperClasses
@@ -157,9 +158,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             PrepareSave();
             TapOp.ClockDate = DateTime.Now;
-            if (DbComTapOperator.Post(TapOp))
+            if (ComGeneric.Post(TapOp))
             {
-                TapOp.ID = DbComTapOperator.TapOperatorId;
+                TapOp.ID = ComGeneric.TapOperatorId;
             }
             else
             {
@@ -172,7 +173,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            DbComTapOperator.Put(TapOp, TapOp.ID);
+            ComGeneric.Put<TapOperator>(TapOp.ID, );
         }
 
 
@@ -182,6 +183,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
         public  FinishedItems FinishedItems { get; set; }
+
+        public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
         public SaveToDbMethod SAveToDbMethod
         {
