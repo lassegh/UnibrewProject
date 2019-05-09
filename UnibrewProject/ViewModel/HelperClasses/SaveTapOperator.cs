@@ -137,8 +137,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.HeuftLid = (IsCheckBoxState(IsCheckedLid));
 
         }
-
-
+        
         private bool IsCheckBoxState(bool checkBoxState)
         {
             bool i;
