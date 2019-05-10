@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.ApplicationModel.Core;
+using Windows.UI;
 using Windows.UI.ViewManagement;
 
 namespace UnibrewProject
@@ -43,9 +44,9 @@ namespace UnibrewProject
         {
             Frame rootFrame = Window.Current.Content as Frame;
 
-            var titleBar = CoreApplication.GetCurrentView().TitleBar;
-            titleBar.ExtendViewIntoTitleBar = true;
-
+            var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            
             
 
             // Do not repeat app initialization when the Window already has content,
