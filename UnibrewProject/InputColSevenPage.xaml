@@ -359,7 +359,7 @@
                                          PlaceholderText="1. (mm)">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="LostFocus">
-                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}"/>
                                         </core:EventTriggerBehavior>
                                     </interactivity:Interaction.Behaviors>
 
@@ -917,69 +917,14 @@
                                       PlaceholderText="Vælg Tank"
                                       Height="30"
                                       BorderBrush="#19000000"
-                                      Background="#FFBDBADC">
-                                <x:String>Kolonne 1</x:String>
-                                <x:String>Kolonne 2</x:String>
-                                <x:String>Kolonne 3</x:String>
-                                <x:String>Kolonne 4</x:String>
-                                <x:String>Kolonne 5</x:String>
-                                <x:String>Kolonne 6</x:String>
-                                <x:String>Kolonne 7</x:String>
+                                      Background="#FFBDBADC"
+                                      ItemsSource="{Binding ViewModel.ComGeneric.LiquidTanksList}" DisplayMemberPath="Name">
+                                <interactivity:Interaction.Behaviors>
+                                    <core:EventTriggerBehavior EventName="SelectionChanged">
+                                        <core:InvokeCommandAction Command="{Binding ViewModel.LiquidTankCommand}" CommandParameter=""/>
+                                    </core:EventTriggerBehavior>
+                                </interactivity:Interaction.Behaviors>
                             </ComboBox>
-                                        <!--
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[1].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[1].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[2].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[2].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[3].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[3].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[4].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[4].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[5].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[5].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[6].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[6].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[7].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[7].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[8].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[8].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[9].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[9].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[10].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[10].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[11].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[11].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[12].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[12].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[13].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[13].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[14].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[14].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[15].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[15].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[16].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[16].Name}" />
-                                        <ToggleMenuFlyoutItem Text="{Binding ViewModel.ComGeneric.LiquidTanksList[17].Name}"
-                                                              Command="{Binding ViewModel.LiquidTankCommand}"
-                                                              CommandParameter="{Binding ViewModel.ComGeneric.LiquidTanksList[17].Name}" />
-                                        -->
-
                         </Grid>
 
                         <Grid Grid.Column="6"
