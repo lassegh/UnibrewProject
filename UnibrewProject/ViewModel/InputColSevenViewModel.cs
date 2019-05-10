@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -28,7 +29,13 @@ namespace UnibrewProject.ViewModel
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
             RelayCommand_inputValid = new RelayCommand<object>(Execute);
+            LiquidTankCommand = new RelayCommand<string>(LiquidTankCommandMethod);
             _txtbxInputValid = "";
+        }
+
+        private void LiquidTankCommandMethod(string nameOfLiquidTank)
+        {
+            Debug.WriteLine(nameOfLiquidTank);
         }
 
         public void Execute(object parameter)
@@ -56,6 +63,7 @@ namespace UnibrewProject.ViewModel
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
+        public RelayCommand<string> LiquidTankCommand { get; set; }
 
         public string txtbx_inputValid
         {
