@@ -97,7 +97,7 @@
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0" />
 
-            <Grid Grid.Column="5"
+            <Grid Grid.Column="6"
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
@@ -122,29 +122,6 @@
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
-
-                <SymbolIcon Symbol="Setting"
-                            Margin="68,0,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center" />
-
-                <Ellipse Width="52"
-                         Height="52"
-                         HorizontalAlignment="Left"
-                         Fill="Black"
-                         Margin="10,9,0,8"
-                         VerticalAlignment="Stretch" />
-                <Ellipse HorizontalAlignment="Left"
-                         Height="50"
-                         VerticalAlignment="Center"
-                         Width="50"
-                         FocusVisualPrimaryThickness="2,2,2,2"
-                         RequestedTheme="Default"
-                         Margin="11,0,0,0">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/miggg.jpg" />
-                    </Ellipse.Fill>
-                </Ellipse>
             </Grid>
 
         </Grid>
