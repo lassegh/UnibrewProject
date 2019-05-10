@@ -29,13 +29,15 @@ namespace UnibrewProject.ViewModel
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
             RelayCommand_inputValid = new RelayCommand<object>(Execute);
-            LiquidTankCommand = new RelayCommand<string>(LiquidTankCommandMethod);
+            LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
             _txtbxInputValid = "";
         }
 
-        private void LiquidTankCommandMethod(string nameOfLiquidTank)
+        private void LiquidTankCommandMethod(object obj)
         {
-            Debug.WriteLine(nameOfLiquidTank);
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
+            LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;
+            Debug.WriteLine(liquidTank?.Name);
         }
 
         public void Execute(object parameter)
@@ -63,7 +65,7 @@ namespace UnibrewProject.ViewModel
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
-        public RelayCommand<string> LiquidTankCommand { get; set; }
+        public RelayCommand<object> LiquidTankCommand { get; set; }
 
         public string txtbx_inputValid
         {
