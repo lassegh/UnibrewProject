@@ -908,15 +908,11 @@
 
                         <Grid Grid.Column="4"
                               Grid.Row="5"
-                              Grid.RowSpan="2">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="73*" />
-                                <ColumnDefinition Width="10*" />
-                                <ColumnDefinition Width="44*" />
-                            </Grid.ColumnDefinitions>
-                            <ComboBox HorizontalAlignment="Center"
+                              Grid.RowSpan="2"
+                              Grid.ColumnSpan="2">
+                            <ComboBox HorizontalAlignment="Left"
                                       VerticalAlignment="Center"
-                                      Width="100"
+                                      Width="120"
                                       AllowDrop="True"
                                       PlaceholderText="Vælg Tank"
                                       Height="30"
