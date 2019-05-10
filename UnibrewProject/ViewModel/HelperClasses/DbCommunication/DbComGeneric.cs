@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Newtonsoft.Json;
 using UnibrewProject.Model;
 
@@ -24,23 +25,23 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
 
         private string GetUrl(Type obj)
         {
-            string url = "";
+            string url = "https://quayzer.azurewebsites.net/api/";
 
             if (obj == typeof(TapOperator))
             {
-                url = "https://quayzer.azurewebsites.net/api/tapoperators";
+                url = url + "tapoperators";
             }
             else if (obj == typeof(ProcessingItems))
             {
-                url = "https://quayzer.azurewebsites.net/api/processingitems";
+                url =  url + "processingitems";
             }
             else if (obj == typeof(LiquidTanks))
             {
-                url = "https://quayzer.azurewebsites.net/api/liquidtanks";
+                url = url + "liquidtanks";
             }
             else if (obj == typeof(FinishedItems))
             {
-                url = "https://quayzer.azurewebsites.net/api/finisheditems";
+                url = url + "finisheditems";
             }
 
             return url;
