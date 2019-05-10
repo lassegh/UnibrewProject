@@ -20,7 +20,7 @@
 
 
         <!-- Top Grid -->
-        <Grid Height="69">
+        <Grid Height="69" Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200" />
                 <ColumnDefinition Width="200" />
@@ -118,7 +118,7 @@
                            Foreground="White"
                            Margin="0,0,0,0" />
             </Grid>
-            <Grid Grid.Column="6"
+            <Grid Grid.Column="5"
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
@@ -180,7 +180,7 @@
                       HorizontalAlignment="Left">
                     <Rectangle>
                         <Rectangle.Fill>
-                            <SolidColorBrush Color="DarkSlateBlue" />
+                            <SolidColorBrush Color="#FF51516E" />
                         </Rectangle.Fill>
                     </Rectangle>
                 </Grid>
@@ -1371,6 +1371,7 @@
             </Grid>
 
         </Grid>
+        <Image/>
 
     </StackPanel>
 </Page>
