@@ -621,9 +621,9 @@
                             </Grid.ColumnDefinitions>
                             <Button Content="Vælg Tank" Width="100" Height="30" HorizontalAlignment="Center" ToolTipService.ToolTip="Vælg en tank" Background="#19000000" Grid.ColumnSpan="3" Margin="0,0,0,0" VerticalAlignment="Center">
                                 <Button.Flyout>
-                                    <MenuFlyout x:Name="MenuFlyout" Items="{Binding ViewModel.ComGeneric.LiquidTanksList, Mode=OneTime}">
+                                    <MenuFlyout x:Name="MenuFlyout">
                                     
-                                    <!--
+                                    
                                     
                                         <ToggleMenuFlyoutItem Text="KLDV-1"/>
                                         <ToggleMenuFlyoutItem Text="KLDV-2"/>
@@ -645,7 +645,7 @@
                                         <ToggleMenuFlyoutItem Text="B015"/>
 
                                     
-                                    -->
+                                    
                                     </MenuFlyout>
                                 </Button.Flyout>
                             </Button>
