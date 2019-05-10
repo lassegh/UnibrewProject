@@ -1,3 +1,7 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using UnibrewProject.Annotations;
+
 namespace UnibrewProject.Model
 {
     using System;
@@ -5,8 +9,15 @@ namespace UnibrewProject.Model
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TapOperator
+    public class TapOperator : INotifyPropertyChanged
     {
+
+        private bool _heuftLid;
+        private bool _heuftFillingHeight;
+        private bool _productTasted;
+        private bool _sukkerStickTest;
+        private bool _dropTest;
+
         public TapOperator()
         {
             ClockDate = DateTime.Now;
@@ -52,15 +63,55 @@ namespace UnibrewProject.Model
 
         public double Bottle15 { get; set; }
 
-        public bool HeuftLid { get; set; }
+        public bool HeuftLid
+        {
+            get { return _heuftLid; }
+            set
+            {
+                _heuftLid = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public bool HeuftFillingHeight { get; set; }
+        public bool HeuftFillingHeight
+        {
+            get { return _heuftFillingHeight; }
+            set
+            {
+                _heuftFillingHeight = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public bool ProductTasted { get; set; }
+        public bool ProductTasted
+        {
+            get { return _productTasted; }
+            set
+            {
+                _productTasted = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public bool SukkerStickTest { get; set; }
+        public bool SukkerStickTest
+        {
+            get { return _sukkerStickTest; }
+            set
+            {
+                _sukkerStickTest = value;
+                OnPropertyChanged();
+            }
+        }
 
-        public bool DropTest { get; set; }
+        public bool DropTest
+        {
+            get { return _dropTest; }
+            set
+            {
+                _dropTest = value;
+                OnPropertyChanged();
+            }
+        }
 
         public double Weight1 { get; set; }
 
@@ -83,5 +134,15 @@ namespace UnibrewProject.Model
         public virtual LiquidTanks LiquidTanks { get; set; }
 
         public virtual ProcessingItems ProcessingItems { get; set; }
+
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

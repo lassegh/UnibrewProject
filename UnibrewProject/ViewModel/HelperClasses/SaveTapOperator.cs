@@ -27,8 +27,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
 
-        private bool _isChecked_Lid;
-
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -70,13 +68,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 weight.Weight = "";
             }
 
-            TapOp.PreformMaterialNo = "";
 
-            TapOp.LidMaterialNo = "";
-            
-    
             // Stopper timer
-            AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
+            if (AutoSaveTimer.TimeSinceLastKeyDownTimer != null)
+            {
+                AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
+            }
         }
 
         private void PrepareSave()
@@ -134,25 +131,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.LidMaterialNo = TapOp.LidMaterialNo;
             TapOp.ProcessNumber = TapOp.ProcessNumber;
 
-            TapOp.HeuftLid = (IsCheckBoxState(IsCheckedLid));
-
         }
         
-        private bool IsCheckBoxState(bool checkBoxState)
-        {
-            bool i;
-            
-            if (checkBoxState)
-            {
-                i = true;
-            }
-            else
-            {
-                i = true;
-            }
-            
-            return i;
-        }
 
         private void PostSaveMethod()
         {
@@ -200,16 +180,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     _save = new SaveTapOperator();
                 }
                 return _save;
-            }
-        }
-
-        public bool IsCheckedLid
-        {
-            get { return _isChecked_Lid; }
-            set
-            {
-                _isChecked_Lid = value; 
-                OnPropertyChanged();
             }
         }
 
