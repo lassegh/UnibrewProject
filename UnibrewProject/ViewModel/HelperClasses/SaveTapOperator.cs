@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.UI.Core;
+using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
@@ -44,6 +45,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
+            LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
         }
 
         private void SaveCommandPush()
@@ -156,6 +158,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
             ComGeneric.Put<TapOperator>(TapOp.ID, TapOp);
         }
 
+        private void LiquidTankCommandMethod(object obj)
+        {
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
+            LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;
+            Debug.WriteLine(liquidTank?.Name);
+            TapOp.LiquidTank = liquidTank?.Name;
+        }
+
 
         public TapOperator TapOp { get; set; }
         public RelayCommand SaveCommand { get; set; }
@@ -163,6 +173,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
         public  FinishedItems FinishedItems { get; set; }
+        public RelayCommand<object> LiquidTankCommand { get; set; }
 
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 

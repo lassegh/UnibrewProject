@@ -681,6 +681,7 @@
                                          Width="70"
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
+                                         ToolTipService.ToolTip="Indtast process ordrenummeret"
                                          Text="{Binding ViewModel.Save.TapOp.ProcessNumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Process Ordre #"
@@ -705,6 +706,7 @@
                                          Width="70"
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
+                                         ToolTipService.ToolTip="Indtast færdigvarenummeret"
                                          Text="{Binding ViewModel.FinishedItemNumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Færdigvare #"
@@ -728,6 +730,7 @@
                                          Width="70"
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
+                                         ToolTipService.ToolTip="Indtast præformnummeret"
                                          Text="{Binding ViewModel.Save.TapOp.PreformMaterialNo, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Præform #"
@@ -751,6 +754,7 @@
                                          Width="70"
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
+                                         ToolTipService.ToolTip="Indtast skruelågsnummeret"
                                          Text="{Binding ViewModel.Save.TapOp.LidMaterialNo, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Skruelågs #"
@@ -902,7 +906,7 @@
                                        Margin="15,0,0,0" />
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
-                                      ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      ToolTipService.ToolTip="Hvis smagte som det skulle, sæt kryds i kassen"
                                       IsChecked="{Binding ViewModel.Save.TapOp.ProductTasted, Mode=TwoWay}"
                                       KeyDown="KeyDownEventHandler" />
                         </Grid>
@@ -929,7 +933,7 @@
 
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="SelectionChanged">
-                                        <core:InvokeCommandAction Command="{Binding ElementName=InputColSevenP, Path=ViewModel.LiquidTankCommand}" />
+                                        <core:InvokeCommandAction Command="{Binding ElementName=InputColSevenP, Path=ViewModel.Save.LiquidTankCommand}" />
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
 
@@ -977,7 +981,7 @@
                                        Margin="15,0,0,0" />
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
-                                      ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
+                                      ToolTipService.ToolTip="Hvis produktet er ok, sæt kryds i kassen"
                                       IsChecked="{Binding ViewModel.Save.TapOp.SukkerStickTest, Mode=TwoWay}"
                                       KeyDown="KeyDownEventHandler" />
                         </Grid>
@@ -1270,7 +1274,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Margin="12,0,0,0">
-                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.LiquidNumber , Mode=TwoWay}"
+                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.LiquidNumber}"
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Væske koden for det specifikke færdigvare #"
@@ -1281,6 +1285,95 @@
 
                             </Border>
                         </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="8"
+                              Grid.ColumnSpan="3"
+                              Grid.RowSpan="3">
+                            <TextBlock Text="   Vægt interval"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="20"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="Black"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,0,0" />
+                            <TextBlock Text="[?]"
+                                       ToolTipService.ToolTip="Vægten af de 6 flasker skal være indenfor dette interval"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,50,0" />
+                        </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="10"
+                              Grid.RowSpan="1">
+                            <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    CornerRadius="10"
+                                    Padding="2"
+                                    Height="35"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="12,0,0,0">
+                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMin}"
+                                           Height="30"
+                                           Width="70"
+                                           ToolTipService.ToolTip="Minimum vægt for den fyldte flaske"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="10,10,0,0" />
+
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="1"
+                              Grid.Row="10"
+                              Grid.RowSpan="1">
+                            <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    CornerRadius="10"
+                                    Padding="2"
+                                    Height="35"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="12,0,0,0">
+                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMiddle}"
+                                           Height="30"
+                                           Width="70"
+                                           ToolTipService.ToolTip="100% korrekt vægt for den fyldte flaske"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="10,10,0,0" />
+
+                            </Border>
+                        </Grid>
+
+                        <Grid Grid.Column="2"
+                              Grid.Row="10"
+                              Grid.RowSpan="1">
+                            <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    CornerRadius="10"
+                                    Padding="2"
+                                    Height="35"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="12,0,0,0">
+                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMax}"
+                                           Height="30"
+                                           Width="70"
+                                           ToolTipService.ToolTip="Maksimal vægt for den fyldte flaske"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           Margin="10,10,0,0" />
+
+                            </Border>
+                        </Grid>
+
                     </Grid>
                 </Grid>
 
