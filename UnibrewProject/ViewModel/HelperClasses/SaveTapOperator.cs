@@ -40,12 +40,17 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 FluidWeightControls[i] = new FluidWeightControl();
             }
 
-            TapOp = new TapOperator();
-            FinishedItems = new FinishedItems();
+            GenerateObjectsToBeSaved();
             _saveToDbMethod = PostSaveMethod;
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
             LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
+        }
+
+        private void GenerateObjectsToBeSaved()
+        {
+            TapOp = new TapOperator();
+            TapOp.ProcessingItems = new ProcessingItems();
         }
 
         private void SaveCommandPush()
@@ -57,7 +62,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             _saveToDbMethod = PostSaveMethod;
             
             //Nulstil objeckt af TESTmoment
-            TapOp = new TapOperator();
+            GenerateObjectsToBeSaved();
 
             // Slet indtastninger i view
             foreach (TapOperatorMoment moment in TapOperatorMoments)
@@ -172,7 +177,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
-        public  FinishedItems FinishedItems { get; set; }
         public RelayCommand<object> LiquidTankCommand { get; set; }
 
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;

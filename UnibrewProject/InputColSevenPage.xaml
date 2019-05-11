@@ -682,7 +682,7 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast process ordrenummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.ProcessNumber, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.TapOp.ProcessingItems.ProcessNumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Process Ordre #"
                                        VerticalAlignment="Top"
@@ -923,7 +923,7 @@
                                       Height="30"
                                       BorderBrush="#19000000"
                                       Background="#FFBDBADC"
-                                      ItemsSource="{Binding ViewModel.ComGeneric.LiquidTanksList}">
+                                      ItemsSource="{Binding ViewModel.Load.LiquidTanksList}">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}"></TextBlock>

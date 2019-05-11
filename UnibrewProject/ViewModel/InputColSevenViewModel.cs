@@ -56,7 +56,7 @@ namespace UnibrewProject.ViewModel
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public SaveTapOperator Save { get; set; } = SaveTapOperator.Save;
-        public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
+        public Loader Load { get; set; } = Loader.Load;
 
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
         
@@ -75,10 +75,12 @@ namespace UnibrewProject.ViewModel
             set
             {
                 _finishedItemNumber = value;
+                
                 int i;
                 if (!int.TryParse(value, out i)) i = 0;
+                Save.TapOp.ProcessingItems.FinishedItemNumber = i; // Sender færdigvarenummeret til objektet tapOp i save.
                 EnumerableFinishItems =
-                    ComGeneric.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
+                    Load.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
                 if (EnumerableFinishItems.ToList().Count == 0)
                 {
                     // TODO Advar mod ikke eksiterende færdigvarenummer
