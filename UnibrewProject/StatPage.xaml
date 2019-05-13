@@ -71,20 +71,13 @@
 
             <Grid Grid.Column="7" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0"/>
 
-            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
+            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
                 <TextBlock HorizontalAlignment="Center" Height="55" Text="Logged in as" TextWrapping="Wrap" VerticalAlignment="Bottom" FontSize="12" Foreground="Black" Margin="0,12,0,0"/>
                 <TextBlock HorizontalAlignment="Center" Height="40" Text="Michael Kastholm" TextWrapping="Wrap" VerticalAlignment="Bottom"  FontSize="18" Foreground="White" Margin="0,0,0,0"/>
             </Grid>
-            <Grid Grid.Column="6" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
+            <Grid Grid.Column="5" Background="#FF51516E" Padding="0,0,0,0" BorderThickness="0,0,0,0">
 
-                <SymbolIcon Symbol="Setting" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
-                <Ellipse Width="52" Height="52" HorizontalAlignment="Left" Fill="Black" Margin="9,9,0,8" VerticalAlignment="Stretch"/>
-                <Ellipse HorizontalAlignment="Left" Height="50" VerticalAlignment="Center" Width="50" FocusVisualPrimaryThickness="2,2,2,2" RequestedTheme="Default" Margin="10,0,0,0">
-                    <Ellipse.Fill>
-                        <ImageBrush ImageSource="/Assets/miggg.jpg"/>
-                    </Ellipse.Fill>
-                </Ellipse>
+                
             </Grid>
 
         </Grid>
