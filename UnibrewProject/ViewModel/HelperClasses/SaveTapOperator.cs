@@ -46,7 +46,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
             LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
-            ProItem = new ProcessingItems {TapOperator = new List<TapOperator>()};
+            ProItem = new ProcessingItems();
         }
 
         private void GenerateObjectsToBeSaved()
@@ -90,12 +90,11 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 ProItem = new ProcessingItems
                 {
-                    TapOperator = new List<TapOperator>(),
                     FinishedItemNumber = FinishNumber,
-                    ProcessNumber = Processnumber   
+                    ProcessNumber = Processnumber
                 };
             }
-
+            
             double[] bottleMoments = new double[15];
 
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -145,9 +144,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Weight5 = bottleWeight[4];
             TapOp.Weight6 = bottleWeight[5];
 
-            TapOp.PreformMaterialNo = TapOp.PreformMaterialNo;
-            TapOp.LidMaterialNo = TapOp.LidMaterialNo;
-            TapOp.ProcessNumber = TapOp.ProcessNumber;
+            TapOp.ProcessNumber = Processnumber;
         }
         
 
@@ -155,8 +152,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             PrepareSave();
             TapOp.ClockDate = DateTime.Now;
-            ProItem.TapOperator.Add(TapOp);
-            if (ComGeneric.Post(ProItem))
+            if (ComGeneric.Post(TapOp))
             {
                 TapOp.ID = ComGeneric.TapOperatorId;
             }
@@ -171,9 +167,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            ProItem.TapOperator.Remove(ProItem.TapOperator.Last());
-            ProItem.TapOperator.Add(TapOp);
-            if (!ComGeneric.Put(ProItem.ProcessNumber, ProItem))
+            if (!ComGeneric.Put(TapOp.ID, TapOp))
             {
                 // TODO meld fejl om kommunikaiton til server
             }
