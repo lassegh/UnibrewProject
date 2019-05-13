@@ -814,7 +814,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftLid, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedHeuftLid, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="2"
@@ -859,8 +859,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftFillingHeight, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedFillHeight, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -905,8 +904,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis smagte som det skulle, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.ProductTasted, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedProductTasted, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -980,8 +978,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis produktet er ok, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.SukkerStickTest, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedSugarTest, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="8"
@@ -1021,8 +1018,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.DropTest, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedDropTest, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="0"
