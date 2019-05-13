@@ -35,6 +35,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private bool _isCheckedSugarTest;
         private bool _isCheckedDropTest;
 
+        private string _comment;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -83,6 +85,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
 
             IsCheckedHeuftLid = false;
+
+            Comment = "";
             
 
             // Stopper timer
@@ -184,6 +188,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.ProductTasted = IsCheckedProductTasted;
             TapOp.SukkerStickTest = IsCheckedSugarTest;
             TapOp.DropTest = IsCheckedDropTest;
+
+            TapOp.Comments = Comment;
         }
         
 
@@ -308,6 +314,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
             set
             {
                 _isCheckedDropTest = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Comment
+        {
+            get { return _comment; }
+            set
+            {
+                _comment = value;
                 OnPropertyChanged();
             }
         }
