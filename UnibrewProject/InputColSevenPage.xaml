@@ -682,7 +682,7 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast process ordrenummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.ProcessingItems.ProcessNumber, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.Processnumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Process Ordre #"
                                        VerticalAlignment="Top"

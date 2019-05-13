@@ -78,7 +78,7 @@ namespace UnibrewProject.ViewModel
                 
                 int i;
                 if (!int.TryParse(value, out i)) i = 0;
-                Save.TapOp.ProcessingItems.FinishedItemNumber = i; // Sender færdigvarenummeret til objektet tapOp i save.
+                Save.FinishNumber = i; // Sender færdigvarenummeret til objektet tapOp i save.
                 EnumerableFinishItems =
                     Load.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
                 if (EnumerableFinishItems.ToList().Count == 0)

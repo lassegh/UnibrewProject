@@ -24,7 +24,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
 
         private string GetUrl(Type obj)
         {
-            string url = "https://quayzer.azurewebsites.net/api/";
+            string url = "https://quayzer.azurewebsites.net/api/"; //"http://localhost:58755/api/";//
 
             if (obj == typeof(TapOperator))
             {
@@ -152,10 +152,11 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         /// Opdaterer et eksisterende objekt i tabellen
         /// </summary>
         /// <typeparam name="T">Type af objekt</typeparam>
+        /// <typeparam name="TId">Type af ID</typeparam>
         /// <param name="id">ID på objekt</param>
         /// <param name="obj">Objektet, der skal opdateres</param>
         /// <returns>Successful bool</returns>
-        public bool Put<T>(int id, T obj)
+        public bool Put<TId, T>(TId id, T obj)
         {
             bool ok = false;
 
@@ -166,6 +167,10 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
 
                 try
                 {
+                    /*if (id is string)
+                    {
+                        
+                    }*/
                     Task<HttpResponseMessage> putAsync = client.PutAsync(GetUrl(typeof(T)) + "/" + id, content);
 
                     HttpResponseMessage resp = putAsync.Result;

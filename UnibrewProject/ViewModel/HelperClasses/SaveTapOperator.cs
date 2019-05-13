@@ -27,6 +27,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private static SaveTapOperator _save = null;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
+        private ProcessingItems _proItem;
 
         private SaveTapOperator()
         {
@@ -45,12 +46,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
             SaveCommand = new RelayCommand(SaveCommandPush);
             AutoSaveTimer = new AutoSaveTimer(this);
             LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
+            ProItem = new ProcessingItems {TapOperator = new List<TapOperator>()};
         }
 
         private void GenerateObjectsToBeSaved()
         {
             TapOp = new TapOperator();
-            TapOp.ProcessingItems = new ProcessingItems();
         }
 
         private void SaveCommandPush()
@@ -85,6 +86,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private void PrepareSave()
         {
+            if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
+            {
+                ProItem = new ProcessingItems
+                {
+                    TapOperator = new List<TapOperator>(),
+                    FinishedItemNumber = FinishNumber,
+                    ProcessNumber = Processnumber   
+                };
+            }
+
             double[] bottleMoments = new double[15];
 
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -137,7 +148,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.PreformMaterialNo = TapOp.PreformMaterialNo;
             TapOp.LidMaterialNo = TapOp.LidMaterialNo;
             TapOp.ProcessNumber = TapOp.ProcessNumber;
-
         }
         
 
@@ -145,7 +155,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             PrepareSave();
             TapOp.ClockDate = DateTime.Now;
-            if (ComGeneric.Post(TapOp))
+            ProItem.TapOperator.Add(TapOp);
+            if (ComGeneric.Post(ProItem))
             {
                 TapOp.ID = ComGeneric.TapOperatorId;
             }
@@ -160,7 +171,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private void PutSaveMethod()
         {
             PrepareSave();
-            ComGeneric.Put<TapOperator>(TapOp.ID, TapOp);
+            ProItem.TapOperator.Remove(ProItem.TapOperator.Last());
+            ProItem.TapOperator.Add(TapOp);
+            if (!ComGeneric.Put(ProItem.ProcessNumber, ProItem))
+            {
+                // TODO meld fejl om kommunikaiton til server
+            }
+
+
         }
 
         private void LiquidTankCommandMethod(object obj)
@@ -172,12 +190,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
 
+        
         public TapOperator TapOp { get; set; }
         public RelayCommand SaveCommand { get; set; }
         public AutoSaveTimer AutoSaveTimer { get; set; }
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
         public RelayCommand<object> LiquidTankCommand { get; set; }
+        public int FinishNumber { get; set; }
+        public string Processnumber { get; set; }
 
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
@@ -195,6 +216,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     _save = new SaveTapOperator();
                 }
                 return _save;
+            }
+        }
+
+        public ProcessingItems ProItem
+        {
+            get { return _proItem; }
+            set
+            {
+                _proItem = value;
+
             }
         }
 
