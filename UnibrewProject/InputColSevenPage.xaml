@@ -680,7 +680,6 @@
                                 <TextBox Height="30"
                                          Width="70"
                                          BorderThickness="0"
-                                         KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast process ordrenummeret"
                                          Text="{Binding ViewModel.Save.Processnumber, Mode=TwoWay}" />
                             </Border>
@@ -705,7 +704,6 @@
                                 <TextBox Height="30"
                                          Width="70"
                                          BorderThickness="0"
-                                         KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast færdigvarenummeret"
                                          Text="{Binding ViewModel.FinishedItemNumber, Mode=TwoWay}" />
                             </Border>
@@ -1210,7 +1208,6 @@
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Gennemsnittet af kontrolvejningerne"
-                                           KeyDown="KeyDownEventHandler"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            Margin="10,10,0,0" />
@@ -1278,7 +1275,6 @@
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Væske koden for det specifikke færdigvare #"
-                                           KeyDown="KeyDownEventHandler"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Center"
                                            Margin="10,10,0,0" />

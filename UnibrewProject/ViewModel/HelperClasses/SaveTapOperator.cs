@@ -84,17 +84,42 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
-        private void PrepareSave()
+        private bool ProcessItemExists()
         {
+            bool exists = false;
+
             if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
             {
+                ProcessingItems comparableProcessingItemFromDb = ComGeneric.GetOne<ProcessingItems, string>(Processnumber);
                 ProItem = new ProcessingItems
                 {
                     FinishedItemNumber = FinishNumber,
                     ProcessNumber = Processnumber
                 };
+                if (comparableProcessingItemFromDb == null)
+                {
+                    if (!ComGeneric.Post(ProItem))
+                    {
+                        // TODO Warn about connection problem to DB
+                    }
+                }
+                else if (comparableProcessingItemFromDb.Equals(ProItem))
+                {
+                    exists = true;
+                }
             }
-            
+
+            return exists;
+        }
+
+        private void PrepareSave()
+        {
+            if (!ProcessItemExists())
+            {
+                // TODO Warn about conflicting ProcessItem
+                Debug.WriteLine("ProcessItem conflict");
+            }
+
             double[] bottleMoments = new double[15];
 
             for (int i = 0; i < TapOperatorMoments.Length; i++)

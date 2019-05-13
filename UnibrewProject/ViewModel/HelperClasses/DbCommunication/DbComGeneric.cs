@@ -79,9 +79,10 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
         /// Henter ét bestemt objekt fra tabellen
         /// </summary>
         /// <typeparam name="T">Type af objekt</typeparam>
+        /// <typeparam name="TId">Type af Id</typeparam>
         /// <param name="id">ID på objekt</param>
         /// <returns>Objekt af generisk/ønsket type</returns>
-        public T GetOne<T>(int id)
+        public T GetOne<T, TId>(TId id)
         {
             T[] obj = new T[1];
 
