@@ -9,7 +9,7 @@ namespace UnibrewProject.Model
     {
         public ProcessingItems()
         {
-            //TapOperator = new HashSet<TapOperator>();
+            TapOperator = new HashSet<TapOperator>();
         }
 
         public string ProcessNumber { get; set; }
