@@ -5,9 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnibrewProject.Model;
-using UnibrewProject.ViewModel.HelperClasses.DbCommunication;
 
-namespace UnibrewProject.ViewModel
+namespace UnibrewProject.ViewModel.HelperClasses
 {
     /// <summary>
     /// Klasse, der sørger for at hente data til programmet

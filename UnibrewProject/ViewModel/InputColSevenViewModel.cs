@@ -12,7 +12,6 @@ using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
 using UnibrewProject.ViewModel.HelperClasses;
-using UnibrewProject.ViewModel.HelperClasses.DbCommunication;
 
 namespace UnibrewProject.ViewModel
 {

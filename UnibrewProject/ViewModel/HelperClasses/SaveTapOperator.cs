@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
-using UnibrewProject.ViewModel.HelperClasses.DbCommunication;
 using UnibrewProject.ViewModel.HelperClasses.SaveClasses;
 
 namespace UnibrewProject.ViewModel.HelperClasses
