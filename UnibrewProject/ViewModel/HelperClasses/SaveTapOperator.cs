@@ -29,6 +29,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private SaveToDbMethod _saveToDbMethod;
         private ProcessingItems _proItem;
 
+        private bool _isCheckedHeuftLid;
+        private bool _isCheckedFillHeight;
+        private bool _isCheckedProductTasted;
+        private bool _isCheckedSugarTest;
+        private bool _isCheckedDropTest;
+
+        private string _comment;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -76,6 +84,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 weight.Weight = "";
             }
 
+            IsCheckedHeuftLid = false;
+
+            Comment = "";
+            
 
             // Stopper timer
             if (AutoSaveTimer.TimeSinceLastKeyDownTimer != null)
@@ -170,6 +182,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Weight6 = bottleWeight[5];
 
             TapOp.ProcessNumber = Processnumber;
+
+            TapOp.HeuftLid = IsCheckedHeuftLid;
+            TapOp.HeuftFillingHeight = IsCheckedFillHeight;
+            TapOp.ProductTasted = IsCheckedProductTasted;
+            TapOp.SukkerStickTest = IsCheckedSugarTest;
+            TapOp.DropTest = IsCheckedDropTest;
+
+            TapOp.Comments = Comment;
         }
         
 
@@ -245,6 +265,66 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 _proItem = value;
 
+            }
+        }
+
+        public bool IsCheckedHeuftLid
+        {
+            get { return _isCheckedHeuftLid; }
+            set
+            {
+                _isCheckedHeuftLid = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsCheckedFillHeight
+        {
+            get { return _isCheckedFillHeight; }
+            set
+            {
+                _isCheckedFillHeight = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsCheckedProductTasted
+        {
+            get { return _isCheckedProductTasted; }
+            set
+            {
+                _isCheckedProductTasted = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsCheckedSugarTest
+        {
+            get { return _isCheckedSugarTest; }
+            set
+            {
+                _isCheckedSugarTest = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool IsCheckedDropTest
+        {
+            get { return _isCheckedDropTest; }
+            set
+            {
+                _isCheckedDropTest = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Comment
+        {
+            get { return _comment; }
+            set
+            {
+                _comment = value;
+                OnPropertyChanged();
             }
         }
 

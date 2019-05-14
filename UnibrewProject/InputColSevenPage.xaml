@@ -814,7 +814,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftLid, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedHeuftLid, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="2"
@@ -859,8 +859,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.HeuftFillingHeight, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedFillHeight, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -905,8 +904,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis smagte som det skulle, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.ProductTasted, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedProductTasted, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -925,7 +923,7 @@
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}"></TextBlock>
-                                        
+
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
 
@@ -980,8 +978,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis produktet er ok, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.SukkerStickTest, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedSugarTest, Mode=TwoWay}"/>
                         </Grid>
 
                         <Grid Grid.Column="8"
@@ -1021,8 +1018,7 @@
                             <CheckBox HorizontalAlignment="Center"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.TapOp.DropTest, Mode=TwoWay}"
-                                      KeyDown="KeyDownEventHandler" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedDropTest, Mode=TwoWay}" />
                         </Grid>
 
                         <Grid Grid.Column="0"
@@ -1281,9 +1277,52 @@
 
                             </Border>
                         </Grid>
+                        <Grid
+                            Column="7"
+                            Row="9"
+                            ColumnSpan="2">
+                            <TextBlock Text="Comments"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="20"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="Black"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,0,25" />
+                            <TextBlock Text="[?]"
+                                       ToolTipService.ToolTip="Kommentar til denne data registrering"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="0,0,5,25" />
+                        </Grid>
+                        <Grid Column="7"
+                              Row="9"
+                              RowSpan="2"
+                              ColumnSpan="3">
+
+                            <Border BorderThickness="1"
+                                    BorderBrush="Black"
+                                    CornerRadius="10"
+                                    Padding="2"
+                                    Height="80"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Margin="0,25,0,0">
+                                <TextBox
+                                         Width="319"
+                                         BorderThickness="0"
+                                         KeyDown="KeyDownEventHandler"
+                                         ToolTipService.ToolTip="Indtast kommentar"
+                                         Text="{Binding ViewModel.Save.Comment, Mode=TwoWay}"/>
+                            </Border>
+                            
+                        </Grid>
 
                         <Grid Grid.Column="0"
-                              Grid.Row="8"
+                              Grid.Row="9"
                               Grid.ColumnSpan="3"
                               Grid.RowSpan="3">
                             <TextBlock Text="   Vægt interval"
@@ -1296,12 +1335,12 @@
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,0,0,10" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vægten af de 6 flasker skal være indenfor dette interval"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,50,0" />
+                                       Margin="0,0,50,10" />
                         </Grid>
 
                         <Grid Grid.Column="0"
@@ -1369,6 +1408,8 @@
 
                             </Border>
                         </Grid>
+
+
 
                     </Grid>
                 </Grid>

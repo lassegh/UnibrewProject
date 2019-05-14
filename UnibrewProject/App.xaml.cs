@@ -46,8 +46,6 @@ namespace UnibrewProject
 
             var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
-            
-            
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
