@@ -11,7 +11,9 @@
       x:Class="UnibrewProject.InputColSevenPage"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-      DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}">
+      DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" 
+      Width="1920"
+      Height="1080">
 
 
     <StackPanel Orientation="Vertical"
@@ -139,8 +141,8 @@
 
 
             <Grid Grid.Column="0"
-                  Background="#FFF6F4FF"
-                  BorderThickness="1,1,0,0">
+                  Background="#FFD0D0E4"
+                  BorderThickness="1,1,0,0" Margin="0,0,0,-359">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="81*" />
                     <RowDefinition Height="50*" />
@@ -252,10 +254,10 @@
 
             </Grid>
 
+
             <Grid Grid.Column="1"
-                  Grid.RowSpan="2"
                   Background="#FFE0E0EC"
-                  BorderThickness="0,1,0,0">
+                  BorderThickness="0,1,-1,0" Margin="0,0,0,-359">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25" />
                     <ColumnDefinition />
@@ -274,7 +276,7 @@
 
                 <Grid Grid.Column="1"
                       Grid.Row="0">
-                    <TextBlock Text="   TAPPEOPERATØR"
+                    <TextBlock Text=" TAPPEOPERATØR"
                                HorizontalAlignment="Left"
                                FontFamily="Segoe UI Light"
                                FontSize="18"
@@ -300,6 +302,8 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
+
+                            <ColumnDefinition />
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
@@ -316,8 +320,43 @@
                             <RowDefinition />
                             <RowDefinition />
                             <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
 
                         </Grid.RowDefinitions>
+
+
+                        <Grid 
+                            Column="0"
+                            Row="0"
+                            ColumnSpan="5"
+                            RowSpan="5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*"/>
+                                    <RowDefinition Height="141*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,0,15,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                                <Grid
+                                    Column="0"
+                                    Row="1"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,-1,15,10" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                            </Grid>
+                        </Grid>
 
                         <Grid Grid.Column="0"
                               Grid.Row="0"
@@ -326,18 +365,18 @@
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
+                                       FontWeight="Normal"
+                                       Height="22"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
+                                       Foreground="#FFE0E0EC"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,-5,0,3" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,120,0" />
+                                       Margin="0,-5,253,0" Foreground="#FFE0E0EC" />
                         </Grid>
 
 
@@ -349,7 +388,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox x:Name="txtbx_col1"
                                          Height="30"
@@ -380,9 +419,9 @@
                                        Height="30"
                                        Width="50"
                                        Text="{Binding ViewModel.txtbx_inputValid, Mode=TwoWay}"
-                                       HorizontalAlignment="Stretch"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Stretch"
-                                       FontSize="16" />
+                                       FontSize="16" Margin="72,22,0,0" />
                         </Grid>
 
 
@@ -394,7 +433,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -414,7 +453,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -434,7 +473,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -454,7 +493,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -466,15 +505,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="5"
-                              Grid.Row="1">
+                        <Grid Grid.Column="0"
+                              Grid.Row="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -486,15 +525,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="6"
-                              Grid.Row="1">
+                        <Grid Grid.Column="1"
+                              Grid.Row="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -506,15 +545,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="7"
-                              Grid.Row="1">
+                        <Grid Grid.Column="2"
+                              Grid.Row="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -526,7 +565,7 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="0"
+                        <Grid Grid.Column="3"
                               Grid.Row="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -534,7 +573,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -546,7 +585,7 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="1"
+                        <Grid Grid.Column="4"
                               Grid.Row="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -554,7 +593,7 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -566,8 +605,8 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="2"
-                              Grid.Row="2">
+                        <Grid Grid.Column="0"
+                              Grid.Row="3" VerticalAlignment="Bottom">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
@@ -586,15 +625,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="3"
-                              Grid.Row="2">
+                        <Grid Grid.Column="1"
+                              Grid.Row="3">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -602,19 +641,19 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 12"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[11].Moment, Mode=TwoWay}"
-                                         PlaceholderText="12. (mm)" />
+                                         PlaceholderText="12. (mm)" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="4"
-                              Grid.Row="2">
+                        <Grid Grid.Column="2"
+                              Grid.Row="3">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -626,15 +665,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="5"
-                              Grid.Row="2">
+                        <Grid Grid.Column="3"
+                              Grid.Row="3">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -646,15 +685,15 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="6"
-                              Grid.Row="2">
+                        <Grid Grid.Column="4"
+                              Grid.Row="3">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
+                                    VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
                                 <TextBox Height="30"
                                          Width="70"
@@ -666,8 +705,60 @@
                             </Border>
                         </Grid>
 
-                        <Grid Column="10"
-                              Row="0"
+                        <Grid 
+                            Column="8"
+                            Row="0"
+                            ColumnSpan="1"
+                            RowSpan="11">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="11*"/>
+                                    <RowDefinition Height="192*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,2,9,510" Grid.RowSpan="2" />
+
+                                <Grid
+                                    Column="0"
+                                    Row="1"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,9,9,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="8"
+                              Grid.Row="0">
+                            <TextBlock Text="Process"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       VerticalAlignment="Bottom"
+                                       Margin="0,0,16,20" Foreground="#FFE0E0EC" HorizontalAlignment="Center" />
+                        </Grid>
+
+                        <Grid Grid.Column="8"
+                              Grid.Row="1">
+                            <TextBlock Text="Processorder"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       VerticalAlignment="Bottom"
+                                       Margin="13,0,-1,17" />
+                        </Grid>
+
+                        <Grid Column="8"
+                              Row="1"
                               RowSpan="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -683,15 +774,22 @@
                                          ToolTipService.ToolTip="Indtast process ordrenummeret"
                                          Text="{Binding ViewModel.Save.Processnumber, Mode=TwoWay}" />
                             </Border>
-                            <TextBlock Text="Process Ordre #"
-                                       VerticalAlignment="Top"
-                                       HorizontalAlignment="Center"
-                                       Height="20" />
                         </Grid>
 
+                        <Grid Grid.Column="8"
+                              Grid.Row="3">
+                            <TextBlock Text="Færdigvare #"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       VerticalAlignment="Bottom"
+                                       Margin="13,0,-1,17" />
+                        </Grid>
 
-                        <Grid Column="10"
-                              Row="2"
+                        <Grid Column="8"
+                              Row="3"
                               RowSpan="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -707,14 +805,22 @@
                                          ToolTipService.ToolTip="Indtast færdigvarenummeret"
                                          Text="{Binding ViewModel.FinishedItemNumber, Mode=TwoWay}" />
                             </Border>
-                            <TextBlock Text="Færdigvare #"
-                                       VerticalAlignment="Top"
-                                       HorizontalAlignment="Center"
-                                       Height="20" />
                         </Grid>
 
-                        <Grid Column="10"
-                              Row="4"
+                        <Grid Grid.Column="8"
+                              Grid.Row="5">
+                            <TextBlock Text="Præform #"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       VerticalAlignment="Bottom"
+                                       Margin="13,0,-1,17" />
+                        </Grid>
+
+                        <Grid Column="8"
+                              Row="5"
                               RowSpan="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -729,16 +835,25 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast præformnummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.PreformMaterialNo, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.PreformMaterialNumber, Mode=TwoWay}" />
                             </Border>
-                            <TextBlock Text="Præform #"
-                                       VerticalAlignment="Top"
-                                       HorizontalAlignment="Center"
-                                       Height="20" />
                         </Grid>
 
-                        <Grid Column="10"
-                              Row="6"
+                        <Grid Grid.Column="8"
+                              Grid.Row="7">
+                            <TextBlock Text="Skruelågs #"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="SemiLight"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       VerticalAlignment="Bottom"
+                                       Margin="13,0,-1,17" />
+                        </Grid>
+
+
+                        <Grid Column="8"
+                              Row="7"
                               RowSpan="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -753,30 +868,67 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast skruelågsnummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.LidMaterialNo, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.LidNumber, Mode=TwoWay}" />
                             </Border>
-                            <TextBlock Text="Skruelågs #"
-                                       VerticalAlignment="Top"
-                                       HorizontalAlignment="Center"
-                                       Height="20" />
                         </Grid>
+
+                        
 
                         <Grid Grid.Column="0"
                               Grid.Row="3"
-                              Grid.ColumnSpan="11">
-                            <Border BorderThickness="2"
-                                    BorderBrush="Black"
-                                    CornerRadius="1"
-                                    Padding="20"
-                                    Height="1"
-                                    Width="1000"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Margin="12,0,0,0" />
+                              Grid.ColumnSpan="11"/>
+
+                        <Grid 
+                            Column="5"
+                            Row="0"
+                            ColumnSpan="3"
+                            RowSpan="5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*"/>
+                                    <RowDefinition Height="141*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,0,15,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                                <Grid
+                                    Column="0"
+                                    Row="1"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,-1,15,10" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                            </Grid>
                         </Grid>
 
-                        <Grid Grid.Column="0"
-                              Grid.Row="4"
+                        <Grid Grid.Column="5"
+                              Grid.Row="0"
+                              Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,10,0,0">
+                            <TextBlock Text="  Check"
+                                       HorizontalAlignment="Left"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="Normal"
+                                       Height="20"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="#FFE0E0EC"
+                                       VerticalAlignment="Top"
+                                       Margin="0,1,0,0" />
+                            <TextBlock Text="[?]"
+                                       ToolTipService.ToolTip="Læs vejledning for Heuft maskineri"
+                                       Margin="59,0,0,27"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center" Foreground="#FFE0E0EC" />
+                        </Grid>
+
+                        <Grid Grid.Column="5"
+                              Grid.Row="1"
                               Grid.ColumnSpan="3">
                             <TextBlock Text="   Heuft Låg"
                                        HorizontalAlignment="Left"
@@ -788,37 +940,26 @@
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
                                        VerticalAlignment="Top"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,1,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Læs vejledning for Heuft maskineri"
-                                       Margin="95,0,154,29"
+                                       Margin="95,0,154,34"
                                        HorizontalAlignment="Stretch"
-                                       VerticalAlignment="Stretch" />
+                                       VerticalAlignment="Center" />
                         </Grid>
 
 
-                        <Grid Grid.Column="0"
-                              Grid.Row="4"
-                              Grid.RowSpan="2">
-                            <TextBlock Text="OK?"
-                                       HorizontalAlignment="Left"
-                                       FontFamily="Segoe UI Light"
-                                       FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
-                                       FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="15,0,0,0" />
+                        <Grid Grid.Column="5"
+                              Grid.Row="1"
+                              Grid.RowSpan="1" VerticalAlignment="Bottom" Margin="0,0,0,-6">
                             <CheckBox HorizontalAlignment="Center"
-                                      Margin="0,0,-130,0"
+                                      Margin="0,6,0,5"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.IsCheckedHeuftLid, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedHeuftLid, Mode=TwoWay}" Content="OK?" VerticalAlignment="Bottom" />
                         </Grid>
 
-                        <Grid Grid.Column="2"
-                              Grid.Row="4"
+                        <Grid Grid.Column="5"
+                              Grid.Row="2"
                               Grid.ColumnSpan="3">
                             <TextBlock Text="   Fyldehøjde"
                                        HorizontalAlignment="Left"
@@ -829,42 +970,36 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
-                                       VerticalAlignment="Top"
-                                       Margin="0,0,0,0" />
+                                       VerticalAlignment="Center"
+                                       Margin="0,13,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Tjek at fyldehøjden er normal"
                                        Grid.ColumnSpan="2"
                                        Grid.Column="2"
-                                       Margin="102,0,121,31"
+                                       Margin="102,8,121,0"
                                        Grid.Row="4"
                                        HorizontalAlignment="Stretch"
-                                       VerticalAlignment="Stretch" />
+                                       VerticalAlignment="Center" />
                         </Grid>
 
 
-                        <Grid Grid.Column="2"
-                              Grid.Row="4"
-                              Grid.RowSpan="2">
-                            <TextBlock Text="OK?"
-                                       HorizontalAlignment="Left"
-                                       FontFamily="Segoe UI Light"
-                                       FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
-                                       FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="15,0,0,0" />
+                        <Grid Grid.Column="5"
+                              Grid.Row="2"
+                              Grid.RowSpan="2" VerticalAlignment="Center">
                             <CheckBox HorizontalAlignment="Center"
-                                      Margin="0,0,-130,0"
+                                      Margin="0,0,0,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.IsCheckedFillHeight, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedFillHeight, Mode=TwoWay}" Content="OK?" VerticalAlignment="Bottom" />
                         </Grid>
 
-                        <Grid Grid.Column="4"
-                              Grid.Row="4"
-                              Grid.ColumnSpan="3">
+                        <Grid Grid.Column="5"
+                              Grid.Row="3"
+                              RowSpan="2"
+                              Grid.ColumnSpan="3" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="61*"/>
+                                <ColumnDefinition Width="166*"/>
+                            </Grid.ColumnDefinitions>
                             <TextBlock Text="   Smags Test"
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
@@ -875,42 +1010,27 @@
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
                                        VerticalAlignment="Top"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,1,0,10" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Smag på produktet"
                                        Grid.ColumnSpan="2"
-                                       Grid.Column="4"
-                                       Margin="107,0,120,28"
-                                       Grid.Row="4"
-                                       HorizontalAlignment="Stretch"
-                                       VerticalAlignment="Stretch" />
+                                       Margin="107,0,120,12" VerticalAlignment="Center" />
                         </Grid>
 
 
-                        <Grid Grid.Column="4"
-                              Grid.Row="4"
-                              Grid.RowSpan="2">
-                            <TextBlock Text="OK?"
-                                       HorizontalAlignment="Left"
-                                       FontFamily="Segoe UI Light"
-                                       FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
-                                       FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="15,0,0,0" />
-                            <CheckBox HorizontalAlignment="Center"
+                        <Grid Grid.Column="5"
+                              Grid.Row="3"
+                              Grid.RowSpan="2" VerticalAlignment="Center" Margin="16,30,3,0">
+                            <CheckBox HorizontalAlignment="Left"
                                       Margin="0,0,-130,0"
                                       ToolTipService.ToolTip="Hvis smagte som det skulle, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.IsCheckedProductTasted, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedProductTasted, Mode=TwoWay}" VerticalAlignment="Center" Content="OK?" />
                         </Grid>
 
-                        <Grid Grid.Column="4"
-                              Grid.Row="5"
-                              Grid.RowSpan="2"
-                              Grid.ColumnSpan="2">
+                        <Grid Grid.Column="5"
+                              Grid.Row="4"
+                              ColumnSpan="3"
+                              Grid.RowSpan="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,0,136,0">
                             <ComboBox HorizontalAlignment="Left"
                                       VerticalAlignment="Center"
                                       Width="120"
@@ -919,7 +1039,7 @@
                                       Height="30"
                                       BorderBrush="#19000000"
                                       Background="#FFBDBADC"
-                                      ItemsSource="{Binding ViewModel.Load.LiquidTanksList}">
+                                      ItemsSource="{Binding ViewModel.Load.LiquidTanksList}" Margin="0,10,0,0">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Name}"></TextBlock>
@@ -937,7 +1057,7 @@
                         </Grid>
 
                         <Grid Grid.Column="6"
-                              Grid.Row="4"
+                              Grid.Row="1"
                               Grid.ColumnSpan="3">
                             <TextBlock Text="   Sukker Tjek"
                                        HorizontalAlignment="Left"
@@ -954,7 +1074,7 @@
                                        ToolTipService.ToolTip="Udfør sukker stick testen"
                                        Grid.ColumnSpan="2"
                                        Grid.Column="6"
-                                       Margin="107,0,120,26"
+                                       Margin="107,-1,120,0"
                                        Grid.Row="4"
                                        HorizontalAlignment="Stretch"
                                        VerticalAlignment="Stretch" />
@@ -962,27 +1082,15 @@
 
 
                         <Grid Grid.Column="6"
-                              Grid.Row="4"
-                              Grid.RowSpan="2">
-                            <TextBlock Text="OK?"
-                                       HorizontalAlignment="Left"
-                                       FontFamily="Segoe UI Light"
-                                       FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
-                                       FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="15,0,0,0" />
+                              Grid.Row="1">
                             <CheckBox HorizontalAlignment="Center"
-                                      Margin="0,0,-130,0"
+                                      Margin="0,6,0,0"
                                       ToolTipService.ToolTip="Hvis produktet er ok, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.IsCheckedSugarTest, Mode=TwoWay}"/>
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedSugarTest, Mode=TwoWay}" Content="OK?" VerticalAlignment="Bottom"/>
                         </Grid>
 
-                        <Grid Grid.Column="8"
-                              Grid.Row="4"
+                        <Grid Grid.Column="6"
+                              Grid.Row="2"
                               Grid.ColumnSpan="3">
                             <TextBlock Text="   Drop Test"
                                        HorizontalAlignment="Left"
@@ -993,73 +1101,83 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
-                                       VerticalAlignment="Top"
-                                       Margin="0,0,0,0" />
+                                       VerticalAlignment="Center"
+                                       Margin="0,15,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Udfør droptesten på dropmaskinen"
-                                       Margin="97,0,204,30" />
+                                       Margin="97,10,204,0" VerticalAlignment="Center" />
                         </Grid>
 
 
-                        <Grid Grid.Column="8"
-                              Grid.Row="4"
-                              Grid.RowSpan="2">
-                            <TextBlock Text="OK?"
-                                       HorizontalAlignment="Left"
-                                       FontFamily="Segoe UI Light"
-                                       FontSize="18"
-                                       FontWeight="SemiLight"
-                                       Height="20"
-                                       FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="15,0,0,0" />
+                        <Grid Grid.Column="6"
+                              Grid.Row="2"
+                              RowSpan="2">
                             <CheckBox HorizontalAlignment="Center"
-                                      Margin="0,0,-130,0"
+                                      Margin="0,1,0,0"
                                       ToolTipService.ToolTip="Hvis maskinen godkender, sæt kryds i kassen"
-                                      IsChecked="{Binding ViewModel.Save.IsCheckedDropTest, Mode=TwoWay}" />
+                                      IsChecked="{Binding ViewModel.Save.IsCheckedDropTest, Mode=TwoWay}" Content="OK?" VerticalAlignment="Center" />
                         </Grid>
 
                         <Grid Grid.Column="0"
                               Grid.Row="6"
                               Grid.RowSpan="2"
-                              Grid.ColumnSpan="11">
-                            <Border BorderThickness="2"
-                                    BorderBrush="Black"
-                                    CornerRadius="1"
-                                    Padding="20"
-                                    Height="1"
-                                    Width="1000"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Margin="12,0,0,0" />
+                              Grid.ColumnSpan="11"/>
+
+                        <Grid 
+                            Column="0"
+                            Row="5"
+                            ColumnSpan="4"
+                            RowSpan="5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="16*"/>
+                                    <RowDefinition Height="123*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,2,15,228" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+                                <Grid
+                                    Column="0"
+                                    Row="1"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,9,15,10" Grid.ColumnSpan="2" />
+
+                            </Grid>
                         </Grid>
 
                         <Grid Grid.Column="0"
-                              Grid.Row="6"
+                              Grid.Row="5
+                              "
                               Grid.ColumnSpan="3"
-                              Grid.RowSpan="3">
+                              Grid.RowSpan="1">
                             <TextBlock Text="   Kontrolvejning"
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
-                                       FontWeight="SemiLight"
+                                       FontWeight="Normal"
                                        Height="20"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
+                                       Foreground="#FFE0E0EC"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,0,0" />
+                                       Margin="0,-1,0,7" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind "
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,50,0" />
+                                       Margin="0,-4,179,0" Foreground="#FFE0E0EC" />
                         </Grid>
 
+
+
                         <Grid Grid.Column="0"
-                              Grid.Row="8"
+                              Grid.Row="6"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1080,7 +1198,7 @@
                         </Grid>
 
                         <Grid Grid.Column="1"
-                              Grid.Row="8"
+                              Grid.Row="6"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1102,7 +1220,7 @@
 
 
                         <Grid Grid.Column="2"
-                              Grid.Row="8"
+                              Grid.Row="6"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1123,8 +1241,8 @@
                         </Grid>
 
 
-                        <Grid Grid.Column="3"
-                              Grid.Row="8"
+                        <Grid Grid.Column="0"
+                              Grid.Row="7"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1145,8 +1263,8 @@
                         </Grid>
 
 
-                        <Grid Grid.Column="4"
-                              Grid.Row="8"
+                        <Grid Grid.Column="1"
+                              Grid.Row="7"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1167,8 +1285,8 @@
                         </Grid>
 
 
-                        <Grid Grid.Column="5"
-                              Grid.Row="8"
+                        <Grid Grid.Column="2"
+                              Grid.Row="7"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1189,9 +1307,9 @@
                         </Grid>
 
 
-                        <Grid Grid.Column="6"
-                              Grid.Row="8"
-                              Grid.RowSpan="1">
+                        <Grid Grid.Column="3"
+                              Grid.Row="7"
+                              Grid.RowSpan="1" Margin="0,0,3,0">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
@@ -1211,12 +1329,11 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="6"
-                              Grid.Row="7"
-                              Grid.RowSpan="1"
-                              Margin="0,0,0,0"
-                              HorizontalAlignment="Center"
-                              VerticalAlignment="Bottom">
+                        <Grid Grid.Column="3"
+                              Grid.Row="6"
+                              Grid.RowSpan="2"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Center" Margin="12,-3,0,0">
                             <TextBlock Text="Gn.snit"
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
@@ -1226,39 +1343,29 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
-                                       VerticalAlignment="Center"
+                                       VerticalAlignment="Bottom"
                                        Margin="0,0,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind "
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom"
-                                       Margin="60,0,0,0" />
+                                       Margin="59,-1,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="8"
-                              Grid.Row="7"
-                              Grid.ColumnSpan="3">
+                              Grid.Row="9" 
+                              Margin="0,0,0,16">
                             <TextBlock Text="Væske Kode"
-                                       HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
                                        FontWeight="SemiLight"
                                        Height="20"
                                        FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
                                        VerticalAlignment="Bottom"
-                                       Margin="0,0,0,0" />
-                            <TextBlock Text="[?]"
-                                       ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind "
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom"
-                                       Margin="0,0,110,0" />
+                                       Margin="13,-1,0,4" />
                         </Grid>
 
                         <Grid Grid.Column="8"
-                              Grid.Row="8"
-                              Grid.RowSpan="1">
+                              Grid.Row="9"
+                              Grid.RowSpan="2">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
@@ -1277,74 +1384,116 @@
 
                             </Border>
                         </Grid>
+
+
+                        <Grid 
+                            Column="4"
+                            Row="5"
+                            ColumnSpan="4"
+                            RowSpan="5">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*"/>
+                                    <RowDefinition Height="141*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,0,15,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                                <Grid
+                                    Column="0"
+                                    Row="1"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,-1,15,10" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                            </Grid>
+                        </Grid>
+
                         <Grid
-                            Column="7"
-                            Row="9"
+                            Column="4"
+                            Row="5"
                             ColumnSpan="2">
                             <TextBlock Text="Comments"
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
-                                       FontWeight="SemiLight"
+                                       FontWeight="Normal"
                                        Height="20"
                                        FontStyle="Italic"
-                                       FocusVisualPrimaryBrush="Black"
-                                       Foreground="Black"
+                                       FocusVisualPrimaryBrush="#FFE0E0EC"
+                                       Foreground="#FFE0E0EC"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,0,25" />
+                                       Margin="10,0,0,11" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Kommentar til denne data registrering"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,5,25" />
+                                       Margin="0,-8,100,0" Foreground="#FFE0E0EC" FontWeight="Normal" />
                         </Grid>
-                        <Grid Column="7"
-                              Row="9"
-                              RowSpan="2"
-                              ColumnSpan="3">
+
+                        <Grid Column="4"
+                              Row="6"
+                              RowSpan="4"
+                              ColumnSpan="5">
 
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
-                                    Height="80"
+                                    Height="188"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Margin="0,25,0,0">
+                                    VerticalAlignment="Top"
+                                    Margin="12,8,0,0" Width="563">
                                 <TextBox
-                                         Width="319"
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast kommentar"
-                                         Text="{Binding ViewModel.Save.Comment, Mode=TwoWay}"/>
+                                         Text="{Binding ViewModel.Save.Comment, Mode=TwoWay}" Margin="-3,-3,-3,-3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                             </Border>
-                            
+
+
+
+                        </Grid>
+
+                        <Grid Grid.Column="7"
+                              Grid.Row="10" Margin="0,0,15,0" CornerRadius="12,12,12,12">
+                            <Button x:Name="SaveBTN"
+                                    Content="GEM"
+                                    ToolTipService.ToolTip="Tryk for at gemme"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding ViewModel.Save.SaveCommand}" BorderThickness="2,2,2,2" Height="55" Margin="0,0,0,0" Width="136" Background="#FF8484B0" />
+
                         </Grid>
 
                         <Grid Grid.Column="0"
-                              Grid.Row="9"
-                              Grid.ColumnSpan="3"
-                              Grid.RowSpan="3">
+                              Grid.Row="8"
+                              Grid.ColumnSpan="3">
                             <TextBlock Text="   Vægt interval"
                                        HorizontalAlignment="Left"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
                                        FontWeight="SemiLight"
-                                       Height="20"
+                                       Height="22"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
-                                       VerticalAlignment="Center"
-                                       Margin="0,0,0,10" />
+                                       VerticalAlignment="Bottom"
+                                       Margin="0,0,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vægten af de 6 flasker skal være indenfor dette interval"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
-                                       Margin="0,0,50,10" />
+                                       Margin="0,0,189,-29" />
                         </Grid>
 
                         <Grid Grid.Column="0"
-                              Grid.Row="10"
+                              Grid.Row="9"
                               Grid.RowSpan="1">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
@@ -1352,8 +1501,8 @@
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Margin="12,0,0,0">
+                                    VerticalAlignment="Top"
+                                    Margin="12,0,0,0" Background="#FFFFC7C7">
                                 <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMin}"
                                            Height="30"
                                            Width="70"
@@ -1365,9 +1514,10 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="1"
-                              Grid.Row="10"
-                              Grid.RowSpan="1">
+                        <Grid Grid.Column="0"
+                              Grid.Row="9"
+                              ColumnSpan="2"
+                              Grid.RowSpan="1" VerticalAlignment="Top" Margin="101,0,0,0">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
@@ -1375,7 +1525,7 @@
                                     Height="35"
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
-                                    Margin="12,0,0,0">
+                                    Margin="12,0,0,0" Background="#FFD9FFDE">
                                 <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMiddle}"
                                            Height="30"
                                            Width="70"
@@ -1387,17 +1537,18 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="2"
-                              Grid.Row="10"
-                              Grid.RowSpan="1">
+                        <Grid Grid.Column="0"
+                              Grid.Row="9"
+                              ColumnSpan="3"
+                              Grid.RowSpan="1" Margin="200,0,0,0">
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="35"
                                     HorizontalAlignment="Left"
-                                    VerticalAlignment="Center"
-                                    Margin="12,0,0,0">
+                                    VerticalAlignment="Top"
+                                    Margin="12,0,0,0" Background="#FFFFC7C7">
                                 <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMax}"
                                            Height="30"
                                            Width="70"
@@ -1414,16 +1565,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="1"
-                      Grid.Row="1">
-                    <Button x:Name="SaveBTN"
-                            Content="Gem"
-                            ToolTipService.ToolTip="Tryk for at gemme"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Bottom"
-                            Command="{Binding ViewModel.Save.SaveCommand}" />
 
-                </Grid>
 
             </Grid>
 
