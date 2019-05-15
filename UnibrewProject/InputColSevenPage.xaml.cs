@@ -33,7 +33,7 @@ namespace UnibrewProject
         private void FormName_SizeChanged(object sender, SizeChangedEventArgs e)
         {
 
-            ApplicationView.GetForCurrentView().TryResizeView(new Size(1280, 720));
+            //ApplicationView.GetForCurrentView().TryResizeView(new Size(1280, 720));
         }
 
         private void KeyDownEventHandler(object sender, KeyRoutedEventArgs e)
