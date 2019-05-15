@@ -8,7 +8,7 @@ using Windows.Foundation;
 using Newtonsoft.Json;
 using UnibrewProject.Model;
 
-namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
+namespace UnibrewProject.Model
 {
     /// <summary>
     /// Generisk klasse, der håndterer al kommunikation til REST
@@ -24,7 +24,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.DbCommunication
 
         private string GetUrl(Type obj)
         {
-            string url = "https://quayzer.azurewebsites.net/api/"; //"http://localhost:58755/api/";//
+            string url = "https://quayzer.azurewebsites.net/api/"; //"http://localhost:58755/api/";// 
 
             if (obj == typeof(TapOperator))
             {

@@ -30,6 +30,11 @@ namespace UnibrewREST
                 .WithRequired(e => e.FinishedItems)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<ProcessingItems>()
+                .HasMany(e => e.TapOperator)
+                .WithRequired(e => e.ProcessingItems)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<LiquidTanks>()
                 .Property(e => e.Name)
                 .IsFixedLength()

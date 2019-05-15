@@ -13,7 +13,6 @@ using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
 using UnibrewProject.Model;
-using UnibrewProject.ViewModel.HelperClasses.DbCommunication;
 using UnibrewProject.ViewModel.HelperClasses.SaveClasses;
 
 namespace UnibrewProject.ViewModel.HelperClasses
@@ -35,8 +34,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private bool _isCheckedSugarTest;
         private bool _isCheckedDropTest;
 
-        private string _lidNumber;
-        private string _preformMaterialNumber;
+        private string _comment;
+
 
         private SaveTapOperator()
         {
@@ -86,6 +85,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
 
             IsCheckedHeuftLid = false;
+
+            Comment = "";
             
 
             // Stopper timer
@@ -188,9 +189,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.SukkerStickTest = IsCheckedSugarTest;
             TapOp.DropTest = IsCheckedDropTest;
 
-            TapOp.PreformMaterialNo = LidNumber;
-            TapOp.LidMaterialNo = PreformMaterialNumber;
 
+            TapOp.Comments = Comment;
         }
         
 
@@ -319,22 +319,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
-        public string LidNumber
+        public string Comment
         {
-            get { return _lidNumber; }
+            get { return _comment; }
             set
             {
-                _lidNumber = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string PreformMaterialNumber
-        {
-            get { return _preformMaterialNumber; }
-            set
-            {
-                _preformMaterialNumber = value;
+                _comment = value;
                 OnPropertyChanged();
             }
         }
