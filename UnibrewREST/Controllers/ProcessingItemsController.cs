@@ -23,8 +23,13 @@ namespace UnibrewREST.Controllers
         }
 
         // GET: api/ProcessingItems/5
+<<<<<<< HEAD
         [ResponseType(typeof(ProcessingItem))]
         public IHttpActionResult GetProcessingItem(string id)
+=======
+        [ResponseType(typeof(ProcessingItems))]
+        public IHttpActionResult GetProcessingItems(int id)
+>>>>>>> parent of d376826... Update
         {
             ProcessingItem processingItem = db.ProcessingItems.Find(id);
             if (processingItem == null)
