@@ -729,7 +729,7 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast præformnummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.PreformMaterialNo, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.PreformMaterialNumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Præform #"
                                        VerticalAlignment="Top"
@@ -753,7 +753,7 @@
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast skruelågsnummeret"
-                                         Text="{Binding ViewModel.Save.TapOp.LidMaterialNo, Mode=TwoWay}" />
+                                         Text="{Binding ViewModel.Save.LidNumber, Mode=TwoWay}" />
                             </Border>
                             <TextBlock Text="Skruelågs #"
                                        VerticalAlignment="Top"
