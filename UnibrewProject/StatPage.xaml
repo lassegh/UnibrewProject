@@ -179,19 +179,19 @@
                 </Grid>
 
                 <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
-                    <!-- <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                        <lvc:CartesianChart Series="{Binding SeriesCollection}"
+                     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                        <lvc:CartesianChart Series="{Binding Load.MomentCollection}"
                                         LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Sales"
-                                      LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                                <lvc:Axis Title="Moment"
+                                      LabelFormatter="{Binding Load.YFormatter}"></lvc:Axis>
                             </lvc:CartesianChart.AxisY>
                             <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="Month"
-                                      Labels="{Binding Labels}"></lvc:Axis>
+                                <lvc:Axis Title="Dato"
+                                      Labels="{Binding Load.MomentLabels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                    </Grid> -->
+                    </Grid> 
 
 
                 </Grid>

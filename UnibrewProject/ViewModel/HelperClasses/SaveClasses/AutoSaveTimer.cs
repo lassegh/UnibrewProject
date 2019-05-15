@@ -24,6 +24,11 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             _save = save;
         }
 
+        public void StopTimer()
+        {
+            TimeSinceLastKeyDownTimer?.Dispose();
+        }
+
         public void StartTimer()
         {
             if (TimeSinceLastKeyDownTimer != null)

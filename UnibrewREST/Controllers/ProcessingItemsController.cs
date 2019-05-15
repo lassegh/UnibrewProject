@@ -24,7 +24,7 @@ namespace UnibrewREST.Controllers
 
         // GET: api/ProcessingItems/5
         [ResponseType(typeof(ProcessingItems))]
-        public IHttpActionResult GetProcessingItems<TId>(TId id)
+        public IHttpActionResult GetProcessingItems(string id)
         {
             ProcessingItems processingItems = db.ProcessingItems.Find(id);
             if (processingItems == null)

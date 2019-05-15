@@ -29,7 +29,7 @@ namespace UnibrewREST
                 .HasMany(e => e.ProcessingItems)
                 .WithRequired(e => e.FinishedItems)
                 .WillCascadeOnDelete(false);
-
+            
             modelBuilder.Entity<ProcessingItems>()
                 .HasMany(e => e.TapOperator)
                 .WithRequired(e => e.ProcessingItems)
@@ -39,7 +39,7 @@ namespace UnibrewREST
                 .Property(e => e.Name)
                 .IsFixedLength()
                 .IsUnicode(false);
-
+            
             modelBuilder.Entity<LiquidTanks>()
                 .HasMany(e => e.TapOperator)
                 .WithOptional(e => e.LiquidTanks)
