@@ -38,7 +38,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 37146e8... lid + rpreform
 =======
 >>>>>>> parent of 37146e8... lid + rpreform
 
