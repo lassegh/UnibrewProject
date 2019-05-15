@@ -37,7 +37,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private string _comment;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 37146e8... lid + rpreform
 
 >>>>>>> parent of 37146e8... lid + rpreform
         private SaveTapOperator()
