@@ -36,9 +36,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private string _comment;
 
-        private string _lidNumber;
-        private string _preformMaterialNumber;
-
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -191,11 +188,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.SukkerStickTest = IsCheckedSugarTest;
             TapOp.DropTest = IsCheckedDropTest;
 
-
             TapOp.Comments = Comment;
-
-            TapOp.LidMaterialNo = LidNumber;
-            TapOp.PreformMaterialNo = PreformMaterialNumber;
         }
         
 
@@ -332,18 +325,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 _comment = value;
                 OnPropertyChanged();
             }
-        }
-
-        public string LidNumber
-        {
-            get { return _lidNumber; }
-            set { _lidNumber = value; }
-        }
-
-        public string PreformMaterialNumber
-        {
-            get { return _preformMaterialNumber; }
-            set { _preformMaterialNumber = value; }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
