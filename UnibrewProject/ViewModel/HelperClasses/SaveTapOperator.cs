@@ -36,6 +36,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private string _comment;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 37146e8... lid + rpreform
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
