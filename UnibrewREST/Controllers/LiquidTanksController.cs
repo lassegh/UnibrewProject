@@ -8,48 +8,48 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using UnibrewREST;
+using UnibrewREST.Models;
 
 namespace UnibrewREST.Controllers
 {
     public class LiquidTanksController : ApiController
     {
-        private FullDBmodel db = new FullDBmodel();
+        private Quayzer db = new Quayzer();
 
         // GET: api/LiquidTanks
-        public IQueryable<LiquidTanks> GetLiquidTanks()
+        public IQueryable<LiquidTank> GetLiquidTanks()
         {
             return db.LiquidTanks;
         }
 
         // GET: api/LiquidTanks/5
-        [ResponseType(typeof(LiquidTanks))]
-        public IHttpActionResult GetLiquidTanks(string id)
+        [ResponseType(typeof(LiquidTank))]
+        public IHttpActionResult GetLiquidTank(string id)
         {
-            LiquidTanks liquidTanks = db.LiquidTanks.Find(id);
-            if (liquidTanks == null)
+            LiquidTank liquidTank = db.LiquidTanks.Find(id);
+            if (liquidTank == null)
             {
                 return NotFound();
             }
 
-            return Ok(liquidTanks);
+            return Ok(liquidTank);
         }
 
         // PUT: api/LiquidTanks/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutLiquidTanks(string id, LiquidTanks liquidTanks)
+        public IHttpActionResult PutLiquidTank(string id, LiquidTank liquidTank)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != liquidTanks.Name)
+            if (id != liquidTank.Name)
             {
                 return BadRequest();
             }
 
-            db.Entry(liquidTanks).State = EntityState.Modified;
+            db.Entry(liquidTank).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LiquidTanksExists(id))
+                if (!LiquidTankExists(id))
                 {
                     return NotFound();
                 }
@@ -71,15 +71,15 @@ namespace UnibrewREST.Controllers
         }
 
         // POST: api/LiquidTanks
-        [ResponseType(typeof(LiquidTanks))]
-        public IHttpActionResult PostLiquidTanks(LiquidTanks liquidTanks)
+        [ResponseType(typeof(LiquidTank))]
+        public IHttpActionResult PostLiquidTank(LiquidTank liquidTank)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.LiquidTanks.Add(liquidTanks);
+            db.LiquidTanks.Add(liquidTank);
 
             try
             {
@@ -87,7 +87,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateException)
             {
-                if (LiquidTanksExists(liquidTanks.Name))
+                if (LiquidTankExists(liquidTank.Name))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace UnibrewREST.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = liquidTanks.Name }, liquidTanks);
+            return CreatedAtRoute("DefaultApi", new { id = liquidTank.Name }, liquidTank);
         }
 
         // DELETE: api/LiquidTanks/5
-        [ResponseType(typeof(LiquidTanks))]
-        public IHttpActionResult DeleteLiquidTanks(string id)
+        [ResponseType(typeof(LiquidTank))]
+        public IHttpActionResult DeleteLiquidTank(string id)
         {
-            LiquidTanks liquidTanks = db.LiquidTanks.Find(id);
-            if (liquidTanks == null)
+            LiquidTank liquidTank = db.LiquidTanks.Find(id);
+            if (liquidTank == null)
             {
                 return NotFound();
             }
 
-            db.LiquidTanks.Remove(liquidTanks);
+            db.LiquidTanks.Remove(liquidTank);
             db.SaveChanges();
 
-            return Ok(liquidTanks);
+            return Ok(liquidTank);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,7 +125,7 @@ namespace UnibrewREST.Controllers
             base.Dispose(disposing);
         }
 
-        private bool LiquidTanksExists(string id)
+        private bool LiquidTankExists(string id)
         {
             return db.LiquidTanks.Count(e => e.Name == id) > 0;
         }

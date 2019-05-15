@@ -8,25 +8,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using UnibrewREST;
+using UnibrewREST.Models;
 
 namespace UnibrewREST.Controllers
 {
     public class TapOperatorsController : ApiController
     {
-        private FullDBmodel db = new FullDBmodel();
+        private Quayzer db = new Quayzer();
 
         // GET: api/TapOperators
-        public IQueryable<TapOperator> GetTapOperator()
+        public IQueryable<TapOperator> GetTapOperators()
         {
-            return db.TapOperator;
+            return db.TapOperators;
         }
 
         // GET: api/TapOperators/5
         [ResponseType(typeof(TapOperator))]
         public IHttpActionResult GetTapOperator(int id)
         {
-            TapOperator tapOperator = db.TapOperator.Find(id);
+            TapOperator tapOperator = db.TapOperators.Find(id);
             if (tapOperator == null)
             {
                 return NotFound();
@@ -79,7 +79,7 @@ namespace UnibrewREST.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.TapOperator.Add(tapOperator);
+            db.TapOperators.Add(tapOperator);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = tapOperator.ID }, tapOperator);
@@ -89,13 +89,13 @@ namespace UnibrewREST.Controllers
         [ResponseType(typeof(TapOperator))]
         public IHttpActionResult DeleteTapOperator(int id)
         {
-            TapOperator tapOperator = db.TapOperator.Find(id);
+            TapOperator tapOperator = db.TapOperators.Find(id);
             if (tapOperator == null)
             {
                 return NotFound();
             }
 
-            db.TapOperator.Remove(tapOperator);
+            db.TapOperators.Remove(tapOperator);
             db.SaveChanges();
 
             return Ok(tapOperator);
@@ -112,7 +112,7 @@ namespace UnibrewREST.Controllers
 
         private bool TapOperatorExists(int id)
         {
-            return db.TapOperator.Count(e => e.ID == id) > 0;
+            return db.TapOperators.Count(e => e.ID == id) > 0;
         }
     }
 }

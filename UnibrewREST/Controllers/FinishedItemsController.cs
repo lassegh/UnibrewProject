@@ -8,48 +8,48 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using UnibrewREST;
+using UnibrewREST.Models;
 
 namespace UnibrewREST.Controllers
 {
     public class FinishedItemsController : ApiController
     {
-        private FullDBmodel db = new FullDBmodel();
+        private Quayzer db = new Quayzer();
 
         // GET: api/FinishedItems
-        public IQueryable<FinishedItems> GetFinishedItems()
+        public IQueryable<FinishedItem> GetFinishedItems()
         {
             return db.FinishedItems;
         }
 
         // GET: api/FinishedItems/5
-        [ResponseType(typeof(FinishedItems))]
-        public IHttpActionResult GetFinishedItems(int id)
+        [ResponseType(typeof(FinishedItem))]
+        public IHttpActionResult GetFinishedItem(int id)
         {
-            FinishedItems finishedItems = db.FinishedItems.Find(id);
-            if (finishedItems == null)
+            FinishedItem finishedItem = db.FinishedItems.Find(id);
+            if (finishedItem == null)
             {
                 return NotFound();
             }
 
-            return Ok(finishedItems);
+            return Ok(finishedItem);
         }
 
         // PUT: api/FinishedItems/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutFinishedItems(int id, FinishedItems finishedItems)
+        public IHttpActionResult PutFinishedItem(int id, FinishedItem finishedItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != finishedItems.FinishedItemNumber)
+            if (id != finishedItem.FinishedItemNumber)
             {
                 return BadRequest();
             }
 
-            db.Entry(finishedItems).State = EntityState.Modified;
+            db.Entry(finishedItem).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!FinishedItemsExists(id))
+                if (!FinishedItemExists(id))
                 {
                     return NotFound();
                 }
@@ -71,15 +71,15 @@ namespace UnibrewREST.Controllers
         }
 
         // POST: api/FinishedItems
-        [ResponseType(typeof(FinishedItems))]
-        public IHttpActionResult PostFinishedItems(FinishedItems finishedItems)
+        [ResponseType(typeof(FinishedItem))]
+        public IHttpActionResult PostFinishedItem(FinishedItem finishedItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.FinishedItems.Add(finishedItems);
+            db.FinishedItems.Add(finishedItem);
 
             try
             {
@@ -87,7 +87,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateException)
             {
-                if (FinishedItemsExists(finishedItems.FinishedItemNumber))
+                if (FinishedItemExists(finishedItem.FinishedItemNumber))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace UnibrewREST.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = finishedItems.FinishedItemNumber }, finishedItems);
+            return CreatedAtRoute("DefaultApi", new { id = finishedItem.FinishedItemNumber }, finishedItem);
         }
 
         // DELETE: api/FinishedItems/5
-        [ResponseType(typeof(FinishedItems))]
-        public IHttpActionResult DeleteFinishedItems(int id)
+        [ResponseType(typeof(FinishedItem))]
+        public IHttpActionResult DeleteFinishedItem(int id)
         {
-            FinishedItems finishedItems = db.FinishedItems.Find(id);
-            if (finishedItems == null)
+            FinishedItem finishedItem = db.FinishedItems.Find(id);
+            if (finishedItem == null)
             {
                 return NotFound();
             }
 
-            db.FinishedItems.Remove(finishedItems);
+            db.FinishedItems.Remove(finishedItem);
             db.SaveChanges();
 
-            return Ok(finishedItems);
+            return Ok(finishedItem);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,7 +125,7 @@ namespace UnibrewREST.Controllers
             base.Dispose(disposing);
         }
 
-        private bool FinishedItemsExists(int id)
+        private bool FinishedItemExists(int id)
         {
             return db.FinishedItems.Count(e => e.FinishedItemNumber == id) > 0;
         }

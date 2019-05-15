@@ -1,4 +1,4 @@
-namespace UnibrewREST
+namespace UnibrewREST.Models
 {
     using System;
     using System.Collections.Generic;
@@ -6,18 +6,19 @@ namespace UnibrewREST
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class FinishedItems
+    public partial class FinishedItem
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public FinishedItems()
+        public FinishedItem()
         {
-            ProcessingItems = new HashSet<ProcessingItems>();
+            ProcessingItems = new HashSet<ProcessingItem>();
         }
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int FinishedItemNumber { get; set; }
 
+        [StringLength(10)]
         public string LiquidNumber { get; set; }
 
         [StringLength(30)]
@@ -30,6 +31,6 @@ namespace UnibrewREST
         public double? WeightMax { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProcessingItems> ProcessingItems { get; set; }
+        public virtual ICollection<ProcessingItem> ProcessingItems { get; set; }
     }
 }

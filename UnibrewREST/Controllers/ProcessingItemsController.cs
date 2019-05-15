@@ -8,48 +8,48 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using UnibrewREST;
+using UnibrewREST.Models;
 
 namespace UnibrewREST.Controllers
 {
     public class ProcessingItemsController : ApiController
     {
-        private FullDBmodel db = new FullDBmodel();
+        private Quayzer db = new Quayzer();
 
         // GET: api/ProcessingItems
-        public IQueryable<ProcessingItems> GetProcessingItems()
+        public IQueryable<ProcessingItem> GetProcessingItems()
         {
             return db.ProcessingItems;
         }
 
         // GET: api/ProcessingItems/5
-        [ResponseType(typeof(ProcessingItems))]
-        public IHttpActionResult GetProcessingItems<TId>(TId id)
+        [ResponseType(typeof(ProcessingItem))]
+        public IHttpActionResult GetProcessingItem(string id)
         {
-            ProcessingItems processingItems = db.ProcessingItems.Find(id);
-            if (processingItems == null)
+            ProcessingItem processingItem = db.ProcessingItems.Find(id);
+            if (processingItem == null)
             {
                 return NotFound();
             }
 
-            return Ok(processingItems);
+            return Ok(processingItem);
         }
 
         // PUT: api/ProcessingItems/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProcessingItems(string id, ProcessingItems processingItems)
+        public IHttpActionResult PutProcessingItem(string id, ProcessingItem processingItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (!id.Equals(processingItems.ProcessNumber))
+            if (id != processingItem.ProcessNumber)
             {
                 return BadRequest();
             }
 
-            db.Entry(processingItems).State = EntityState.Modified;
+            db.Entry(processingItem).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProcessingItemsExists(id))
+                if (!ProcessingItemExists(id))
                 {
                     return NotFound();
                 }
@@ -71,15 +71,15 @@ namespace UnibrewREST.Controllers
         }
 
         // POST: api/ProcessingItems
-        [ResponseType(typeof(ProcessingItems))]
-        public IHttpActionResult PostProcessingItems(ProcessingItems processingItems)
+        [ResponseType(typeof(ProcessingItem))]
+        public IHttpActionResult PostProcessingItem(ProcessingItem processingItem)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.ProcessingItems.Add(processingItems);
+            db.ProcessingItems.Add(processingItem);
 
             try
             {
@@ -87,7 +87,7 @@ namespace UnibrewREST.Controllers
             }
             catch (DbUpdateException)
             {
-                if (ProcessingItemsExists(processingItems.ProcessNumber))
+                if (ProcessingItemExists(processingItem.ProcessNumber))
                 {
                     return Conflict();
                 }
@@ -97,23 +97,23 @@ namespace UnibrewREST.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = processingItems.ProcessNumber }, processingItems);
+            return CreatedAtRoute("DefaultApi", new { id = processingItem.ProcessNumber }, processingItem);
         }
 
         // DELETE: api/ProcessingItems/5
-        [ResponseType(typeof(ProcessingItems))]
-        public IHttpActionResult DeleteProcessingItems(int id)
+        [ResponseType(typeof(ProcessingItem))]
+        public IHttpActionResult DeleteProcessingItem(string id)
         {
-            ProcessingItems processingItems = db.ProcessingItems.Find(id);
-            if (processingItems == null)
+            ProcessingItem processingItem = db.ProcessingItems.Find(id);
+            if (processingItem == null)
             {
                 return NotFound();
             }
 
-            db.ProcessingItems.Remove(processingItems);
+            db.ProcessingItems.Remove(processingItem);
             db.SaveChanges();
 
-            return Ok(processingItems);
+            return Ok(processingItem);
         }
 
         protected override void Dispose(bool disposing)
@@ -125,7 +125,7 @@ namespace UnibrewREST.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProcessingItemsExists(string id)
+        private bool ProcessingItemExists(string id)
         {
             return db.ProcessingItems.Count(e => e.ProcessNumber == id) > 0;
         }
