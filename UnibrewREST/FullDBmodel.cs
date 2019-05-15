@@ -29,21 +29,21 @@ namespace UnibrewREST
                 .HasMany(e => e.ProcessingItems)
                 .WithRequired(e => e.FinishedItems)
                 .WillCascadeOnDelete(false);
-
+            /*
             modelBuilder.Entity<ProcessingItems>()
                 .HasMany(e => e.TapOperator)
                 .WithRequired(e => e.ProcessingItems)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(false);*/
 
             modelBuilder.Entity<LiquidTanks>()
                 .Property(e => e.Name)
                 .IsFixedLength()
                 .IsUnicode(false);
-
+            /*
             modelBuilder.Entity<LiquidTanks>()
                 .HasMany(e => e.TapOperator)
                 .WithOptional(e => e.LiquidTanks)
-                .HasForeignKey(e => e.LiquidTank);
+                .HasForeignKey(e => e.LiquidTank);*/
 
             modelBuilder.Entity<TapOperator>()
                 .Property(e => e.LidMaterialNo)

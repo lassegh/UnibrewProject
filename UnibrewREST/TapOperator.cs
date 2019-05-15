@@ -82,8 +82,8 @@ namespace UnibrewREST
 
         public string ProcessNumber { get; set; }
 
-        public virtual LiquidTanks LiquidTanks { get; set; }
+        //public virtual LiquidTanks LiquidTanks { get; set; }
 
-        public virtual ProcessingItems ProcessingItems { get; set; }
+        //public virtual ProcessingItems ProcessingItems { get; set; }
     }
 }
