@@ -24,7 +24,7 @@ namespace UnibrewProject.Model
 
         private string GetUrl(Type obj)
         {
-            string url =  "https://quayzer.azurewebsites.net/api/"; //"http://localhost:58755/api/";//
+            string url = "https://quayzer.azurewebsites.net/api/"; //
 
             if (obj == typeof(TapOperator))
             {
