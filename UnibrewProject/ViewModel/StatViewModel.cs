@@ -12,8 +12,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml.Media;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
-using LiveCharts;
-using LiveCharts.Uwp;
 using UnibrewProject.ViewModel.HelperClasses;
 
 namespace UnibrewProject.ViewModel
