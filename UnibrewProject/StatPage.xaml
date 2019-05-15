@@ -169,6 +169,7 @@
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition Height="25"/>
@@ -178,8 +179,20 @@
                     <TextBlock Text="     DASHBOARD" HorizontalAlignment="Left" FontFamily="Segoe UI Light" FontSize="18" FontWeight="Medium" Height="20" FontStyle="Italic" FocusVisualPrimaryBrush="Black" Foreground="#FF1F1F1F"/>
                 </Grid>
 
-                <Grid Column="1" Row="1" BorderThickness="1,1,1,1">
-                     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <Grid Column="1" Row="1" ColumnSpan="2" BorderThickness="1,1,1,1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Fra dato" Margin="40,0,0,0"/>
+                        <DatePicker Name="FromDate" Margin="15,0,0,0" Date="{Binding FromDateTime, Mode=TwoWay}"/>
+                        <TextBlock Text="Til dato"
+                                   Margin="40,0,0,0" />
+                        <DatePicker Name="ToDate" Margin="10,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Column="1"
+                      Row="2"
+                      BorderThickness="1,1,1,1">
+                        <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
                         <lvc:CartesianChart Series="{Binding Load.MomentCollection}"
                                         LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
@@ -191,9 +204,7 @@
                                       Labels="{Binding Load.MomentLabels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>
-                    </Grid> 
-
-
+                    </Grid> -->
                 </Grid>
 
             </Grid>

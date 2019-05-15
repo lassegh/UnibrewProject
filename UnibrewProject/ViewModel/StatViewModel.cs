@@ -18,6 +18,8 @@ namespace UnibrewProject.ViewModel
 {
     class StatViewModel
     {
+        private DateTime _fromDateTime = DateTime.Today;
+        private DateTime _toDateTime;
 
         public StatViewModel()
         {
@@ -30,5 +32,17 @@ namespace UnibrewProject.ViewModel
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public Loader Load { get; set; } = Loader.Load;
+
+        public DateTime FromDateTime
+        {
+            get { return _fromDateTime; }
+            set { _fromDateTime = value; }
+        }
+
+        public DateTime ToDateTime
+        {
+            get { return _toDateTime; }
+            set { _toDateTime = value; }
+        }
     }
 }
