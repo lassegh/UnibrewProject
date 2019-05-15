@@ -1,4 +1,4 @@
-namespace UnibrewREST.Models
+namespace UnibrewREST
 {
     using System;
     using System.Collections.Generic;
@@ -52,15 +52,15 @@ namespace UnibrewREST.Models
 
         public double? Bottle15 { get; set; }
 
-        public bool? HeuftLid { get; set; }
+        public bool HeuftLid { get; set; }
 
-        public bool? HeuftFillingHeight { get; set; }
+        public bool HeuftFillingHeight { get; set; }
 
-        public bool? ProductTasted { get; set; }
+        public bool ProductTasted { get; set; }
 
-        public bool? SukkerStickTest { get; set; }
+        public bool SukkerStickTest { get; set; }
 
-        public bool? DropTest { get; set; }
+        public bool DropTest { get; set; }
 
         public double? Weight1 { get; set; }
 
@@ -80,12 +80,10 @@ namespace UnibrewREST.Models
         [StringLength(10)]
         public string Operator { get; set; }
 
-        [Required]
-        [StringLength(10)]
         public string ProcessNumber { get; set; }
 
-        public virtual LiquidTank LiquidTank1 { get; set; }
+        public virtual LiquidTanks LiquidTanks { get; set; }
 
-        public virtual ProcessingItem ProcessingItem { get; set; }
+        public virtual ProcessingItems ProcessingItems { get; set; }
     }
 }

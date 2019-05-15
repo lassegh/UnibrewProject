@@ -1,4 +1,4 @@
-namespace UnibrewREST.Models
+namespace UnibrewREST
 {
     using System;
     using System.Collections.Generic;
@@ -6,19 +6,23 @@ namespace UnibrewREST.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class LiquidTank
+    public partial class ProcessingItems
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public LiquidTank()
+        public ProcessingItems()
         {
-            TapOperators = new HashSet<TapOperator>();
+            TapOperator = new HashSet<TapOperator>();
         }
 
         [Key]
-        [StringLength(10)]
-        public string Name { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public string ProcessNumber { get; set; }
+
+        public int FinishedItemNumber { get; set; }
+
+        public virtual FinishedItems FinishedItems { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TapOperator> TapOperators { get; set; }
+        public virtual ICollection<TapOperator> TapOperator { get; set; }
     }
 }

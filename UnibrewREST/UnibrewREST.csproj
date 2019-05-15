@@ -166,15 +166,15 @@
     <Compile Include="Controllers\ProcessingItemsController.cs" />
     <Compile Include="Controllers\TapOperatorsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="FinishedItems.cs" />
+    <Compile Include="FullDBmodel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\FinishedItem.cs" />
-    <Compile Include="Models\LiquidTank.cs" />
-    <Compile Include="Models\ProcessingItem.cs" />
-    <Compile Include="Models\Quayzer.cs" />
-    <Compile Include="Models\TapOperator.cs" />
+    <Compile Include="LiquidTanks.cs" />
+    <Compile Include="ProcessingItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TapOperator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -269,6 +269,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

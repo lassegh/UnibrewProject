@@ -23,8 +23,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 items.TapOperator = (ICollection<TapOperator>) ComGeneric.GetAll<TapOperator>()
                     .Where(x => x.ProcessNumber.Equals(items.ProcessNumber));
-            }*/
-            Debug.WriteLine(ProcessNumberList);
+            }
+            Debug.WriteLine(ProcessNumberList);*/
         }
 
         public List<FinishedItems> FinishedItemsList { get; set; }
