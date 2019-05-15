@@ -35,6 +35,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private bool _isCheckedSugarTest;
         private bool _isCheckedDropTest;
 
+        private string _lidNumber;
+        private string _preformMaterialNumber;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -184,6 +187,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.ProductTasted = IsCheckedProductTasted;
             TapOp.SukkerStickTest = IsCheckedSugarTest;
             TapOp.DropTest = IsCheckedDropTest;
+
+            TapOp.PreformMaterialNo = LidNumber;
+            TapOp.LidMaterialNo = PreformMaterialNumber;
+
         }
         
 
@@ -308,6 +315,26 @@ namespace UnibrewProject.ViewModel.HelperClasses
             set
             {
                 _isCheckedDropTest = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string LidNumber
+        {
+            get { return _lidNumber; }
+            set
+            {
+                _lidNumber = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string PreformMaterialNumber
+        {
+            get { return _preformMaterialNumber; }
+            set
+            {
+                _preformMaterialNumber = value;
                 OnPropertyChanged();
             }
         }
