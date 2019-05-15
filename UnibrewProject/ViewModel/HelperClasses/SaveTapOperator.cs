@@ -36,6 +36,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private string _comment;
 
+        private string _lidNumber;
+
+        private string _preformMaterialNumber;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
