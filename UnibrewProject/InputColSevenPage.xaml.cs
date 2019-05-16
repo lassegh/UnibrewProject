@@ -43,14 +43,5 @@ namespace UnibrewProject
 
         public InputColSevenViewModel ViewModel { get; set; }
 
-        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
