@@ -92,10 +92,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             
 
             // Stopper timer
-            if (AutoSaveTimer.TimeSinceLastKeyDownTimer != null)
-            {
-                AutoSaveTimer.TimeSinceLastKeyDownTimer.Dispose();
-            }
+            AutoSaveTimer.StopTimer();
         }
 
         private bool ProcessItemExists()
@@ -133,70 +130,72 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 // TODO Warn about conflicting ProcessItem
                 Debug.WriteLine("ProcessItem conflict");
             }
-
-            double[] bottleMoments = new double[15];
-
-            for (int i = 0; i < TapOperatorMoments.Length; i++)
+            else
             {
-                if (TapOperatorMoments[i].Moment == null) bottleMoments[i] = 0;
-                else
+                double[] bottleMoments = new double[15];
+
+                for (int i = 0; i < TapOperatorMoments.Length; i++)
                 {
-                    TapOperatorMoments[i].Moment = TapOperatorMoments[i].Moment.Replace(',', '.');
-                    if (!double.TryParse(TapOperatorMoments[i].Moment, out bottleMoments[i])) bottleMoments[i] = 0;
+                    if (TapOperatorMoments[i].Moment == null) bottleMoments[i] = 0;
+                    else
+                    {
+                        TapOperatorMoments[i].Moment = TapOperatorMoments[i].Moment.Replace(',', '.');
+                        if (!double.TryParse(TapOperatorMoments[i].Moment, out bottleMoments[i])) bottleMoments[i] = 0;
+                    }
                 }
-            }
-            
-            TapOp.Bottle1 = bottleMoments[0];
-            TapOp.Bottle2 = bottleMoments[1];
-            TapOp.Bottle3 = bottleMoments[2];
-            TapOp.Bottle4 = bottleMoments[3];
-            TapOp.Bottle5 = bottleMoments[4];
-            TapOp.Bottle6 = bottleMoments[5];
-            TapOp.Bottle7 = bottleMoments[6];
-            TapOp.Bottle8 = bottleMoments[7];
-            TapOp.Bottle9 = bottleMoments[8];
-            TapOp.Bottle10 = bottleMoments[9];
-            TapOp.Bottle11 = bottleMoments[10];
-            TapOp.Bottle12 = bottleMoments[11];
-            TapOp.Bottle13 = bottleMoments[12];
-            TapOp.Bottle14 = bottleMoments[13];
-            TapOp.Bottle15 = bottleMoments[14];
-            
 
-            double[] bottleWeight = new double[6];
+                TapOp.Bottle1 = bottleMoments[0];
+                TapOp.Bottle2 = bottleMoments[1];
+                TapOp.Bottle3 = bottleMoments[2];
+                TapOp.Bottle4 = bottleMoments[3];
+                TapOp.Bottle5 = bottleMoments[4];
+                TapOp.Bottle6 = bottleMoments[5];
+                TapOp.Bottle7 = bottleMoments[6];
+                TapOp.Bottle8 = bottleMoments[7];
+                TapOp.Bottle9 = bottleMoments[8];
+                TapOp.Bottle10 = bottleMoments[9];
+                TapOp.Bottle11 = bottleMoments[10];
+                TapOp.Bottle12 = bottleMoments[11];
+                TapOp.Bottle13 = bottleMoments[12];
+                TapOp.Bottle14 = bottleMoments[13];
+                TapOp.Bottle15 = bottleMoments[14];
 
-            for (int i = 0; i < FluidWeightControls.Length; i++)
-            {
-                if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
-                else
+
+                double[] bottleWeight = new double[6];
+
+                for (int i = 0; i < FluidWeightControls.Length; i++)
                 {
-                    FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
-                    if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;
+                    if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
+                    else
+                    {
+                        FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
+                        if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;
+                    }
+
                 }
-        
+
+                TapOp.Weight1 = bottleWeight[0];
+                TapOp.Weight2 = bottleWeight[1];
+                TapOp.Weight3 = bottleWeight[2];
+                TapOp.Weight4 = bottleWeight[3];
+                TapOp.Weight5 = bottleWeight[4];
+                TapOp.Weight6 = bottleWeight[5];
+
+                TapOp.ProcessNumber = Processnumber;
+
+                TapOp.HeuftLid = IsCheckedHeuftLid;
+                TapOp.HeuftFillingHeight = IsCheckedFillHeight;
+                TapOp.ProductTasted = IsCheckedProductTasted;
+                TapOp.SukkerStickTest = IsCheckedSugarTest;
+                TapOp.DropTest = IsCheckedDropTest;
+
+                TapOp.Comments = Comment;
+
+                TapOp.LidMaterialNo = LidNumber;
+                TapOp.PreformMaterialNo = PreformMaterialNumber;
             }
-
-            TapOp.Weight1 = bottleWeight[0];
-            TapOp.Weight2 = bottleWeight[1];
-            TapOp.Weight3 = bottleWeight[2];
-            TapOp.Weight4 = bottleWeight[3];
-            TapOp.Weight5 = bottleWeight[4];
-            TapOp.Weight6 = bottleWeight[5];
-
-            TapOp.ProcessNumber = Processnumber;
-
-            TapOp.HeuftLid = IsCheckedHeuftLid;
-            TapOp.HeuftFillingHeight = IsCheckedFillHeight;
-            TapOp.ProductTasted = IsCheckedProductTasted;
-            TapOp.SukkerStickTest = IsCheckedSugarTest;
-            TapOp.DropTest = IsCheckedDropTest;
-
-            TapOp.Comments = Comment;
-
-            TapOp.LidMaterialNo = LidNumber;
-            TapOp.PreformMaterialNo = PreformMaterialNumber;
         }
-        
+
 
         private void PostSaveMethod()
         {
