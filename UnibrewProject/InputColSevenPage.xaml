@@ -362,7 +362,7 @@
                               Grid.Row="0"
                               Grid.ColumnSpan="3">
                             <TextBlock Text="   Tilspændingsmoment"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Stretch"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
                                        FontWeight="Normal"
@@ -370,13 +370,13 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="#FFE0E0EC"
-                                       VerticalAlignment="Center"
+                                       VerticalAlignment="Stretch"
                                        Margin="0,-5,0,3" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Tjek de 15 tilspændingsmomenter og skriv dem ned"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Margin="0,-5,253,0" Foreground="#FFE0E0EC" />
+                                       Margin="192,3,0,12" Foreground="#FFE0E0EC" />
                         </Grid>
 
 
@@ -872,7 +872,7 @@
                             </Border>
                         </Grid>
 
-                        
+
 
                         <Grid Grid.Column="0"
                               Grid.Row="3"
@@ -922,7 +922,7 @@
                                        Margin="0,1,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Læs vejledning for Heuft maskineri"
-                                       Margin="59,0,0,27"
+                                       Margin="61,0,0,27"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center" Foreground="#FFE0E0EC" />
                         </Grid>
@@ -1157,7 +1157,7 @@
                               Grid.ColumnSpan="3"
                               Grid.RowSpan="1">
                             <TextBlock Text="   Kontrolvejning"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Stretch"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
                                        FontWeight="Normal"
@@ -1165,13 +1165,13 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="#FFE0E0EC"
-                                       VerticalAlignment="Center"
-                                       Margin="0,-1,0,7" />
+                                       VerticalAlignment="Stretch"
+                                       Margin="0,0,0,8" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vej seks tilfældige flasker og skriv deres vægt ind "
-                                       HorizontalAlignment="Center"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
-                                       Margin="0,-4,179,0" Foreground="#FFE0E0EC" />
+                                       Margin="136,0,0,9" Foreground="#FFE0E0EC" />
                         </Grid>
 
 
@@ -1417,9 +1417,9 @@
                         <Grid
                             Column="4"
                             Row="5"
-                            ColumnSpan="2">
+                            Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,0">
                             <TextBlock Text="Comments"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Stretch"
                                        FontFamily="Segoe UI Light"
                                        FontSize="18"
                                        FontWeight="Normal"
@@ -1427,28 +1427,26 @@
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="#FFE0E0EC"
                                        Foreground="#FFE0E0EC"
-                                       VerticalAlignment="Center"
+                                       VerticalAlignment="Stretch"
                                        Margin="10,0,0,11" />
                             <TextBlock Text="[?]"
-                                       ToolTipService.ToolTip="Kommentar til denne data registrering"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Margin="0,-8,100,0" Foreground="#FFE0E0EC" FontWeight="Normal" />
+                                       ToolTipService.ToolTip="Læs vejledning for Heuft maskineri"
+                                       Margin="101,12,0,0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Top" Foreground="#FFE0E0EC" />
                         </Grid>
 
                         <Grid Column="4"
                               Row="6"
                               RowSpan="4"
-                              ColumnSpan="5">
+                              ColumnSpan="4">
 
                             <Border BorderThickness="1"
                                     BorderBrush="Black"
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="188"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Top"
-                                    Margin="12,8,0,0" Width="563">
+                                    Margin="20,7,36,27">
                                 <TextBox
                                          BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
