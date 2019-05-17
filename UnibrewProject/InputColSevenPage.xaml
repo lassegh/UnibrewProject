@@ -135,7 +135,7 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
