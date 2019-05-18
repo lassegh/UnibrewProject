@@ -324,85 +324,81 @@
                       Row="2"
                       BorderThickness="1,1,1,1">
                     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                        <!--<lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
+                        <lvc:CartesianChart Series="{Binding ViewModel.StatBuilder.MomentCollection}"
                                             LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="Moment"
-                                          LabelFormatter="{Binding StatBuilder.YFormatter}"></lvc:Axis>
+                                          LabelFormatter="{Binding ViewModel.StatBuilder.YFormatter}"></lvc:Axis>
                             </lvc:CartesianChart.AxisY>
                             <lvc:CartesianChart.AxisX>
                                 <lvc:Axis Title="Dato"
-                                          Labels="{Binding StatBuilder.MomentLabels}"></lvc:Axis>
+                                          Labels="{Binding ViewModel.StatBuilder.MomentLabels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
-                        </lvc:CartesianChart>-->
+                        </lvc:CartesianChart>
                     </Grid>
                 </Grid>
 
                 <StackPanel Grid.Column="2"
                             Grid.Row="2"
                             Orientation="Vertical">
-                    <CheckBox Content="Alle flasker"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[0]}"
-                              Name="All"
-                              Tapped="OnTapped"/>
                     <CheckBox Content="Flakse 1"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[1]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[0]}"
                               Name="B1"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 2"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[2]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[1]}"
                               Name="B2"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 3"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[3]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[2]}"
                               Name="B3"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 4"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[4]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[3]}"
                               Name="B4"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 5"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[5]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[4]}"
                               Name="B5"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 6"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[6]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[5]}"
                               Name="B6"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 7"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[7]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[6]}"
                               Name="B7"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 8"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[8]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[7]}"
                               Name="B8"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 9"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[9]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[8]}"
                               Name="B9"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 10"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[10]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[9]}"
                               Name="B10"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 11"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[11]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[10]}"
                               Name="B11"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 12"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[12]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[11]}"
                               Name="B12"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 13"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[13]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[12]}"
                               Name="B13"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 14"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[14]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[13]}"
                               Name="B14"
                               Tapped="OnTapped"/>
                     <CheckBox Content="Flaske 15"
-                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[15]}"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[14]}"
                               Name="B15"
                               Tapped="OnTapped"/>
                 </StackPanel>

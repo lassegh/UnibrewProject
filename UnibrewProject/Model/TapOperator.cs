@@ -44,7 +44,7 @@ namespace UnibrewProject.Model
 
         public double Bottle9 { get; set; }
 
-        public double? Bottle10 { get; set; }
+        public double Bottle10 { get; set; }
 
         public double Bottle11 { get; set; }
 

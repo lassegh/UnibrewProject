@@ -41,6 +41,7 @@ namespace UnibrewProject
         {
             string name = ((CheckBox)sender).Name;
             ViewModel.StatConfig.ToggleGraphs(name);
+            ViewModel.RegenerateGraph();
         }
 
         public StatViewModel ViewModel { get; set; }

@@ -20,7 +20,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             FromDateTime = new DateTime(2019, 1, 1);
             ToDateTime = DateTime.Today;
-            ShowingBottles = new bool[16];
+            ShowingBottles = new bool[15];
             for (int i = 0; i < ShowingBottles.Length; i++)
             {
                 ShowingBottles[i] = true;
@@ -31,69 +31,64 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             switch (name)
             {
-                case "All":
-                    if (ShowingBottles[0])
-                    {
-                        for (int i = 0; i < ShowingBottles.Length; i++)
-                        {
-                            ShowingBottles[i] = false;
-                            
-                        }
-                    }
-                    else for (int i = 0; i < ShowingBottles.Length; i++)
-                    {
-                        ShowingBottles[i] = true;
-                    }
-
-                    for (int i = 0; i < ShowingBottles.Length; i++)
-                    {
-                        OnPropertyChanged(ShowingBottles[i].ToString());
-                    }
-                    break;
-
                 case "B1":
-                    break;
+                    ShowingBottles[0] = !ShowingBottles[0];
+                        break;
 
                 case "B2":
+                    ShowingBottles[1] = !ShowingBottles[1];
                     break;
 
                 case "B3":
+                    ShowingBottles[2] = !ShowingBottles[2];
                     break;
 
                 case "B4":
+                    ShowingBottles[3] = !ShowingBottles[3];
                     break;
 
                 case "B5":
+                    ShowingBottles[4] = !ShowingBottles[4];
                     break;
 
                 case "B6":
+                    ShowingBottles[5] = !ShowingBottles[5];
                     break;
 
                 case "B7":
+                    ShowingBottles[6] = !ShowingBottles[6];
                     break;
 
                 case "B8":
+                    ShowingBottles[7] = !ShowingBottles[7];
                     break;
 
                 case "B9":
+                    ShowingBottles[8] = !ShowingBottles[8];
                     break;
 
                 case "B10":
+                    ShowingBottles[9] = !ShowingBottles[9];
                     break;
 
                 case "B11":
+                    ShowingBottles[10] = !ShowingBottles[10];
                     break;
 
                 case "B12":
+                    ShowingBottles[11] = !ShowingBottles[11];
                     break;
 
                 case "B13":
+                    ShowingBottles[12] = !ShowingBottles[12];
                     break;
 
                 case "B14":
+                    ShowingBottles[13] = !ShowingBottles[13];
                     break;
 
                 case "B15":
+                    ShowingBottles[14] = !ShowingBottles[14];
                     break;
             }
         }

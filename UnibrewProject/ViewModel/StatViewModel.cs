@@ -30,7 +30,8 @@ namespace UnibrewProject.ViewModel
         {
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
-            StatBuilder = new StatisticsBuilder(_tapOperators,FromDateTime,ToDateTime);
+            StatBuilder = new StatisticsBuilder();
+            RegenerateGraph();
             FromDateTime = new DateTime();
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
@@ -54,6 +55,11 @@ namespace UnibrewProject.ViewModel
             }
         }
 
+        public void RegenerateGraph()
+        {
+            StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
+        }
+
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
         public StatisticsBuilder StatBuilder { get; set; }
@@ -70,7 +76,7 @@ namespace UnibrewProject.ViewModel
             set
             {
                 StatConfig.FromDateTime = value;
-                StatBuilder.RebiuldStats(_tapOperators,FromDateTime,ToDateTime);
+                RegenerateGraph();
             }
         }
 
@@ -80,7 +86,7 @@ namespace UnibrewProject.ViewModel
             set
             {
                 StatConfig.ToDateTime = value;
-                StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime);
+                RegenerateGraph();
             }
         }
     }
