@@ -9,15 +9,8 @@
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       mc:Ignorable="d"
+      DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Page.DataContext>
-        <viewModel:StatViewModel />
-    </Page.DataContext>
-
-
-
-
 
     <StackPanel Orientation="Vertical"
                 Background="Black">
@@ -140,7 +133,7 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding Slider.MenuWidth}">
+                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}">
                 </ColumnDefinition>
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
@@ -163,7 +156,7 @@
                     <RowDefinition Height="81*" />
                 </Grid.RowDefinitions>
 
-                <Button Command="{Binding Slider.MenuHideButton}"
+                <Button Command="{Binding ViewModel.Slider.MenuHideButton}"
                         Grid.Row="0"
                         HorizontalAlignment="Right"
                         Opacity="0.98"
@@ -174,7 +167,7 @@
                                     HorizontalAlignment="Left"
                                     Margin="4,0,0,0" />
                         <TextBlock Text=""
-                                   Visibility="{Binding Slider.MenuTextVisibility}"
+                                   Visibility="{Binding ViewModel.Slider.MenuTextVisibility}"
                                    FontWeight="Bold" />
                     </StackPanel>
                 </Button>
@@ -184,7 +177,7 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Command="{Binding Navigator.InputColSevenCommand}">
+                        Command="{Binding ViewModel.Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="Page2"
                                     HorizontalAlignment="Left"
@@ -240,7 +233,7 @@
                 <Button Grid.Row="7"
                         HorizontalAlignment="Left"
                         Background="#00000000"
-                        Command="{Binding Navigator.StatCommand}">
+                        Command="{Binding ViewModel.Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
                         <SymbolIcon Symbol="ZeroBars"
                                     Margin="4,0,0,0" />
@@ -303,23 +296,24 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Fra dato"
                                    Margin="40,0,0,0" />
-                        <CalendarDatePicker Date="{Binding FromDateTime, Mode=TwoWay}"
+                        <CalendarDatePicker Date="{Binding ViewModel.FromDateTime}"
                                             Margin="15,0,0,0"
                                             DateFormat="{}{day.integer} {month.full} {year.full}"
                                             FirstDayOfWeek="Monday">
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="DateChanged">
-                                    <core:InvokeCommandAction Command="{Binding CalendarCommand}" />
+                                    <core:InvokeCommandAction Command="{Binding ViewModel.CalendarCommand}" />
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
                         </CalendarDatePicker>
                         <TextBlock Text="Til dato"
                                    Margin="40,0,0,0" />
-                        <CalendarDatePicker Name="ToDate"
-                                    Margin="10,0,0,0" Date="{Binding ToDateTime, Mode=TwoWay}">
+                        <CalendarDatePicker Margin="10,0,0,0"
+                                            Date="{Binding ViewModel.ToDateTime}"
+                                            DateFormat="{}{day.integer} {month.full} {year.full}">
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="DateChanged">
-                                    <core:InvokeCommandAction Command="{Binding CalendarToDateCommand}" />
+                                    <core:InvokeCommandAction Command="{Binding ViewModel.CalendarToDateCommand}" />
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
                         </CalendarDatePicker>
@@ -330,7 +324,7 @@
                       Row="2"
                       BorderThickness="1,1,1,1">
                     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                        <lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
+                        <!--<lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
                                             LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="Moment"
@@ -340,9 +334,78 @@
                                 <lvc:Axis Title="Dato"
                                           Labels="{Binding StatBuilder.MomentLabels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
-                        </lvc:CartesianChart>
+                        </lvc:CartesianChart>-->
                     </Grid>
                 </Grid>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="2"
+                            Orientation="Vertical">
+                    <CheckBox Content="Alle flasker"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[0]}"
+                              Name="All"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flakse 1"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[1]}"
+                              Name="B1"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 2"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[2]}"
+                              Name="B2"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 3"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[3]}"
+                              Name="B3"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 4"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[4]}"
+                              Name="B4"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 5"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[5]}"
+                              Name="B5"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 6"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[6]}"
+                              Name="B6"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 7"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[7]}"
+                              Name="B7"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 8"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[8]}"
+                              Name="B8"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 9"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[9]}"
+                              Name="B9"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 10"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[10]}"
+                              Name="B10"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 11"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[11]}"
+                              Name="B11"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 12"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[12]}"
+                              Name="B12"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 13"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[13]}"
+                              Name="B13"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 14"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[14]}"
+                              Name="B14"
+                              Tapped="OnTapped"/>
+                    <CheckBox Content="Flaske 15"
+                              IsChecked="{Binding ViewModel.StatConfig.ShowingBottles[15]}"
+                              Name="B15"
+                              Tapped="OnTapped"/>
+                </StackPanel>
 
             </Grid>
 

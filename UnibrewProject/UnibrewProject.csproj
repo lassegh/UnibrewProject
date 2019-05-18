@@ -138,6 +138,7 @@
     <Compile Include="ViewModel\HelperClasses\SaveTapOperator.cs" />
     <Compile Include="ViewModel\HelperClasses\SaveClasses\TapOperatorMoment.cs" />
     <Compile Include="ViewModel\HelperClasses\SaveClasses\FluidWeightControl.cs" />
+    <Compile Include="ViewModel\HelperClasses\StatConfiguration.cs" />
     <Compile Include="ViewModel\HelperClasses\StatisticsBuilder.cs" />
     <Compile Include="ViewModel\InputColSevenViewModel.cs" />
     <Compile Include="ViewModel\HelperClasses\Loader.cs" />

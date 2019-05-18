@@ -7,11 +7,13 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Windows.Foundation;
+    using System.Windows.Input;
+    using Windows.Foundation;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
     using Windows.UI.Xaml;
     using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Input;
     using Windows.UI.Xaml.Media;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
@@ -20,11 +22,9 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel
 {
-    class StatViewModel
+    public class StatViewModel
     {
         private List<TapOperator> _tapOperators = Loader.Load.GetTapOperators();
-        private DateTime _fromDateTime;
-        private DateTime _toDateTime;
 
         public StatViewModel()
         {
@@ -58,26 +58,28 @@ namespace UnibrewProject.ViewModel
         public MenuNavigator Navigator { get; set; }
         public StatisticsBuilder StatBuilder { get; set; }
         public Loader Load { get; set; } = Loader.Load;
+        public StatConfiguration StatConfig { get; set; } = StatConfiguration.StatConfig;
+
 
         public RelayCommand<object> CalendarCommand { get; set; }
         public RelayCommand<object> CalendarToDateCommand { get; set; }
 
         public DateTime FromDateTime
         {
-            get { return _fromDateTime; }
+            get => StatConfig.FromDateTime;
             set
             {
-                _fromDateTime = value;
+                StatConfig.FromDateTime = value;
                 StatBuilder.RebiuldStats(_tapOperators,FromDateTime,ToDateTime);
             }
         }
 
         public DateTime ToDateTime
         {
-            get { return _toDateTime; }
+            get => StatConfig.ToDateTime;
             set
             {
-                _toDateTime = value;
+                StatConfig.ToDateTime = value;
                 StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime);
             }
         }
