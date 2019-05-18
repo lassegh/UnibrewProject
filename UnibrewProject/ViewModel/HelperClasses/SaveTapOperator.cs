@@ -19,14 +19,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
 {
     /// <summary>
     /// Gem klasse.
-    /// Til gem knap og automatisk gem
+    /// Gemmer indtastninger fra inputColSevenPage
     /// </summary>
     public class SaveTapOperator : INotifyPropertyChanged
     {
         private static SaveTapOperator _save = null;
         public delegate void SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
-        private ProcessingItems _proItem;
 
         private bool _isCheckedHeuftLid;
         private bool _isCheckedFillHeight;
@@ -228,28 +227,65 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
             LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;
-            Debug.WriteLine(liquidTank?.Name);
             TapOp.LiquidTank = liquidTank?.Name;
         }
 
-
-        
+        /// <summary>
+        /// Objekt af tapOperator, der kan gemmes til
+        /// </summary>
         public TapOperator TapOp { get; set; }
+
+        /// <summary>
+        /// RelayCommand til gemknap
+        /// </summary>
         public RelayCommand SaveCommand { get; set; }
+
+        /// <summary>
+        /// Objekt af autosavetimer, der sørger for automatisk gemning
+        /// </summary>
         public AutoSaveTimer AutoSaveTimer { get; set; }
+
+        /// <summary>
+        /// Array af tapOperatorMoments, der bruges til momentindtastninger
+        /// </summary>
         public TapOperatorMoment[] TapOperatorMoments { get; set; } = new TapOperatorMoment[15];
+
+        /// <summary>
+        /// Array af FluidWeightControls, der bruges til vægtindtastninger
+        /// </summary>
         public FluidWeightControl[] FluidWeightControls { get; set; } = new FluidWeightControl[6];
+
+        /// <summary>
+        /// RelayCommand til valg af Liquidtanks, der sørger for den valgte tank gemmes
+        /// </summary>
         public RelayCommand<object> LiquidTankCommand { get; set; }
+
+        /// <summary>
+        /// int til færdigvarenummer
+        /// </summary>
         public int FinishNumber { get; set; }
+
+        /// <summary>
+        /// string til processnummer
+        /// </summary>
         public string Processnumber { get; set; }
 
+        /// <summary>
+        /// Henvisning til persistensklassen
+        /// </summary>
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
+        /// <summary>
+        /// Delegate, der skifter mellem post gemning og put gemning
+        /// </summary>
         public SaveToDbMethod SAveToDbMethod
         {
             get { return _saveToDbMethod; }
         }
 
+        /// <summary>
+        /// Indgang til denne singleton - SaveTapOperator
+        /// </summary>
         public static SaveTapOperator Save
         {
             get
@@ -262,16 +298,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
-        public ProcessingItems ProItem
-        {
-            get { return _proItem; }
-            set
-            {
-                _proItem = value;
+        /// <summary>
+        /// Objekt af processingItem, der kan gemmes til
+        /// </summary>
+        public ProcessingItems ProItem { get; set; }
 
-            }
-        }
-
+        /// <summary>
+        /// bool til HeuftLid
+        /// </summary>
         public bool IsCheckedHeuftLid
         {
             get { return _isCheckedHeuftLid; }
@@ -282,6 +316,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// bool til FillingHeight
+        /// </summary>
         public bool IsCheckedFillHeight
         {
             get { return _isCheckedFillHeight; }
@@ -292,6 +329,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// bool til Smagstest
+        /// </summary>
         public bool IsCheckedProductTasted
         {
             get { return _isCheckedProductTasted; }
@@ -302,6 +342,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// bool til sukkerTest
+        /// </summary>
         public bool IsCheckedSugarTest
         {
             get { return _isCheckedSugarTest; }
@@ -312,6 +355,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// bool til dropTest
+        /// </summary>
         public bool IsCheckedDropTest
         {
             get { return _isCheckedDropTest; }
@@ -322,6 +368,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// String til kommentarer
+        /// </summary>
         public string Comment
         {
             get { return _comment; }
@@ -332,6 +381,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// String til lidNumber
+        /// </summary>
         public string LidNumber
         {
             get { return _lidNumber; }
@@ -342,6 +394,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// String til preformNummer
+        /// </summary>
         public string PreformMaterialNumber
         {
             get { return _preformMaterialNumber; }

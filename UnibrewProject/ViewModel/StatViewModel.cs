@@ -22,6 +22,9 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel
 {
+    /// <summary>
+    /// ViewModel for StatPage
+    /// </summary>
     public class StatViewModel
     {
         private List<TapOperator> _tapOperators = Loader.Load.GetTapOperators();
@@ -30,11 +33,12 @@ namespace UnibrewProject.ViewModel
         {
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
-            StatBuilder = new StatisticsBuilder();
+            StatBuilder = new MomentStatBuilder();
             RegenerateGraph();
             FromDateTime = new DateTime();
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
+            CheckBoxCommand = new RelayCommand<object>(CheckBoxCommandMethod);
         }
 
         private void CalendarCommandMethod(object obj)
@@ -55,6 +59,18 @@ namespace UnibrewProject.ViewModel
             }
         }
 
+        private void CheckBoxCommandMethod(object obj)
+        {
+            TappedRoutedEventArgs args = obj as TappedRoutedEventArgs;
+            CheckBox box = args?.OriginalSource as CheckBox;
+            string name = box?.Name;
+            StatConfig.ToggleGraphs(name);
+            RegenerateGraph();
+        }
+
+        /// <summary>
+        /// Gentegner graf af tilspændingsMomenter
+        /// </summary>
         public void RegenerateGraph()
         {
             StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
@@ -62,13 +78,14 @@ namespace UnibrewProject.ViewModel
 
         public MenuSlider Slider { get; set; }
         public MenuNavigator Navigator { get; set; }
-        public StatisticsBuilder StatBuilder { get; set; }
+        public MomentStatBuilder StatBuilder { get; set; }
         public Loader Load { get; set; } = Loader.Load;
         public StatConfiguration StatConfig { get; set; } = StatConfiguration.StatConfig;
 
 
         public RelayCommand<object> CalendarCommand { get; set; }
         public RelayCommand<object> CalendarToDateCommand { get; set; }
+        public RelayCommand<object> CheckBoxCommand { get; set; }
 
         public DateTime FromDateTime
         {

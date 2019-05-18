@@ -10,6 +10,10 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
+    /// <summary>
+    /// Klasse til vægtkontrols indtastninger.
+    /// Klassen indeholder kun en property; Weight 
+    /// </summary>
     public class FluidWeightControl : INotifyPropertyChanged
     {
         private string _weight;

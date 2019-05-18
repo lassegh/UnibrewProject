@@ -22,7 +22,7 @@ namespace UnibrewProject.Model
             
         }
 
-        private string GetUrl(Type obj)
+        private string GetUrl(Type obj) // Danner URL - ændrer URI afhængig af typen af objekt
         {
             string url = "https://quayzer.azurewebsites.net/api/"; //
 

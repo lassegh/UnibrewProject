@@ -13,6 +13,9 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
+    /// <summary>
+    /// Indeholder menuen og knappernes relayCommands
+    /// </summary>
     public class MenuNavigator : INotifyPropertyChanged
     {
 

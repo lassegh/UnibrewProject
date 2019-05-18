@@ -23,6 +23,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             LiquidTanksList = ComGeneric.GetAll<LiquidTanks>();
         }
 
+        /// <summary>
+        /// Henter liste af TapOperators
+        /// </summary>
+        /// <returns>List af TapOperators</returns>
         public List<TapOperator> GetTapOperators()
         {
             return ComGeneric.GetAll<TapOperator>();
@@ -30,7 +34,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         public List<FinishedItems> FinishedItemsList { get; set; }
         public List<LiquidTanks> LiquidTanksList { get; set; }
-        public List<TapOperator> TapOperatorList { get; set; }
 
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 

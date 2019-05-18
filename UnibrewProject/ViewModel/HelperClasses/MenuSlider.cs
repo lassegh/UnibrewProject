@@ -12,6 +12,10 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
+    /// <summary>
+    /// Indeholder funktionerne til menuslideren.
+    /// RelayCommand til at aktivere slideren og en timer, der sørger for glidende slide
+    /// </summary>
     public class MenuSlider : INotifyPropertyChanged
     {
         private delegate void CallBack(Object state);
@@ -67,9 +71,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         }
 
-        public Timer MenuMoveTimer { get; set; }
+        private Timer MenuMoveTimer { get; set; }
+
+        /// <summary>
+        /// RelayCommand, der aktiverer slideren
+        /// </summary>
         public RelayCommand MenuHideButton { get; set; }
 
+        /// <summary>
+        /// int, der bestemmer menuens width
+        /// </summary>
         public int MenuWidth
         {
             get { return _menuWidth; }
@@ -86,6 +97,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// bool, der bestemmer tekstens visibility i menuen
+        /// </summary>
         public bool MenuTextVisibility
         {
             get { return _menuTextVisibility; }

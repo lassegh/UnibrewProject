@@ -11,6 +11,9 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
+    /// <summary>
+    /// Timer til automatisk gemfunktion.
+    /// </summary>
     public class AutoSaveTimer : INotifyPropertyChanged
     {
         private delegate void FadingTextTimerCallBack(Object state);
@@ -24,11 +27,17 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             _save = save;
         }
 
+        /// <summary>
+        /// Stopper timer
+        /// </summary>
         public void StopTimer()
         {
             TimeSinceLastKeyDownTimer?.Dispose();
         }
 
+        /// <summary>
+        /// Starter eller genstarter timer
+        /// </summary>
         public void StartTimer()
         {
             if (TimeSinceLastKeyDownTimer != null)

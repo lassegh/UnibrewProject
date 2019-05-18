@@ -27,6 +27,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// Ændrer bools i array, afhængig af checkbokse
+        /// </summary>
+        /// <param name="name"></param>
         public void ToggleGraphs(string name)
         {
             switch (name)
@@ -92,12 +96,20 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     break;
             }
         }
-
-
-
+        
+        /// <summary>
+        /// Gemmer indtastede dato i memory
+        /// </summary>
         public DateTime FromDateTime { get; set; }
+
+        /// <summary>
+        /// Gemmer indtastede dato i memory
+        /// </summary>
         public DateTime ToDateTime { get; set; }
 
+        /// <summary>
+        /// Indgang til denne singleton - StatConfiguration
+        /// </summary>
         public static StatConfiguration StatConfig
         {
             get
@@ -110,6 +122,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// Array af bools, der holder synligheden af den enkelte momentGraf
+        /// </summary>
         public bool[] ShowingBottles { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;

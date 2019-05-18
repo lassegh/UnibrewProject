@@ -27,23 +27,7 @@ namespace UnibrewProject
     {
         public MainPage()
         {
-            ViewModel = new StatViewModel();
             this.InitializeComponent();
         }
-
-        private void FormName_SizeChanged(object sender, SizeChangedEventArgs e)
-        {
-
-            //ApplicationView.GetForCurrentView().TryResizeView(new Size(1280, 720));
-        }
-
-        private void OnTapped(object sender, TappedRoutedEventArgs e)
-        {
-            string name = ((CheckBox)sender).Name;
-            ViewModel.StatConfig.ToggleGraphs(name);
-            ViewModel.RegenerateGraph();
-        }
-
-        public StatViewModel ViewModel { get; set; }
     }
 }

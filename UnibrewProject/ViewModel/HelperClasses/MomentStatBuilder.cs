@@ -13,17 +13,27 @@ using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
-    public class StatisticsBuilder : INotifyPropertyChanged
+    /// <summary>
+    /// Tegner grafer for tilspændingsmomenter
+    /// </summary>
+    public class MomentStatBuilder : INotifyPropertyChanged
     {
         private SeriesCollection _momentCollection;
         private List<string> _momentLabels;
         private Func<double, string> _yFormatter;
 
-        public StatisticsBuilder()
+        public MomentStatBuilder()
         {
 
         }
 
+        /// <summary>
+        /// Opretter de lister, der skal bruges til de ønskede grafer
+        /// </summary>
+        /// <param name="tapOperatorList">Liste af TapOperators</param>
+        /// <param name="startDate">Startdato for grafer</param>
+        /// <param name="endDate">Slutdato for grafer</param>
+        /// <param name="bottleShow">Array af bools, der fortæller hvilke grafer, der skal tegnes</param>
         public void RebiuldStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, bool[] bottleShow)
         {
             List<double> bottleOne = new List<double>();
@@ -161,8 +171,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             YFormatter = value => value.ToString("N");
         }
 
-
-
+        /// <summary>
+        /// Serie af grafer
+        /// </summary>
         public SeriesCollection MomentCollection
         {
             get { return _momentCollection; }
@@ -173,6 +184,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// Labels på de datoer, grafen indeholder - x-aksen
+        /// </summary>
         public List<string> MomentLabels
         {
             get { return _momentLabels; }
@@ -183,6 +197,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
+        /// <summary>
+        /// Labels på de momenter, grafen indeholder - y-aksen
+        /// </summary>
         public Func<double, string> YFormatter
         {
             get { return _yFormatter; }

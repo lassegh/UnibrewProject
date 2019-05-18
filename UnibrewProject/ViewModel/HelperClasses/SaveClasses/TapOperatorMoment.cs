@@ -10,6 +10,10 @@ using UnibrewProject.Annotations;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
+    /// <summary>
+    /// Klasse til momentkontrols indtastninger.
+    /// Klassen indeholder kun en property; Moment 
+    /// </summary>
     public class TapOperatorMoment : INotifyPropertyChanged
     {
         private string _moment;
