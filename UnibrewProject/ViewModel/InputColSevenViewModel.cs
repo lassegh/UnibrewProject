@@ -23,6 +23,7 @@ namespace UnibrewProject.ViewModel
 
         public double txt_out;
         private string _txtbxInputValid;
+
         private string _finishedItemNumber;
         private FinishedItems _currentFinishedItem;
 
@@ -30,18 +31,23 @@ namespace UnibrewProject.ViewModel
         {
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
-            RelayCommand_inputValid = new RelayCommand<object>(Execute);
+            RelayCommand_inputValid = new RelayCommand<object>(CheckLegalDataType);
+            
             _txtbxInputValid = "";
+
         }
 
         
-
-        public void Execute(object parameter)
+        /// <summary>
+        /// Checks if this value are of the data type string, null/whitespace if yes, gives a warning with a red star in a textBlock behind the textbox 
+        /// </summary>
+        /// <param name="parameter"></param>
+        public void CheckLegalDataType(object parameter)
         {
             RoutedEventArgs args = parameter as RoutedEventArgs;
             TextBlock box = args?.OriginalSource as TextBlock;
 
-            if (double.TryParse(Save.TapOperatorMoments[0].Moment, out txt_out))
+            if (double.TryParse(Save.TapOperatorMoments[0].Moment, out txt_out ) || string.IsNullOrWhiteSpace(Save.TapOperatorMoments[0].Moment) )
             {
                 txtbx_inputValid = "";
 
@@ -75,15 +81,12 @@ namespace UnibrewProject.ViewModel
         /// </summary>
         public Loader Load { get; set; } = Loader.Load;
 
+        /// <summary>
+        /// Relay command som eventet "lostFocus" bruger når data typen i text feltet skal valideres
+        /// </summary>
         public RelayCommand<object> RelayCommand_inputValid { get; set; }
         
 
-        public string txtbx_inputValid
-        {
-            get => _txtbxInputValid;
-            set { _txtbxInputValid = value; OnPropertyChanged(); }
-        }
-        
         /// <summary>
         /// FinishedItems
         /// </summary>
@@ -127,6 +130,15 @@ namespace UnibrewProject.ViewModel
                 _currentFinishedItem = value;
                 OnPropertyChanged();
             }
+        }
+
+        /// <summary>
+        /// Properties der bliver brugt til at vise om der er brugt forkerte data type i input
+        /// </summary>
+        public string txtbx_inputValid
+        {
+            get => _txtbxInputValid;
+            set { _txtbxInputValid = value; OnPropertyChanged(); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
