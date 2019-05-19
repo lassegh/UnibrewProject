@@ -9,6 +9,8 @@ namespace UnibrewREST
     [Table("TapOperator")]
     public partial class TapOperator
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         public DateTime? ClockDate { get; set; }

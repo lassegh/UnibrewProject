@@ -24,9 +24,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
     public class SaveTapOperator : INotifyPropertyChanged
     {
         private static SaveTapOperator _save = null;
-        public delegate void SaveToDbMethod();
+        public delegate bool SaveToDbMethod();
         private SaveToDbMethod _saveToDbMethod;
 
+        private string _processnumber;
         private bool _isCheckedHeuftLid;
         private bool _isCheckedFillHeight;
         private bool _isCheckedProductTasted;
@@ -65,33 +66,37 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private void SaveCommandPush()
         {
-            //Run saveDelegate
-            SAveToDbMethod();
-
-            //Return saveDelegate to startMethod
-            _saveToDbMethod = PostSaveMethod;
-            
-            //Nulstil objeckt af TESTmoment
-            GenerateObjectsToBeSaved();
-
-            // Slet indtastninger i view
-            foreach (TapOperatorMoment moment in TapOperatorMoments)
-            {
-                moment.Moment = "";
-            }
-
-            foreach (FluidWeightControl weight  in FluidWeightControls)
-            {
-                weight.Weight = "";
-            }
-
-            IsCheckedHeuftLid = false;
-
-            Comment = "";
-            
-
             // Stopper timer
             AutoSaveTimer.StopTimer();
+
+            //Run saveDelegate
+            if (SAveToDbMethod())
+            {
+                //Return saveDelegate to startMethod
+                _saveToDbMethod = PostSaveMethod;
+
+                //Nulstil objeckt af TapOperator
+                GenerateObjectsToBeSaved();
+
+                // Slet indtastninger i view
+                foreach (TapOperatorMoment moment in TapOperatorMoments)
+                {
+                    moment.Moment = "";
+                }
+
+                foreach (FluidWeightControl weight in FluidWeightControls)
+                {
+                    weight.Weight = "";
+                }
+
+                IsCheckedHeuftLid = false;
+                IsCheckedFillHeight = false;
+                IsCheckedProductTasted = false;
+                IsCheckedSugarTest = false;
+                IsCheckedDropTest = false;
+
+                Comment = "";
+            }
         }
 
         private bool ProcessItemExists()
@@ -113,7 +118,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                         // TODO Warn about connection problem to DB
                     }
                 }
-                else if (comparableProcessingItemFromDb.Equals(ProItem))
+                else if (comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber) && comparableProcessingItemFromDb.ProcessNumber.Equals(ProItem.ProcessNumber))
                 {
                     exists = true;
                 }
@@ -122,105 +127,116 @@ namespace UnibrewProject.ViewModel.HelperClasses
             return exists;
         }
 
-        private void PrepareSave()
+        private bool PrepareSave()
         {
             if (!ProcessItemExists())
             {
                 // TODO Warn about conflicting ProcessItem
-                Debug.WriteLine("ProcessItem conflict");
+                return false;
             }
-            else
+
+            double[] bottleMoments = new double[15];
+
+            for (int i = 0; i < TapOperatorMoments.Length; i++)
             {
-                double[] bottleMoments = new double[15];
-
-                for (int i = 0; i < TapOperatorMoments.Length; i++)
+                if (TapOperatorMoments[i].Moment == null) bottleMoments[i] = 0;
+                else
                 {
-                    if (TapOperatorMoments[i].Moment == null) bottleMoments[i] = 0;
-                    else
-                    {
-                        TapOperatorMoments[i].Moment = TapOperatorMoments[i].Moment.Replace(',', '.');
-                        if (!double.TryParse(TapOperatorMoments[i].Moment, out bottleMoments[i])) bottleMoments[i] = 0;
-                    }
+                    TapOperatorMoments[i].Moment = TapOperatorMoments[i].Moment.Replace(',', '.');
+                    if (!double.TryParse(TapOperatorMoments[i].Moment, out bottleMoments[i])) bottleMoments[i] = 0;
                 }
-
-                TapOp.Bottle1 = bottleMoments[0];
-                TapOp.Bottle2 = bottleMoments[1];
-                TapOp.Bottle3 = bottleMoments[2];
-                TapOp.Bottle4 = bottleMoments[3];
-                TapOp.Bottle5 = bottleMoments[4];
-                TapOp.Bottle6 = bottleMoments[5];
-                TapOp.Bottle7 = bottleMoments[6];
-                TapOp.Bottle8 = bottleMoments[7];
-                TapOp.Bottle9 = bottleMoments[8];
-                TapOp.Bottle10 = bottleMoments[9];
-                TapOp.Bottle11 = bottleMoments[10];
-                TapOp.Bottle12 = bottleMoments[11];
-                TapOp.Bottle13 = bottleMoments[12];
-                TapOp.Bottle14 = bottleMoments[13];
-                TapOp.Bottle15 = bottleMoments[14];
-
-
-                double[] bottleWeight = new double[6];
-
-                for (int i = 0; i < FluidWeightControls.Length; i++)
-                {
-                    if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
-                    else
-                    {
-                        FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
-                        if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;
-                    }
-
-                }
-
-                TapOp.Weight1 = bottleWeight[0];
-                TapOp.Weight2 = bottleWeight[1];
-                TapOp.Weight3 = bottleWeight[2];
-                TapOp.Weight4 = bottleWeight[3];
-                TapOp.Weight5 = bottleWeight[4];
-                TapOp.Weight6 = bottleWeight[5];
-
-                TapOp.ProcessNumber = Processnumber;
-
-                TapOp.HeuftLid = IsCheckedHeuftLid;
-                TapOp.HeuftFillingHeight = IsCheckedFillHeight;
-                TapOp.ProductTasted = IsCheckedProductTasted;
-                TapOp.SukkerStickTest = IsCheckedSugarTest;
-                TapOp.DropTest = IsCheckedDropTest;
-
-                TapOp.Comments = Comment;
-
-                TapOp.LidMaterialNo = LidNumber;
-                TapOp.PreformMaterialNo = PreformMaterialNumber;
             }
+
+            TapOp.Bottle1 = bottleMoments[0];
+            TapOp.Bottle2 = bottleMoments[1];
+            TapOp.Bottle3 = bottleMoments[2];
+            TapOp.Bottle4 = bottleMoments[3];
+            TapOp.Bottle5 = bottleMoments[4];
+            TapOp.Bottle6 = bottleMoments[5];
+            TapOp.Bottle7 = bottleMoments[6];
+            TapOp.Bottle8 = bottleMoments[7];
+            TapOp.Bottle9 = bottleMoments[8];
+            TapOp.Bottle10 = bottleMoments[9];
+            TapOp.Bottle11 = bottleMoments[10];
+            TapOp.Bottle12 = bottleMoments[11];
+            TapOp.Bottle13 = bottleMoments[12];
+            TapOp.Bottle14 = bottleMoments[13];
+            TapOp.Bottle15 = bottleMoments[14];
+
+
+            double[] bottleWeight = new double[6];
+
+            for (int i = 0; i < FluidWeightControls.Length; i++)
+            {
+                if (FluidWeightControls[i].Weight == null) bottleWeight[i] = 0;
+                else
+                {
+                    FluidWeightControls[i].Weight = FluidWeightControls[i].Weight.Replace(',', '.');
+                    if (!double.TryParse(FluidWeightControls[i].Weight, out bottleWeight[i])) bottleWeight[i] = 0;
+                }
+
+            }
+
+            TapOp.Weight1 = bottleWeight[0];
+            TapOp.Weight2 = bottleWeight[1];
+            TapOp.Weight3 = bottleWeight[2];
+            TapOp.Weight4 = bottleWeight[3];
+            TapOp.Weight5 = bottleWeight[4];
+            TapOp.Weight6 = bottleWeight[5];
+
+            TapOp.ProcessNumber = Processnumber;
+
+            TapOp.HeuftLid = IsCheckedHeuftLid;
+            TapOp.HeuftFillingHeight = IsCheckedFillHeight;
+            TapOp.ProductTasted = IsCheckedProductTasted;
+            TapOp.SukkerStickTest = IsCheckedSugarTest;
+            TapOp.DropTest = IsCheckedDropTest;
+
+            TapOp.Comments = Comment;
+
+            TapOp.LidMaterialNo = LidNumber;
+            TapOp.PreformMaterialNo = PreformMaterialNumber;
+            return true;
+
         }
 
 
-        private void PostSaveMethod()
+        private bool PostSaveMethod()
         {
-            PrepareSave();
-            TapOp.ClockDate = DateTime.Now;
-            if (ComGeneric.Post(TapOp))
+            if (PrepareSave())
             {
-                TapOp.ID = ComGeneric.TapOperatorId;
+                TapOp.ClockDate = DateTime.Now;
+                if (ComGeneric.Post<TapOperator>(TapOp))
+                {
+                    TapOp.ID = ComGeneric.TapOperatorId;
+                }
+                else
+                {
+                    // TODO meld fejl om kommunikaiton til server
+                    return false;
+                }
+
+                _saveToDbMethod = PutSaveMethod;
+                return true;
             }
-            else
-            {
-                // TODO meld fejl om kommunikaiton til server
-            }
-            
-            _saveToDbMethod = PutSaveMethod;
+
+            return false;
         }
 
-        private void PutSaveMethod()
+        private bool PutSaveMethod()
         {
-            PrepareSave();
-            if (!ComGeneric.Put(TapOp.ID, TapOp))
+            if (PrepareSave())
             {
-                // TODO meld fejl om kommunikaiton til server
+                if (!ComGeneric.Put(TapOp.ID, TapOp))
+                {
+                    // TODO meld fejl om kommunikaiton til server
+                    return false;
+                }
+
+                return true;
             }
 
-
+            return false;
         }
 
         private void LiquidTankCommandMethod(object obj)
@@ -264,11 +280,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// int til færdigvarenummer
         /// </summary>
         public int FinishNumber { get; set; }
-
-        /// <summary>
-        /// string til processnummer
-        /// </summary>
-        public string Processnumber { get; set; }
 
         /// <summary>
         /// Henvisning til persistensklassen
@@ -405,6 +416,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 _preformMaterialNumber = value;
                 OnPropertyChanged();
             }
+        }
+
+        /// <summary>
+        /// String til Process nummer
+        /// </summary>
+        public string Processnumber
+        {
+            get => _processnumber;
+            set { _processnumber = value.PadRight(10); }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
