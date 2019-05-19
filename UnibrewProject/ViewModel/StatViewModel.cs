@@ -38,7 +38,7 @@ namespace UnibrewProject.ViewModel
             FromDateTime = new DateTime();
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
-            CheckBoxCommand = new RelayCommand<object>(CheckBoxCommandMethod);
+            CheckBoxCommand = new RelayCommand<string>(CheckBoxCommandMethod);
         }
 
         private void CalendarCommandMethod(object obj)
@@ -59,11 +59,8 @@ namespace UnibrewProject.ViewModel
             }
         }
 
-        private void CheckBoxCommandMethod(object obj)
+        private void CheckBoxCommandMethod(string name)
         {
-            TappedRoutedEventArgs args = obj as TappedRoutedEventArgs;
-            CheckBox box = args?.OriginalSource as CheckBox;
-            string name = box?.Name;
             StatConfig.ToggleGraphs(name);
             RegenerateGraph();
         }
@@ -85,7 +82,7 @@ namespace UnibrewProject.ViewModel
 
         public RelayCommand<object> CalendarCommand { get; set; }
         public RelayCommand<object> CalendarToDateCommand { get; set; }
-        public RelayCommand<object> CheckBoxCommand { get; set; }
+        public RelayCommand<string> CheckBoxCommand { get; set; }
 
         public DateTime FromDateTime
         {

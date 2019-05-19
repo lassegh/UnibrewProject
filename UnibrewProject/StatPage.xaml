@@ -13,7 +13,7 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
-        <viewModel:StatViewModel/>
+        <viewModel:StatViewModel />
     </Page.DataContext>
     <StackPanel Orientation="Vertical"
                 Background="Black">
@@ -104,8 +104,14 @@
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
-                <uwp:FontAwesome Icon="UserCircle" Foreground="#FF8484B0" FontSize="35" Margin="7,11,196,-1"  />
-                <uwp:FontAwesome Icon="CaretDown" Foreground="#FF8484B0" FontSize="20" Margin="174,24,0,7"   />
+                <uwp:FontAwesome Icon="UserCircle"
+                                 Foreground="#FF8484B0"
+                                 FontSize="35"
+                                 Margin="7,11,196,-1" />
+                <uwp:FontAwesome Icon="CaretDown"
+                                 Foreground="#FF8484B0"
+                                 FontSize="20"
+                                 Margin="174,24,0,7" />
                 <TextBlock HorizontalAlignment="Center"
                            Height="40"
                            Text="Michael Kastholm"
@@ -159,7 +165,7 @@
                         Background="#00000000"
                         Margin="0,0,7,0">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="Bars"  />
+                        <uwp:FontAwesome Icon="Bars" />
                         <TextBlock Text=""
                                    Visibility="{Binding Slider.MenuTextVisibility}"
                                    FontWeight="Bold" />
@@ -173,7 +179,8 @@
                         Background="#00000000"
                         Command="{Binding Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Foreground="Black" />
                         <TextBlock Text="Tap Operatør"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -191,7 +198,8 @@
                         Background="#00000000">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Foreground="Black" />
                         <TextBlock Text="Tap Operatør"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -209,7 +217,9 @@
                         Background="#00000000"
                         Margin="4,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black" Margin="-4,0,0,0"/>
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Foreground="Black"
+                                         Margin="-4,0,0,0" />
                         <TextBlock Text="Tap Operatør"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -226,7 +236,8 @@
                         Opacity="0.98"
                         Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Foreground="Black" />
                         <TextBlock Text="Tap Operatør"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -244,7 +255,8 @@
                         Background="#00000000"
                         Command="{Binding Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="AreaChart" Margin="1,0,0,0"  />
+                        <uwp:FontAwesome Icon="AreaChart"
+                                         Margin="1,0,0,0" />
                         <TextBlock Text="Statistics"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -338,7 +350,10 @@
                       Row="2"
                       BorderThickness="1,1,1,1">
 
-                    <Grid HorizontalAlignment="Stretch" Height="453" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                    <Grid HorizontalAlignment="Stretch"
+                          Height="453"
+                          Margin="0,0,0,0"
+                          VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="8*" />
                             <ColumnDefinition Width="65*" />
@@ -352,41 +367,50 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="46*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="46*"/>
-                            <RowDefinition Height="45*"/>
-                            <RowDefinition Height="76*"/>
-                            <RowDefinition Height="15*"/>
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="76*" />
+                            <RowDefinition Height="15*" />
                         </Grid.RowDefinitions>
 
-                        <Grid 
-                            Column="0"
-                            Row="0"
-                            ColumnSpan="9"
-                            RowSpan="9" Margin="0,0,0,0">
+                        <Grid Column="0"
+                              Row="0"
+                              ColumnSpan="9"
+                              RowSpan="9"
+                              Margin="0,0,0,0">
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1019*"/>
-                                    <ColumnDefinition Width="42*"/>
+                                    <ColumnDefinition Width="1019*" />
+                                    <ColumnDefinition Width="42*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="25*"/>
-                                    <RowDefinition Height="141*"/>
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="141*" />
                                 </Grid.RowDefinitions>
-                                <Grid
-                                    Column="0"
-                                    Row="0"
-                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,0,5,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                <Grid Column="0"
+                                      Row="0"
+                                      Background="#FF8484B0"
+                                      CornerRadius="12,12,0,0"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,0,5,0"
+                                      Grid.ColumnSpan="2"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
 
-                                <Grid
-                                    Column="0"
-                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,37,5,-13" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                                <Grid Column="0"
+                                      Background="#FFD0D0E4"
+                                      CornerRadius="0,0,12,12"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,37,5,-13"
+                                      Grid.ColumnSpan="2"
+                                      Grid.RowSpan="2" />
 
                             </Grid>
                         </Grid>
@@ -407,22 +431,23 @@
                                        Margin="1,-5,0,3" />
                         </Grid>
 
-                        <Grid
-                            Column="1"
-                            Row="1"
-                            ColumnSpan="7"
-                            RowSpan="8" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
-                            <!--<lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
-                                            LegendLocation="Right">
-                            <lvc:CartesianChart.AxisY>
-                                <lvc:Axis Title="Moment"
-                                          LabelFormatter="{Binding StatBuilder.YFormatter}"></lvc:Axis>
-                            </lvc:CartesianChart.AxisY>
-                            <lvc:CartesianChart.AxisX>
-                                <lvc:Axis Title="Dato"
-                                          Labels="{Binding StatBuilder.MomentLabels}"></lvc:Axis>
-                            </lvc:CartesianChart.AxisX>
-                        </lvc:CartesianChart>-->
+                        <Grid Column="1"
+                              Row="1"
+                              ColumnSpan="7"
+                              RowSpan="8"
+                              Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                              Margin="0,0,0,0">
+                            <lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
+                                                LegendLocation="Right">
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Moment"
+                                              LabelFormatter="{Binding StatBuilder.YFormatter}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Dato"
+                                              Labels="{Binding StatBuilder.MomentLabels}"></lvc:Axis>
+                                </lvc:CartesianChart.AxisX>
+                            </lvc:CartesianChart>
                         </Grid>
 
 
@@ -435,8 +460,11 @@
                 </Grid>
 
                 <StackPanel Grid.Column="2"
-            Grid.Row="3">
-                    <Grid HorizontalAlignment="Stretch" Height="453" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                            Grid.Row="3">
+                    <Grid HorizontalAlignment="Stretch"
+                          Height="453"
+                          Margin="0,0,0,0"
+                          VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="16*" />
                             <ColumnDefinition Width="186*" />
@@ -450,15 +478,15 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
 
 
@@ -476,141 +504,66 @@
                 <StackPanel Grid.Column="2"
                             Grid.Row="2"
                             Orientation="Vertical">
-                    <CheckBox x:Name="B1"
-                              Content="Flakse 1"
-                              IsChecked="{Binding StatConfig.ShowingBottles[0]}" x:FieldModifier="public">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                    <CheckBox Content="Flaske 1"
+                              IsChecked="{Binding StatConfig.ShowingBottles[0]}"
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B1" />
                     <CheckBox Content="Flaske 2"
                               IsChecked="{Binding StatConfig.ShowingBottles[1]}"
-                              Name="B2">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B2" />
                     <CheckBox Content="Flaske 3"
                               IsChecked="{Binding StatConfig.ShowingBottles[2]}"
-                              Name="B3">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B3" />
                     <CheckBox Content="Flaske 4"
                               IsChecked="{Binding StatConfig.ShowingBottles[3]}"
-                              Name="B4">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B4" />
                     <CheckBox Content="Flaske 5"
                               IsChecked="{Binding StatConfig.ShowingBottles[4]}"
-                              Name="B5">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B5" />
                     <CheckBox Content="Flaske 6"
                               IsChecked="{Binding StatConfig.ShowingBottles[5]}"
-                              Name="B6">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B6" />
                     <CheckBox Content="Flaske 7"
                               IsChecked="{Binding StatConfig.ShowingBottles[6]}"
-                              Name="B7">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B7" />
                     <CheckBox Content="Flaske 8"
                               IsChecked="{Binding StatConfig.ShowingBottles[7]}"
-                              Name="B8">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B8" />
                     <CheckBox Content="Flaske 9"
                               IsChecked="{Binding StatConfig.ShowingBottles[8]}"
-                              Name="B9">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B9" />
                     <CheckBox Content="Flaske 10"
                               IsChecked="{Binding StatConfig.ShowingBottles[9]}"
-                              Name="B10">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B10" />
                     <CheckBox Content="Flaske 11"
                               IsChecked="{Binding StatConfig.ShowingBottles[10]}"
-                              Name="B11">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B11" />
                     <CheckBox Content="Flaske 12"
                               IsChecked="{Binding StatConfig.ShowingBottles[11]}"
-                              Name="B12">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B12" />
                     <CheckBox Content="Flaske 13"
                               IsChecked="{Binding StatConfig.ShowingBottles[12]}"
-                              Name="B13">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B13" />
                     <CheckBox Content="Flaske 14"
                               IsChecked="{Binding StatConfig.ShowingBottles[13]}"
-                              Name="B14">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B14" />
                     <CheckBox Content="Flaske 15"
                               IsChecked="{Binding StatConfig.ShowingBottles[14]}"
-                              Name="B15">
-                        <interactivity:Interaction.Behaviors>
-                            <core:EventTriggerBehavior EventName="Tapped">
-                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                            </core:EventTriggerBehavior>
-                        </interactivity:Interaction.Behaviors>
-                    </CheckBox>
+                              Command="{Binding CheckBoxCommand}"
+                              CommandParameter="B15" />
                 </StackPanel>
 
             </Grid>
