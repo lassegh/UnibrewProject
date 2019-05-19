@@ -82,9 +82,20 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             }
         }
 
+        /// <summary>
+        /// Timer, der sørger for fading af fx en textBlock
+        /// Fyres når autoSaveTimer gemmer
+        /// </summary>
         public Timer FadingTextTimer { get; set; }
+
+        /// <summary>
+        /// Timer, der holder øje med hvor lang tid siden, der er blevet tastet i view
+        /// </summary>
         public Timer TimeSinceLastKeyDownTimer { get; set; }
 
+        /// <summary>
+        /// Float, der kører op og ned når FadingTextTimer fyres
+        /// </summary>
         public float SaveBlockOpacity
         {
             get { return _saveBlockOpacity; }

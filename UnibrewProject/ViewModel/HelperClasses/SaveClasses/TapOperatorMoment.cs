@@ -18,6 +18,9 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
     {
         private string _moment;
         
+        /// <summary>
+        /// Holder indtastet moment
+        /// </summary>
         public string Moment
         {
             get { return _moment; }

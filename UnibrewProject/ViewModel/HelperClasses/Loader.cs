@@ -32,11 +32,24 @@ namespace UnibrewProject.ViewModel.HelperClasses
             return ComGeneric.GetAll<TapOperator>();
         }
 
+        /// <summary>
+        /// Liste af færdigvarer
+        /// </summary>
         public List<FinishedItems> FinishedItemsList { get; set; }
+
+        /// <summary>
+        /// Liste af LiquidTanks
+        /// </summary>
         public List<LiquidTanks> LiquidTanksList { get; set; }
 
+        /// <summary>
+        /// Indgang til persistensklassen
+        /// </summary>
         public DbComGeneric ComGeneric { get; set; } = DbComGeneric.ComGeneric;
 
+        /// <summary>
+        /// Indgang til Loader - singleton
+        /// </summary>
         public static Loader Load
         {
             get

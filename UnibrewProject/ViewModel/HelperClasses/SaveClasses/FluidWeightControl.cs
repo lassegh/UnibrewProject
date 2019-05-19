@@ -18,6 +18,9 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
     {
         private string _weight;
 
+        /// <summary>
+        /// Holder indtastet vægt
+        /// </summary>
         public string Weight
         {
             get { return _weight; }

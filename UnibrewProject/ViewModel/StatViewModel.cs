@@ -73,17 +73,49 @@ namespace UnibrewProject.ViewModel
             StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
         }
 
+        /// <summary>
+        /// Slider til menuen
+        /// </summary>
         public MenuSlider Slider { get; set; }
+
+        /// <summary>
+        /// Knapperne i menuen
+        /// </summary>
         public MenuNavigator Navigator { get; set; }
+
+        /// <summary>
+        /// Bygger grafen
+        /// </summary>
         public MomentStatBuilder StatBuilder { get; set; }
+
+        /// <summary>
+        /// Henter data fra persistens klassen
+        /// </summary>
         public Loader Load { get; set; } = Loader.Load;
+
+        /// <summary>
+        /// Konfigurerer graferne
+        /// </summary>
         public StatConfiguration StatConfig { get; set; } = StatConfiguration.StatConfig;
 
-
+        /// <summary>
+        /// Skifter "fra" dato
+        /// </summary>
         public RelayCommand<object> CalendarCommand { get; set; }
+
+        /// <summary>
+        /// Skifter "til" dato
+        /// </summary>
         public RelayCommand<object> CalendarToDateCommand { get; set; }
+
+        /// <summary>
+        /// Slår given graf til/fra
+        /// </summary>
         public RelayCommand<string> CheckBoxCommand { get; set; }
 
+        /// <summary>
+        /// Fra dato
+        /// </summary>
         public DateTime FromDateTime
         {
             get => StatConfig.FromDateTime;
@@ -94,6 +126,9 @@ namespace UnibrewProject.ViewModel
             }
         }
 
+        /// <summary>
+        /// Til dato
+        /// </summary>
         public DateTime ToDateTime
         {
             get => StatConfig.ToDateTime;

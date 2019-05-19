@@ -225,7 +225,9 @@ namespace UnibrewProject.Model
             return ok;
         }
 
-
+        /// <summary>
+        /// Indgang til DbComGeneric - singleton
+        /// </summary>
         public static DbComGeneric ComGeneric
         {
             get
@@ -238,6 +240,9 @@ namespace UnibrewProject.Model
             }
         }
 
+        /// <summary>
+        /// Id til den TapOperator, der bruges her og nu
+        /// </summary>
         public int TapOperatorId { get; set; }
 
     }

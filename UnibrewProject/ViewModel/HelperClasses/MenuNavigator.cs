@@ -35,7 +35,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
         }
 
+        /// <summary>
+        /// RelayCommand til InputColSevenPage
+        /// </summary>
         public RelayCommand InputColSevenCommand { get; set; }
+
+        /// <summary>
+        /// RelayCommand til StatPage
+        /// </summary>
         public RelayCommand StatCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
