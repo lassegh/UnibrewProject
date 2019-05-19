@@ -101,7 +101,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private bool ProcessItemExists()
         {
-            bool exists = false;
+            bool exists = true;
 
             if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
             {
@@ -113,14 +113,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 };
                 if (comparableProcessingItemFromDb == null)
                 {
-                    if (!ComGeneric.Post(ProItem))
+                    if (!ComGeneric.Post(ProItem))// Gemmer nyt processingItem i DB
                     {
                         // TODO Warn about connection problem to DB
+                        exists = false;
                     }
                 }
-                else if (comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber) && comparableProcessingItemFromDb.ProcessNumber.Equals(ProItem.ProcessNumber))
+                else if (!comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber))
                 {
-                    exists = true;
+                    exists = false;
                 }
             }
 
