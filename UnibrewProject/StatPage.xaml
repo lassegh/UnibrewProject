@@ -8,6 +8,7 @@
       xmlns:lvc="using:LiveCharts.Uwp"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+      xmlns:uwp="using:FontAwesome.UWP"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -103,21 +104,15 @@
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center"
-                           Height="55"
-                           Text="Logged in as"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Bottom"
-                           FontSize="12"
-                           Foreground="Black"
-                           Margin="0,12,0,0" />
+                <uwp:FontAwesome Icon="UserCircle" Foreground="#FF8484B0" FontSize="35" Margin="7,11,196,-1"  />
+                <uwp:FontAwesome Icon="CaretDown" Foreground="#FF8484B0" FontSize="20" Margin="174,24,0,7"   />
                 <TextBlock HorizontalAlignment="Center"
                            Height="40"
                            Text="Michael Kastholm"
                            TextWrapping="Wrap"
                            VerticalAlignment="Bottom"
                            FontSize="18"
-                           Foreground="White"
+                           Foreground="#FFE0E0EC"
                            Margin="0,0,0,0" />
             </Grid>
             <Grid Grid.Column="5"
@@ -159,14 +154,12 @@
 
                 <Button Command="{Binding Slider.MenuHideButton}"
                         Grid.Row="0"
-                        HorizontalAlignment="Right"
+                        HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
                         Margin="0,0,7,0">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Redo"
-                                    HorizontalAlignment="Left"
-                                    Margin="4,0,0,0" />
+                        <uwp:FontAwesome Icon="Bars"  />
                         <TextBlock Text=""
                                    Visibility="{Binding Slider.MenuTextVisibility}"
                                    FontWeight="Bold" />
@@ -180,13 +173,15 @@
                         Background="#00000000"
                         Command="{Binding Navigator.InputColSevenCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2"
-                                    HorizontalAlignment="Left"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     TAP OPERATØR"
-                                   HorizontalAlignment="Left"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <TextBlock Text="Tap Operatør"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -196,11 +191,15 @@
                         Background="#00000000">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                        <SymbolIcon Symbol="Page2"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Menu 2"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <TextBlock Text="Tap Operatør"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -210,10 +209,15 @@
                         Background="#00000000"
                         Margin="4,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2" />
-                        <TextBlock Text="     Menu 3"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black" Margin="-4,0,0,0"/>
+                        <TextBlock Text="Tap Operatør"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -222,11 +226,15 @@
                         Opacity="0.98"
                         Background="#00000000">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Menu 4"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <TextBlock Text="Tap Operatør"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -236,11 +244,15 @@
                         Background="#00000000"
                         Command="{Binding Navigator.StatCommand}">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="ZeroBars"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Trends"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="AreaChart" Margin="1,0,0,0"  />
+                        <TextBlock Text="Statistics"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -265,6 +277,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="25" />
                     <ColumnDefinition />
+
                     <ColumnDefinition />
                     <ColumnDefinition Width="25" />
                 </Grid.ColumnDefinitions>
@@ -324,8 +337,82 @@
                 <Grid Column="1"
                       Row="2"
                       BorderThickness="1,1,1,1">
-                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                        <!--<lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
+
+                    <Grid HorizontalAlignment="Stretch" Height="453" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="65*" />
+                            <ColumnDefinition Width="64*" />
+                            <ColumnDefinition Width="61*" />
+                            <ColumnDefinition Width="58*" />
+                            <ColumnDefinition Width="54*" />
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="10*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="46*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="46*"/>
+                            <RowDefinition Height="45*"/>
+                            <RowDefinition Height="76*"/>
+                            <RowDefinition Height="15*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid 
+                            Column="0"
+                            Row="0"
+                            ColumnSpan="9"
+                            RowSpan="9" Margin="0,0,0,0">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*"/>
+                                    <ColumnDefinition Width="42*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*"/>
+                                    <RowDefinition Height="141*"/>
+                                </Grid.RowDefinitions>
+                                <Grid
+                                    Column="0"
+                                    Row="0"
+                                    Background="#FF8484B0" CornerRadius="12,12,0,0" BorderThickness="0,1,0,0" Margin="0,0,5,0" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+                                <Grid
+                                    Column="0"
+                                    Background="#FFD0D0E4" CornerRadius="0,0,12,12" BorderThickness="0,1,0,0" Margin="0,37,5,-13" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="0"
+                              Grid.ColumnSpan="3">
+                            <TextBlock Text="   Tilspændings Graf"
+                                       HorizontalAlignment="Stretch"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="Normal"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="Black"
+                                       VerticalAlignment="Stretch"
+                                       Margin="1,-5,0,3" />
+                        </Grid>
+
+                        <Grid
+                            Column="1"
+                            Row="1"
+                            ColumnSpan="7"
+                            RowSpan="8" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,0">
+                            <!--<lvc:CartesianChart Series="{Binding StatBuilder.MomentCollection}"
                                             LegendLocation="Right">
                             <lvc:CartesianChart.AxisY>
                                 <lvc:Axis Title="Moment"
@@ -336,8 +423,55 @@
                                           Labels="{Binding StatBuilder.MomentLabels}"></lvc:Axis>
                             </lvc:CartesianChart.AxisX>
                         </lvc:CartesianChart>-->
+                        </Grid>
+
+
+
+
                     </Grid>
+
+
+
                 </Grid>
+
+                <StackPanel Grid.Column="2"
+            Grid.Row="3">
+                    <Grid HorizontalAlignment="Stretch" Height="453" Margin="0,0,0,0" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="16*" />
+                            <ColumnDefinition Width="186*" />
+                            <ColumnDefinition Width="101*" />
+                            <ColumnDefinition Width="101*" />
+                            <ColumnDefinition Width="101*" />
+                            <ColumnDefinition Width="101*" />
+                            <ColumnDefinition Width="101*" />
+                            <ColumnDefinition Width="183*" />
+                            <ColumnDefinition Width="20*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+
+
+
+
+                    </Grid>
+
+
+
+                </StackPanel>
+
+
 
                 <StackPanel Grid.Column="2"
                             Grid.Row="2"
@@ -351,15 +485,15 @@
                             </core:EventTriggerBehavior>
                         </interactivity:Interaction.Behaviors>
                     </CheckBox>
-                        <CheckBox Content="Flaske 2"
+                    <CheckBox Content="Flaske 2"
                               IsChecked="{Binding StatConfig.ShowingBottles[1]}"
                               Name="B2">
-                            <interactivity:Interaction.Behaviors>
-                                <core:EventTriggerBehavior EventName="Tapped">
-                                    <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
-                                </core:EventTriggerBehavior>
-                            </interactivity:Interaction.Behaviors>
-                        </CheckBox>
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="Tapped">
+                                <core:InvokeCommandAction Command="{Binding CheckBoxCommand}" />
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </CheckBox>
                     <CheckBox Content="Flaske 3"
                               IsChecked="{Binding StatConfig.ShowingBottles[2]}"
                               Name="B3">

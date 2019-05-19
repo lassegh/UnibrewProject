@@ -8,6 +8,7 @@
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
+      xmlns:uwp="using:FontAwesome.UWP"
       x:Class="UnibrewProject.InputColSevenPage"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
@@ -105,21 +106,15 @@
                   Background="#FF51516E"
                   Padding="0,0,0,0"
                   BorderThickness="0,0,0,0">
-                <TextBlock HorizontalAlignment="Center"
-                           Height="55"
-                           Text="Logged in as"
-                           TextWrapping="Wrap"
-                           VerticalAlignment="Bottom"
-                           FontSize="12"
-                           Foreground="Black"
-                           Margin="0,12,0,0" />
+                <uwp:FontAwesome Icon="UserCircle" Foreground="#FF8484B0" FontSize="35" Margin="7,11,196,-1"  />
+                <uwp:FontAwesome Icon="CaretDown" Foreground="#FF8484B0" FontSize="20" Margin="174,24,0,7"   />
                 <TextBlock HorizontalAlignment="Center"
                            Height="40"
                            Text="Michael Kastholm"
                            TextWrapping="Wrap"
                            VerticalAlignment="Bottom"
                            FontSize="18"
-                           Foreground="White"
+                           Foreground="#FFE0E0EC"
                            Margin="0,0,0,0" />
             </Grid>
             <Grid Grid.Column="5"
@@ -144,14 +139,14 @@
                   Background="#FFD0D0E4"
                   BorderThickness="1,1,0,0" Margin="0,0,0,-359">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="81*" />
-                    <RowDefinition Height="50*" />
+                    <RowDefinition Height="164*" />
+                    <RowDefinition Height="101" />
                     <RowDefinition Height="50" />
-                    <RowDefinition Height="50*" />
-                    <RowDefinition Height="50*" />
-                    <RowDefinition Height="81*" />
-                    <RowDefinition Height="81*" />
-                    <RowDefinition Height="81*" />
+                    <RowDefinition Height="101*" />
+                    <RowDefinition Height="101*" />
+                    <RowDefinition Height="164*" />
+                    <RowDefinition Height="164*" />
+                    <RowDefinition Height="164*" />
                 </Grid.RowDefinitions>
 
                 <Grid Column="0"
@@ -168,14 +163,12 @@
 
                 <Button Command="{Binding ViewModel.Slider.MenuHideButton}"
                         Grid.Row="0"
-                        HorizontalAlignment="Right"
+                        HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Margin="0,0,7,0">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Redo"
-                                    HorizontalAlignment="Left"
-                                    Margin="4,0,0,0" />
+                        Margin="5,0,0,0">
+                    <StackPanel Orientation="Horizontal" Margin="-3,0,0,0">
+                        <uwp:FontAwesome Icon="Bars"  />
                         <TextBlock Text=""
                                    Visibility="{Binding ViewModel.Slider.MenuTextVisibility}"
                                    FontWeight="Bold" />
@@ -187,29 +180,35 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Command="{Binding ViewModel.Navigator.InputColSevenCommand}">
+                        Command="{Binding ViewModel.Navigator.InputColSevenCommand}" Height="50">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2"
-                                    HorizontalAlignment="Left"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     TAP OPERATØR"
-                                   HorizontalAlignment="Left"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Foreground="Black"/>
+                        <TextBlock Text="Tap Operatør"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="2"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000">
+                        Background="#00000000" Height="50">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                        <SymbolIcon Symbol="Page2"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Menu 2"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <TextBlock Text="Menu 2"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -217,24 +216,34 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Margin="4,0,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2" />
-                        <TextBlock Text="     Menu 3"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        Margin="1,27,0,0" Height="50" VerticalAlignment="Top" Width="168">
+                    <StackPanel Orientation="Horizontal" Margin="-4,0,0,0">
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="-67,0,0,0"  />
+                        <TextBlock Text="Menu 3"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="4"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000">
+                        Background="#00000000" Height="50">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="Page2"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Menu 4"
-                                   FontWeight="Bold" />
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <TextBlock Text="Menu 4"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -242,13 +251,17 @@
                 <Button Grid.Row="7"
                         HorizontalAlignment="Left"
                         Background="#00000000"
-                        Command="{Binding ViewModel.Navigator.StatCommand}">
+                        Command="{Binding ViewModel.Navigator.StatCommand}" Height="50">
                     <StackPanel Orientation="Horizontal">
-                        <SymbolIcon Symbol="ZeroBars"
-                                    Margin="4,0,0,0" />
-                        <TextBlock Text="     Trends"
-                                   FontWeight="Bold"
-                                   Foreground="#FF1F1F1F" />
+                        <uwp:FontAwesome Icon="AreaChart" Margin="1,0,0,0"  />
+                        <TextBlock Text="Statistics"
+                                   FontFamily="Segoe UI Light"
+                                   FontSize="18"
+                                   FontWeight="SemiLight"
+                                   Height="22"
+                                   FontStyle="Italic"
+                                   VerticalAlignment="Bottom"
+                                   Margin="21,0,0,0" />
                     </StackPanel>
                 </Button>
 
@@ -369,7 +382,7 @@
                                        Height="22"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
-                                       Foreground="#FFE0E0EC"
+                                       Foreground="Black"
                                        VerticalAlignment="Stretch"
                                        Margin="0,-5,0,3" />
                             <TextBlock Text="[?]"
@@ -742,7 +755,7 @@
                                        Height="22"
                                        FontStyle="Italic"
                                        VerticalAlignment="Bottom"
-                                       Margin="0,0,16,20" Foreground="#FFE0E0EC" HorizontalAlignment="Center" />
+                                       Margin="0,0,16,20" Foreground="Black" HorizontalAlignment="Center" />
                         </Grid>
 
                         <Grid Grid.Column="8"
@@ -917,7 +930,7 @@
                                        Height="20"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
-                                       Foreground="#FFE0E0EC"
+                                       Foreground="Black"
                                        VerticalAlignment="Top"
                                        Margin="0,1,0,0" />
                             <TextBlock Text="[?]"
@@ -1164,7 +1177,7 @@
                                        Height="20"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="Black"
-                                       Foreground="#FFE0E0EC"
+                                       Foreground="Black"
                                        VerticalAlignment="Stretch"
                                        Margin="0,0,0,8" />
                             <TextBlock Text="[?]"
@@ -1426,7 +1439,7 @@
                                        Height="20"
                                        FontStyle="Italic"
                                        FocusVisualPrimaryBrush="#FFE0E0EC"
-                                       Foreground="#FFE0E0EC"
+                                       Foreground="Black"
                                        VerticalAlignment="Stretch"
                                        Margin="10,0,0,11" />
                             <TextBlock Text="[?]"
