@@ -5,7 +5,10 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
+using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
+using UnibrewProject.Model;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
@@ -15,7 +18,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
     public class StatConfiguration : INotifyPropertyChanged
     {
         private static StatConfiguration _statConfig = null;
-
+        
         private StatConfiguration()
         {
             FromDateTime = new DateTime(2019, 1, 1);

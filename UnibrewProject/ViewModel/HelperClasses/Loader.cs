@@ -33,6 +33,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
         /// <summary>
+        /// Henter liste af ProcessingItems
+        /// </summary>
+        /// <returns>List af ProcessingItems</returns>
+        public List<ProcessingItems> GetProcessingItems()
+        {
+            return ComGeneric.GetAll<ProcessingItems>();
+        }
+
+        /// <summary>
         /// Liste af færdigvarer
         /// </summary>
         public List<FinishedItems> FinishedItemsList { get; set; }

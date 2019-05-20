@@ -28,18 +28,35 @@ namespace UnibrewProject.ViewModel
     public class StatViewModel
     {
         private List<TapOperator> _tapOperators = Loader.Load.GetTapOperators();
-
+        
         public StatViewModel()
         {
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
-            StatBuilder = new MomentStatBuilder();
+            StatBuilderMoment = new MomentStatBuilder();
+            StatBuilderWeight = new WeightStatBuilder();
             RegenerateGraph();
+            ChooseFinishedItemCommand = new RelayCommand<object>(ChooseFinishedItemCommandMethod);
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
             CheckBoxCommand = new RelayCommand<string>(CheckBoxCommandMethod);
             FromDateTime = StatConfig.FromDateTime;
             ToDateTime = StatConfig.ToDateTime;
+        }
+
+        private void ChooseFinishedItemCommandMethod(object obj)
+        {
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
+            FinishedItems thisFinishedItem = args?.AddedItems[0] as FinishedItems;
+            IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == thisFinishedItem?.FinishedItemNumber);
+            List<TapOperator> tapOperators = new List<TapOperator>();
+            foreach (ProcessingItems processingItem in processingItemsList)
+            {
+                tapOperators.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
+            }
+
+            tapOperators = tapOperators.OrderBy(d => d.ClockDate).ToList();
+            StatBuilderWeight.RebiuldStats(tapOperators, FromDateTime, ToDateTime, thisFinishedItem);
         }
 
         private void CalendarCommandMethod(object obj)
@@ -67,11 +84,16 @@ namespace UnibrewProject.ViewModel
         }
 
         /// <summary>
+        /// Command til combobox - valg af færdigvarenummer
+        /// </summary>
+        public RelayCommand<object> ChooseFinishedItemCommand { get; set; }
+
+        /// <summary>
         /// Gentegner graf af tilspændingsMomenter
         /// </summary>
         public void RegenerateGraph()
         {
-            StatBuilder.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
+            StatBuilderMoment.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
         }
 
         /// <summary>
@@ -85,9 +107,14 @@ namespace UnibrewProject.ViewModel
         public MenuNavigator Navigator { get; set; }
 
         /// <summary>
-        /// Bygger grafen
+        /// Bygger grafen af momenter
         /// </summary>
-        public MomentStatBuilder StatBuilder { get; set; }
+        public MomentStatBuilder StatBuilderMoment { get; set; }
+
+        /// <summary>
+        /// Bygger grafen af vægt
+        /// </summary>
+        public WeightStatBuilder StatBuilderWeight { get; set; }
 
         /// <summary>
         /// Henter data fra persistens klassen
