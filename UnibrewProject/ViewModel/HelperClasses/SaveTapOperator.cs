@@ -57,6 +57,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             AutoSaveTimer = new AutoSaveTimer(this);
             LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
             ProItem = new ProcessingItems();
+            ShowMsg = new ShowMsg();
         }
 
         private void GenerateObjectsToBeSaved()
@@ -115,12 +116,15 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 {
                     if (!ComGeneric.Post(ProItem))// Gemmer nyt processingItem i DB
                     {
-                        // TODO Warn about connection problem to DB
+                        //Warn about connection problem to DB
+                        ShowMsg.ShowMessage("Der er ikke forbindelse til serveren");
                         exists = false;
                     }
                 }
                 else if (!comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber))
                 {
+                    // Warn about conflicting ProcessItem
+                    ShowMsg.ShowMessage("Procesordrenummeret eksisterer i forvejen, men med et andet færdigvarenummer");
                     exists = false;
                 }
             }
@@ -132,7 +136,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             if (!ProcessItemExists())
             {
-                // TODO Warn about conflicting ProcessItem
+                
                 return false;
             }
 
@@ -213,7 +217,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
                 else
                 {
-                    // TODO meld fejl om kommunikaiton til server
+                    // meld fejl om kommunikaiton til server
+                    ShowMsg.ShowMessage("Der er ikke forbindelse til serveren");
                     return false;
                 }
 
@@ -230,7 +235,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 if (!ComGeneric.Put(TapOp.ID, TapOp))
                 {
-                    // TODO meld fejl om kommunikaiton til server
+                    // meld fejl om kommunikaiton til server
+                    ShowMsg.ShowMessage("Der er ikke forbindelse til serveren");
                     return false;
                 }
 
@@ -246,6 +252,11 @@ namespace UnibrewProject.ViewModel.HelperClasses
             LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;
             TapOp.LiquidTank = liquidTank?.Name;
         }
+
+        /// <summary>
+        /// Objekt af showMsg, der viser pop op beskeder
+        /// </summary>
+        public ShowMsg ShowMsg { get; set; }
 
         /// <summary>
         /// Objekt af tapOperator, der kan gemmes til

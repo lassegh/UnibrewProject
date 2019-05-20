@@ -109,7 +109,9 @@ namespace UnibrewProject.ViewModel
                     Load.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
                 if (EnumerableFinishItems.ToList().Count == 0)
                 {
-                    // TODO Advar mod ikke eksiterende færdigvarenummer
+                    // Advar mod ikke eksiterende færdigvarenummer
+                    ShowMsg showMsg = new ShowMsg();
+                    showMsg.ShowMessage("Der er indtastet et ikke eksisterende færdigvarenummer");
                     CurrentFinishedItem = new FinishedItems();
                 }
                 else

@@ -35,10 +35,11 @@ namespace UnibrewProject.ViewModel
             Navigator = new MenuNavigator();
             StatBuilder = new MomentStatBuilder();
             RegenerateGraph();
-            FromDateTime = new DateTime();
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
             CheckBoxCommand = new RelayCommand<string>(CheckBoxCommandMethod);
+            FromDateTime = StatConfig.FromDateTime;
+            ToDateTime = StatConfig.ToDateTime;
         }
 
         private void CalendarCommandMethod(object obj)
@@ -119,7 +120,7 @@ namespace UnibrewProject.ViewModel
         public DateTime FromDateTime
         {
             get => StatConfig.FromDateTime;
-            set
+            set 
             {
                 StatConfig.FromDateTime = value;
                 RegenerateGraph();
