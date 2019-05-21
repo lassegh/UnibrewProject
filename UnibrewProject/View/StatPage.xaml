@@ -298,7 +298,7 @@
                     <RowDefinition />
                     <RowDefinition Height="25" />
                 </Grid.RowDefinitions>
-                
+
                 <Grid Column="1"
                       Row="0">
                     <TextBlock Text="     DASHBOARD"
@@ -425,7 +425,7 @@
                                        FocusVisualPrimaryBrush="Black"
                                        Foreground="Black"
                                        VerticalAlignment="Stretch"
-                                       Margin="1,-5,0,3" />
+                                       Margin="1,0,0,3" />
                         </Grid>
 
                         <Grid Column="1"
@@ -445,14 +445,14 @@
                                               Labels="{Binding StatBuilderMoment.MomentLabels}"></lvc:Axis>
                                 </lvc:CartesianChart.AxisX>
                             </lvc:CartesianChart>
-                        </Grid> 
+                        </Grid>
 
 
 
 
                     </Grid>
 
-                    
+
 
 
 
@@ -460,24 +460,131 @@
 
                 <Grid Column="1"
                       Row="3"
-                      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-                      Margin="0,0,0,0">
-                    <lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
+                      BorderThickness="1,1,1,1">
+
+                    <Grid
+                          Margin="1,12,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="65*" />
+                            <ColumnDefinition Width="64*" />
+                            <ColumnDefinition Width="61*" />
+                            <ColumnDefinition Width="58*" />
+                            <ColumnDefinition Width="54*" />
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="10*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="76*" />
+                            <RowDefinition Height="15*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Column="0"
+                              Row="0"
+                              ColumnSpan="9"
+                              RowSpan="9"
+                              Margin="0,0,0,0">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*" />
+                                    <ColumnDefinition Width="42*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="141*" />
+                                </Grid.RowDefinitions>
+                                <Grid Column="0"
+                                      Row="0"
+                                      Background="#FF8484B0"
+                                      CornerRadius="12,12,0,0"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,0,5,0"
+                                      Grid.ColumnSpan="2"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
+
+                                <Grid Column="0"
+                                      Background="#FFD0D0E4"
+                                      CornerRadius="0,0,12,12"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,37,5,-13"
+                                      Grid.ColumnSpan="2"
+                                      Grid.RowSpan="2" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="0"
+                              Grid.ColumnSpan="3">
+                            <TextBlock Text="   Vægtkontrol Graf"
+                                       HorizontalAlignment="Stretch"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="Normal"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="Black"
+                                       VerticalAlignment="Stretch"
+                                       Margin="1,0,0,3" />
+                        </Grid>
+
+                        <Grid Column="1"
+                              Row="1"
+                              ColumnSpan="7"
+                              RowSpan="8"
+                              Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                              Margin="0,0,0,0">
+                            <lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
                                         LegendLocation="Right">
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="Vægt"
+                                <lvc:CartesianChart.AxisY>
+                                    <lvc:Axis Title="Vægt"
                                       LabelFormatter="{Binding StatBuilderWeight.YFormatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
-                        <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Dato"
+                                </lvc:CartesianChart.AxisY>
+                                <lvc:CartesianChart.AxisX>
+                                    <lvc:Axis Title="Dato"
                                       Labels="{Binding StatBuilderWeight.WeightLabels}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>
+                                </lvc:CartesianChart.AxisX>
+                            </lvc:CartesianChart>
+
+
+
+
+
+
+
+
+
+
+
+                        </Grid>
+
+
+
+
+                    </Grid>
+
+
+
+
+
                 </Grid>
 
 
-                <StackPanel Grid.Column="2"
-                            Grid.Row="3">
+                <StackPanel Grid.Column="1"
+                            Grid.Row="3" HorizontalAlignment="Right" Margin="0,3,20,-3">
                     <Grid HorizontalAlignment="Stretch"
                           Height="453"
                           Margin="0,0,0,0"
@@ -509,15 +616,15 @@
                                   Grid.Row="0"
                                   Grid.ColumnSpan="3"
                                   HorizontalAlignment="Left"
-                                  VerticalAlignment="Center"
-                                  Width="230"
+                                  VerticalAlignment="Top"
+                                  Width="161"
                                   AllowDrop="True"
                                   PlaceholderText="{Binding StatConfig.FinishedItemForWeightGraph.Name}"
                                   Height="30"
                                   BorderBrush="#19000000"
                                   Background="#FFBDBADC"
                                   ItemsSource="{Binding Load.FinishedItemsList}"
-                                  Margin="0,10,0,0">
+                                  Margin="0,15,0,0">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Name}"></TextBlock>
@@ -609,7 +716,7 @@
                               CommandParameter="B15" />
                 </StackPanel>
 
-                
+
 
             </Grid>
 
