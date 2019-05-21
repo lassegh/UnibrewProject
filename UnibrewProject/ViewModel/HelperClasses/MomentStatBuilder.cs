@@ -34,7 +34,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// <param name="startDate">Startdato for grafer</param>
         /// <param name="endDate">Slutdato for grafer</param>
         /// <param name="bottleShow">Array af bools, der fortæller hvilke grafer, der skal tegnes</param>
-        public void RebiuldStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, bool[] bottleShow)
+        public void RebuildStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, bool[] bottleShow)
         {
             List<double> bottleOne = new List<double>();
             List<double> bottleTwo = new List<double>();

@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.ApplicationModel.Core;
 using Windows.UI;
 using Windows.UI.ViewManagement;
+using UnibrewProject.View;
 
 namespace UnibrewProject
 {

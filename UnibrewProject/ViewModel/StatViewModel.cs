@@ -79,7 +79,7 @@ namespace UnibrewProject.ViewModel
 
         private void RegenerateWeightGraph()
         {
-            StatBuilderWeight.RebiuldStats(StatConfig.TapOperatorListForWeightGraph, FromDateTime, ToDateTime, StatConfig.FinishedItemForWeightGraph);
+            StatBuilderWeight.RebuildStats(StatConfig.TapOperatorListForWeightGraph, FromDateTime, ToDateTime, StatConfig.FinishedItemForWeightGraph);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace UnibrewProject.ViewModel
         /// </summary>
         public void RegenerateMomentGraph()
         {
-            StatBuilderMoment.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
+            StatBuilderMoment.RebuildStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
         }
 
         private void CheckBoxCommandMethod(string name)

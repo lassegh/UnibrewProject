@@ -25,7 +25,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// <param name="startDate">Startdato for grafer</param>
         /// <param name="endDate">Slutdato for grafer</param>
         /// <param name="thisItem">Den færdigvare, der kigges på</param>
-        public void RebiuldStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, FinishedItems thisItem)
+        public void RebuildStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, FinishedItems thisItem)
         {
             List<double> weightMin = new List<double>();
             List<double> weightMax = new List<double>();
