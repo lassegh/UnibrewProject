@@ -195,12 +195,11 @@
                 <Button Grid.Row="2"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000">
+                        Background="#00000000" Height="50">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                        <uwp:FontAwesome Icon="IdCardOutline"
-                                         Foreground="Black" />
-                        <TextBlock Text="Tap Operatør"
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <TextBlock Text="Menu 2"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
                                    FontWeight="SemiLight"
@@ -215,30 +214,27 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Margin="4,0,0,0">
-                    <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline"
-                                         Foreground="Black"
-                                         Margin="-4,0,0,0" />
-                        <TextBlock Text="Tap Operatør"
+                        Margin="0,30,0,0" Height="50" VerticalAlignment="Top" Width="168">
+                    <StackPanel Orientation="Horizontal" Margin="-4,0,0,0">
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="-67,0,0,0"  />
+                        <TextBlock Text="Menu 3"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
                                    FontWeight="SemiLight"
                                    Height="22"
                                    FontStyle="Italic"
                                    VerticalAlignment="Bottom"
-                                   Margin="21,0,0,0" />
+                                   Margin="0,0,0,0" />
                     </StackPanel>
                 </Button>
 
                 <Button Grid.Row="4"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000">
+                        Background="#00000000" Height="50" Margin="0,6,0,41">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline"
-                                         Foreground="Black" />
-                        <TextBlock Text="Tap Operatør"
+                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <TextBlock Text="Menu 4"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
                                    FontWeight="SemiLight"
