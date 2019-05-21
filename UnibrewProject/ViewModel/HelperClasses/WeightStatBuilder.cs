@@ -36,9 +36,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
             {
                 if (tapOperator.ClockDate > startDate && tapOperator.ClockDate < endDate)
                 {
-                    weightMin.Add(thisItem.WeightMin);
-                    weightMax.Add(thisItem.WeightMax);
-
                     double weight = 0;
                     if (tapOperator.Weight1 > 0) weight = weight + tapOperator.Weight1;
                     if (tapOperator.Weight2 > 0) weight = weight + tapOperator.Weight2;
@@ -46,9 +43,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     if (tapOperator.Weight4 > 0) weight = weight + tapOperator.Weight4;
                     if (tapOperator.Weight5 > 0) weight = weight + tapOperator.Weight5;
                     if (tapOperator.Weight6 > 0) weight = weight + tapOperator.Weight6;
-                    weightActual.Add(weight/6);
 
-                    WeightLabels.Add(tapOperator.ClockDate.ToString("dd-MM-yyyy HH:mm"));
+                    if (weight > 0)
+                    {
+                        weightActual.Add(weight/6);
+                        weightMin.Add(thisItem.WeightMin);
+                        weightMax.Add(thisItem.WeightMax);
+                        WeightLabels.Add(tapOperator.ClockDate.ToString("dd-MM-yyyy HH:mm"));
+                    }
                 }
             }
 

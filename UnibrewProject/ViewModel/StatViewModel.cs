@@ -28,6 +28,8 @@ namespace UnibrewProject.ViewModel
     public class StatViewModel
     {
         private List<TapOperator> _tapOperators = Loader.Load.GetTapOperators();
+        private List<TapOperator> _tapOperatorsForWeightGraph = new List<TapOperator>();
+        private FinishedItems _finishedItemForWeightGraph;
         
         public StatViewModel()
         {
@@ -35,7 +37,7 @@ namespace UnibrewProject.ViewModel
             Navigator = new MenuNavigator();
             StatBuilderMoment = new MomentStatBuilder();
             StatBuilderWeight = new WeightStatBuilder();
-            RegenerateGraph();
+            RegenerateMomentGraph();
             ChooseFinishedItemCommand = new RelayCommand<object>(ChooseFinishedItemCommandMethod);
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
@@ -47,16 +49,16 @@ namespace UnibrewProject.ViewModel
         private void ChooseFinishedItemCommandMethod(object obj)
         {
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
-            FinishedItems thisFinishedItem = args?.AddedItems[0] as FinishedItems;
-            IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == thisFinishedItem?.FinishedItemNumber);
-            List<TapOperator> tapOperators = new List<TapOperator>();
+            _finishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems;
+            IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == _finishedItemForWeightGraph?.FinishedItemNumber);
+            _tapOperatorsForWeightGraph.Clear();
             foreach (ProcessingItems processingItem in processingItemsList)
             {
-                tapOperators.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
+                _tapOperatorsForWeightGraph.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
             }
 
-            tapOperators = tapOperators.OrderBy(d => d.ClockDate).ToList();
-            StatBuilderWeight.RebiuldStats(tapOperators, FromDateTime, ToDateTime, thisFinishedItem);
+            _tapOperatorsForWeightGraph = _tapOperatorsForWeightGraph.OrderBy(d => d.ClockDate).ToList();
+            RegenerateWeightGraph();
         }
 
         private void CalendarCommandMethod(object obj)
@@ -77,24 +79,29 @@ namespace UnibrewProject.ViewModel
             }
         }
 
+        private void RegenerateWeightGraph()
+        {
+            StatBuilderWeight.RebiuldStats(_tapOperatorsForWeightGraph, FromDateTime, ToDateTime, _finishedItemForWeightGraph);
+        }
+
+        /// <summary>
+        /// Gentegner graf af tilspændingsMomenter
+        /// </summary>
+        public void RegenerateMomentGraph()
+        {
+            StatBuilderMoment.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
+        }
+
         private void CheckBoxCommandMethod(string name)
         {
             StatConfig.ToggleGraphs(name);
-            RegenerateGraph();
+            RegenerateMomentGraph();
         }
 
         /// <summary>
         /// Command til combobox - valg af færdigvarenummer
         /// </summary>
         public RelayCommand<object> ChooseFinishedItemCommand { get; set; }
-
-        /// <summary>
-        /// Gentegner graf af tilspændingsMomenter
-        /// </summary>
-        public void RegenerateGraph()
-        {
-            StatBuilderMoment.RebiuldStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
-        }
 
         /// <summary>
         /// Slider til menuen
@@ -150,7 +157,8 @@ namespace UnibrewProject.ViewModel
             set 
             {
                 StatConfig.FromDateTime = value;
-                RegenerateGraph();
+                RegenerateMomentGraph();
+                RegenerateWeightGraph();
             }
         }
 
@@ -163,7 +171,8 @@ namespace UnibrewProject.ViewModel
             set
             {
                 StatConfig.ToDateTime = value;
-                RegenerateGraph();
+                RegenerateMomentGraph();
+                RegenerateWeightGraph();
             }
         }
     }
