@@ -18,7 +18,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
     public class StatConfiguration : INotifyPropertyChanged
     {
         private static StatConfiguration _statConfig = null;
-        
+        private FinishedItems _finishedItemForWeightGraph;
+
+
         private StatConfiguration()
         {
             FromDateTime = new DateTime(2019, 1, 1);
@@ -99,6 +101,11 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     break;
             }
         }
+
+        /// <summary>
+        /// Holder liste af tapOperators, der indgår i vægtkontrolsgraf
+        /// </summary>
+        public List<TapOperator> TapOperatorListForWeightGraph { get; set; } = new List<TapOperator>();
         
         /// <summary>
         /// Gemmer indtastede dato i memory
@@ -129,6 +136,19 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// Array af bools, der holder synligheden af den enkelte momentGraf
         /// </summary>
         public bool[] ShowingBottles { get; set; }
+
+        /// <summary>
+        /// Holder færdigvareoplysninger for vægtkontrolsgraf
+        /// </summary>
+        public FinishedItems FinishedItemForWeightGraph
+        {
+            get
+            {
+                if (_finishedItemForWeightGraph == null)_finishedItemForWeightGraph = new FinishedItems() { Name = "Vælg færdigvare"}; // Hvis der ikke holdes et objekt, vil combobox vise "vælg færdigvare"
+                return _finishedItemForWeightGraph;
+            }
+            set { _finishedItemForWeightGraph = value; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -516,7 +516,7 @@
                                   VerticalAlignment="Center"
                                   Width="230"
                                   AllowDrop="True"
-                                  PlaceholderText="Vælg Færdigvare"
+                                  PlaceholderText="{Binding StatConfig.FinishedItemForWeightGraph.Name}"
                                   Height="30"
                                   BorderBrush="#19000000"
                                   Background="#FFBDBADC"

@@ -28,8 +28,6 @@ namespace UnibrewProject.ViewModel
     public class StatViewModel
     {
         private List<TapOperator> _tapOperators = Loader.Load.GetTapOperators();
-        private List<TapOperator> _tapOperatorsForWeightGraph = new List<TapOperator>();
-        private FinishedItems _finishedItemForWeightGraph;
         
         public StatViewModel()
         {
@@ -49,15 +47,15 @@ namespace UnibrewProject.ViewModel
         private void ChooseFinishedItemCommandMethod(object obj)
         {
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
-            _finishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems;
-            IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == _finishedItemForWeightGraph?.FinishedItemNumber);
-            _tapOperatorsForWeightGraph.Clear();
+            StatConfig.FinishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems;
+            IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == StatConfig.FinishedItemForWeightGraph?.FinishedItemNumber);
+            StatConfig.TapOperatorListForWeightGraph.Clear();
             foreach (ProcessingItems processingItem in processingItemsList)
             {
-                _tapOperatorsForWeightGraph.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
+                StatConfig.TapOperatorListForWeightGraph.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
             }
 
-            _tapOperatorsForWeightGraph = _tapOperatorsForWeightGraph.OrderBy(d => d.ClockDate).ToList();
+            StatConfig.TapOperatorListForWeightGraph = StatConfig.TapOperatorListForWeightGraph.OrderBy(d => d.ClockDate).ToList();
             RegenerateWeightGraph();
         }
 
@@ -81,7 +79,7 @@ namespace UnibrewProject.ViewModel
 
         private void RegenerateWeightGraph()
         {
-            StatBuilderWeight.RebiuldStats(_tapOperatorsForWeightGraph, FromDateTime, ToDateTime, _finishedItemForWeightGraph);
+            StatBuilderWeight.RebiuldStats(StatConfig.TapOperatorListForWeightGraph, FromDateTime, ToDateTime, StatConfig.FinishedItemForWeightGraph);
         }
 
         /// <summary>
