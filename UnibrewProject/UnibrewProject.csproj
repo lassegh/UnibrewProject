@@ -119,14 +119,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InputColSevenPage.xaml.cs">
+    <Compile Include="View\InputColSevenPage.xaml.cs">
       <DependentUpon>InputColSevenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\FinishedItems.cs" />
     <Compile Include="Model\LiquidTanks.cs" />
     <Compile Include="Model\ProcessingItems.cs" />
     <Compile Include="Model\TapOperator.cs" />
-    <Compile Include="StatPage.xaml.cs">
+    <Compile Include="View\StatPage.xaml.cs">
       <DependentUpon>StatPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
@@ -141,9 +141,13 @@
     <Compile Include="ViewModel\HelperClasses\ShowMsg.cs" />
     <Compile Include="ViewModel\HelperClasses\StatConfiguration.cs" />
     <Compile Include="ViewModel\HelperClasses\MomentStatBuilder.cs" />
+    <Compile Include="ViewModel\HelperClasses\WeightStatBuilder.cs" />
     <Compile Include="ViewModel\InputColSevenViewModel.cs" />
     <Compile Include="ViewModel\HelperClasses\Loader.cs" />
     <Compile Include="ViewModel\StatViewModel.cs" />
+    <Compile Include="View\OldInputsColSevenPage.xaml.cs">
+      <DependentUpon>OldInputsColSevenPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -169,13 +173,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="InputColSevenPage.xaml">
+    <Page Include="View\InputColSevenPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="StatPage.xaml">
+    <Page Include="View\StatPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\OldInputsColSevenPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

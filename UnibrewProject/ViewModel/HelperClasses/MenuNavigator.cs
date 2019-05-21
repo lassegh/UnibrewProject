@@ -10,6 +10,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using GalaSoft.MvvmLight.Command;
 using UnibrewProject.Annotations;
+using UnibrewProject.View;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {

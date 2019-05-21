@@ -9,7 +9,7 @@
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:uwp="using:FontAwesome.UWP"
-      x:Class="UnibrewProject.InputColSevenPage"
+      x:Class="UnibrewProject.View.InputColSevenPage"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
       DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}" 
