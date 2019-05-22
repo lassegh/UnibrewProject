@@ -10,12 +10,16 @@
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       xmlns:uwp="using:FontAwesome.UWP"
+      xmlns:helperClasses="using:UnibrewProject.ViewModel.HelperClasses"
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Page.DataContext>
         <viewModel:StatViewModel />
     </Page.DataContext>
+    <Page.Resources>
+        <helperClasses:DateTimeConverter x:Key="ThisDateTimeConverter" />
+    </Page.Resources>
     <StackPanel Orientation="Vertical"
                 Background="Black">
 
@@ -319,7 +323,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="Fra dato"
                                    Margin="40,0,0,0" />
-                        <CalendarDatePicker Date="{Binding FromDateTime}"
+                        <CalendarDatePicker Date="{Binding FromDateTime, Mode=TwoWay, Converter={StaticResource ThisDateTimeConverter}}"
                                             Margin="15,0,0,0"
                                             DateFormat="{}{day.integer} {month.full} {year.full}"
                                             FirstDayOfWeek="Monday">
@@ -332,7 +336,7 @@
                         <TextBlock Text="Til dato"
                                    Margin="40,0,0,0" />
                         <CalendarDatePicker Margin="10,0,0,0"
-                                            Date="{Binding ToDateTime}"
+                                            Date="{Binding ToDateTime, Mode=TwoWay, Converter={StaticResource ThisDateTimeConverter}}"
                                             DateFormat="{}{day.integer} {month.full} {year.full}">
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="DateChanged">

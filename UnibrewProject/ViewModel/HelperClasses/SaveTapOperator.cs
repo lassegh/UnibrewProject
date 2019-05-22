@@ -486,7 +486,11 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// </summary>
         public string Processnumber
         {
-            get => _processnumber;
+            get
+            {
+                if (_processnumber == null) return "";
+                return _processnumber;
+            }
             set { _processnumber = value.PadRight(10); }
         }
 
