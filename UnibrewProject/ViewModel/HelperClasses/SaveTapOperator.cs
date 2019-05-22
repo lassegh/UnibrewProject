@@ -104,7 +104,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             bool exists = true;
 
-            if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
+            if (FinishNumber==0 || Processnumber.Equals(""))
+            {
+                //Warn about missing fields
+                ShowMsg.ShowMessage("Indtast venligst processordrenummer og færdigvarenummer");
+                exists = false;
+            }
+            else if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
             {
                 ProcessingItems comparableProcessingItemFromDb = ComGeneric.GetOne<ProcessingItems, string>(Processnumber);
                 ProItem = new ProcessingItems
