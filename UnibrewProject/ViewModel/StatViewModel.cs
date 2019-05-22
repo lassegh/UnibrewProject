@@ -36,12 +36,11 @@ namespace UnibrewProject.ViewModel
             StatBuilderMoment = new MomentStatBuilder();
             StatBuilderWeight = new WeightStatBuilder();
             RegenerateMomentGraph();
+            RegenerateWeightGraph();
             ChooseFinishedItemCommand = new RelayCommand<object>(ChooseFinishedItemCommandMethod);
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
             CheckBoxCommand = new RelayCommand<string>(CheckBoxCommandMethod);
-            FromDateTime = StatConfig.FromDateTime;
-            ToDateTime = StatConfig.ToDateTime;
         }
 
         private void ChooseFinishedItemCommandMethod(object obj)
