@@ -17,6 +17,12 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
     public class FluidWeightControl : INotifyPropertyChanged
     {
         private string _weight;
+        private SaveTapOperator _save;
+
+        public FluidWeightControl(SaveTapOperator save)
+        {
+            _save = save;
+        }
 
         /// <summary>
         /// Holder indtastet vægt
@@ -32,6 +38,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
                     {
                         // Your UI update code goes here!
                         OnPropertyChanged();
+                        _save.CalculateAverageWeight();
                     }
                 );
             }

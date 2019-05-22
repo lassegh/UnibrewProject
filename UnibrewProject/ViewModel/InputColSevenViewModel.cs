@@ -32,7 +32,6 @@ namespace UnibrewProject.ViewModel
             Slider = new MenuSlider();
             Navigator = new MenuNavigator();
             RelayCommand_inputValid = new RelayCommand<object>(CheckLegalDataType);
-            
             _txtbxInputValid = "";
 
         }

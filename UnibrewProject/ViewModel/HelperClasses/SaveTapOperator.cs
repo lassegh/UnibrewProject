@@ -39,6 +39,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private string _lidNumber;
         private string _preformMaterialNumber;
 
+        private string _averageWeight;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -48,7 +50,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             for (int i = 0; i < FluidWeightControls.Length; i++)
             {
-                FluidWeightControls[i] = new FluidWeightControl();
+                FluidWeightControls[i] = new FluidWeightControl(this);
             }
 
             GenerateObjectsToBeSaved();
@@ -58,6 +60,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             LiquidTankCommand = new RelayCommand<object>(LiquidTankCommandMethod);
             ProItem = new ProcessingItems();
             ShowMsg = new ShowMsg();
+            CalculateAverageWeight();
         }
 
         private void GenerateObjectsToBeSaved()
@@ -257,6 +260,48 @@ namespace UnibrewProject.ViewModel.HelperClasses
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
             LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;
             TapOp.LiquidTank = liquidTank?.Name;
+        }
+
+        /// <summary>
+        /// Udregner gennemsnitsværdien af indtastede kontrolvejninger
+        /// </summary>
+        public void CalculateAverageWeight()
+        {
+            double averageWeight = 0;
+            double tempWeight = 0;
+            int i = 0;
+            foreach (FluidWeightControl weightControl in FluidWeightControls)
+            {
+                double.TryParse(weightControl.Weight, out tempWeight);
+                if (tempWeight > 0)
+                {
+                    averageWeight = averageWeight + tempWeight;
+                    tempWeight = 0;
+                    i++;
+                }
+            }
+
+            AverageWeight = (averageWeight/i).ToString("N");
+
+            // TODO tilpas AverageWeightBorderColor afhængig af AverageWeight
+        }
+
+        /// <summary>
+        /// Farve på AverageWeight's kant
+        /// </summary>
+        public string AverageWeightBorderColor { get; set; } = "Black";
+
+        /// <summary>
+        /// Gennemsnitsvægt for kontrolvejning
+        /// </summary>
+        public string AverageWeight
+        {
+            get { return _averageWeight; }
+            set
+            {
+                _averageWeight = value;
+                OnPropertyChanged();
+            }
         }
 
         /// <summary>
