@@ -24,7 +24,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
     public class SaveTapOperator : INotifyPropertyChanged
     {
         private static SaveTapOperator _save = null;
-        public delegate bool SaveToDbMethod();
+        public delegate bool SaveToDbMethod(string caller);
         private SaveToDbMethod _saveToDbMethod;
 
         private string _processnumber;
@@ -74,7 +74,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             AutoSaveTimer.StopTimer();
 
             //Run saveDelegate
-            if (SAveToDbMethod())
+            if (SAveToDbMethod("button"))
             {
                 //Return saveDelegate to startMethod
                 _saveToDbMethod = PostSaveMethod;
@@ -103,14 +103,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
         }
 
-        private bool ProcessItemExists()
+        private bool ProcessItemExists(string caller)
         {
             bool exists = true;
 
             if (FinishNumber==0 || Processnumber.Equals(""))
             {
-                //Warn about missing fields
-                ShowMsg.ShowMessage("Indtast venligst processordrenummer og færdigvarenummer");
+                //Warn about missing fields if caller is button
+                if(caller.Equals("button"))ShowMsg.ShowMessage("Indtast venligst processordrenummer og færdigvarenummer");
                 exists = false;
             }
             else if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
@@ -141,9 +141,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             return exists;
         }
 
-        private bool PrepareSave()
+        private bool PrepareSave(string caller)
         {
-            if (!ProcessItemExists())
+            if (!ProcessItemExists(caller))
             {
                 
                 return false;
@@ -215,9 +215,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
 
-        private bool PostSaveMethod()
+        private bool PostSaveMethod(string caller)
         {
-            if (PrepareSave())
+            if (PrepareSave(caller))
             {
                 TapOp.ClockDate = DateTime.Now;
                 if (ComGeneric.Post<TapOperator>(TapOp))
@@ -238,9 +238,9 @@ namespace UnibrewProject.ViewModel.HelperClasses
             return false;
         }
 
-        private bool PutSaveMethod()
+        private bool PutSaveMethod(string caller)
         {
-            if (PrepareSave())
+            if (PrepareSave(caller))
             {
                 if (!ComGeneric.Put(TapOp.ID, TapOp))
                 {

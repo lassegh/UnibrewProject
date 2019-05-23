@@ -50,7 +50,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 
         private void Callback(Object state)
         {
-            _save.SAveToDbMethod();
+            _save.SAveToDbMethod("timer");
             FadingTextTimer = new Timer(new TimerCallback(fadingTextCallBack), null, 1, Timeout.Infinite);
         }
 
