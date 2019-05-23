@@ -2,84 +2,38 @@
 using UnibrewREST.Controllers;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Moq;
+using UnibrewRESTTests;
 
-namespace UnibrewRESTTests.Controllers
+namespace UnibrewREST.Controllers.Tests
 {
     [TestClass()]
-    public class TapOperatorsControllerTests<T> : DbSet<T>, IQueryable, IEnumerable<T>
-        where T : class
+    public class TapOperatorsControllerTests
     {
-        ObservableCollection<T> _data;
-        IQueryable _query;
-
-        public TapOperatorsControllerTests()
+        [TestMethod()]
+        public void GetTapOperatorTest()
         {
-            _data = new ObservableCollection<T>();
-            _query = _data.AsQueryable();
-        }
+            //Arrange
+            var mock = new Mock<IDbContext>();
+            mock.Setup(x => x.Set<TapOperator>())
+                .Returns(new FakeDbSet<TapOperator>
+                {
+                    new TapOperator() { ID = 1 }
+                });
 
-        public override T Add(T item)
-        {
-            _data.Add(item);
-            return item;
-        }
+            // Dette må være controlleren // UserService userService = new UserService(mock.Object);
 
-        public override T Remove(T item)
-        {
-            _data.Remove(item);
-            return item;
-        }
+            // Act
+            //var allUsers = userService.GetAllUsers();
 
-        public override T Attach(T item)
-        {
-            _data.Add(item);
-            return item;
-        }
+            // Assert
+            //Assert.AreEqual(1, allUsers.Count());
 
-        public override T Create()
-        {
-            return Activator.CreateInstance<T>();
-        }
-
-        public override TDerivedEntity Create<TDerivedEntity>()
-        {
-            return Activator.CreateInstance<TDerivedEntity>();
-        }
-
-        public override ObservableCollection<T> Local
-        {
-            get { return new ObservableCollection<T>(_data); }
-        }
-
-        Type IQueryable.ElementType
-        {
-            get { return _query.ElementType; }
-        }
-
-        System.Linq.Expressions.Expression IQueryable.Expression
-        {
-            get { return _query.Expression; }
-        }
-
-        IQueryProvider IQueryable.Provider
-        {
-            get { return _query.Provider; }
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            return _data.GetEnumerator();
-        }
-
-        IEnumerator<T> IEnumerable<T>.GetEnumerator()
-        {
-            return _data.GetEnumerator();
         }
     }
 }

@@ -171,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="IDbContext.cs" />
     <Compile Include="LiquidTanks.cs" />
     <Compile Include="ProcessingItems.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

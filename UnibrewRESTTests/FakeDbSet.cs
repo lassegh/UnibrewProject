@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using UnibrewREST;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
@@ -10,50 +8,59 @@ using System.Threading.Tasks;
 
 namespace UnibrewRESTTests
 {
-    [TestClass()]
-    public class FullDBmodelTests<T> : DbSet<T>, IQueryable, IEnumerable<T>
-        where T : class
+    public class FakeDbSet<T> : IDbSet<T> where T : class
     {
         ObservableCollection<T> _data;
         IQueryable _query;
 
-        public FullDBmodelTests()
+        public FakeDbSet()
         {
             _data = new ObservableCollection<T>();
             _query = _data.AsQueryable();
         }
 
-        public override T Add(T item)
+        public virtual T Find(params object[] keyValues)
+        {
+            throw new NotImplementedException("Derive from FakeDbSet<T> and override Find");
+        }
+
+        public T Add(T item)
         {
             _data.Add(item);
             return item;
         }
 
-        public override T Remove(T item)
+        public T Remove(T item)
         {
             _data.Remove(item);
             return item;
         }
 
-        public override T Attach(T item)
+        public T Attach(T item)
         {
             _data.Add(item);
             return item;
         }
 
-        public override T Create()
+        public T Detach(T item)
+        {
+            _data.Remove(item);
+            return item;
+        }
+
+        public T Create()
         {
             return Activator.CreateInstance<T>();
         }
 
-        public override TDerivedEntity Create<TDerivedEntity>()
+        public TDerivedEntity Create<TDerivedEntity>() where TDerivedEntity : class, T
         {
             return Activator.CreateInstance<TDerivedEntity>();
         }
 
-        public override ObservableCollection<T> Local
+        public ObservableCollection<T> Local
         {
-            get { return new ObservableCollection<T>(_data); }
+            get { return _data; }
         }
 
         Type IQueryable.ElementType
