@@ -24,7 +24,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
     public class SaveTapOperator : INotifyPropertyChanged
     {
         private static SaveTapOperator _save = null;
+
+        /// <summary>
+        /// Delegate for enten post eller put method
+        /// </summary>
+        /// <param name="caller">Defineres som button eller timer</param>
+        /// <returns>bool - kan der gemmes?</returns>
         public delegate bool SaveToDbMethod(string caller);
+
         private SaveToDbMethod _saveToDbMethod;
 
         private string _processnumber;
