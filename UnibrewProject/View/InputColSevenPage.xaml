@@ -436,14 +436,14 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Bottom"
                                     Margin="12,0,0,0">
-                                <TextBox x:Name="txtbx_col1"
-                                         Height="30"
+                                <TextBox Height="30"
                                          Width="70"
                                          BorderThickness="0"
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 1"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[0].Moment, Mode=TwoWay}"
-                                         PlaceholderText="1. (mm)">
+                                         PlaceholderText="1. (mm)"
+                                         x:Name="txtbx_col1">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="LostFocus">
                                             <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
@@ -461,11 +461,10 @@
                               Grid.Row="1"
                               Grid.ColumnSpan="2"
                               Margin="0,0,17,5">
-                            <TextBlock x:Name="txtbx_InputValid01"
-                                       Foreground="Red"
+                            <TextBlock Foreground="Red"
                                        Height="30"
                                        Width="50"
-                                       Text="{Binding ViewModel.txtbx_inputValid, Mode=TwoWay}"
+                                       Text="{Binding ViewModel.TxtBxInputValid[0], Mode=TwoWay}"
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Stretch"
                                        FontSize="16"
@@ -489,8 +488,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 2"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[1].Moment, Mode=TwoWay}"
-                                         PlaceholderText="2. (mm)" />
+                                         PlaceholderText="2. (mm)"
+                                         x:Name="txtbx_col2">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                    </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="1"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[1], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="2"
@@ -509,8 +528,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 3"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[2].Moment, Mode=TwoWay}"
-                                         PlaceholderText="3. (mm)" />
+                                         PlaceholderText="3. (mm)"
+                                         x:Name="txtbx_col3">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="2"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[2], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="3"
@@ -529,8 +568,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 4"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[3].Moment, Mode=TwoWay}"
-                                         PlaceholderText="4. (mm)" />
+                                         PlaceholderText="4. (mm)"
+                                         x:Name="txtbx_col4">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="3"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[3], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -549,8 +608,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 5"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[4].Moment, Mode=TwoWay}"
-                                         PlaceholderText="5. (mm)" />
+                                         PlaceholderText="5. (mm)"
+                                         x:Name="txtbx_col5">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="4"
+                              Grid.Row="1"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[4], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="0"
@@ -569,8 +648,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 6"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[5].Moment, Mode=TwoWay}"
-                                         PlaceholderText="6. (mm)" />
+                                         PlaceholderText="6. (mm)"
+                                         x:Name="txtbx_col6">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="0"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[5], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="1"
@@ -589,8 +688,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 7"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[6].Moment, Mode=TwoWay}"
-                                         PlaceholderText="7. (mm)" />
+                                         PlaceholderText="7. (mm)"
+                                         x:Name="txtbx_col7">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="1"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[6], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="2"
@@ -609,8 +728,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 8"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[7].Moment, Mode=TwoWay}"
-                                         PlaceholderText="8. (mm)" />
+                                         PlaceholderText="8. (mm)"
+                                         x:Name="txtbx_col8">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="2"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[7], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="3"
@@ -629,8 +768,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 9"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[8].Moment, Mode=TwoWay}"
-                                         PlaceholderText="9. (mm)" />
+                                         PlaceholderText="9. (mm)"
+                                         x:Name="txtbx_col9">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="3"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[8], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -649,8 +808,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 10"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[9].Moment, Mode=TwoWay}"
-                                         PlaceholderText="10. (mm)" />
+                                         PlaceholderText="10. (mm)"
+                                         x:Name="txtbx_col10">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="4"
+                              Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[9], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="0"
@@ -670,8 +849,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 11"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[10].Moment, Mode=TwoWay}"
-                                         PlaceholderText="11. (mm)" />
+                                         PlaceholderText="11. (mm)"
+                                         x:Name="txtbx_col11">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="0"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[10], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="1"
@@ -692,8 +891,28 @@
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[11].Moment, Mode=TwoWay}"
                                          PlaceholderText="12. (mm)"
                                          VerticalAlignment="Stretch"
-                                         HorizontalAlignment="Stretch" />
+                                         HorizontalAlignment="Stretch"
+                                         x:Name="txtbx_col12">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="1"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[11], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="2"
@@ -712,8 +931,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 13"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[12].Moment, Mode=TwoWay}"
-                                         PlaceholderText="13. (mm)" />
+                                         PlaceholderText="13. (mm)"
+                                         x:Name="txtbx_col13">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="2"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[12], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="3"
@@ -732,8 +971,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 14"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[13].Moment, Mode=TwoWay}"
-                                         PlaceholderText="14. (mm)" />
+                                         PlaceholderText="14. (mm)"
+                                         x:Name="txtbx_col14">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="3"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[13], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Grid.Column="4"
@@ -752,8 +1011,28 @@
                                          ToolTipService.ToolTip="Tilspændingsmoment - Flaske 15"
                                          KeyDown="KeyDownEventHandler"
                                          Text="{Binding ViewModel.Save.TapOperatorMoments[14].Moment, Mode=TwoWay}"
-                                         PlaceholderText="15. (mm)" />
+                                         PlaceholderText="15. (mm)"
+                                         x:Name="txtbx_col15">
+                                    <interactivity:Interaction.Behaviors>
+                                        <core:EventTriggerBehavior EventName="LostFocus">
+                                            <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
+                                        </core:EventTriggerBehavior>
+                                    </interactivity:Interaction.Behaviors>
+                                </TextBox>
                             </Border>
+                        </Grid>
+                        <Grid Grid.Column="4"
+                              Grid.Row="3"
+                              Grid.ColumnSpan="2"
+                              Margin="0,0,17,5">
+                            <TextBlock Foreground="Red"
+                                       Height="30"
+                                       Width="50"
+                                       Text="{Binding ViewModel.TxtBxInputValid[14], Mode=TwoWay}"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Stretch"
+                                       FontSize="16"
+                                       Margin="72,22,0,0" />
                         </Grid>
 
                         <Grid Column="8"

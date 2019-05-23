@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -44,20 +45,69 @@ namespace UnibrewProject.ViewModel
         public void CheckLegalDataType(object parameter)
         {
             RoutedEventArgs args = parameter as RoutedEventArgs;
-            TextBlock box = args?.OriginalSource as TextBlock;
+            TextBox box = args?.OriginalSource as TextBox;
 
-            if (double.TryParse(Save.TapOperatorMoments[0].Moment, out txt_out ) || string.IsNullOrWhiteSpace(Save.TapOperatorMoments[0].Moment) )
+            switch (box?.Name)
             {
-                txtbx_inputValid = "";
+                case "txtbx_col1":
+                    ChangeValueForLegalData(0);
+                    break;
+                case "txtbx_col2":
+                    ChangeValueForLegalData(1);
+                    break;
+                case "txtbx_col3":
+                    ChangeValueForLegalData(2);
+                    break;
+                case "txtbx_col4":
+                    ChangeValueForLegalData(3);
+                    break;
+                case "txtbx_col5":
+                    ChangeValueForLegalData(4);
+                    break;
+                case "txtbx_col6":
+                    ChangeValueForLegalData(5);
+                    break;
+                case "txtbx_col7":
+                    ChangeValueForLegalData(6);
+                    break;
+                case "txtbx_col8":
+                    ChangeValueForLegalData(7);
+                    break;
+                case "txtbx_col9":
+                    ChangeValueForLegalData(8);
+                    break;
+                case "txtbx_col10":
+                    ChangeValueForLegalData(9);
+                    break;
+                case "txtbx_col11":
+                    ChangeValueForLegalData(10);
+                    break;
+                case "txtbx_col12":
+                    ChangeValueForLegalData(11);
+                    break;
+                case "txtbx_col13":
+                    ChangeValueForLegalData(12);
+                    break;
+                case "txtbx_col14":
+                    ChangeValueForLegalData(13);
+                    break;
+                case "txtbx_col15":
+                    ChangeValueForLegalData(14);
+                    break;
+            }
+        }
+
+        private void ChangeValueForLegalData(int i)
+        {
+            if (double.TryParse(Save.TapOperatorMoments[i].Moment, out txt_out) || string.IsNullOrWhiteSpace(Save.TapOperatorMoments[i].Moment))
+            {
+                TxtBxInputValid[i] = "";
 
             }
             else
             {
-                txtbx_inputValid = "*";
+                TxtBxInputValid[i] = "*";
             }
-
-
-            _txtbxInputValid = box?.Text;
         }
 
         /// <summary>
@@ -136,11 +186,7 @@ namespace UnibrewProject.ViewModel
         /// <summary>
         /// Properties der bliver brugt til at vise om der er brugt forkerte data type i input
         /// </summary>
-        public string txtbx_inputValid
-        {
-            get => _txtbxInputValid;
-            set { _txtbxInputValid = value; OnPropertyChanged(); }
-        }
+        public ObservableCollection<string> TxtBxInputValid { get; set; } = new ObservableCollection<string>{"", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
 
         public event PropertyChangedEventHandler PropertyChanged;
 
