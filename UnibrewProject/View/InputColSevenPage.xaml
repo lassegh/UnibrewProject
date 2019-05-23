@@ -1371,7 +1371,7 @@
                                        VerticalAlignment="Top"
                                        Margin="0,1,0,6" />
                             <TextBlock Text="[?]"
-                                       ToolTipService.ToolTip="Smag på produktet"
+                                       ToolTipService.ToolTip="Smagt ved produkt skifte, opstart og hvert tankskift"
                                        Grid.ColumnSpan="2"
                                        Margin="107,0,120,12"
                                        VerticalAlignment="Center" />
