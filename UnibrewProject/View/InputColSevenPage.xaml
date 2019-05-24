@@ -1888,9 +1888,9 @@
                                        Margin="0,0,0,0" />
                             <TextBlock Text="[?]"
                                        ToolTipService.ToolTip="Vægten af de 6 flasker skal være indenfor dette interval"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center"
-                                       Margin="0,0,189,-29" />
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Margin="126,31,0,4" />
                         </Grid>
 
                         <Grid Grid.Column="0"
