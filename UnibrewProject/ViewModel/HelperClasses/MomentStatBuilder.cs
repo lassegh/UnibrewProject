@@ -78,6 +78,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             MomentCollection = new SeriesCollection();
 
+            // TODO tilføj Lineseries på min(8) max(18) og optimal(10)
+
             if (bottleShow[0])MomentCollection.Add(new LineSeries
             {
                 Title = "Flaske 1",

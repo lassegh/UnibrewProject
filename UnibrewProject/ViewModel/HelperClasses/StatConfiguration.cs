@@ -26,10 +26,16 @@ namespace UnibrewProject.ViewModel.HelperClasses
             FromDateTime = new DateTime(2019, 1, 1);
             ToDateTime = DateTime.Today;
             ShowingBottles = new bool[15];
-            for (int i = 0; i < ShowingBottles.Length; i++)
+
+            // Sætter hvilke flasker der skal vises fra start
+            for (int i = 0; i < 12; i++)
             {
-                ShowingBottles[i] = true;
+                ShowingBottles[i] = false;
             }
+
+            ShowingBottles[12] = true;
+            ShowingBottles[13] = true;
+            ShowingBottles[14] = true;
         }
 
         /// <summary>

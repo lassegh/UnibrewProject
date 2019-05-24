@@ -87,8 +87,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controllers\TapOperatorsControllerTests.cs" />
-    <Compile Include="FakeDbSet.cs" />
-    <Compile Include="IDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
