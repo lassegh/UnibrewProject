@@ -13,7 +13,8 @@ namespace UnibrewREST
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
-        public DateTime? ClockDate { get; set; }
+        [Required]
+        public DateTime ClockDate { get; set; }
 
         [StringLength(10)]
         public string LidMaterialNo { get; set; }
