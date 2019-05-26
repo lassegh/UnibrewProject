@@ -120,7 +120,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\HelperClasses\DateTimeConverter.cs" />
-    <Compile Include="ViewModel\OldInputsColSevenViewModel.cs" />
     <Compile Include="View\InputColSevenPage.xaml.cs">
       <DependentUpon>InputColSevenPage.xaml</DependentUpon>
     </Compile>
@@ -147,9 +146,6 @@
     <Compile Include="ViewModel\InputColSevenViewModel.cs" />
     <Compile Include="ViewModel\HelperClasses\Loader.cs" />
     <Compile Include="ViewModel\StatViewModel.cs" />
-    <Compile Include="View\OldInputsColSevenPage.xaml.cs">
-      <DependentUpon>OldInputsColSevenPage.xaml</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -182,10 +178,6 @@
     <Page Include="View\StatPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="View\OldInputsColSevenPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>

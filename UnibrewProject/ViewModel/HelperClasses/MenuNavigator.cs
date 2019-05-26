@@ -24,7 +24,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             InputColSevenCommand = new RelayCommand(InputColSevenMethod);
             StatCommand = new RelayCommand(StatMethod);
-            OldInputColSevenCommand = new RelayCommand(OldInputColSevenMethod);
         }
 
         private void InputColSevenMethod()
@@ -37,11 +36,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
         }
 
-        private void OldInputColSevenMethod()
-        {
-            ((Frame)Window.Current.Content).Navigate(typeof(OldInputsColSevenPage));
-        }
-
         /// <summary>
         /// RelayCommand til InputColSevenPage
         /// </summary>
@@ -51,11 +45,6 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// RelayCommand til StatPage
         /// </summary>
         public RelayCommand StatCommand { get; set; }
-
-        /// <summary>
-        /// RelayCommand til gamle indtastninger
-        /// </summary>
-        public RelayCommand OldInputColSevenCommand { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
