@@ -25,6 +25,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         {
             FromDateTime = new DateTime(2019, 1, 1);
             ToDateTime = DateTime.Today;
+            ToDateTime = ToDateTime.AddDays(1); // Dette sikrer at det er datoen for i morgen, der vælges. Dette betyder at kontrolindtastninger, der sker i dag, bliver vist på grafen
             ShowingBottles = new bool[15];
 
             // Sætter hvilke flasker der skal vises fra start
