@@ -19,8 +19,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return new DateTime(((DateTimeOffset)value).Ticks);
+            if (value != null)
+            {
+                return new DateTime(((DateTimeOffset)value).Ticks);
+            }
 
+            return null;
         }
     }
 }
