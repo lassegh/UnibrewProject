@@ -48,6 +48,8 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private string _averageWeight;
 
+        private FinishedItems _currentFinishedItem;
+
         private SaveTapOperator()
         {
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -68,6 +70,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             ProItem = new ProcessingItems();
             ShowMsg = new ShowMsg();
             CalculateAverageWeight();
+            CurrentFinishedItem = new FinishedItems();
         }
 
         private void GenerateObjectsToBeSaved()
@@ -499,6 +502,19 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 return _processnumber;
             }
             set { _processnumber = value.PadRight(10); }
+        }
+
+        /// <summary>
+        /// Den aktuelle instans af færdigvarenummer, der bruges i view
+        /// </summary>
+        public FinishedItems CurrentFinishedItem
+        {
+            get { return _currentFinishedItem; }
+            set
+            {
+                _currentFinishedItem = value;
+                OnPropertyChanged();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1756,7 +1756,7 @@
                                     HorizontalAlignment="Left"
                                     VerticalAlignment="Center"
                                     Margin="12,0,0,0">
-                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.LiquidNumber}"
+                                <TextBlock Text="{Binding ViewModel.Save.CurrentFinishedItem.LiquidNumber}"
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Væske koden for det specifikke færdigvare #"
@@ -1905,7 +1905,7 @@
                                     VerticalAlignment="Top"
                                     Margin="12,0,0,0"
                                     Background="#FFFFC7C7">
-                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMin}"
+                                <TextBlock Text="{Binding ViewModel.Save.CurrentFinishedItem.WeightMin}"
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Minimum vægt for den fyldte flaske"
@@ -1931,7 +1931,7 @@
                                     VerticalAlignment="Center"
                                     Margin="12,0,0,0"
                                     Background="#FFD9FFDE">
-                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMiddle}"
+                                <TextBlock Text="{Binding ViewModel.Save.CurrentFinishedItem.WeightMiddle}"
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="100% korrekt vægt for den fyldte flaske"
@@ -1956,7 +1956,7 @@
                                     VerticalAlignment="Top"
                                     Margin="12,0,0,0"
                                     Background="#FFFFC7C7">
-                                <TextBlock Text="{Binding ViewModel.CurrentFinishedItem.WeightMax}"
+                                <TextBlock Text="{Binding ViewModel.Save.CurrentFinishedItem.WeightMax}"
                                            Height="30"
                                            Width="70"
                                            ToolTipService.ToolTip="Maksimal vægt for den fyldte flaske"

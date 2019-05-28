@@ -19,15 +19,14 @@ namespace UnibrewProject.ViewModel
     /// <summary>
     /// ViewModel for InputColSevenPage
     /// </summary>
-    public class InputColSevenViewModel : INotifyPropertyChanged
+    public class InputColSevenViewModel
     {
 
         public double txt_out;
         private string _txtbxInputValid;
 
         private string _finishedItemNumber;
-        private FinishedItems _currentFinishedItem;
-
+        
         public InputColSevenViewModel()
         {
             Slider = new MenuSlider();
@@ -146,7 +145,14 @@ namespace UnibrewProject.ViewModel
         /// </summary>
         public string FinishedItemNumber
         {
-            get { return _finishedItemNumber; }
+            get
+            {
+                if (Save.CurrentFinishedItem.FinishedItemNumber==0)
+                {
+                    return "";
+                }
+                return Save.CurrentFinishedItem.FinishedItemNumber.ToString();
+            }
             set
             {
                 _finishedItemNumber = value;
@@ -161,25 +167,12 @@ namespace UnibrewProject.ViewModel
                     // Advar mod ikke eksiterende færdigvarenummer
                     ShowMsg showMsg = new ShowMsg();
                     showMsg.ShowMessage("Der er indtastet et ikke eksisterende færdigvarenummer");
-                    CurrentFinishedItem = new FinishedItems();
+                    Save.CurrentFinishedItem = new FinishedItems();
                 }
                 else
                 {
-                    CurrentFinishedItem = EnumerableFinishItems.First();
+                    Save.CurrentFinishedItem = EnumerableFinishItems.First();
                 }
-            }
-        }
-
-        /// <summary>
-        /// Den aktuelle instans af færdigvarenummer, der bruges i view
-        /// </summary>
-        public FinishedItems CurrentFinishedItem
-        {
-            get { return _currentFinishedItem; }
-            set
-            {
-                _currentFinishedItem = value;
-                OnPropertyChanged();
             }
         }
 
@@ -187,13 +180,5 @@ namespace UnibrewProject.ViewModel
         /// Properties der bliver brugt til at vise om der er brugt forkerte data type i input
         /// </summary>
         public ObservableCollection<string> TxtBxInputValid { get; set; } = new ObservableCollection<string>{"", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
