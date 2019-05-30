@@ -136,7 +136,7 @@
         <Grid SizeChanged="FormName_SizeChanged"
               Height="651">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition MaxWidth="{Binding ViewModel.Slider.MenuWidth}" />
+                <ColumnDefinition MaxWidth="50" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
@@ -495,7 +495,7 @@
                                             <core:InvokeCommandAction Command="{Binding ViewModel.RelayCommand_inputValid}" />
                                         </core:EventTriggerBehavior>
                                     </interactivity:Interaction.Behaviors>
-                                    </TextBox>
+                                </TextBox>
                             </Border>
                         </Grid>
                         <Grid Grid.Column="1"
@@ -1035,7 +1035,7 @@
                                        Margin="72,22,0,0" />
                         </Grid>
 
-                        <Grid Column="8"
+                        <Grid Column="7"
                               Row="0"
                               ColumnSpan="1"
                               RowSpan="11">
@@ -1069,7 +1069,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="0">
                             <TextBlock Text="Process"
                                        FontFamily="Segoe UI Light"
@@ -1083,7 +1083,7 @@
                                        HorizontalAlignment="Center" />
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="1">
                             <TextBlock Text="Processorder"
                                        FontFamily="Segoe UI Light"
@@ -1095,7 +1095,7 @@
                                        Margin="13,0,-1,17" />
                         </Grid>
 
-                        <Grid Column="8"
+                        <Grid Column="7"
                               Row="1"
                               RowSpan="2">
                             <Border BorderThickness="1"
@@ -1114,7 +1114,7 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="3">
                             <TextBlock Text="Færdigvare #"
                                        FontFamily="Segoe UI Light"
@@ -1126,7 +1126,7 @@
                                        Margin="13,0,-1,17" />
                         </Grid>
 
-                        <Grid Column="8"
+                        <Grid Column="7"
                               Row="3"
                               RowSpan="2">
                             <Border BorderThickness="1"
@@ -1145,7 +1145,7 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="5">
                             <TextBlock Text="Præform #"
                                        FontFamily="Segoe UI Light"
@@ -1157,7 +1157,7 @@
                                        Margin="13,0,-1,17" />
                         </Grid>
 
-                        <Grid Column="8"
+                        <Grid Column="7"
                               Row="5"
                               RowSpan="2">
                             <Border BorderThickness="1"
@@ -1177,7 +1177,7 @@
                             </Border>
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="7">
                             <TextBlock Text="Skruelågs #"
                                        FontFamily="Segoe UI Light"
@@ -1190,7 +1190,7 @@
                         </Grid>
 
 
-                        <Grid Column="8"
+                        <Grid Column="7"
                               Row="7"
                               RowSpan="2">
                             <Border BorderThickness="1"
@@ -1235,20 +1235,13 @@
                                       Background="#FF8484B0"
                                       CornerRadius="12,12,0,0"
                                       BorderThickness="0,1,0,0"
-                                      Margin="0,0,15,0"
-                                      Grid.ColumnSpan="2"
-                                      HorizontalAlignment="Stretch"
-                                      VerticalAlignment="Stretch" />
+                                      Margin="0,0,144,0" />
 
                                 <Grid Column="0"
-                                      Row="1"
                                       Background="#FFD0D0E4"
                                       CornerRadius="0,0,12,12"
                                       BorderThickness="0,1,0,0"
-                                      Margin="0,-1,15,10"
-                                      Grid.ColumnSpan="2"
-                                      HorizontalAlignment="Stretch"
-                                      VerticalAlignment="Stretch" />
+                                      Margin="0,41,144,10" Grid.RowSpan="2" />
 
                             </Grid>
                         </Grid>
@@ -1732,7 +1725,7 @@
                                        Margin="59,-1,0,0" />
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="9"
                               Margin="0,0,0,16">
                             <TextBlock Text="Væske Kode"
@@ -1745,7 +1738,7 @@
                                        Margin="13,-1,0,4" />
                         </Grid>
 
-                        <Grid Grid.Column="8"
+                        <Grid Grid.Column="7"
                               Grid.Row="9"
                               Grid.RowSpan="2">
                             <Border BorderThickness="1"
@@ -1787,20 +1780,13 @@
                                       Background="#FF8484B0"
                                       CornerRadius="12,12,0,0"
                                       BorderThickness="0,1,0,0"
-                                      Margin="0,0,15,0"
-                                      Grid.ColumnSpan="2"
-                                      HorizontalAlignment="Stretch"
-                                      VerticalAlignment="Stretch" />
+                                      Margin="0,0,138,0" />
 
                                 <Grid Column="0"
-                                      Row="1"
                                       Background="#FFD0D0E4"
                                       CornerRadius="0,0,12,12"
                                       BorderThickness="0,1,0,0"
-                                      Margin="0,-1,15,10"
-                                      Grid.ColumnSpan="2"
-                                      HorizontalAlignment="Stretch"
-                                      VerticalAlignment="Stretch" />
+                                      Margin="0,41,138,10" Grid.RowSpan="2" />
 
                             </Grid>
                         </Grid>
@@ -1840,7 +1826,7 @@
                                     CornerRadius="10"
                                     Padding="2"
                                     Height="188"
-                                    Margin="20,7,36,27">
+                                    Margin="18,7,181,27" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <TextBox BorderThickness="0"
                                          KeyDown="KeyDownEventHandler"
                                          ToolTipService.ToolTip="Indtast kommentar"
@@ -1854,7 +1840,7 @@
 
                         </Grid>
 
-                        <Grid Grid.Column="7"
+                        <Grid Grid.Column="6"
                               Grid.Row="10"
                               Margin="0,0,15,0"
                               CornerRadius="12,12,12,12">
