@@ -200,10 +200,12 @@
                 <Button Grid.Row="2"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000" Height="50">
+                        Background="#00000000"
+                        Height="50">
                     <StackPanel Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Margin="0,0,0,0" />
                         <TextBlock Text="Menu 2"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -219,9 +221,14 @@
                         HorizontalAlignment="Left"
                         Opacity="0.98"
                         Background="#00000000"
-                        Margin="0,30,0,0" Height="50" VerticalAlignment="Top" Width="168">
-                    <StackPanel Orientation="Horizontal" Margin="-4,0,0,0">
-                        <uwp:FontAwesome Icon="IdCardOutline" Margin="-67,0,0,0"  />
+                        Margin="0,30,0,0"
+                        Height="50"
+                        VerticalAlignment="Top"
+                        Width="168">
+                    <StackPanel Orientation="Horizontal"
+                                Margin="-4,0,0,0">
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Margin="-67,0,0,0" />
                         <TextBlock Text="Menu 3"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -236,9 +243,12 @@
                 <Button Grid.Row="4"
                         HorizontalAlignment="Left"
                         Opacity="0.98"
-                        Background="#00000000" Height="50" Margin="0,6,0,41">
+                        Background="#00000000"
+                        Height="50"
+                        Margin="0,6,0,41">
                     <StackPanel Orientation="Horizontal">
-                        <uwp:FontAwesome Icon="IdCardOutline" Margin="0,0,0,0"  />
+                        <uwp:FontAwesome Icon="IdCardOutline"
+                                         Margin="0,0,0,0" />
                         <TextBlock Text="Menu 4"
                                    FontFamily="Segoe UI Light"
                                    FontSize="18"
@@ -438,7 +448,7 @@
                               RowSpan="8"
                               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                               Margin="0,0,0,0">
-                            <lvc:CartesianChart Series="{Binding StatBuilderMoment.MomentCollection}"
+                            <!--<lvc:CartesianChart Series="{Binding StatBuilderMoment.MomentCollection}"
                                                 LegendLocation="Right">
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Moment"
@@ -448,7 +458,7 @@
                                     <lvc:Axis Title="Dato"
                                               Labels="{Binding StatBuilderMoment.MomentLabels}"></lvc:Axis>
                                 </lvc:CartesianChart.AxisX>
-                            </lvc:CartesianChart>
+                            </lvc:CartesianChart>-->
                         </Grid>
 
 
@@ -515,14 +525,18 @@
                                       Background="#FF8484B0"
                                       CornerRadius="12,12,0,0"
                                       BorderThickness="0,1,0,0"
-                                      Margin="0,0,352,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                      Margin="0,0,352,0"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
 
                                 <Grid Column="0"
                                       Background="#FFD0D0E4"
                                       CornerRadius="0,0,12,12"
                                       BorderThickness="0,1,0,0"
                                       Margin="0,37,352,135"
-                                      Grid.RowSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                      Grid.RowSpan="2"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
 
                             </Grid>
                         </Grid>
@@ -561,8 +575,7 @@
                       Row="3"
                       BorderThickness="1,1,1,1">
 
-                    <Grid
-                          Margin="1,12,0,0">
+                    <Grid Margin="1,12,0,0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="8*" />
                             <ColumnDefinition Width="65*" />
@@ -646,7 +659,7 @@
                               RowSpan="8"
                               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                               Margin="0,0,0,0">
-                            <lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
+                            <!--<lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
                                         LegendLocation="Right">
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Vægt"
@@ -656,7 +669,7 @@
                                     <lvc:Axis Title="Dato"
                                       Labels="{Binding StatBuilderWeight.WeightLabels}"></lvc:Axis>
                                 </lvc:CartesianChart.AxisX>
-                            </lvc:CartesianChart>
+                            </lvc:CartesianChart>-->
 
 
 
@@ -683,7 +696,9 @@
 
 
                 <StackPanel Grid.Column="1"
-                            Grid.Row="3" HorizontalAlignment="Right" Margin="0,3,20,-3">
+                            Grid.Row="3"
+                            HorizontalAlignment="Right"
+                            Margin="0,3,20,-3">
                     <Grid HorizontalAlignment="Stretch"
                           Height="453"
                           Margin="0,0,0,0"
@@ -752,11 +767,13 @@
 
                 <StackPanel Grid.Column="2"
                             Grid.Row="2"
-                            Orientation="Vertical" Margin="12,4,0,0">
+                            Orientation="Vertical"
+                            Margin="12,4,0,0">
                     <CheckBox Content="Flaske 1"
                               IsChecked="{Binding StatConfig.ShowingBottles[0]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B1" Margin="0,38,0,0" />
+                              CommandParameter="B1"
+                              Margin="0,38,0,0" />
                     <CheckBox Content="Flaske 2"
                               IsChecked="{Binding StatConfig.ShowingBottles[1]}"
                               Command="{Binding CheckBoxCommand}"
@@ -788,32 +805,432 @@
                     <CheckBox Content="Flaske 9"
                               IsChecked="{Binding StatConfig.ShowingBottles[8]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B9" Margin="100,-478,0,2" />
+                              CommandParameter="B9"
+                              Margin="100,-478,0,2" />
                     <CheckBox Content="Flaske 10"
                               IsChecked="{Binding StatConfig.ShowingBottles[9]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B10" Margin="100,-416,0,0" />
+                              CommandParameter="B10"
+                              Margin="100,-416,0,0" />
                     <CheckBox Content="Flaske 11"
                               IsChecked="{Binding StatConfig.ShowingBottles[10]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B11" Margin="100,-289,0,0" />
+                              CommandParameter="B11"
+                              Margin="100,-289,0,0" />
                     <CheckBox Content="Flaske 12"
                               IsChecked="{Binding StatConfig.ShowingBottles[11]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B12" Margin="100,-354,0,0" />
+                              CommandParameter="B12"
+                              Margin="100,-354,0,0" />
                     <CheckBox Content="Flaske 13"
                               IsChecked="{Binding StatConfig.ShowingBottles[12]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B13" Margin="100,-224,0,0" />
+                              CommandParameter="B13"
+                              Margin="100,-224,0,0" />
                     <CheckBox Content="Flaske 14"
                               IsChecked="{Binding StatConfig.ShowingBottles[13]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B14" Margin="100,-160,0,0" />
+                              CommandParameter="B14"
+                              Margin="100,-160,0,0" />
                     <CheckBox Content="Flaske 15"
                               IsChecked="{Binding StatConfig.ShowingBottles[14]}"
                               Command="{Binding CheckBoxCommand}"
-                              CommandParameter="B15" Margin="100,-95,0,0" />
+                              CommandParameter="B15"
+                              Margin="100,-95,0,0" />
                 </StackPanel>
+
+                <Grid Grid.Column="2"
+                      Grid.Row="3"
+                      BorderThickness="1,1,1,1">
+
+                    <Grid HorizontalAlignment="Stretch"
+                          Margin="0,12,0,0"
+                          VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="65*" />
+                            <ColumnDefinition Width="64*" />
+                            <ColumnDefinition Width="61*" />
+                            <ColumnDefinition Width="58*" />
+                            <ColumnDefinition Width="54*" />
+                            <ColumnDefinition Width="67*" />
+                            <ColumnDefinition Width="67*" />
+
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="46*" />
+                            <RowDefinition Height="45*" />
+                            <RowDefinition Height="76*" />
+
+                        </Grid.RowDefinitions>
+
+                        <Grid Column="0"
+                              Row="0"
+                              ColumnSpan="9"
+                              RowSpan="9"
+                              Margin="0,0,0,0">
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1019*" />
+                                    <ColumnDefinition Width="8*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25*" />
+                                    <RowDefinition Height="141*" />
+                                </Grid.RowDefinitions>
+                                <Grid Column="0"
+                                      Row="0"
+                                      Background="#FF8484B0"
+                                      CornerRadius="12,12,0,0"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,0,0,0"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
+
+                                <Grid Column="0"
+                                      Background="#FFD0D0E4"
+                                      CornerRadius="0,0,12,12"
+                                      BorderThickness="0,1,0,0"
+                                      Margin="0,37,0,0"
+                                      Grid.RowSpan="2"
+                                      HorizontalAlignment="Stretch"
+                                      VerticalAlignment="Stretch" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Column="0"
+                              Grid.Row="0"
+                              Grid.ColumnSpan="3">
+                            <TextBlock Text="   Gammel Data"
+                                       HorizontalAlignment="Stretch"
+                                       FontFamily="Segoe UI Light"
+                                       FontSize="18"
+                                       FontWeight="Normal"
+                                       Height="22"
+                                       FontStyle="Italic"
+                                       FocusVisualPrimaryBrush="Black"
+                                       Foreground="Black"
+                                       VerticalAlignment="Stretch"
+                                       Margin="1,0,0,3" />
+                        </Grid>
+                        <ComboBox Grid.Column="5"
+                                  Grid.Row="0"
+                                  Grid.ColumnSpan="3"
+                                  HorizontalAlignment="Left"
+                                  VerticalAlignment="Top"
+                                  Width="161"
+                                  AllowDrop="True"
+                                  PlaceholderText="{Binding StatConfig.ProcessItemForOldData.ProcessNumber}"
+                                  Height="30"
+                                  BorderBrush="#19000000"
+                                  Background="#FFBDBADC"
+                                  ItemsSource="{Binding StatConfig.ProcessingItemsForComboBox}"
+                                  Margin="60,5,0,0">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding ProcessNumber}"></TextBlock>
+
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="SelectionChanged">
+                                    <core:InvokeCommandAction Command="{Binding ChooseProcessingItemCommand}" />
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+
+                        </ComboBox>
+
+                        <Grid Column="1"
+                              Row="1"
+                              ColumnSpan="7"
+                              RowSpan="8"
+                              Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+                              Margin="0,0,16,14">
+
+                            <!--
+                                Her skal liste af gammel data være
+                            -->
+                            <ListView ItemsSource="{Binding StatConfig.TapOperatorCollectionForSpecificProcessingItem}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                                <RowDefinition />
+                                            </Grid.RowDefinitions>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Row="0">
+                                                <TextBlock FontWeight="Bold">Dato og tid</TextBlock>
+                                                <TextBlock Text="{Binding ClockDate}"
+                                                           Margin="5,0,10,0"/>
+                                                <TextBlock FontWeight="Bold">Skruelågsnummer</TextBlock>
+                                                <TextBlock Text="{Binding LidMaterialNo}"
+                                                           Margin="5,0,10,0"/>
+                                                <TextBlock FontWeight="Bold">Preformnummer</TextBlock>
+                                                <TextBlock Text="{Binding PreformMaterialNo}"
+                                                           Margin="5,0,10,0" />
+                                            </StackPanel>
+                                            <StackPanel Orientation="Horizontal"
+                                                        Grid.Row="1">
+                                                <StackPanel Orientation="Vertical">
+                                                    <TextBlock Margin="0,5,0,0"
+                                                               FontWeight="Bold">Momenter for flaske 1-15</TextBlock>
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 1"
+                                                                     Text="{Binding Bottle1}"/>
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 2"
+                                                                     Text="{Binding Bottle2}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 3"
+                                                                     Text="{Binding Bottle3}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 4"
+                                                                     Text="{Binding Bottle4}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 5"
+                                                                     Text="{Binding Bottle5}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 6"
+                                                                     Text="{Binding Bottle6}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 7"
+                                                                     Text="{Binding Bottle7}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 8"
+                                                                     Text="{Binding Bottle8}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 9"
+                                                                     Text="{Binding Bottle9}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 10"
+                                                                     Text="{Binding Bottle10}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 11"
+                                                                     Text="{Binding Bottle11}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 12"
+                                                                     Text="{Binding Bottle12}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 13"
+                                                                     Text="{Binding Bottle13}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 14"
+                                                                     Text="{Binding Bottle14}" />
+                                                        </Border>
+                                                        <Border BorderThickness="1"
+                                                                BorderBrush="Black"
+                                                                CornerRadius="10"
+                                                                Padding="2"
+                                                                Height="25"
+                                                                MaxWidth="40"
+                                                                HorizontalAlignment="Left"
+                                                                VerticalAlignment="Bottom"
+                                                                Margin="12,0,0,0">
+                                                            <TextBox Height="22"
+                                                                     Width="30"
+                                                                     BorderThickness="0"
+                                                                     ToolTipService.ToolTip="Tilspændingsmoment - Flaske 15"
+                                                                     Text="{Binding Bottle15}" />
+                                                        </Border>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </StackPanel>
+                                            <MenuFlyoutSeparator Grid.Row="5"
+                                                                 Margin="0,5,0,5"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </Grid>
+
+
+
+                    </Grid>
+
+                </Grid>
 
 
 

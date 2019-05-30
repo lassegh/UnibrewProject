@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -19,6 +20,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
     {
         private static StatConfiguration _statConfig = null;
         private FinishedItems _finishedItemForWeightGraph;
+        private ProcessingItems _processItemForOldData;
 
 
         private StatConfiguration()
@@ -110,6 +112,41 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
         /// <summary>
+        /// Converts List of ProcessingItems to ObservableCollection of ProcessingItems
+        /// </summary>
+        /// <param name="listOfProcessingItems">List of processingItems</param>
+        public void PopulateObservableCollectionForComboBox(List<ProcessingItems> listOfProcessingItems)
+        {
+            ProcessingItemsForComboBox.Clear();
+            foreach (ProcessingItems item in listOfProcessingItems)
+            {
+                ProcessingItemsForComboBox.Add(item);
+            }
+        }
+
+        /// <summary>
+        /// Filtrerer listen med tappeOperatører til en observableCollection, der passer til ønskede processingNumber og de indtastede datoer
+        /// </summary>
+        /// <param name="processingNumber">Det ønskede process nummer</param>
+        public void PopulateTapOperatorCollectionForOldData(string processingNumber)
+        {
+            TapOperatorCollectionForSpecificProcessingItem.Clear();
+            var listOfTapOperatorsWithSpecificProcessingNumber = TapOperatorListForWeightGraph.Where(n => n.ProcessNumber.Equals(processingNumber));
+            foreach (TapOperator tapOperator in listOfTapOperatorsWithSpecificProcessingNumber)
+            {
+                if (tapOperator.ClockDate > FromDateTime && tapOperator.ClockDate < ToDateTime)
+                {
+                    TapOperatorCollectionForSpecificProcessingItem.Add(tapOperator);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Holder liste til gammel data
+        /// </summary>
+        public ObservableCollection<TapOperator> TapOperatorCollectionForSpecificProcessingItem { get; set; } = new ObservableCollection<TapOperator>();
+
+        /// <summary>
         /// Holder liste af tapOperators, der indgår i vægtkontrolsgraf
         /// </summary>
         public List<TapOperator> TapOperatorListForWeightGraph { get; set; } = new List<TapOperator>();
@@ -156,6 +193,23 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
             set { _finishedItemForWeightGraph = value; }
         }
+
+        /// <summary>
+        /// Holder processvarenummer for gammel data
+        /// </summary>
+        public ProcessingItems ProcessItemForOldData
+        {
+            get
+            {
+                if (_processItemForOldData == null) _processItemForOldData=new ProcessingItems() { ProcessNumber = "Vælg processnummer" }; // Hvis der ikke holdes et objekt, vil combobox vise "vælg processnummer"
+                return _processItemForOldData;
+            }
+            set { _processItemForOldData = value; }
+        }
+        /// <summary>
+        /// Holder liste til ComboBox for valg af processnummer
+        /// </summary>
+        public ObservableCollection<ProcessingItems> ProcessingItemsForComboBox { get; set; } = new ObservableCollection<ProcessingItems>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 

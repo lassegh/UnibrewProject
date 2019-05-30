@@ -38,9 +38,18 @@ namespace UnibrewProject.ViewModel
             RegenerateMomentGraph();
             RegenerateWeightGraph();
             ChooseFinishedItemCommand = new RelayCommand<object>(ChooseFinishedItemCommandMethod);
+            ChooseProcessingItemCommand = new RelayCommand<object>(ChooseProcessingItemCommandMethod);
             CalendarCommand = new RelayCommand<object>(CalendarCommandMethod);
             CalendarToDateCommand = new RelayCommand<object>(CalendarToDateCommandMethod);
             CheckBoxCommand = new RelayCommand<string>(CheckBoxCommandMethod);
+            
+        }
+
+        private void ChooseProcessingItemCommandMethod(object obj)
+        {
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
+            var chosenProcessingItem = args?.AddedItems[0] as ProcessingItems;
+            StatConfig.PopulateTapOperatorCollectionForOldData(chosenProcessingItem?.ProcessNumber);
         }
 
         private void ChooseFinishedItemCommandMethod(object obj)
@@ -48,6 +57,7 @@ namespace UnibrewProject.ViewModel
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
             StatConfig.FinishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems;
             IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == StatConfig.FinishedItemForWeightGraph?.FinishedItemNumber);
+            StatConfig.PopulateObservableCollectionForComboBox(processingItemsList.ToList()); // Gemmer listen af processnumre i StatConfiguration
             StatConfig.TapOperatorListForWeightGraph.Clear();
             foreach (ProcessingItems processingItem in processingItemsList)
             {
@@ -99,6 +109,11 @@ namespace UnibrewProject.ViewModel
         /// Command til combobox - valg af færdigvarenummer
         /// </summary>
         public RelayCommand<object> ChooseFinishedItemCommand { get; set; }
+
+        /// <summary>
+        /// Command til combobox - valg af processnummer
+        /// </summary>
+        public RelayCommand<object> ChooseProcessingItemCommand { get; set; }
 
         /// <summary>
         /// Slider til menuen
