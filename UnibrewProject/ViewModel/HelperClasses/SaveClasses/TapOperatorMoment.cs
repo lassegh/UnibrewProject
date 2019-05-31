@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Core;
 using UnibrewProject.Annotations;
+using Windows.ApplicationModel.Core;
+using Windows.Foundation;
 
 namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 {
@@ -27,11 +30,19 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             set
             {
                 _moment = value;
-                Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+
+                var asyncAction = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
-                        // Your UI update code goes here!
-                        OnPropertyChanged();
+                        try
+                        {
+                            // Your UI update code goes here!
+                            OnPropertyChanged();
+                        }
+                        catch(Exception e)
+                        {
+                            Debug.WriteLine(e);
+                        }
                     }
                 );
             }

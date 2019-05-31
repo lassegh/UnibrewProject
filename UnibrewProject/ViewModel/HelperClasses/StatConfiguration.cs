@@ -16,7 +16,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
     /// <summary>
     /// Holder configuration af managerdelen i programmet - så lang tid programmet kører.
     /// </summary>
-    public class StatConfiguration : INotifyPropertyChanged
+    public class StatConfiguration
     {
         private static StatConfiguration _statConfig = null;
         private FinishedItems _finishedItemForWeightGraph;
@@ -211,12 +211,5 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// </summary>
         public ObservableCollection<ProcessingItems> ProcessingItemsForComboBox { get; set; } = new ObservableCollection<ProcessingItems>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
