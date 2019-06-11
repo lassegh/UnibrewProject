@@ -30,7 +30,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             set
             {
                 _moment = value;
-
+                // Asynkront kald af OnPropertyChanged() - resultat af kald gemmes i variabel (IAsyncAction)
                 var asyncAction = CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                     () =>
                     {
