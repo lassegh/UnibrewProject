@@ -448,7 +448,7 @@
                               RowSpan="8"
                               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                               Margin="0,0,0,0">
-                            <!--<lvc:CartesianChart Series="{Binding StatBuilderMoment.MomentCollection}"
+                            <lvc:CartesianChart Series="{Binding StatBuilderMoment.MomentCollection}"
                                                 LegendLocation="Right">
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Moment"
@@ -458,7 +458,7 @@
                                     <lvc:Axis Title="Dato"
                                               Labels="{Binding StatBuilderMoment.MomentLabels}"></lvc:Axis>
                                 </lvc:CartesianChart.AxisX>
-                            </lvc:CartesianChart>-->
+                            </lvc:CartesianChart>
                         </Grid>
 
 
@@ -659,7 +659,7 @@
                               RowSpan="8"
                               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
                               Margin="0,0,0,0">
-                            <!--<lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
+                            <lvc:CartesianChart Series="{Binding StatBuilderWeight.WeightCollection}"
                                         LegendLocation="Right">
                                 <lvc:CartesianChart.AxisY>
                                     <lvc:Axis Title="Vægt"
@@ -669,7 +669,7 @@
                                     <lvc:Axis Title="Dato"
                                       Labels="{Binding StatBuilderWeight.WeightLabels}"></lvc:Axis>
                                 </lvc:CartesianChart.AxisX>
-                            </lvc:CartesianChart>-->
+                            </lvc:CartesianChart>
 
 
 
