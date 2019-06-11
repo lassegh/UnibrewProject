@@ -879,8 +879,8 @@
 
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1019*" />
-                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1040*" />
+                                    <ColumnDefinition Width="2*" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="25*" />
@@ -995,21 +995,24 @@
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
                                                             <TextBox Height="22"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 1"
-                                                                     Text="{Binding Bottle1}"/>
+                                                                     Text="{Binding Bottle1}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1017,14 +1020,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 2"
-                                                                     Text="{Binding Bottle2}" />
+                                                                     Text="{Binding Bottle2}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1032,14 +1038,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 3"
-                                                                     Text="{Binding Bottle3}" />
+                                                                     Text="{Binding Bottle3}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1047,14 +1056,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 4"
-                                                                     Text="{Binding Bottle4}" />
+                                                                     Text="{Binding Bottle4}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1062,14 +1074,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 5"
-                                                                     Text="{Binding Bottle5}" />
+                                                                     Text="{Binding Bottle5}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1077,14 +1092,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 6"
-                                                                     Text="{Binding Bottle6}" />
+                                                                     Text="{Binding Bottle6}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1092,14 +1110,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 7"
-                                                                     Text="{Binding Bottle7}" />
+                                                                     Text="{Binding Bottle7}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1107,14 +1128,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 8"
-                                                                     Text="{Binding Bottle8}" />
+                                                                     Text="{Binding Bottle8}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1122,14 +1146,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 9"
-                                                                     Text="{Binding Bottle9}" />
+                                                                     Text="{Binding Bottle9}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1137,14 +1164,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 10"
-                                                                     Text="{Binding Bottle10}" />
+                                                                     Text="{Binding Bottle10}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1152,14 +1182,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 11"
-                                                                     Text="{Binding Bottle11}" />
+                                                                     Text="{Binding Bottle11}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1167,14 +1200,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 12"
-                                                                     Text="{Binding Bottle12}" />
+                                                                     Text="{Binding Bottle12}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1182,14 +1218,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 13"
-                                                                     Text="{Binding Bottle13}" />
+                                                                     Text="{Binding Bottle13}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1197,14 +1236,17 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 14"
-                                                                     Text="{Binding Bottle14}" />
+                                                                     Text="{Binding Bottle14}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                         <Border BorderThickness="1"
                                                                 BorderBrush="Black"
                                                                 CornerRadius="10"
                                                                 Padding="2"
                                                                 Height="25"
-                                                                MaxWidth="40"
+                                                                MaxWidth="45"
                                                                 HorizontalAlignment="Left"
                                                                 VerticalAlignment="Bottom"
                                                                 Margin="12,0,0,0">
@@ -1212,7 +1254,10 @@
                                                                      Width="30"
                                                                      BorderThickness="0"
                                                                      ToolTipService.ToolTip="Tilspændingsmoment - Flaske 15"
-                                                                     Text="{Binding Bottle15}" />
+                                                                     Text="{Binding Bottle15}"
+                                                                     TextAlignment="center"
+                                                                     VerticalAlignment="Center"
+                                                                     HorizontalAlignment="Center"/>
                                                         </Border>
                                                     </StackPanel>
                                                 </StackPanel>
