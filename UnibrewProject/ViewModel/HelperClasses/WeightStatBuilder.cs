@@ -27,15 +27,19 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// <param name="thisItem">Den færdigvare, der kigges på</param>
         public void RebuildStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, FinishedItems thisItem)
         {
+            // Opretter lister, der senere skal vises som grafer
             List<double> weightMin = new List<double>();
             List<double> weightMax = new List<double>();
             List<double> weightActual = new List<double>();
 
-            WeightLabels = new List<string>();
+            WeightLabels = new List<string>(); // Labels til x-aksen - datoer
+
+            // Populates lists
             foreach (TapOperator tapOperator in tapOperatorList)
             {
-                if (tapOperator.ClockDate > startDate && tapOperator.ClockDate < endDate)
+                if (tapOperator.ClockDate > startDate && tapOperator.ClockDate < endDate) // Filtrerer på datoer
                 {
+                    // Udregner gennemsnit af indtastede vægtkontroller. Medtager IKKE 0.
                     double weight = 0;
                     if (tapOperator.Weight1 > 0) weight = weight + tapOperator.Weight1;
                     if (tapOperator.Weight2 > 0) weight = weight + tapOperator.Weight2;
@@ -46,17 +50,18 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
                     if (weight > 0)
                     {
-                        weightActual.Add(weight/6);
-                        weightMin.Add(thisItem.WeightMin);
-                        weightMax.Add(thisItem.WeightMax);
-                        WeightLabels.Add(tapOperator.ClockDate.ToString("dd-MM-yyyy HH:mm"));
+                        weightActual.Add(weight/6);  // Tilføjer gennemsnitsvægt
+                        weightMin.Add(thisItem.WeightMin); // Tilføjer minimumsvægt
+                        weightMax.Add(thisItem.WeightMax); // Tilføjer maximumsvægt
+                        WeightLabels.Add(tapOperator.ClockDate.ToString("dd-MM-yyyy HH:mm")); // Tilføjer dato til x-aksen
                     }
                 }
             }
 
 
-            WeightCollection = new SeriesCollection();
+            WeightCollection = new SeriesCollection(); // Opretter serie af grafer
 
+            // Tilføjer lister som Lineseries til SeriesCollection
             WeightCollection.Add(new LineSeries
             {
                 Title = "Maksimum vægt",
@@ -75,7 +80,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 Values = new ChartValues<double>(weightMin) { }
             });
 
-            YFormatter = value => value.ToString("N");
+            YFormatter = value => value.ToString("N"); // Y-aksen (vægt værdier)
         }
 
         /// <summary>

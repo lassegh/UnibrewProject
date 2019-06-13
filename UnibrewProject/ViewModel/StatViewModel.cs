@@ -45,53 +45,62 @@ namespace UnibrewProject.ViewModel
             
         }
 
-        private void ChooseProcessingItemCommandMethod(object obj)
+        private void ChooseProcessingItemCommandMethod(object obj) // Metode der køres når der vælges i combobox for ProcessingItems
         {
-            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
-            StatConfig.ProcessItemForOldData = args?.AddedItems[0] as ProcessingItems;
-            RegenerateOldData(StatConfig.ProcessItemForOldData?.ProcessNumber);
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs; // Prøver at parse objekt til argument
+            StatConfig.ProcessItemForOldData = args?.AddedItems[0] as ProcessingItems; // Henter valgt processingItem
+            RegenerateOldData(StatConfig.ProcessItemForOldData?.ProcessNumber); // Genererer gammeldata - kører metoden RegenerateOldData()
         }
 
-        private void RegenerateOldData(string processNumber)
+        private void RegenerateOldData(string processNumber) // Kalder PopulateTapOperator i statConfig
         {
             StatConfig.PopulateTapOperatorCollectionForOldData(processNumber);
         }
 
-        private void ChooseFinishedItemCommandMethod(object obj)
+        private void ChooseFinishedItemCommandMethod(object obj) // Metode der køres når der vælges i combobox for FinishedItems
         {
-            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
-            StatConfig.FinishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems;
+            SelectionChangedEventArgs args = obj as SelectionChangedEventArgs; // Prøver at parse objekt til argument
+            StatConfig.FinishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems; // Henter valgt FinishedItem
+
+            // Filtrerer processingItems på valgt færdigvareNummer
             IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == StatConfig.FinishedItemForWeightGraph?.FinishedItemNumber);
-            StatConfig.PopulateObservableCollectionForComboBox(processingItemsList.ToList()); // Gemmer listen af processnumre i StatConfiguration
-            StatConfig.TapOperatorListForWeightGraph.Clear();
+
+            // Gemmer listen af processnumre i StatConfiguration som observableCollection - denne bruges i ComboBoxen for gammel data
+            StatConfig.PopulateObservableCollectionForComboBox(processingItemsList.ToList()); 
+
+            StatConfig.TapOperatorListForWeightGraph.Clear(); // Tømmer listen, der bruges til vægtgrafen
+
+            // Filtrerer listen af Tappeoperatører på processnumre, der passer med ønskede færdigvareNummer. (Der hentes ny liste af tappeOperatører hver gang StatView åbnes)
             foreach (ProcessingItems processingItem in processingItemsList)
             {
                 StatConfig.TapOperatorListForWeightGraph.AddRange(_tapOperators.Where(p => p.ProcessNumber == processingItem.ProcessNumber).ToList());
             }
 
+            // Sorterer listen til vægtgrafen efter dato/tid
             StatConfig.TapOperatorListForWeightGraph = StatConfig.TapOperatorListForWeightGraph.OrderBy(d => d.ClockDate).ToList();
-            RegenerateWeightGraph();
+
+            RegenerateWeightGraph(); // Tegner graf
         }
 
-        private void CalendarCommandMethod(object obj)
+        private void CalendarCommandMethod(object obj) // Metode til event af ændret dato i "Fra dato"
         {
             CalendarDatePickerDateChangedEventArgs args = obj as CalendarDatePickerDateChangedEventArgs;
             if (args?.NewDate != null)
             {
-                FromDateTime = (DateTime) args.NewDate.Value.DateTime;
+                FromDateTime = (DateTime) args.NewDate.Value.DateTime; // Gemmer ønsket dato
             }
         }
 
-        private void CalendarToDateCommandMethod(object obj)
+        private void CalendarToDateCommandMethod(object obj) // Metode til event af ændret dato i "til dato"
         {
             CalendarDatePickerDateChangedEventArgs args = obj as CalendarDatePickerDateChangedEventArgs;
             if (args?.NewDate != null)
             {
-                ToDateTime = (DateTime)args.NewDate.Value.DateTime;
+                ToDateTime = (DateTime)args.NewDate.Value.DateTime; // Gemmer ønsket dato
             }
         }
 
-        private void RegenerateWeightGraph()
+        private void RegenerateWeightGraph() // Tegner grafen. Kalder StatBuilderWeight med datoer, liste og ønsket færdigVare
         {
             StatBuilderWeight.RebuildStats(StatConfig.TapOperatorListForWeightGraph, FromDateTime, ToDateTime, StatConfig.FinishedItemForWeightGraph);
         }
@@ -104,10 +113,10 @@ namespace UnibrewProject.ViewModel
             StatBuilderMoment.RebuildStats(_tapOperators, FromDateTime, ToDateTime, StatConfig.ShowingBottles);
         }
 
-        private void CheckBoxCommandMethod(string name)
+        private void CheckBoxCommandMethod(string name) // Når en tjekBox markeres til eller fra kaldes denne metode
         {
-            StatConfig.ToggleGraphs(name);
-            RegenerateMomentGraph();
+            StatConfig.ToggleGraphs(name); // Den nye markering gemmes
+            RegenerateMomentGraph(); // Graf tegnes igen
         }
 
         /// <summary>

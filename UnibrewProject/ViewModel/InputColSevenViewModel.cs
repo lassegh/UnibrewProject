@@ -96,8 +96,9 @@ namespace UnibrewProject.ViewModel
             }
         }
 
-        private void ChangeValueForLegalData(int i)
+        private void ChangeValueForLegalData(int i) // Hjælpemetode til rød stjerne. Tjekker på det index, den tar som param. 
         {
+            // Kan string parses eller er den tom, vises stjernen ikke
             if (double.TryParse(Save.TapOperatorMoments[i].Moment, out txt_out) || string.IsNullOrWhiteSpace(Save.TapOperatorMoments[i].Moment))
             {
                 TxtBxInputValid[i] = "";
@@ -141,13 +142,13 @@ namespace UnibrewProject.ViewModel
         public IEnumerable<FinishedItems> EnumerableFinishItems { get; set; }
 
         /// <summary>
-        /// Finder tilsvarende data til færdigvarenummer
+        /// String til færdigvarenummer i UI. Ved input søges om færdigvarenummer eksisterer i databasen.
         /// </summary>
         public string FinishedItemNumber
         {
             get
             {
-                if (Save.CurrentFinishedItem.FinishedItemNumber==0)
+                if (Save.CurrentFinishedItem.FinishedItemNumber==0) // Hvis færdigvarenummer er 0, skal stringen være tom.
                 {
                     return "";
                 }
@@ -158,10 +159,10 @@ namespace UnibrewProject.ViewModel
                 _finishedItemNumber = value;
                 
                 int i;
-                if (!int.TryParse(value, out i)) i = 0;
+                if (!int.TryParse(value, out i)) i = 0; // TryParser string ellers 0
                 Save.FinishNumber = i; // Sender færdigvarenummeret til objektet tapOp i save.
                 EnumerableFinishItems =
-                    Load.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i));
+                    Load.FinishedItemsList.Where(n => n.FinishedItemNumber.Equals(i)); // Søger på færdigvarenummeret
                 if (EnumerableFinishItems.ToList().Count == 0)
                 {
                     // Advar mod ikke eksiterende færdigvarenummer
@@ -171,13 +172,13 @@ namespace UnibrewProject.ViewModel
                 }
                 else
                 {
-                    Save.CurrentFinishedItem = EnumerableFinishItems.First();
+                    Save.CurrentFinishedItem = EnumerableFinishItems.First(); // Gemmer objektet af finishedItem i SaveTapOperator
                 }
             }
         }
 
         /// <summary>
-        /// Properties der bliver brugt til at vise om der er brugt forkerte data type i input
+        /// ObervableCollection der bliver brugt til at vise om der er brugt forkerte data type i input
         /// </summary>
         public ObservableCollection<string> TxtBxInputValid { get; set; } = new ObservableCollection<string>{"", "", "", "", "", "", "", "", "", "", "", "", "", "", ""};
     }
