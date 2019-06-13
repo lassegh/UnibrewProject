@@ -28,9 +28,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             FromDateTime = new DateTime(2019, 1, 1);
             ToDateTime = DateTime.Today;
             ToDateTime = ToDateTime.AddDays(1); // Dette sikrer at det er datoen for i morgen, der vælges. Dette betyder at kontrolindtastninger, der sker i dag, bliver vist på grafen
-            ShowingBottles = new bool[15];
 
-            // Sætter hvilke flasker der skal vises fra start
+            ShowingBottles = new bool[15]; // Opretter array af bools så flaskemomenter kan fra- og tilvælges
+
+            // Sætter hvilke flasker der skal vises fra start - 13, 14 og 15 vises
             for (int i = 0; i < 12; i++)
             {
                 ShowingBottles[i] = false;
@@ -125,7 +126,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
         /// <summary>
-        /// Filtrerer listen med tappeOperatører til en observableCollection, der passer til ønskede processingNumber og de indtastede datoer
+        /// Filtrerer listen med tappeOperatører (gammel data) til en observableCollection, der passer til ønskede processingNumber og de indtastede datoer
         /// </summary>
         /// <param name="processingNumber">Det ønskede process nummer</param>
         public void PopulateTapOperatorCollectionForOldData(string processingNumber)

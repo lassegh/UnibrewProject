@@ -19,6 +19,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         private static Loader _load = null;
         private Loader()
         {
+            // Liste af færdigvarer og væsketanke hentes ved programstart
             FinishedItemsList = ComGeneric.GetAll<FinishedItems>();
             LiquidTanksList = ComGeneric.GetAll<LiquidTanks>();
         }

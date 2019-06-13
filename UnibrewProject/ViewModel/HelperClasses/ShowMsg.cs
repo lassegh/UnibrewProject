@@ -18,7 +18,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// <param name="message">Beskeden, der skal vises</param>
         public void ShowMessage(string message)
         {
-            var msg = new Windows.UI.Popups.MessageDialog(message) {DefaultCommandIndex = 1};
+            var msg = new Windows.UI.Popups.MessageDialog(message) {DefaultCommandIndex = 1}; // Opretter messageDialog med stringen message
             Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
                 () =>
                 {

@@ -23,7 +23,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
 
         public AutoSaveTimer(SaveTapOperator save)
         {
-            fadingTextCallBack = FadingText;
+            fadingTextCallBack = FadingText; // Sætter delegate på fading Text
             _save = save;
         }
 
@@ -40,21 +40,22 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
         /// </summary>
         public void StartTimer()
         {
-            if (TimeSinceLastKeyDownTimer != null)
+            // Sikrer at der ikke oprettes mere end én timer ad gangen
+            if (TimeSinceLastKeyDownTimer != null) // Hvis timer er i gang
             {
-                TimeSinceLastKeyDownTimer.Dispose();
-                TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite);
+                TimeSinceLastKeyDownTimer.Dispose(); // Sletter timer
+                TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite); // Opretter ny timer
             }
-            else TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite);
+            else TimeSinceLastKeyDownTimer = new Timer(Callback, null, 10000, Timeout.Infinite); // Opretter ny timer
         }
 
-        private void Callback(Object state)
+        private void Callback(Object state) // Når timer går af
         {
-            _save.SAveToDbMethod("timer");
-            FadingTextTimer = new Timer(new TimerCallback(fadingTextCallBack), null, 1, Timeout.Infinite);
+            _save.SAveToDbMethod("timer"); // Kalder delegaten SAveToDbMethod i SaveTapOperator
+            FadingTextTimer = new Timer(new TimerCallback(fadingTextCallBack), null, 1, Timeout.Infinite); // Starter FadingTextTimer
         }
 
-        private void FadingText(Object state)
+        private void FadingText(Object state) // Kaldes når fadingTextTimer går af indtil opacity er 1
         {
             SaveBlockOpacity = SaveBlockOpacity + 0.1f;
             if (SaveBlockOpacity < 1)
@@ -68,7 +69,7 @@ namespace UnibrewProject.ViewModel.HelperClasses.SaveClasses
             }
         }
 
-        private void FadingTextOut(Object state)
+        private void FadingTextOut(Object state) // Kaldes når fadingTextTimer går af indtil opacity igen er 0
         {
             SaveBlockOpacity = SaveBlockOpacity - 0.1f;
             if (SaveBlockOpacity > 0)

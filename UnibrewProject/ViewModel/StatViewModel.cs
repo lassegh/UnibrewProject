@@ -48,8 +48,8 @@ namespace UnibrewProject.ViewModel
         private void ChooseProcessingItemCommandMethod(object obj)
         {
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
-            ChosenProcessingItem = args?.AddedItems[0] as ProcessingItems;
-            RegenerateOldData(ChosenProcessingItem?.ProcessNumber);
+            StatConfig.ProcessItemForOldData = args?.AddedItems[0] as ProcessingItems;
+            RegenerateOldData(StatConfig.ProcessItemForOldData?.ProcessNumber);
         }
 
         private void RegenerateOldData(string processNumber)
@@ -109,11 +109,6 @@ namespace UnibrewProject.ViewModel
             StatConfig.ToggleGraphs(name);
             RegenerateMomentGraph();
         }
-
-        /// <summary>
-        /// Valgt ProcessingItem til visning af gammel data
-        /// </summary>
-        public ProcessingItems ChosenProcessingItem { get; set; }
 
         /// <summary>
         /// Command til combobox - valg af færdigvarenummer
@@ -181,7 +176,7 @@ namespace UnibrewProject.ViewModel
                 StatConfig.FromDateTime = value;
                 RegenerateMomentGraph();
                 RegenerateWeightGraph();
-                RegenerateOldData(ChosenProcessingItem?.ProcessNumber);
+                RegenerateOldData(StatConfig.ProcessItemForOldData?.ProcessNumber);
             }
         }
 
@@ -196,7 +191,7 @@ namespace UnibrewProject.ViewModel
                 StatConfig.ToDateTime = value;
                 RegenerateMomentGraph();
                 RegenerateWeightGraph();
-                RegenerateOldData(ChosenProcessingItem?.ProcessNumber);
+                RegenerateOldData(StatConfig.ProcessItemForOldData?.ProcessNumber);
             }
         }
     }

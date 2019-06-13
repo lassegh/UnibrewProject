@@ -26,12 +26,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
             StatCommand = new RelayCommand(StatMethod);
         }
 
-        private void InputColSevenMethod()
+        private void InputColSevenMethod()// Åbner en inputColSeven page
         {
             ((Frame)Window.Current.Content).Navigate(typeof(InputColSevenPage));
         }
 
-        private void StatMethod()
+        private void StatMethod() // Åbner en StatPage
         {
             ((Frame)Window.Current.Content).Navigate(typeof(MainPage));
         }

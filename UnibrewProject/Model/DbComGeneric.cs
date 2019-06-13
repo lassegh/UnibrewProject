@@ -132,7 +132,10 @@ namespace UnibrewProject.Model
 
                         if (obj is TapOperator) // Hvis det er tapOperator der skriver, skal ID'et gemmes.
                         {
-                            Task<TapOperator> jsonStrings = resp.Content.ReadAsAsync<TapOperator>(); //right!
+                            // På responseMessage læses content som en TapOperator
+                            Task<TapOperator> jsonStrings = resp.Content.ReadAsAsync<TapOperator>();
+
+                            // Da ReadAsAsync returnerer en Task, kan objektet hentes ved at bruge result.
                             TapOperatorId = jsonStrings.Result.ID;
                         }
                     }
@@ -168,10 +171,6 @@ namespace UnibrewProject.Model
 
                 try
                 {
-                    /*if (id is string)
-                    {
-                        
-                    }*/
                     Task<HttpResponseMessage> putAsync = client.PutAsync(GetUrl(typeof(T)) + "/" + id, content);
 
                     HttpResponseMessage resp = putAsync.Result;

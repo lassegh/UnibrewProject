@@ -52,12 +52,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
         private SaveTapOperator()
         {
-            for (int i = 0; i < TapOperatorMoments.Length; i++)
+            for (int i = 0; i < TapOperatorMoments.Length; i++) // initialiserer objekter i listen TapOperatorMoments
             {
                 TapOperatorMoments[i] = new TapOperatorMoment();
             }
 
-            for (int i = 0; i < FluidWeightControls.Length; i++)
+            for (int i = 0; i < FluidWeightControls.Length; i++) // initialiserer objekter i listen FluidWeightControls
             {
                 FluidWeightControls[i] = new FluidWeightControl(this);
             }
@@ -73,7 +73,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             CurrentFinishedItem = new FinishedItems();
         }
 
-        private void GenerateObjectsToBeSaved()
+        private void GenerateObjectsToBeSaved() // Opretter ny TapOperator
         {
             TapOp = new TapOperator();
         }
@@ -92,46 +92,51 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 //Nulstil objeckt af TapOperator
                 GenerateObjectsToBeSaved();
 
-                // Slet indtastninger i view
+                // Slet indtastninger i momenter
                 foreach (TapOperatorMoment moment in TapOperatorMoments)
                 {
                     moment.Moment = "";
                 }
 
+                // Sletter indtastninger vægtkontrol
                 foreach (FluidWeightControl weight in FluidWeightControls)
                 {
                     weight.Weight = "";
                 }
 
+                // Fjerner kryds i checkbokse
                 IsCheckedHeuftLid = false;
                 IsCheckedFillHeight = false;
                 IsCheckedProductTasted = false;
                 IsCheckedSugarTest = false;
                 IsCheckedDropTest = false;
 
+                // Sletter kommentar
                 Comment = "";
             }
         }
 
-        private bool ProcessItemExists(string caller)
+        private bool ProcessItemExists(string caller) // Tjekker om processnummer eksisterer i forvejen. Om det passer med færdigvarenummer. 
         {
             bool exists = true;
 
-            if (FinishNumber==0 || Processnumber.Equals(""))
+            if (FinishNumber==0 || Processnumber.Equals("")) // Er der indtastet nul eller ingenting
             {
                 //Warn about missing fields if caller is button
                 if(caller.Equals("button"))ShowMsg.ShowMessage("Indtast venligst processordrenummer og færdigvarenummer");
                 exists = false;
             }
-            else if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber)
+            else if (ProItem.FinishedItemNumber != FinishNumber || ProItem.ProcessNumber != Processnumber) // Er der bare én af indtastningerne, der ikke passer med lagret processItem
             {
+                // Opretter et processingItem at sammenligne med.   Et processingItem forsøges hentet fra databasen med det indtastede processNummer som ID
                 ProcessingItems comparableProcessingItemFromDb = ComGeneric.GetOne<ProcessingItems, string>(Processnumber);
-                ProItem = new ProcessingItems
+
+                ProItem = new ProcessingItems // Opretter nyt processingItem til lagret processingItem
                 {
-                    FinishedItemNumber = FinishNumber,
+                    FinishedItemNumber = FinishNumber, // Oprettes med indtastede oplysninger
                     ProcessNumber = Processnumber
                 };
-                if (comparableProcessingItemFromDb == null)
+                if (comparableProcessingItemFromDb == null) // Er processingItem - hentet fra databasen - null?
                 {
                     if (!ComGeneric.Post(ProItem))// Gemmer nyt processingItem i DB
                     {
@@ -140,7 +145,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                         exists = false;
                     }
                 }
-                else if (!comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber))
+                else if (!comparableProcessingItemFromDb.FinishedItemNumber.Equals(ProItem.FinishedItemNumber)) // Er indtastet færdigvarenummer og processingitems færdigvarenummer (fra databasen) ens?
                 {
                     // Warn about conflicting ProcessItem
                     ShowMsg.ShowMessage("Procesordrenummeret eksisterer i forvejen, men med et andet færdigvarenummer");
@@ -159,6 +164,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 return false;
             }
 
+            // Parser strings til doubles for momenter
             double[] bottleMoments = new double[15];
 
             for (int i = 0; i < TapOperatorMoments.Length; i++)
@@ -171,6 +177,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 }
             }
 
+            // overfører doubles til objekt af TapOperator
             TapOp.Bottle1 = bottleMoments[0];
             TapOp.Bottle2 = bottleMoments[1];
             TapOp.Bottle3 = bottleMoments[2];
@@ -187,7 +194,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Bottle14 = bottleMoments[13];
             TapOp.Bottle15 = bottleMoments[14];
 
-
+            // Parser strings til doubles for vægtkontrol
             double[] bottleWeight = new double[6];
 
             for (int i = 0; i < FluidWeightControls.Length; i++)
@@ -201,6 +208,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
 
             }
 
+            // Overfører doubles til objekt af TapOperator
             TapOp.Weight1 = bottleWeight[0];
             TapOp.Weight2 = bottleWeight[1];
             TapOp.Weight3 = bottleWeight[2];
@@ -208,6 +216,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             TapOp.Weight5 = bottleWeight[4];
             TapOp.Weight6 = bottleWeight[5];
 
+            // Overfører resterende data til objekt af TapOperator
             TapOp.ProcessNumber = Processnumber;
 
             TapOp.HeuftLid = IsCheckedHeuftLid;
@@ -225,14 +234,14 @@ namespace UnibrewProject.ViewModel.HelperClasses
         }
 
 
-        private bool PostSaveMethod(string caller)
+        private bool PostSaveMethod(string caller) // Metode til delegaten SaveToDbMethod. Denne køres første gang der gemmes om det er med knap eller timer
         {
             if (PrepareSave(caller))
             {
-                TapOp.ClockDate = DateTime.Now;
-                if (ComGeneric.Post<TapOperator>(TapOp))
+                TapOp.ClockDate = DateTime.Now; // Tidsstempel for NU tilføjes til objekt
+                if (ComGeneric.Post<TapOperator>(TapOp)) // Der gemmes til db
                 {
-                    TapOp.ID = ComGeneric.TapOperatorId;
+                    TapOp.ID = ComGeneric.TapOperatorId; // Id'et fra db hentes
                 }
                 else
                 {
@@ -241,18 +250,18 @@ namespace UnibrewProject.ViewModel.HelperClasses
                     return false;
                 }
 
-                _saveToDbMethod = PutSaveMethod;
+                _saveToDbMethod = PutSaveMethod; // Delegaten ændres til PutSaveMethod
                 return true;
             }
 
             return false;
         }
 
-        private bool PutSaveMethod(string caller)
+        private bool PutSaveMethod(string caller) // Metode til delegaten SaveToDbMethod. Denne køres indtil knappen aktiveres
         {
             if (PrepareSave(caller))
             {
-                if (!ComGeneric.Put(TapOp.ID, TapOp))
+                if (!ComGeneric.Put(TapOp.ID, TapOp)) // Der gemmes til db
                 {
                     // meld fejl om kommunikaiton til server
                     ShowMsg.ShowMessage("Der er ikke forbindelse til serveren");
@@ -265,7 +274,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             return false;
         }
 
-        private void LiquidTankCommandMethod(object obj)
+        private void LiquidTankCommandMethod(object obj) // Metode for eventet i combobox for Væsketanke
         {
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs;
             LiquidTanks liquidTank = args?.AddedItems[0] as LiquidTanks;

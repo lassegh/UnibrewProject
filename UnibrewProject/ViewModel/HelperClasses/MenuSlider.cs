@@ -28,44 +28,45 @@ namespace UnibrewProject.ViewModel.HelperClasses
         public MenuSlider()
         {
             MenuHideButton = new RelayCommand(MenuHideMethod);
-            callBack = MenuShowCallback;
+
+            callBack = MenuShowCallback; // Delegaten 'callBack' sættes til MenuShowCallback
 
         }
 
-        private void MenuHideMethod()
+        private void MenuHideMethod() // Metode for MenuHideButton - starter timeren 'MenuMoveTimer'
         {
             MenuMoveTimer = new Timer(new TimerCallback(callBack), null, 1, Timeout.Infinite);
 
         }
 
-        private void MenuShowCallback(Object state)
+        private void MenuShowCallback(Object state) // Timer-metode, der ruller menuen ud.
         {
-            if (MenuWidth < 200)
+            if (MenuWidth < 200) // Kører indtil menuen har en bredde på 200
             {
 
-                MenuWidth = MenuWidth + 5;
+                MenuWidth = MenuWidth + 5; // Lægger 5 pixels til hvert milisekund
                 MenuMoveTimer.Change(1, Timeout.Infinite);
             }
             else
             {
                 MenuMoveTimer.Dispose();
-                callBack = MenuHideCallback;
-                MenuTextVisibility = true;
+                callBack = MenuHideCallback; // Ændrer delegaten 'callBack' til MenuHideCallback
+                MenuTextVisibility = true; // viser tekst i menuen
             }
         }
 
-        private void MenuHideCallback(Object state)
+        private void MenuHideCallback(Object state) // Timer-metode, der ruller menuen ind.
         {
-            if (MenuWidth > 50)
+            if (MenuWidth > 50) // Kører indtil menuen har en bredde på 50
             {
-                MenuTextVisibility = false;
-                MenuWidth = MenuWidth - 5;
+                MenuTextVisibility = false; // Skjuler tekst i menuen
+                MenuWidth = MenuWidth - 5; // Fjerner 5 pixels på bredden hvert milisekund
                 MenuMoveTimer.Change(1, Timeout.Infinite);
             }
             else
             {
                 MenuMoveTimer.Dispose();
-                callBack = MenuShowCallback;
+                callBack = MenuShowCallback; // Delegaten 'callBack' sættes til MenuShowCallback
 
             }
 

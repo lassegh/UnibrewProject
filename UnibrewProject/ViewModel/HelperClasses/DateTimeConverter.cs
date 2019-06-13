@@ -7,8 +7,16 @@ using Windows.UI.Xaml.Data;
 
 namespace UnibrewProject.ViewModel.HelperClasses
 {
+    /// <summary>
+    /// Konverterer mellem DateTime og DateTimeOffset
+    /// </summary>
     public class DateTimeConverter : IValueConverter
     {
+        /// <summary>
+        /// Konverterer til DateTimeOffset
+        /// </summary>
+        /// <param name="value">Den dateTime, der skal konverteres</param>
+        /// <returns>DateTimeOffset</returns>
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             DateTime d = (DateTime)value;

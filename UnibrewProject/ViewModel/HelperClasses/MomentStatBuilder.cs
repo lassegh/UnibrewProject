@@ -36,6 +36,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
         /// <param name="bottleShow">Array af bools, der fortæller hvilke grafer, der skal tegnes</param>
         public void RebuildStats(List<TapOperator> tapOperatorList, DateTime startDate, DateTime endDate, bool[] bottleShow)
         {
+            // Opretter lister til hver "flaske-graf"
             List<double> bottleOne = new List<double>();
             List<double> bottleTwo = new List<double>();
             List<double> bottleThree = new List<double>();
@@ -51,8 +52,10 @@ namespace UnibrewProject.ViewModel.HelperClasses
             List<double> bottleThirteen = new List<double>();
             List<double> bottleFourteen = new List<double>();
             List<double> bottleFifteen = new List<double>();
-            MomentLabels = new List<string>();
-            foreach (TapOperator tapOperator in tapOperatorList)
+
+            MomentLabels = new List<string>(); // Liste af labels til x-aksen
+
+            foreach (TapOperator tapOperator in tapOperatorList) // Tilføjer værdier til hver flaskegraf og x-akse, hvis de er indenfor valgte datoer
             {
                 if (tapOperator.ClockDate > startDate && tapOperator.ClockDate < endDate)
                 {
@@ -76,10 +79,12 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
 
 
-            MomentCollection = new SeriesCollection();
+            MomentCollection = new SeriesCollection(); 
 
             // TODO tilføj Lineseries på min(8) max(18) og optimal(10)
 
+
+            // Tilføjer grafer afhængig af checkbokse
             if (bottleShow[0])MomentCollection.Add(new LineSeries
             {
                 Title = "Flaske 1",
@@ -170,7 +175,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
                 Values = new ChartValues<double>(bottleFifteen) { }
             });
 
-            YFormatter = value => value.ToString("N");
+            YFormatter = value => value.ToString("N"); // Y-aksen
         }
 
         /// <summary>
