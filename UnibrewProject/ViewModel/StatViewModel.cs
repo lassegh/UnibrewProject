@@ -62,7 +62,7 @@ namespace UnibrewProject.ViewModel
             SelectionChangedEventArgs args = obj as SelectionChangedEventArgs; // Prøver at parse objekt til argument
             StatConfig.FinishedItemForWeightGraph = args?.AddedItems[0] as FinishedItems; // Henter valgt FinishedItem
 
-            // Filtrerer processingItems på valgt færdigvareNummer
+            // Filtrerer processingItems på valgt færdigvareNummer || 
             IEnumerable<ProcessingItems> processingItemsList = Load.GetProcessingItems().Where(p => p.FinishedItemNumber == StatConfig.FinishedItemForWeightGraph?.FinishedItemNumber);
 
             // Gemmer listen af processnumre i StatConfiguration som observableCollection - denne bruges i ComboBoxen for gammel data

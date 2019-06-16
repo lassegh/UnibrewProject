@@ -53,7 +53,7 @@ namespace UnibrewProject.ViewModel.HelperClasses
             List<double> bottleFourteen = new List<double>();
             List<double> bottleFifteen = new List<double>();
 
-            MomentLabels = new List<string>(); // Liste af labels til x-aksen
+            MomentLabels = new List<string>(); // Liste af labels til x-aksen (datoer)
 
             foreach (TapOperator tapOperator in tapOperatorList) // Tilføjer værdier til hver flaskegraf og x-akse, hvis de er indenfor valgte datoer
             {
@@ -79,13 +79,13 @@ namespace UnibrewProject.ViewModel.HelperClasses
             }
 
 
-            MomentCollection = new SeriesCollection(); 
+            MomentCollection = new SeriesCollection(); //holder alle graferne(lineserie)
 
             // TODO tilføj Lineseries på min(8) max(18) og optimal(10)
 
 
             // Tilføjer grafer afhængig af checkbokse
-            if (bottleShow[0])MomentCollection.Add(new LineSeries
+            if (bottleShow[0]) MomentCollection.Add(new LineSeries
             {
                 Title = "Flaske 1",
                 Values = new ChartValues<double>(bottleOne) { }
